@@ -103,7 +103,7 @@
 	<body class="">
 
 		<!-- HEADER -->
-<header id="header">
+		<header id="header">
 			<div id="logo-group">
 
 				<!-- PLACE YOUR LOGO HERE -->
@@ -220,10 +220,12 @@
 						<a href="#"><i class="fa fa-lg fa-fw fa-child"></i>
 						<span class="menu-item-parent">Contratistas</span></a>
 						<ul>
-							<li><a href="flot.html"><i class="fa fa-mail-forward"></i>
-								Registrar Ingreso</a></li>
+							<li><a target="des" href="<c:url value="/contratista_add"/>"><i class="fa fa-mail-forward"></i>
+								Dar de alta</a></li>
 							<li><a href="flot.html"><i class="fa fa-mail-reply"></i>
-								Registrar Salida</a></li>
+								Habilitar ingreso</a></li>
+							<li><a href="flot.html"><i class="fa fa-mail-reply"></i>
+								Habilitar salida</a></li>
 							<li><a href="flot.html"><i class="fa fa-exchange"></i>
 								Consulta Movimiento</a></li>
 							<li><a href="flot.html"><i class="fa fa-calendar"></i>

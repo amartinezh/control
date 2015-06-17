@@ -70,7 +70,7 @@
 							<!--  <form action="index.html" id="login-form" class="smart-form client-form"> -->
 							<form:form method="POST" action="validar" ModelAttribute="user" commandName="user" class="smart-form client-form">
 								<header>
-								<img width="100" height="60" src="<c:url value="/resources/img/adm/logo.png" />" >
+								<img width="340" height="60" src="<c:url value="/resources/img/logo.png" />" >
 									<h1>Sistema de Seguridad y Control</h1>
 								</header>
 								<fieldset>

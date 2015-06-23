@@ -143,393 +143,373 @@
 				</h4>
 				<p>Especio para sacar los letreros de todo tipo</p>
 			</div>
-
-			<!-- widget grid -->
-			<section id="widget-grid" class="">
-				<!-- START ROW -->
-				<div class="row">
-					<!-- NEW COL START -->
-					<article
-						class="col-sm-12 col-md-12 col-lg-6 sortable-grid ui-sortable">
-
-						<!-- Widget ID (each widget will need unique ID)-->
-						<div
-							class="jarviswidget jarviswidget-color-blueDark jarviswidget-collapsed jarviswidget-sortable"
-							id="wid-id-1" data-widget-editbutton="false"
-							data-widget-custombutton="false"
-							data-widget-attstyle="jarviswidget-color-blueDark" role="widget"
-							style="">
-							<!-- widget options:
-					usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
-					
-					data-widget-colorbutton="false"	
-					data-widget-editbutton="false"
-					data-widget-togglebutton="false"
-					data-widget-deletebutton="false"
-					data-widget-fullscreenbutton="false"
-					data-widget-custombutton="false"
-					data-widget-collapsed="true" 
-					data-widget-sortable="false"
-					
-				-->
-							<header role="heading">
-								<div class="jarviswidget-ctrls" role="menu">
-									<a href="javascript:void(0);"
-										class="button-icon jarviswidget-toggle-btn" rel="tooltip"
-										title="" data-placement="bottom"
-										data-original-title="Collapse"><i class=" fa fa-plus"></i></a>
-									<a href="javascript:void(0);"
-										class="button-icon jarviswidget-fullscreen-btn" rel="tooltip"
-										title="" data-placement="bottom"
-										data-original-title="Fullscreen"><i class="fa fa-expand "></i></a>
-									<a href="javascript:void(0);"
-										class="button-icon jarviswidget-delete-btn" rel="tooltip"
-										title="" data-placement="bottom" data-original-title="Delete"><i
-										class="fa fa-times"></i></a>
-								</div>
-								<div class="widget-toolbar" role="menu">
-									<a data-toggle="dropdown"
-										class="dropdown-toggle color-box selector"
-										href="javascript:void(0);"></a>
-									<ul
-										class="dropdown-menu arrow-box-up-right color-select pull-right">
-										<li><span class="bg-color-green"
-											data-widget-setstyle="jarviswidget-color-green" rel="tooltip"
-											data-placement="left" data-original-title="Green Grass"></span></li>
-										<li><span class="bg-color-greenDark"
-											data-widget-setstyle="jarviswidget-color-greenDark"
-											rel="tooltip" data-placement="top"
-											data-original-title="Dark Green"></span></li>
-										<li><span class="bg-color-greenLight"
-											data-widget-setstyle="jarviswidget-color-greenLight"
-											rel="tooltip" data-placement="top"
-											data-original-title="Light Green"></span></li>
-										<li><span class="bg-color-purple"
-											data-widget-setstyle="jarviswidget-color-purple"
-											rel="tooltip" data-placement="top"
-											data-original-title="Purple"></span></li>
-										<li><span class="bg-color-magenta"
-											data-widget-setstyle="jarviswidget-color-magenta"
-											rel="tooltip" data-placement="top"
-											data-original-title="Magenta"></span></li>
-										<li><span class="bg-color-pink"
-											data-widget-setstyle="jarviswidget-color-pink" rel="tooltip"
-											data-placement="right" data-original-title="Pink"></span></li>
-										<li><span class="bg-color-pinkDark"
-											data-widget-setstyle="jarviswidget-color-pinkDark"
-											rel="tooltip" data-placement="left"
-											data-original-title="Fade Pink"></span></li>
-										<li><span class="bg-color-blueLight"
-											data-widget-setstyle="jarviswidget-color-blueLight"
-											rel="tooltip" data-placement="top"
-											data-original-title="Light Blue"></span></li>
-										<li><span class="bg-color-teal"
-											data-widget-setstyle="jarviswidget-color-teal" rel="tooltip"
-											data-placement="top" data-original-title="Teal"></span></li>
-										<li><span class="bg-color-blue"
-											data-widget-setstyle="jarviswidget-color-blue" rel="tooltip"
-											data-placement="top" data-original-title="Ocean Blue"></span></li>
-										<li><span class="bg-color-blueDark"
-											data-widget-setstyle="jarviswidget-color-blueDark"
-											rel="tooltip" data-placement="top"
-											data-original-title="Night Sky"></span></li>
-										<li><span class="bg-color-darken"
-											data-widget-setstyle="jarviswidget-color-darken"
-											rel="tooltip" data-placement="right"
-											data-original-title="Night"></span></li>
-										<li><span class="bg-color-yellow"
-											data-widget-setstyle="jarviswidget-color-yellow"
-											rel="tooltip" data-placement="left"
-											data-original-title="Day Light"></span></li>
-										<li><span class="bg-color-orange"
-											data-widget-setstyle="jarviswidget-color-orange"
-											rel="tooltip" data-placement="bottom"
-											data-original-title="Orange"></span></li>
-										<li><span class="bg-color-orangeDark"
-											data-widget-setstyle="jarviswidget-color-orangeDark"
-											rel="tooltip" data-placement="bottom"
-											data-original-title="Dark Orange"></span></li>
-										<li><span class="bg-color-red"
-											data-widget-setstyle="jarviswidget-color-red" rel="tooltip"
-											data-placement="bottom" data-original-title="Red Rose"></span></li>
-										<li><span class="bg-color-redLight"
-											data-widget-setstyle="jarviswidget-color-redLight"
-											rel="tooltip" data-placement="bottom"
-											data-original-title="Light Red"></span></li>
-										<li><span class="bg-color-white"
-											data-widget-setstyle="jarviswidget-color-white" rel="tooltip"
-											data-placement="right" data-original-title="Purity"></span></li>
-										<li><a href="javascript:void(0);"
-											class="jarviswidget-remove-colors" data-widget-setstyle=""
-											rel="tooltip" data-placement="bottom"
-											data-original-title="Reset widget color to default">Remove</a></li>
-									</ul>
-								</div>
-								<span class="widget-icon"> <i class="fa fa-edit"></i>
-								</span>
-								<h2>Registro Contratistas</h2>
-
-								<span class="jarviswidget-loader"><i
-									class="fa fa-refresh fa-spin"></i></span>
-							</header>
-
-							<!-- widget div-->
-							<div role="content" style="display: none;">
-
-								<!-- widget edit box -->
-								<div class="jarviswidget-editbox">
-									<!-- This area used as dropdown edit box -->
-
-								</div>
-								<!-- end widget edit box -->
-
-								<!-- widget content -->
-								<div class="widget-body no-padding">
-
-									<form id="checkout-form" class="smart-form"
-										novalidate="novalidate">
-										<button type="submit" class="bv-hidden-submit" style="display: none; width: 0px; height: 0px;" disabled="disabled"></button>
-
-										<fieldset>
-											<div class="row">
-												<section class="col col-4">
-												<label class="label">Documento</label>
-													<label class="input state-success"> <i
-														class="icon-prepend fa fa-user"></i> 
-														<input type="text" name="id_persona" id="id_persona" placeholder="Ingreso Documento">
-													</label>
-												</section>
-												<section class="col col-4">
-												<label class="label">Nombre Completo</label>
-													<label class="input state-success"> <i
-														class="icon-prepend fa fa-user"></i> 
-														<input type="text" name="nombre" id="nombre" placeholder="Nombre Completo">
-													</label>
-												</section>
-												<section class="col col-4">
-													<label class="label">Apellidos</label>
-													<label class="input state-success"> <i
-														class="icon-prepend fa fa-user"></i> 
-														<input type="text" name="apellido" id="apellido" placeholder="Apellidos">
-													</label>
-												</section>
-											</div>
-											<div class="row">
-												<section class="col col-6">
-												<label class="label">Tipo Persona</label>
-													<label class="input state-success"> <i
-														class="icon-prepend fa fa-user"></i> 
-														<input name="id_tipo_persona" id="id_tipo_persona" class="form-control" placeholder="Ingrese la Dependencia" type="text" list="list_id_tipo_persona">
-														<datalist id="list_id_tipo_persona">
-															<option value="Empleado">Empleado</option>
-															<option value="Contratista">Contratista</option>
-															<option value="Visitante">Visitante</option>
-															<option value="Conductor">Conductor</option>
-															<option value="Patiero">Patiero</option>
-														</datalist>
-													</label>
-												</section>
-												<section class="col col-6">
-												<label class="label">Dependencia</label>
-													<label class="input state-success"> <i
-														class="icon-prepend fa fa-user"></i> 
-														<input name="id_dependencia" id="id_dependencia" class="form-control" placeholder="Ingrese la Dependencia" type="text" list="list_id_dependencia">
-														<datalist id="list_id_dependencia">
-															<option value="Planta">Planta</option>
-															<option value="Comercial">Comercial</option>
-															<option value="Control y Seguridad">Control y Seguridad</option>
-															<option value="Sistemas">Sistemas</option>
-															<option value="Nómina">Nómina</option>
-														</datalist>
-													</label>
-												</section>
-												
-											</div>
-											<div class="row">
-												<section class="col col-6">
-													<label class="label">Correo Electrónico</label>
-													<label class="input state-success"> <i
-														class="icon-prepend fa fa-envelope-o"></i> <input
-														type="email" name="correo-e" id="correo-e" placeholder="Correo Electrónico">
-													</label>
-												</section>
-												<section class="col col-6">
-													<label class="label">Teléfonos</label>
-													<label class="input state-success"> <i
-														class="icon-prepend fa fa-phone"></i> <input type="tel"
-														name="telefono" id="telefono" placeholder="Teléfonos"
-														data-mask="(999) 999-9999">
-													</label>
-												</section>
-											</div>
-											<div class="row">
-												<section class="col col-4">
-													<label class="label">Archivo Foto</label>
-													<div class="input input-file state-success">
-														<span class="button"><input type="file" name="foto_scan" id="foto_scan" onchange="this.parentNode.nextSibling.value = this.value">Seleccione</span><input type="text" readonly="">
-													</div>
-													<!-- <div class="note note-success">Éste campo es requerido.</div>  -->
-												</section>
-												<section class="col col-4">
-													<label class="label">Archivo Cédula</label>
-													<div class="input input-file state-success">
-														<span class="button"><input type="file" name="doc_scan" id="doc_scan" onchange="this.parentNode.nextSibling.value = this.value">Seleccione</span><input type="text" readonly="">
-													</div>
-													<!--  <div class="note note-success">Éste campo es requerido.</div> -->
-												</section>
-												<section class="col col-4">
-													<label class="label">Archivo Huella</label>
-													<div class="input input-file state-success">
-														<span class="button"><input type="file" name="huella" id="huella" onchange="this.parentNode.nextSibling.value = this.value">Seleccione</span><input type="text" readonly="">
-													</div>
-													<!-- <div class="note note-success">Éste campo es requerido.</div>  -->
-												</section>
-											</div>
-											<div class="row">
-												<section class="col col-4">
-													<label class="label">Empresa</label>
-													<label class="input state-success"> <i
-														class="icon-prepend fa fa-user"></i> <input type="text"
-														name="empresa" id="empresa" placeholder="Empresa">
-													</label>
-												</section>
-												<section class="col col-4">
-													<label class="label">NIT Empresa</label>
-													<label class="input state-success"> <i
-														class="icon-prepend fa fa-user"></i> <input type="text"
-														name="nit_empresa" id="nit_empresa" placeholder="NIT Empresa">
-													</label>
-												</section>
-												<section class="col col-4">
-													<label class="label">Fecha Vencimiento Ley Industrial</label>
-													<label class="input state-success"> <i
-														class="icon-prepend fa fa-user"></i> 
-														<input type="text" name="curso_ley_vence" id="curso_ley_vence" placeholder="Vencimiento Ley Industrial" class="form-control datepicker" data-dateformat="dd/mm/yy">
-														
-													</label>
-												</section>
-											</div>
-											<div class="row">
-												<section class="col col-6">
-													<label class="label">Persona Responsable</label>
-													<label class="input state-success"> <i
-														class="icon-prepend fa fa-user"></i> 
-														<input name="id_persona_responsable" id="id_persona_responsable" class="form-control" placeholder="Ingrese Persona Responsable" type="text" list="list_id_tipo_persona">
-														<datalist id="list_id_tipo_persona">
-															<option value="Empleado">Juan</option>
-															<option value="Contratista">Pedro</option>
-															<option value="Visitante">Maria</option>
-														</datalist>
-													</label>
-												</section>
-												<section class="col col-3">
-													<label class="label">Código Antecedente</label>
-													<label class="input state-success"> <i
-														class="icon-prepend fa fa-user"></i> <input type="text"
-														name="codigo_antecedente" id="codigo_antecedente" placeholder="Código Antecedente">
-													</label>
-												</section>
-												<section class="col col-3">
-													<label class="label">Placa Vehículo</label>
-													<label class="input state-success"> <i
-														class="icon-prepend fa fa-user"></i> <input type="text"
-														name="placa_vehiculo" id="placa_vehiculo" placeholder="Placa Vehiculo">
-													</label>
-												</section>
-											</div>
-											<div class="row">
-												<section class="col col-3">
-													<label class="label">EPS</label>
-													<label class="input state-success"> <i
-														class="icon-prepend fa fa-user"></i> <input type="text"
-														name="eps" id="eps" placeholder="EPS">
-													</label>
-												</section>
-												<section class="col col-3">
-													<label class="label">Fecha Vencimiento EPS</label>
-													<label class="input state-success"> <i
-														class="icon-prepend fa fa-user"></i> 
-														<input type="text" name="eps_vence" id="eps_vence" placeholder="Fecha Vencimiento EPS" class="form-control datepicker" data-dateformat="dd/mm/yy">
-													</label>
-												</section>
-												<section class="col col-3">
-													<label class="label">ALR</label>
-													<label class="input state-success"> <i
-														class="icon-prepend fa fa-user"></i> <input type="text"
-														name="alr" id="alr" placeholder="ALR">
-													</label>
-												</section>
-												<section class="col col-3">
-													<label class="label">Fecha Vencimiento ALR</label>
-													<label class="input state-success"> <i
-														class="icon-prepend fa fa-user"></i> 
-														<input type="text" name="alr_vence" id="alr_vence" placeholder="Fecha Vencimiento ALR" class="form-control datepicker" data-dateformat="dd/mm/yy">
-													</label>
-												</section>
-											</div>
-											<div class="row">
-												<section class="col col-8">
-													<label class="label">Inventario</label>
-													<label class="textarea textarea-resizable state-success"> 										
-														<textarea name="inventario_texto" id="inventario_texto" rows="3" class="custom-scroll"></textarea> 
-													</label>
-												</section>
-												<section class="col col-4">
-													<label class="label">Imagen inventario</label>
-													<div class="input input-file state-success">
-														<span class="button"><input type="file" name="inventario_scan" id="inventario_scan" onchange="this.parentNode.nextSibling.value = this.value">Seleccione</span><input type="text" readonly="">
-													</div>
-													<!-- <div class="note note-success">Éste campo es requerido.</div>  -->
-												</section>
-											</div>
-											<div class="row">
-												<section class="col col-10">
-													<label class="label">Observaciones</label>
-													<label class="input state-success"> <i
-														class="icon-prepend fa fa-user"></i> <input type="text"
-														name="alr" id="alr" placeholder="Observaciones">
-													</label>
-												</section>
-											</div>
-										</fieldset>
-										<footer>
-											<button type="submit" class="btn btn-primary">
-												Recargar</button>
-											<button type="submit" class="btn btn-primary">
-												Actualizar</button>
-												<button class="btn btn-default" type="submit" >
-																<i class="fa fa-eye"></i>
-																Validate
-															</button>
-										</footer>
-									</form>
-
-								</div>
-								<!-- end widget content -->
-
-							</div>
-							<!-- end widget div -->
-
-						</div>
-						<!-- end widget -->
-
-
-					</article>
-					<!-- END COL -->
-
-				</div>
-
-				<!-- END ROW -->
-
-			</section>
-			<!-- end widget grid -->
-
 		</div>
-
 	</div>
 	<!-- END MAIN CONTENT -->
 
 	</div>
+
+	<!-- widget grid -->
+	<section id="widget-grid" class="">
+
+		<!-- row -->
+		<div class="row">
+
+			<!-- NEW WIDGET ROW START -->
+			<div class="col-sm-12">
+
+				<!-- Widget ID (each widget will need unique ID)-->
+				<div class="jarviswidget" id="wid-id-0"
+					data-widget-colorbutton="false" data-widget-editbutton="false"
+					data-widget-deletebutton="false" data-widget-sortable="false">
+					
+					<header>
+						<h2>Contratistas</h2>
+					</header>
+
+					<!-- widget div-->
+
+					<div>
+						<!-- widget edit box -->
+						<div class="jarviswidget-editbox">
+							<!-- This area used as dropdown edit box -->
+							<input class="form-control" type="text">
+						</div>
+						<!-- end widget edit box -->
+
+						<!-- widget content -->
+						<div class="widget-body">
+							<form id="frm" method="post">
+								<fieldset>
+									<div class="form-group">
+										<div class="row">
+											<div class="col-sm-12 col-md-4">
+												<label class="control-label">Documento</label> <input
+													type="text" class="form-control" name="id_persona" placeholder="Documento de Identificación"/>
+											</div>
+											<div class="col-sm-12 col-md-4">
+												<label class="control-label">Nombre Completo</label> <input
+													type="text" class="form-control" name="nombre_completo" />
+											</div>
+											<div class="col-sm-12 col-md-4">
+												<label class="control-label">Apellidos</label> <input
+													type="text" class="form-control" name="apellido" />
+											</div>
+										</div>
+									</div>
+								</fieldset>
+								<fieldset>
+									<div class="form-group">
+										<div class="row">
+											<div class="col-md-6 selectContainer">
+												<label class="control-label">Tipo Persona</label> <select
+													class="form-control" name="id_tipo_persona">
+													<option value="">Seleccione</option>
+													<option value="Contratista">Contratista</option>
+													<option value="comedy">Empleado</option>
+													<option value="horror">Vistante</option>
+													<option value="romance">Conductor</option>
+													<option value="romance">Patiero</option>
+												</select>
+											</div>
+
+											<div class="col-md-6 selectContainer">
+												<label class="control-label">Dependencia</label> <select
+													class="form-control" name="id_dependencia">
+													<option value="">Seleccione</option>
+													<option value="action">Sistemas</option>
+													<option value="comedy">Contabilidad</option>
+													<option value="horror">Compras</option>
+												</select>
+											</div>
+										</div>
+									</div>
+								</fieldset>
+								<fieldset>
+									<div class="form-group">
+										<div class="row">
+											<div class="col-sm-12 col-md-6">
+												<label class="control-label">Correo  Electrónico</label> <input
+													type="text" class="form-control" name="correo_e" />
+											</div>
+											<div class="col-sm-12 col-md-6">
+												<label class="control-label">Teléfonos</label> <input
+													type="text" class="form-control" name="telefono" />
+											</div>
+										</div>
+									</div>
+								</fieldset>
+								<fieldset>
+									<div class="form-group">
+										<div class="row">
+											<div class="col-md-4">
+												<label class="control-label">Archivo Foto</label> <input
+													type="file" class="form-control" name="foto_scan" />
+											</div>
+											<div class="col-md-4">
+												<label class="control-label input-file">Archivo Cédula</label> <input
+													type="file" class="form-control" name="cedula_scan" />
+											</div>
+											<div class="col-md-4">
+												<label class="control-label">Archivo Huella</label> <input
+													type="file" class="form-control" name="huella_scan" />
+											</div>
+										</div>
+									</div>
+								</fieldset>
+								<fieldset>
+									<div class="form-group">
+										<div class="row">
+											<div class="col-sm-12 col-md-4">
+												<label class="control-label">Empresa</label> <input
+													type="text" class="form-control" name="empresa" placeholder="Ingrese la empresa"/>
+											</div>
+											<div class="col-sm-12 col-md-4">
+												<label class="control-label">NIT Empresa</label> <input
+													type="text" class="form-control" name="nit_empresa" />
+											</div>
+											<div class="col-sm-12 col-md-4">
+												<label class="control-label">Fecha Vencimiento Ley Industrial</label> <input
+													type="text" class="form-control" name="vencimiento_ley" />
+											</div>
+										</div>
+									</div>
+								</fieldset>
+								<fieldset>
+									<div class="form-group">
+										<div class="row">
+											<div class="col-md-6 selectContainer">
+												<label class="control-label">Persona Responsable</label> <select
+													class="form-control" name="id_persona_responsable">
+													<option value="">Seleccione</option>
+													<option value="action">Juan</option>
+													<option value="comedy">Pablo</option>
+													<option value="horror">Pedro</option>
+												</select>
+											</div>
+											<div class="col-sm-4 col-md-3">
+												<label class="control-label">Código Antecedente</label> <input
+													type="text" class="form-control" name="codigo_antecedente" />
+											</div>
+											<div class="col-sm-4 col-md-3">
+												<label class="control-label">Placa Vehiculo</label> <input
+													type="text" class="form-control" name="placa_vehiculo" />
+											</div>
+										</div>
+									</div>
+								</fieldset>
+								<fieldset>
+									<div class="form-group">
+										<div class="row">
+											<div class="col-sm-12 col-md-3">
+												<label class="control-label">EPS</label> <input
+													type="text" class="form-control" name="eps" />
+											</div>
+											<div class="col-sm-12 col-md-3">
+												<label class="control-label">Fecha Vencimiento EPS</label> <input
+													type="date" class="form-control" name="eps_vence" />
+											</div>
+											<div class="col-sm-12 col-md-3">
+												<label class="control-label">ARL</label> <input
+													type="text" class="form-control" name="arl" />
+											</div>
+											<div class="col-sm-12 col-md-3">
+												<label class="control-label">Fecha Vencimiento ARL</label> <input
+													type="date" class="form-control" name="alr_vence" />
+											</div>
+										</div>
+									</div>
+								</fieldset>
+								<fieldset>
+									<div class="form-group">
+										<div class="row">
+											<div class="col-sm-12 col-md-8">
+												<label class="control-label">Inventario</label> <textarea
+													 class="form-control" name="inventario" ></textarea>
+											</div>
+											<div class="col-sm-12 col-md-4">
+												<label class="control-label">Imagen Inventario</label> <input
+													type="file" class="form-control" name="inventario_scan" />
+											</div>
+										</div>
+									</div>
+								</fieldset>
+								<fieldset>
+									<div class="form-group">
+										<div class="row">
+											<div class="col-sm-12 col-md-8">
+												<label class="control-label">Observaciones</label> <textarea
+													 class="form-control" name="observaciones" ></textarea>
+											</div>
+										</div>
+									</div>
+								</fieldset>
+								<div class="form-actions">
+									<div class="row">
+										<div class="col-md-12">
+											<button class="btn btn-success" type="submit">
+												<i class="fa fa-eye"></i> Actualizar
+											</button>
+										</div>
+									</div>
+								</div>
+
+							</form>
+
+						</div>
+						<!-- end widget content -->
+
+					</div>
+					<!-- end widget div -->
+
+				</div>
+				<!-- end widget -->
+
+
+			</div>
+			<!-- WIDGET ROW END -->
+		</div>
+
+		<!-- end row -->
+
+	</section>
+	<!-- end widget grid -->
+
+
+<div
+				class="jarviswidget jarviswidget-color-blueDark jarviswidget-sortable"
+				id="wid-id-1" data-widget-editbutton="false" data-widget-editbutton="true" role="widget">
+				<!-- widget options:
+								usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
+				
+								data-widget-colorbutton="false"
+								data-widget-editbutton="false"
+								data-widget-togglebutton="false"
+								data-widget-deletebutton="false"
+								data-widget-fullscreenbutton="false"
+								data-widget-custombutton="false"
+								data-widget-collapsed="true"
+								data-widget-sortable="false"
+				
+								-->
+				<header role="heading">
+			
+					<span class="widget-icon"> <i class="fa fa-table"></i>
+					</span>
+					<h2>Herramientas</h2>
+
+					<span class="jarviswidget-loader"><i class="fa fa-refresh fa-spin"></i></span></header>
+
+				<!-- widget div-->
+				<div role="content">
+
+					<!-- widget edit box -->
+					<div class="jarviswidget-editbox">
+						<!-- This area used as dropdown edit box -->
+
+					</div>
+					<!-- end widget edit box -->
+
+					<!-- widget content -->
+					<div class="widget-body no-padding">
+
+						<div id="datatable_fixed_column_wrapper"
+							class="dataTables_wrapper form-inline no-footer">
+
+							<table id="datatable_fixed_column"
+								class="table table-striped table-bordered dataTable no-footer"
+								width="100%" role="grid"
+								aria-describedby="datatable_fixed_column_info"
+								style="width: 100%;">
+
+								<thead>
+									<!-- <tr role="row">
+										<th class="hasinput" style="width: 17%" rowspan="1"
+											colspan="1"><input type="text" class="form-control"
+											placeholder="Filtro DescripciÃ³n"></th>
+										
+									</tr>   -->
+									<tr role="row">
+
+										<th data-hide="cmd" class="sorting_asc" tabindex="0"
+											aria-controls="dt_basic" 
+											aria-sort="ascending"
+											aria-label="ID: activate to sort column ascending"
+											style="width: 15px;"></th>
+
+										<th data-class="expand" class="sorting_asc" tabindex="1"
+											aria-controls="dt_basic" 
+											colspan="1" aria-sort="ascending"
+											aria-label="Name: activate to sort column ascending"
+											style="width: 540px;">Descripción</th>
+									</tr>
+								</thead>
+
+								<tbody>
+
+									<tr role="row" class="odd">
+										<td class="sorting_1"><span class="responsiveExpander"></span> 
+											<a class="btn btn-success btn-circle btn-sx"
+												href="javascript:void(0);"><i class="fa fa-edit"></i></a> 
+											<a class="btn btn-danger btn-circle" 
+												href="javascript:void(0);"><i class="fa fa-trash-o"></i></a>
+									 	</td>
+										<td class="sorting_1"><span class="responsiveExpander"></span>A</td>
+
+									</tr>
+									<tr role="row" class="even">
+										<td class="sorting_1"><span class="responsiveExpander"></span> 
+											<a class="btn btn-success btn-circle btn-sx"
+												href="javascript:void(0);"><i class="fa fa-edit"></i></a> 
+											<a class="btn btn-danger btn-circle" 
+												href="javascript:void(0);"><i class="fa fa-trash-o"></i></a>
+									 	</td>
+										<td class="sorting_1"><span class="responsiveExpander"></span>B</td>
+
+									</tr>
+									<tr role="row" class="odd">
+										<td class="sorting_1"><span class="responsiveExpander"></span> 
+											<a class="btn btn-success btn-circle btn-sx"
+												href="javascript:void(0);"><i class="fa fa-edit"></i></a> 
+											<a class="btn btn-danger btn-circle" 
+												href="javascript:void(0);"><i class="fa fa-trash-o"></i></a>
+									 	</td>
+										<td class="sorting_1"><span class="responsiveExpander"></span>C</td>
+									</tr>
+
+									<tr role="row" class="even">
+										<td class="sorting_1"><span class="responsiveExpander"></span> 
+											<a class="btn btn-success btn-circle btn-sx"
+												href="javascript:void(0);"><i class="fa fa-edit"></i></a> 
+											<a class="btn btn-danger btn-circle" 
+												href="javascript:void(0);"><i class="fa fa-trash-o"></i></a>
+									 	</td>
+										<td class="sorting_1"><span class="responsiveExpander"></span>D</td>
+									</tr>
+									<tr role="row" class="odd">
+										<td class="sorting_1"><span class="responsiveExpander"></span> 
+											<a class="btn btn-success btn-circle btn-sx"
+												href="javascript:void(0);"><i class="fa fa-edit"></i></a> 
+											<a class="btn btn-danger btn-circle" 
+												href="javascript:void(0);"><i class="fa fa-trash-o"></i></a>
+									 	</td>
+										<td class="sorting_1"><span class="responsiveExpander"></span>E</td>
+									</tr>
+
+								</tbody>
+
+							</table>
+
+						</div>
+
+					</div>
+					<!-- end widget content -->
+
+				</div>
+				<!-- end widget div -->
+
+			</div>
+
 	<!-- END MAIN PANEL -->
 
 	<!-- PAGE FOOTER -->
@@ -661,6 +641,22 @@
 		src="<c:url value="/resources/js/plugin/moment/moment.min.js" />"></script>
 	<script
 		src="<c:url value="/resources/js/plugin/fullcalendar/jquery.fullcalendar.min.js" />"></script>
+
+	<script
+		src="<c:url value="/resources/js/plugin/bootstrapvalidator/bootstrapValidator.min.js" />"></script>
+
+	<!-- PAGE RELATED PLUGIN(S) -->
+	<script
+		src="<c:url value="/resources/js/plugin/datatables/jquery.dataTables.min.js" />"></script>
+	<script
+		src="<c:url value="/resources/js/plugin/datatables/dataTables.colVis.min.js" />"></script>
+	<script
+		src="<c:url value="/resources/js/plugin/datatables/dataTables.tableTools.min.js" />"></script>
+	<script
+		src="<c:url value="/resources/js/plugin/datatables/dataTables.bootstrap.min.js" />"></script>
+	<script
+		src="<c:url value="/resources/js/plugin/datatable-responsive/datatables.responsive.min.js" />"></script>
+	
 
 	<script>
 		$(document)
@@ -1409,6 +1405,407 @@
 							}, 500);
 
 						});
+
+		$('#frm')
+				.bootstrapValidator(
+						{
+							feedbackIcons : {
+								valid : 'glyphicon glyphicon-ok',
+								invalid : 'glyphicon glyphicon-remove',
+								validating : 'glyphicon glyphicon-refresh'
+							},
+							fields : {
+								id_persona : {
+									group : '.col-md-4',
+									validators : {
+										notEmpty : {
+											message : 'Campo requierido'
+										},
+										stringLength : {
+											max : 200,
+											message : 'De ser menor a 200 caracteres'
+										}
+									}
+								},
+								nombre_completo : {
+									group : '.col-md-4',
+									validators : {
+										notEmpty : {
+											message : 'Campo requierido'
+										}
+									}
+								},
+								apellido : {
+									group : '.col-md-4',
+									validators : {
+										notEmpty : {
+											message : 'Campo requierido'
+										}
+									}
+								},
+								id_tipo_persona : {
+									group : '.col-md-6',
+									validators : {
+										notEmpty : {
+											message : 'Campo requierido'
+										}
+									}
+								},
+								id_dependencia : {
+									group : '.col-md-6',
+									validators : {
+										notEmpty : {
+											message : 'Campo requierido'
+										}
+									}
+								},
+								correo_e : {
+									group : '.col-md-6',
+									validators : {
+										notEmpty : {
+											message : 'Campo requierido'
+										}
+									}
+								},
+								telefono : {
+									group : '.col-md-6',
+									validators : {
+										notEmpty : {
+											message : 'Campo requierido'
+										}
+									}
+								},
+								empresa : {
+									group : '.col-md-4',
+									validators : {
+										notEmpty : {
+											message : 'Campo requierido'
+										}
+									}
+								},
+								nit_empresa : {
+									group : '.col-md-4',
+									validators : {
+										notEmpty : {
+											message : 'Campo requierido'
+										}
+									}
+								},
+								vencimiento_ley : {
+									group : '.col-md-4',
+									validators : {
+										notEmpty : {
+											message : 'Campo requierido'
+										}
+									}
+								},
+								foto_scan : {
+									group : '.col-md-4',
+									validators : {
+										notEmpty : {
+											message : 'Campo requierido'
+										}
+									}
+								},
+								cedula_scan : {
+									group : '.col-md-4',
+									validators : {
+										notEmpty : {
+											message : 'Campo requierido'
+										}
+									}
+								},
+								huella_scan : {
+									group : '.col-md-4',
+									validators : {
+										notEmpty : {
+											message : 'Campo requierido'
+										}
+									}
+								},
+								id_persona_responsable : {
+									group : '.col-md-6',
+									validators : {
+										notEmpty : {
+											message : 'Campo requierido'
+										}
+									}
+								},
+								codigo_antecedente : {
+									group : '.col-md-3',
+									validators : {
+										notEmpty : {
+											message : 'Campo requierido'
+										}
+									}
+								},
+								placa_vehiculo : {
+									group : '.col-md-3',
+									validators : {
+										notEmpty : {
+											message : 'Campo requierido'
+										}
+									}
+								},
+								eps : {
+									group : '.col-md-3',
+									validators : {
+										notEmpty : {
+											message : 'Campo requierido'
+										}
+									}
+								},
+								eps_vence : {
+									group : '.col-md-3',
+									validators : {
+										notEmpty : {
+											message : 'Campo requierido'
+										}
+									}
+								},
+								arl : {
+									group : '.col-md-3',
+									validators : {
+										notEmpty : {
+											message : 'Campo requierido'
+										}
+									}
+								},
+								alr_vence : {
+									group : '.col-md-3',
+									validators : {
+										notEmpty : {
+											message : 'Campo requierido'
+										}
+									}
+								},
+								inventario : {
+									group : '.col-md-8',
+									validators : {
+										notEmpty : {
+											message : 'Campo requierido'
+										}
+									}
+								},
+								inventario_scan : {
+									group : '.col-md-4',
+									validators : {
+										notEmpty : {
+											message : 'Campo requierido'
+										}
+									}
+								},
+								observaciones : {
+									group : '.col-md-8',
+									validators : {
+										notEmpty : {
+											message : 'Campo requierido'
+										}
+									}
+								}
+							}
+						});
+	</script>
+	
+	
+	<script type="text/javascript">
+		// DO NOT REMOVE : GLOBAL FUNCTIONS!
+
+		$(document)
+				.ready(
+						function() {
+
+							pageSetUp();
+
+							/* // DOM Position key index //
+							
+							l - Length changing (dropdown)
+							f - Filtering input (search)
+							t - The Table! (datatable)
+							i - Information (records)
+							p - Pagination (paging)
+							r - pRocessing 
+							< and > - div elements
+							<"#id" and > - div with an id
+							<"class" and > - div with a class
+							<"#id.class" and > - div with an id and class
+							
+							Also see: http://legacy.datatables.net/usage/features
+							 */
+
+							/* BASIC ;*/
+							var responsiveHelper_dt_basic = undefined;
+							var responsiveHelper_datatable_fixed_column = undefined;
+							var responsiveHelper_datatable_col_reorder = undefined;
+							var responsiveHelper_datatable_tabletools = undefined;
+
+							var breakpointDefinition = {
+								tablet : 1024,
+								phone : 480
+							};
+
+							$('#dt_basic')
+									.dataTable(
+											{
+												"sDom" : "<'dt-toolbar'<'col-xs-12 col-sm-6'f><'col-sm-6 col-xs-12 hidden-xs'l>r>"
+														+ "t"
+														+ "<'dt-toolbar-footer'<'col-sm-6 col-xs-12 hidden-xs'i><'col-xs-12 col-sm-6'p>>",
+												"autoWidth" : true,
+												"preDrawCallback" : function() {
+													// Initialize the responsive datatables helper once.
+													if (!responsiveHelper_dt_basic) {
+														responsiveHelper_dt_basic = new ResponsiveDatatablesHelper(
+																$('#dt_basic'),
+																breakpointDefinition);
+													}
+												},
+												"rowCallback" : function(nRow) {
+													responsiveHelper_dt_basic
+															.createExpandIcon(nRow);
+												},
+												"drawCallback" : function(
+														oSettings) {
+													responsiveHelper_dt_basic
+															.respond();
+												}
+											});
+
+							/* END BASIC */
+
+							/* COLUMN FILTER  */
+							var otable = $('#datatable_fixed_column')
+									.DataTable(
+											{
+												//"bFilter": false,
+												//"bInfo": false,
+												//"bLengthChange": false
+												//"bAutoWidth": false,
+												//"bPaginate": false,
+												//"bStateSave": true // saves sort state using localStorage
+												"sDom" : "<'dt-toolbar'<'col-xs-12 col-sm-6 hidden-xs'f><'col-sm-6 col-xs-12 hidden-xs'<'toolbar'>>r>"
+														+ "t"
+														+ "<'dt-toolbar-footer'<'col-sm-6 col-xs-12 hidden-xs'i><'col-xs-12 col-sm-6'p>>",
+												"autoWidth" : true,
+												"preDrawCallback" : function() {
+													// Initialize the responsive datatables helper once.
+													if (!responsiveHelper_datatable_fixed_column) {
+														responsiveHelper_datatable_fixed_column = new ResponsiveDatatablesHelper(
+																$('#datatable_fixed_column'),
+																breakpointDefinition);
+													}
+												},
+												"rowCallback" : function(nRow) {
+													responsiveHelper_datatable_fixed_column
+															.createExpandIcon(nRow);
+												},
+												"drawCallback" : function(
+														oSettings) {
+													responsiveHelper_datatable_fixed_column
+															.respond();
+												}
+
+											});
+
+							// custom toolbar
+							//$("div.toolbar")
+							//		.html( '<div class="text-right"><img src="img/logo.png" alt="SmartAdmin" style="width: 111px; margin-top: 3px; margin-right: 10px;"></div>');
+
+							// Apply the filter
+							$(
+									"#datatable_fixed_column thead th input[type=text]")
+									.on(
+											'keyup change',
+											function() {
+
+												otable.column(
+														$(this).parent()
+																.index()
+																+ ':visible')
+														.search(this.value)
+														.draw();
+
+											});
+							/* END COLUMN FILTER */
+
+							/* COLUMN SHOW - HIDE */
+							$('#datatable_col_reorder')
+									.dataTable(
+											{
+												"sDom" : "<'dt-toolbar'<'col-xs-12 col-sm-6'f><'col-sm-6 col-xs-6 hidden-xs'C>r>"
+														+ "t"
+														+ "<'dt-toolbar-footer'<'col-sm-6 col-xs-12 hidden-xs'i><'col-sm-6 col-xs-12'p>>",
+												"autoWidth" : true,
+												"preDrawCallback" : function() {
+													// Initialize the responsive datatables helper once.
+													if (!responsiveHelper_datatable_col_reorder) {
+														responsiveHelper_datatable_col_reorder = new ResponsiveDatatablesHelper(
+																$('#datatable_col_reorder'),
+																breakpointDefinition);
+													}
+												},
+												"rowCallback" : function(nRow) {
+													responsiveHelper_datatable_col_reorder
+															.createExpandIcon(nRow);
+												},
+												"drawCallback" : function(
+														oSettings) {
+													responsiveHelper_datatable_col_reorder
+															.respond();
+												}
+											});
+
+							/* END COLUMN SHOW - HIDE */
+
+							/* TABLETOOLS */
+							$('#datatable_tabletools')
+									.dataTable(
+											{
+
+												// Tabletools options: 
+												//   https://datatables.net/extensions/tabletools/button_options
+												"sDom" : "<'dt-toolbar'<'col-xs-12 col-sm-6'f><'col-sm-6 col-xs-6 hidden-xs'T>r>"
+														+ "t"
+														+ "<'dt-toolbar-footer'<'col-sm-6 col-xs-12 hidden-xs'i><'col-sm-6 col-xs-12'p>>",
+												"oTableTools" : {
+													"aButtons" : [
+															"copy",
+															"csv",
+															"xls",
+															{
+																"sExtends" : "pdf",
+																"sTitle" : "SmartAdmin_PDF",
+																"sPdfMessage" : "SmartAdmin PDF Export",
+																"sPdfSize" : "letter"
+															},
+															{
+																"sExtends" : "print",
+																"sMessage" : "Generated by SmartAdmin <i>(press Esc to close)</i>"
+															} ],
+													"sSwfPath" : "js/plugin/datatables/swf/copy_csv_xls_pdf.swf"
+												},
+												"autoWidth" : true,
+												"preDrawCallback" : function() {
+													// Initialize the responsive datatables helper once.
+													if (!responsiveHelper_datatable_tabletools) {
+														responsiveHelper_datatable_tabletools = new ResponsiveDatatablesHelper(
+																$('#datatable_tabletools'),
+																breakpointDefinition);
+													}
+												},
+												"rowCallback" : function(nRow) {
+													responsiveHelper_datatable_tabletools
+															.createExpandIcon(nRow);
+												},
+												"drawCallback" : function(
+														oSettings) {
+													responsiveHelper_datatable_tabletools
+															.respond();
+												}
+											});
+
+							/* END TABLETOOLS */
+
+						})
 	</script>
 
 	<!-- Your GOOGLE ANALYTICS CODE Below -->

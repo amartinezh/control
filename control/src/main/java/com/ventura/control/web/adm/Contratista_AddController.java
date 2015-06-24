@@ -61,6 +61,6 @@ public class Contratista_AddController {
 	@RequestMapping(value = "/contratista_nov",method = RequestMethod.GET)
 	public String gestiona_novedad(Map<String, Object> model) {
 		model.put("user", new User());
-		return "admin/contratista_nov";
+		return "contratista/contratista_nov";
 	}
 }

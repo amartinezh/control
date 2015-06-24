@@ -202,24 +202,18 @@
 											style="display: none; width: 0px; height: 0px;"></button>
 
 										<fieldset>
-											<legend> Tipo de Personas </legend>
+											<legend> Gestión de Novedades Contratistas </legend>
 											<div class="form-group">
 												<div class="row">
-													<div class="col-md-12 has-feedback">
-														<label class="control-label">Descripción</label> <input
-															type="text" class="form-control" name="title"
-															data-bv-field="title"> <i
-															class="form-control-feedback" data-bv-icon-for="title"
-															style="display: none;"></i> <small class="help-block"
-															data-bv-validator="notEmpty" data-bv-for="title"
-															data-bv-result="NOT_VALIDATED" style="display: none;">The
-															title is required</small><small class="help-block"
-															data-bv-validator="stringLength" data-bv-for="title"
-															data-bv-result="NOT_VALIDATED" style="display: none;">The
-															title must be less than 200 characters long</small>
+													<div class="col-sm-12 col-md-4">
+														<label class="control-label">Contratista</label> <input
+															type="text" class="form-control" name="id_persona"
+															placeholder="Documento de Identificación" />
 													</div>
-
-
+													<div class="col-sm-12 col-md-8">
+														<label class="control-label">Novedad</label> <input
+															type="text" class="form-control" name="nombre_completo" />
+													</div>
 												</div>
 											</div>
 										</fieldset>

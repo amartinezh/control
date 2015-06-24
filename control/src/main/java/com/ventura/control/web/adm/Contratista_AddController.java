@@ -31,25 +31,25 @@ public class Contratista_AddController {
 	@RequestMapping(value = "/contratista_add",method = RequestMethod.GET)
 	public String panel(Map<String, Object> model) {
 		model.put("user", new User());
-		return "admin/contratista_add";
+		return "contratista/contratista_add";
 	}
 	
 	@RequestMapping(value = "/contratista_hab_ingre",method = RequestMethod.GET)
 	public String habilitar_ingreso(Map<String, Object> model) {
 		model.put("user", new User());
-		return "admin/contratista_hab_ingre";
+		return "contratista/contratista_hab_ingre";
 	}
 	
 	@RequestMapping(value = "/contratista_hab_sal",method = RequestMethod.GET)
 	public String habilitar_salida(Map<String, Object> model) {
 		model.put("user", new User());
-		return "admin/contratista_hab_sal";
+		return "contratista/contratista_hab_sal";
 	}
 	
 	@RequestMapping(value = "/contratista_conmov",method = RequestMethod.GET)
 	public String consulta_movimiento(Map<String, Object> model) {
 		model.put("user", new User());
-		return "admin/contratista_conmov";
+		return "contratista/contratista_conmov";
 	}
 	
 	@RequestMapping(value = "/contratista_geshor",method = RequestMethod.GET)
@@ -62,5 +62,11 @@ public class Contratista_AddController {
 	public String gestiona_novedad(Map<String, Object> model) {
 		model.put("user", new User());
 		return "contratista/contratista_nov";
+	}
+	
+	@RequestMapping(value = "/visitante_add",method = RequestMethod.GET)
+	public String visitante_add(Map<String, Object> model) {
+		model.put("user", new User());
+		return "visitante/visitante_add";
 	}
 }

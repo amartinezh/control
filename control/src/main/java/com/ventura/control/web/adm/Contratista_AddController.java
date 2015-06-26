@@ -159,4 +159,28 @@ public class Contratista_AddController {
 		model.put("user", new User());
 		return "transporte/transporte_taxi_con";
 	}
+	
+	@RequestMapping(value = "/minuta_registrar",method = RequestMethod.GET)
+	public String minuta_add(Map<String, Object> model) {
+		model.put("user", new User());
+		return "minuta/minuta_add";
+	}
+	
+	@RequestMapping(value = "/cajamenor_registrar",method = RequestMethod.GET)
+	public String cajamenor_add(Map<String, Object> model) {
+		model.put("user", new User());
+		return "cajamenor/cajamenor_add";
+	}
+	
+	@RequestMapping(value = "/devolucion_registrar",method = RequestMethod.GET)
+	public String devolucion_add(Map<String, Object> model) {
+		model.put("user", new User());
+		return "devolucion/devolucion_add";
+	}
+	
+	@RequestMapping(value = "/exportacion_registrar",method = RequestMethod.GET)
+	public String exportacion_add(Map<String, Object> model) {
+		model.put("user", new User());
+		return "exportacion/exportacion_add";
+	}
 }

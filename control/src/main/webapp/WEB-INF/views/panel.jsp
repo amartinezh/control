@@ -333,9 +333,9 @@
 						<a href="#"><i class="fa fa-lg fa-fw fa-puzzle-piece"></i>
 						<span class="menu-item-parent">Minutas Digitales</span></a>
 						<ul>
-							<li><a target="des" href="<c:url value="/visitante_add"/>"><i class="fa fa-save"></i>
+							<li><a target="des" href="<c:url value="/minuta_registrar"/>"><i class="fa fa-save"></i>
 								Registrar</a></li>
-							<li><a target="des" href="<c:url value="/visitante_add"/>"><i class="fa fa-signal"></i>
+							<li><a target="des" href="<c:url value="/minuta_estadistica"/>"><i class="fa fa-signal"></i>
 								Estadisticas</a></li>
 						</ul>
 					</li>
@@ -343,16 +343,16 @@
 						<a href="#"><i class="fa fa-lg fa-fw fa-money"></i>
 						<span class="menu-item-parent">Caja Menor</span></a>
 						<ul>
-							<li><a target="des" href="<c:url value="/visitante_add"/>"><i class="fa fa-recycle"></i>
+							<li><a target="des" href="<c:url value="/cajamenor_registrar"/>"><i class="fa fa-recycle"></i>
 								Registrar movimiento</a></li>
-							<li><a target="des" href="<c:url value="/visitante_add"/>"><i class="fa fa-pencil"></i>
-								Escribir nota</a></li>
-							<li><a target="des" href="<c:url value="/visitante_add"/>"><i class="fa fa-signal"></i>
+						<!-- 	<li><a target="des" href="<c:url value="/visitante_add"/>"><i class="fa fa-pencil"></i>
+								Escribir nota</a></li>  -->
+							<li><a target="des" href="<c:url value="/cajamenor_estadistica"/>"><i class="fa fa-signal"></i>
 								Estadisticas</a></li>
 						</ul>
 					</li>
 					<li>
-						<a href="#"><i class="fa fa-lg fa-fw fa-taxi"></i>
+						<a href="#"><i class="fa fa-lg fa-fw fa-male"></i>
 						<span class="menu-item-parent">Control Actividades</span></a>
 						<ul>
 							<li><a target="des" href="<c:url value="/visitante_add"/>"><i class="fa fa-pencil-square-o"></i>
@@ -367,11 +367,9 @@
 						<a href="#"><i class="fa fa-lg fa-fw fa-random"></i>
 						<span class="menu-item-parent">Devoluciones</span></a>
 						<ul>
-							<li><a target="des" href="<c:url value="/visitante_add"/>"><i class="fa fa-random"></i>
+							<li><a target="des" href="<c:url value="/devolucion_registrar"/>"><i class="fa fa-random"></i>
 								Registro de devoluciones</a></li>
-							<li><a target="des" href="<c:url value="/visitante_add"/>"><i class="fa fa-file-text-o"></i>
-								Notas devolucion</a></li>
-							<li><a target="des" href="<c:url value="/visitante_add"/>"><i class="fa fa-signal"></i>
+							<li><a target="des" href="<c:url value="/devolucion_estadistica"/>"><i class="fa fa-signal"></i>
 								Estadisticas</a></li>
 						</ul>
 					</li>
@@ -379,9 +377,9 @@
 						<a href="#"><i class="fa fa-lg fa-fw fa-paper-plane"></i>
 						<span class="menu-item-parent">Exportaciones</span></a>
 						<ul>
-							<li><a target="des" href="<c:url value="/visitante_add"/>"><i class="fa fa-file-text-o"></i>
+							<li><a target="des" href="<c:url value="/exportacion_registrar"/>"><i class="fa fa-file-text-o"></i>
 								Registro</a></li>
-							<li><a target="des" href="<c:url value="/visitante_add"/>"><i class="fa fa-signal"></i>
+							<li><a target="des" href="<c:url value="/exportacion_estadistica"/>"><i class="fa fa-signal"></i>
 								Estadisticas</a></li>
 						</ul>
 					</li>

@@ -164,7 +164,7 @@
 					data-widget-deletebutton="false" data-widget-sortable="false">
 					
 					<header>
-						<h2>Gestión de Taxis</h2>
+						<h2>Caja Menor</h2>
 					</header>
 
 					<!-- widget div-->
@@ -183,11 +183,25 @@
 								<fieldset>
 									<div class="form-group">
 										<div class="row">
-											<div class="col-sm-12 col-md-2">
-												<label class="control-label">Nombre del Trabajador</label> <input
-													type="text" class="form-control" name="nro_personas" />
+											<div class="col-sm-12 col-md-4">
+												<label class="control-label">Fecha</label> <input
+													type="text" class="form-control" name="id_persona" placeholder="Documento de Identificación"/>
 											</div>
-											<div class="col-md-6 selectContainer">
+											<div class="col-sm-12 col-md-4">
+												<label class="control-label">Nombre Completo</label> <input
+													type="text" class="form-control" name="nombre_completo" />
+											</div>
+											<div class="col-sm-12 col-md-4">
+												<label class="control-label">Apellidos</label> <input
+													type="text" class="form-control" name="apellido" />
+											</div>
+										</div>
+									</div>
+								</fieldset>
+								<fieldset>
+									<div class="form-group">
+										<div class="row">
+											<div class="col-md-3 selectContainer">
 												<label class="control-label">Dependencia</label> <select
 													class="form-control" name="id_dependencia">
 													<option value="">Seleccione</option>
@@ -196,28 +210,28 @@
 													<option value="horror">Compras</option>
 												</select>
 											</div>
-											<div class="col-sm-12 col-md-2">
-												<label class="control-label">Hora</label> <input
-													type="text" class="form-control" name="hora" />
+											<div class="col-sm-12 col-md-3">
+												<label class="control-label">Valor</label> <input
+													type="text" class="form-control" name="correo_e" />
 											</div>
-											
+											<div class="col-sm-12 col-md-3">
+												<label class="control-label">Hora Entrada</label> <input
+													type="text" class="form-control" name="correo_e" />
+											</div>
+											<div class="col-sm-12 col-md-3">
+												<label class="control-label">Hora Salida</label> <input
+													type="text" class="form-control" name="correo_e" />
+											</div>
 										</div>
 									</div>
 								</fieldset>
+								
 								<fieldset>
 									<div class="form-group">
 										<div class="row">
-											<div class="col-sm-12 col-md-2">
-												<label class="control-label">Hora Entrada</label> <input
-													type="text" class="form-control" name="nro_personas" />
-											</div>
-											<div class="col-sm-12 col-md-2">
-												<label class="control-label">Hora Salida</label> <input
-													type="text" class="form-control" name="nro_personas" />
-											</div>
-											<div class="col-sm-12 col-md-2">
-												<label class="control-label">Nombre Conductor</label> <input
-													type="text" class="form-control" name="nro_personas" />
+											<div class="col-sm-12 col-md-8">
+												<label class="control-label">Observaciones</label> <textarea
+													 class="form-control" name="observaciones" ></textarea>
 											</div>
 										</div>
 									</div>

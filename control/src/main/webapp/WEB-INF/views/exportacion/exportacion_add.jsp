@@ -164,7 +164,7 @@
 					data-widget-deletebutton="false" data-widget-sortable="false">
 					
 					<header>
-						<h2>Gestión de Taxis</h2>
+						<h2>Exportacion</h2>
 					</header>
 
 					<!-- widget div-->
@@ -183,41 +183,147 @@
 								<fieldset>
 									<div class="form-group">
 										<div class="row">
-											<div class="col-sm-12 col-md-2">
-												<label class="control-label">Nombre del Trabajador</label> <input
-													type="text" class="form-control" name="nro_personas" />
+											<div class="col-sm-12 col-md-4">
+												<label class="control-label">Fecha</label> <input
+													type="text" class="form-control" name="id_persona" placeholder="Documento de Identificación"/>
 											</div>
-											<div class="col-md-6 selectContainer">
-												<label class="control-label">Dependencia</label> <select
-													class="form-control" name="id_dependencia">
-													<option value="">Seleccione</option>
-													<option value="action">Sistemas</option>
-													<option value="comedy">Contabilidad</option>
-													<option value="horror">Compras</option>
-												</select>
+											<div class="col-sm-12 col-md-4">
+												<label class="control-label">Cliente</label> <input
+													type="text" class="form-control" name="nombre_completo" />
 											</div>
-											<div class="col-sm-12 col-md-2">
-												<label class="control-label">Hora</label> <input
-													type="text" class="form-control" name="hora" />
+											<div class="col-sm-12 col-md-4">
+												<label class="control-label">Pais Destino</label> <input
+													type="text" class="form-control" name="apellido" />
 											</div>
-											
 										</div>
 									</div>
 								</fieldset>
 								<fieldset>
 									<div class="form-group">
 										<div class="row">
-											<div class="col-sm-12 col-md-2">
-												<label class="control-label">Hora Entrada</label> <input
-													type="text" class="form-control" name="nro_personas" />
+											<div class="col-sm-12 col-md-4">
+												<label class="control-label">Puerto LLegada</label> <input
+													type="text" class="form-control" name="id_persona" placeholder="Documento de Identificación"/>
 											</div>
-											<div class="col-sm-12 col-md-2">
-												<label class="control-label">Hora Salida</label> <input
-													type="text" class="form-control" name="nro_personas" />
+											<div class="col-sm-12 col-md-4">
+												<label class="control-label">Placa Vehículo</label> <input
+													type="text" class="form-control" name="nombre_completo" />
 											</div>
-											<div class="col-sm-12 col-md-2">
-												<label class="control-label">Nombre Conductor</label> <input
-													type="text" class="form-control" name="nro_personas" />
+											<div class="col-sm-12 col-md-4">
+												<label class="control-label">Numero Contenedor</label> <input
+													type="text" class="form-control" name="apellido" />
+											</div>
+										</div>
+									</div>
+								</fieldset>
+								<fieldset>
+									<div class="form-group">
+										<div class="row">
+											<div class="col-sm-12 col-md-4">
+												<label class="control-label">Numero Trailer</label> <input
+													type="text" class="form-control" name="id_persona" placeholder="Documento de Identificación"/>
+											</div>
+											<div class="col-sm-12 col-md-4">
+												<label class="control-label">Transportadora</label> <input
+													type="text" class="form-control" name="nombre_completo" />
+											</div>
+											<div class="col-sm-12 col-md-4">
+												<label class="control-label">Inicio Operacion</label> <input
+													type="text" class="form-control" name="apellido" />
+											</div>
+										</div>
+									</div>
+								</fieldset>
+								<fieldset>
+									<div class="form-group">
+										<div class="row">
+											<div class="col-sm-12 col-md-3">
+												<label class="control-label">Inicio Inspección</label> <input
+													type="text" class="form-control" name="id_persona" placeholder="Documento de Identificación"/>
+											</div>
+											<div class="col-sm-12 col-md-3">
+												<label class="control-label">Inicio Cague</label> <input
+													type="text" class="form-control" name="nombre_completo" />
+											</div>
+											<div class="col-sm-12 col-md-3">
+												<label class="control-label">Fin Cargue</label> <input
+													type="text" class="form-control" name="apellido" />
+											</div>
+											<div class="col-sm-12 col-md-3">
+												<label class="control-label">Fin Operacion</label> <input
+													type="text" class="form-control" name="apellido" />
+											</div>
+										</div>
+									</div>
+								</fieldset>
+								<fieldset>
+									<div class="form-group">
+										<div class="row">
+											<div class="col-sm-12 col-md-4">
+												<label class="control-label">Peso P-T KG</label> <input
+													type="text" class="form-control" name="empresa" placeholder="Ingrese la empresa"/>
+											</div>
+											<div class="col-sm-12 col-md-4">
+												<label class="control-label">Peso Boina</label> <input
+													type="text" class="form-control" name="nit_empresa" />
+											</div>
+											<div class="col-sm-12 col-md-4">
+												<label class="control-label">Tipo Producto</label> <input
+													type="text" class="form-control" name="vencimiento_ley" />
+											</div>
+										</div>
+									</div>
+								</fieldset>
+								<fieldset>
+									<div class="form-group">
+										<div class="row">
+											<div class="col-sm-4 col-md-3">
+												<label class="control-label">Nro Pedido</label> <input
+													type="text" class="form-control" name="codigo_antecedente" />
+											</div>
+											<div class="col-sm-4 col-md-3">
+												<label class="control-label">Pacas</label> <input
+													type="text" class="form-control" name="placa_vehiculo" />
+											</div>
+											<div class="col-sm-4 col-md-3">
+												<label class="control-label">Bobinas</label> <input
+													type="text" class="form-control" name="codigo_antecedente" />
+											</div>
+											<div class="col-sm-4 col-md-3">
+												<label class="control-label">Cajas</label> <input
+													type="text" class="form-control" name="placa_vehiculo" />
+											</div>
+										</div>
+									</div>
+								</fieldset>
+								<fieldset>
+									<div class="form-group">
+										<div class="row">
+											<div class="col-sm-12 col-md-3">
+												<label class="control-label">Acta Antinarcotico</label> <input
+													type="text" class="form-control" name="eps" />
+											</div>
+											<div class="col-sm-12 col-md-3">
+												<label class="control-label">nro Precinto</label> <input
+													type="text" class="form-control" name="arl" />
+											</div>
+											<div class="col-sm-12 col-md-3">
+												<label class="control-label">Sello aleatorio</label> <input
+													type="text" class="form-control" name="arl" />
+											</div>
+											<div class="col-sm-12 col-md-3">
+												<label class="control-label">Vigilante Protección</label> <input
+													type="date" class="form-control" name="alr_vence" />
+											</div>
+										</div>
+									</div>
+								</fieldset>
+								<fieldset>
+									<div class="form-group">
+										<div class="row">
+											<div class="col-sm-12 col-md-8">
+												<label class="control-label">Observaciones</label> <textarea
+													 class="form-control" name="observaciones" ></textarea>
 											</div>
 										</div>
 									</div>

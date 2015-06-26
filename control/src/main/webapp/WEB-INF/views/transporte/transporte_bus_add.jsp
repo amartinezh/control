@@ -76,24 +76,6 @@
 	media="screen and (max-device-width: 320px)"
 	href="<c:url value="/resources/img/splash/iphone.png" />">
 
-<style type="text/css">
-	.contenedor {
-		width: 250px;
-		float: left;
-	}
-	
-	.titulo {
-		font-size: 12pt;
-		font-weight: bold;
-	}
-	
-	#camara, #foto {
-		width: 220px;
-		min-height: 140px;
-		border: 1px solid #008000;
-	}
-</style>
-
 </head>
 
 <!--
@@ -182,7 +164,7 @@
 					data-widget-deletebutton="false" data-widget-sortable="false">
 					
 					<header>
-						<h2>Gestion de Permisos</h2>
+						<h2>Gestión de Buses</h2>
 					</header>
 
 					<!-- widget div-->
@@ -201,54 +183,32 @@
 								<fieldset>
 									<div class="form-group">
 										<div class="row">
-											<div class="col-sm-12 col-md-4">
-												<label class="control-label">Documento</label> <input
-													type="text" class="form-control" name="id_persona" placeholder="Documento de Identificación"/>
-											</div>
-											<div class="col-sm-12 col-md-4">
-												<label class="control-label">Nombre Completo Trabajador</label> <input
-													type="text" class="form-control" name="nombre_completo" />
-											</div>
-											<div class="col-sm-12 col-md-4">
-												<label class="control-label">Apellidos Trabajador</label> <input
-													type="text" class="form-control" name="apellido" />
-											</div>
-										</div>
-									</div>
-								</fieldset>
-								<fieldset>
-									<div class="form-group">
-										<div class="row">
-											<div class="col-sm-12 col-md-4">
-												<label class="control-label">Novedad</label> <input
-													type="text" class="form-control" name="novedad" />
-											</div>
-											<div class="col-md-6 selectContainer">
-												<label class="control-label">Dependencia</label> <select
-													class="form-control" name="id_dependencia">
+											<div class="col-md-3 selectContainer">
+												<label class="control-label">Turnos</label> <select
+													class="form-control" name="id_tipo_persona">
 													<option value="">Seleccione</option>
-													<option value="action">Sistemas</option>
-													<option value="comedy">Contabilidad</option>
-													<option value="horror">Compras</option>
+													<option value="Contratista">Primer Turno</option>
+													<option value="comedy">Segundo Turno</option>
+													<option value="horror">Tercer Turno</option>
+													<option value="romance">HORA 8-17:30</option>
+													<option value="romance">Segundo Bus Pereira</option>
 												</select>
 											</div>
-										</div>
-									</div>
-								</fieldset>
-								<fieldset>
-									<div class="form-group">
-										<div class="row">
-											<div class="col-sm-12 col-md-4">
-												<label class="control-label">Hora de salida</label> <input
-													type="text" class="form-control" name="hora_salida" />
+											<div class="col-md-3 selectContainer">
+												<label class="control-label">Origen</label> <select
+													class="form-control" name="id_tipo_persona">
+													<option value="">Seleccione</option>
+													<option value="Contratista">Pereira</option>
+													<option value="comedy">Cartago</option>
+												</select>
 											</div>
-											<div class="col-sm-12 col-md-4">
-												<label class="control-label">Hora entrada</label> <input
-													type="text" class="form-control" name="hora_entrada" />
+											<div class="col-sm-12 col-md-2">
+												<label class="control-label">Hora</label> <input
+													type="text" class="form-control" name="hora" />
 											</div>
-											<div class="col-sm-12 col-md-4">
-												<label class="control-label">Recibido Por</label> <input
-													type="text" class="form-control" name="recibido_por" />
+											<div class="col-sm-12 col-md-2">
+												<label class="control-label">Nro Personas</label> <input
+													type="text" class="form-control" name="nro_personas" />
 											</div>
 										</div>
 									</div>
@@ -256,7 +216,7 @@
 								<fieldset>
 									<div class="form-group">
 										<div class="row">
-											<div class="col-sm-12 col-md-8">
+											<div class="col-sm-12 col-md-10">
 												<label class="control-label">Observaciones</label> <textarea
 													 class="form-control" name="observaciones" ></textarea>
 											</div>
@@ -428,24 +388,6 @@
 				<!-- end widget div -->
 
 			</div>
-
-			<div id="dialog-message" title="Dialog Simple Title">
-				
-				<div id='botonera'>
-					<input id='botonIniciar' class='btn' type='button' value='Iniciar'></input>
-					<input id='botonDetener' type='button' value='Detener'></input>
-					<input id='botonFoto' type='button' value='Foto'></input>
-				</div>
-				<div class="contenedor">
-					<div class="titulo">Cámara</div>
-					<video id="camara" autoplay controls></video>
-				</div>
-				<div class="contenedor">
-					<div class="titulo">Foto</div>
-					<canvas id="foto"></canvas>
-				</div>
-			</div>
-			<!-- #dialog-message -->
 
 	<!-- END MAIN PANEL -->
 
@@ -1742,91 +1684,7 @@
 
 							/* END TABLETOOLS */
 
-						});
-	
-		//Nos aseguramos que estén definidas
-		//algunas funciones básicas
-		window.URL = window.URL || window.webkitURL;
-		navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia ||
-		function() {
-		    alert('Su navegador no soporta navigator.getUserMedia().');
-		};
-
-		//Este objeto guardará algunos datos sobre la cámara
-		window.datosVideo = {
-		    'StreamVideo': null,
-		    'url': null
-		}
-
-		jQuery('#botonIniciar').on('click', function(e) {
-
-		    //Pedimos al navegador que nos da acceso a 
-		    //algún dispositivo de video (la webcam)
-		    navigator.getUserMedia({
-		        'audio': false,
-		        'video': true
-		    }, function(streamVideo) {
-		        datosVideo.StreamVideo = streamVideo;
-		        datosVideo.url = window.URL.createObjectURL(streamVideo);
-		        jQuery('#camara').attr('src', datosVideo.url);
-
-		    }, function() {
-		        alert('No fue posible obtener acceso a la cámara.');
-		    });
-
-		});
-
-		jQuery('#botonDetener').on('click', function(e) {
-
-		    if (datosVideo.StreamVideo) {
-		        datosVideo.StreamVideo.stop();
-		        window.URL.revokeObjectURL(datosVideo.url);
-		    }
-
-		});
-
-		jQuery('#botonFoto').on('click', function(e) {
-		    var oCamara, oFoto, oContexto, w, h;
-
-		    oCamara = jQuery('#camara');
-		    oFoto = jQuery('#foto');
-		    w = oCamara.width();
-		    h = oCamara.height();
-		    oFoto.attr({
-		        'width': w,
-		        'height': h
-		    });
-		    oContexto = oFoto[0].getContext('2d');
-		    oContexto.drawImage(oCamara[0], 0, 0, w, h);
-
-		});
-		
-		// Modal Link
-		$('#modal_link').click(function() {
-			$('#dialog-message').dialog('open');
-			return false;
-		});
-	
-		$("#dialog-message").dialog({
-			autoOpen : false,
-			modal : true,
-			title : "Gestión de Fotos",
-			buttons : [{
-				html : "Cancel",
-				"class" : "btn btn-default",
-				click : function() {
-					$(this).dialog("close");
-				}
-			}, {
-				html : "<i class='fa fa-check'></i>&nbsp; OK",
-				"class" : "btn btn-primary",
-				click : function() {
-					$(this).dialog("close");
-				}
-			}]
-	
-		});
-		
+						})
 	</script>
 
 	<!-- Your GOOGLE ANALYTICS CODE Below -->

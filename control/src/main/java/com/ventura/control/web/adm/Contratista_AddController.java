@@ -123,4 +123,40 @@ public class Contratista_AddController {
 		model.put("user", new User());
 		return "llave/llave_devolucion";
 	}
+	
+	@RequestMapping(value = "/permisos_agregar",method = RequestMethod.GET)
+	public String permiso_add(Map<String, Object> model) {
+		model.put("user", new User());
+		return "permiso/permiso_add";
+	}
+	
+	@RequestMapping(value = "/permisos_retirar",method = RequestMethod.GET)
+	public String permiso_ret(Map<String, Object> model) {
+		model.put("user", new User());
+		return "permiso/permiso_ret";
+	}
+	
+	@RequestMapping(value = "/transporte_agregar_bus",method = RequestMethod.GET)
+	public String transporte_bus_add(Map<String, Object> model) {
+		model.put("user", new User());
+		return "transporte/transporte_bus_add";
+	}
+	
+	@RequestMapping(value = "/transporte_consultar_bus",method = RequestMethod.GET)
+	public String transporte_bus_con(Map<String, Object> model) {
+		model.put("user", new User());
+		return "transporte/transporte_bus_con";
+	}
+
+	@RequestMapping(value = "/transporte_agregar_taxi",method = RequestMethod.GET)
+	public String transporte_taxi_add(Map<String, Object> model) {
+		model.put("user", new User());
+		return "transporte/transporte_taxi_add";
+	}
+	
+	@RequestMapping(value = "/transporte_consultar_taxi",method = RequestMethod.GET)
+	public String transporte_taxi_con(Map<String, Object> model) {
+		model.put("user", new User());
+		return "transporte/transporte_taxi_con";
+	}
 }

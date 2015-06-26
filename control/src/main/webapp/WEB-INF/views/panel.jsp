@@ -291,11 +291,11 @@
 						<a href="#"><i class="fa fa-lg fa-fw fa-tasks"></i>
 						<span class="menu-item-parent">Gestion Permisos</span></a>
 						<ul>
-							<li><a target="des" href="<c:url value="/visitante_add"/>"><i class="fa fa-user"></i>
+							<li><a target="des" href="<c:url value="/permisos_agregar"/>"><i class="fa fa-user"></i>
 								Registrar Permiso</a></li>
-							<li><a target="des" href="<c:url value="/visitante_add"/>"><i class="fa fa-user"></i>
+							<li><a target="des" href="<c:url value="/permisos_retirar"/>"><i class="fa fa-user"></i>
 								Retirar Permiso</a></li>
-							<li><a target="des" href="<c:url value="/visitante_add"/>"><i class="fa fa-signal"></i>
+							<li><a target="des" href="<c:url value="/permisos_estadistica"/>"><i class="fa fa-signal"></i>
 								Estadisticas</a></li>
 						</ul>
 					</li>
@@ -307,11 +307,11 @@
 								<a href="#"><i class="fa fa-truck"></i>Control Buses</a>
 								<ul>
 									<li>
-										<a target="des" href="<c:url value="/visitante_add"/>"><i class="fa fa-plane"></i> 
+										<a target="des" href="<c:url value="/transporte_agregar_bus"/>"><i class="fa fa-plane"></i> 
 										Registrar trayecto</a>
 									</li>	
 									<li>
-										<a target="des" href="<c:url value="/visitante_add"/>"><i class="fa fa-signal"></i> 
+										<a target="des" href="<c:url value="/transporte_consultar_bus"/>"><i class="fa fa-signal"></i> 
 										Consultas</a>
 									</li>	
 								</ul>
@@ -320,10 +320,10 @@
 								<a href="#"><i class="fa fa-taxi"></i>Control Taxis</a>
 								<ul>
 									<li>
-										<a target="des" href="<c:url value="/visitante_add"/>"><i class="fa fa-arrow-up"></i> Registrar</a>
+										<a target="des" href="<c:url value="/transporte_agregar_taxi"/>"><i class="fa fa-arrow-up"></i> Registrar</a>
 									</li>	
 									<li>
-										<a target="des" href="<c:url value="/visitante_add"/>"><i class="fa fa-signal"></i> Consultas</a>
+										<a target="des" href="<c:url value="/transporte_consultar_taxi"/>"><i class="fa fa-signal"></i> Consultas</a>
 									</li>	
 								</ul>
 							</li>

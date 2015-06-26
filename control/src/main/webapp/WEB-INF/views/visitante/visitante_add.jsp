@@ -76,6 +76,24 @@
 	media="screen and (max-device-width: 320px)"
 	href="<c:url value="/resources/img/splash/iphone.png" />">
 
+<style type="text/css">
+	.contenedor {
+		width: 250px;
+		float: left;
+	}
+	
+	.titulo {
+		font-size: 12pt;
+		font-weight: bold;
+	}
+	
+	#camara, #foto {
+		width: 220px;
+		min-height: 140px;
+		border: 1px solid #008000;
+	}
+</style>
+
 </head>
 
 <!--
@@ -164,7 +182,7 @@
 					data-widget-deletebutton="false" data-widget-sortable="false">
 					
 					<header>
-						<h2>Contratistas</h2>
+						<h2>Visitantes</h2>
 					</header>
 
 					<!-- widget div-->
@@ -213,6 +231,8 @@
 												</select>
 											</div>
 
+											
+
 											<div class="col-md-6 selectContainer">
 												<label class="control-label">Dependencia</label> <select
 													class="form-control" name="id_dependencia">
@@ -243,8 +263,7 @@
 									<div class="form-group">
 										<div class="row">
 											<div class="col-md-4">
-												<label class="control-label">Archivo Foto</label> <input
-													type="file" class="form-control" name="foto_scan" />
+												<a href="#" id="modal_link" class="btn bg-color-purple txt-color-white"> Tomar Foto </a>
 											</div>
 											<div class="col-md-4">
 												<label class="control-label input-file">Archivo Cédula</label> <input
@@ -269,29 +288,6 @@
 													type="text" class="form-control" name="nit_empresa" />
 											</div>
 											<div class="col-sm-12 col-md-4">
-												<label class="control-label">Fecha Vencimiento Ley Industrial</label> <input
-													type="text" class="form-control" name="vencimiento_ley" />
-											</div>
-										</div>
-									</div>
-								</fieldset>
-								<fieldset>
-									<div class="form-group">
-										<div class="row">
-											<div class="col-md-6 selectContainer">
-												<label class="control-label">Persona Responsable</label> <select
-													class="form-control" name="id_persona_responsable">
-													<option value="">Seleccione</option>
-													<option value="action">Juan</option>
-													<option value="comedy">Pablo</option>
-													<option value="horror">Pedro</option>
-												</select>
-											</div>
-											<div class="col-sm-4 col-md-3">
-												<label class="control-label">Código Antecedente</label> <input
-													type="text" class="form-control" name="codigo_antecedente" />
-											</div>
-											<div class="col-sm-4 col-md-3">
 												<label class="control-label">Placa Vehiculo</label> <input
 													type="text" class="form-control" name="placa_vehiculo" />
 											</div>
@@ -509,6 +505,24 @@
 				<!-- end widget div -->
 
 			</div>
+
+			<div id="dialog-message" title="Dialog Simple Title">
+				
+				<div id='botonera'>
+					<input id='botonIniciar' class='btn' type='button' value='Iniciar'></input>
+					<input id='botonDetener' type='button' value='Detener'></input>
+					<input id='botonFoto' type='button' value='Foto'></input>
+				</div>
+				<div class="contenedor">
+					<div class="titulo">Cámara</div>
+					<video id="camara" autoplay controls></video>
+				</div>
+				<div class="contenedor">
+					<div class="titulo">Foto</div>
+					<canvas id="foto"></canvas>
+				</div>
+			</div>
+			<!-- #dialog-message -->
 
 	<!-- END MAIN PANEL -->
 
@@ -1805,7 +1819,91 @@
 
 							/* END TABLETOOLS */
 
-						})
+						});
+	
+		//Nos aseguramos que estén definidas
+		//algunas funciones básicas
+		window.URL = window.URL || window.webkitURL;
+		navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia ||
+		function() {
+		    alert('Su navegador no soporta navigator.getUserMedia().');
+		};
+
+		//Este objeto guardará algunos datos sobre la cámara
+		window.datosVideo = {
+		    'StreamVideo': null,
+		    'url': null
+		}
+
+		jQuery('#botonIniciar').on('click', function(e) {
+
+		    //Pedimos al navegador que nos da acceso a 
+		    //algún dispositivo de video (la webcam)
+		    navigator.getUserMedia({
+		        'audio': false,
+		        'video': true
+		    }, function(streamVideo) {
+		        datosVideo.StreamVideo = streamVideo;
+		        datosVideo.url = window.URL.createObjectURL(streamVideo);
+		        jQuery('#camara').attr('src', datosVideo.url);
+
+		    }, function() {
+		        alert('No fue posible obtener acceso a la cámara.');
+		    });
+
+		});
+
+		jQuery('#botonDetener').on('click', function(e) {
+
+		    if (datosVideo.StreamVideo) {
+		        datosVideo.StreamVideo.stop();
+		        window.URL.revokeObjectURL(datosVideo.url);
+		    }
+
+		});
+
+		jQuery('#botonFoto').on('click', function(e) {
+		    var oCamara, oFoto, oContexto, w, h;
+
+		    oCamara = jQuery('#camara');
+		    oFoto = jQuery('#foto');
+		    w = oCamara.width();
+		    h = oCamara.height();
+		    oFoto.attr({
+		        'width': w,
+		        'height': h
+		    });
+		    oContexto = oFoto[0].getContext('2d');
+		    oContexto.drawImage(oCamara[0], 0, 0, w, h);
+
+		});
+		
+		// Modal Link
+		$('#modal_link').click(function() {
+			$('#dialog-message').dialog('open');
+			return false;
+		});
+	
+		$("#dialog-message").dialog({
+			autoOpen : false,
+			modal : true,
+			title : "Gestión de Fotos",
+			buttons : [{
+				html : "Cancel",
+				"class" : "btn btn-default",
+				click : function() {
+					$(this).dialog("close");
+				}
+			}, {
+				html : "<i class='fa fa-check'></i>&nbsp; OK",
+				"class" : "btn btn-primary",
+				click : function() {
+					$(this).dialog("close");
+				}
+			}]
+	
+		});
+		
 	</script>
 
 	<!-- Your GOOGLE ANALYTICS CODE Below -->

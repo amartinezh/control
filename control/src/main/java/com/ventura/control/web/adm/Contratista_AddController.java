@@ -69,4 +69,58 @@ public class Contratista_AddController {
 		model.put("user", new User());
 		return "visitante/visitante_add";
 	}
+	
+	@RequestMapping(value = "/visitante_hab_ingre",method = RequestMethod.GET)
+	public String visitante_ingreso(Map<String, Object> model) {
+		model.put("user", new User());
+		return "visitante/visitante_hab_ingre";
+	}
+	
+	@RequestMapping(value = "/visitante_hab_sal",method = RequestMethod.GET)
+	public String visitante_salida(Map<String, Object> model) {
+		model.put("user", new User());
+		return "visitante/visitante_hab_sal";
+	}
+	
+	@RequestMapping(value = "/visitante_conmov",method = RequestMethod.GET)
+	public String visitante_conmov(Map<String, Object> model) {
+		model.put("user", new User());
+		return "visitante/visitante_conmov";
+	}
+	
+	@RequestMapping(value = "/visitante_horario",method = RequestMethod.GET)
+	public String visitante_horario(Map<String, Object> model) {
+		model.put("user", new User());
+		return "visitante/visitante_horario";
+	}
+	
+	@RequestMapping(value = "/conductor_add",method = RequestMethod.GET)
+	public String conductor_add(Map<String, Object> model) {
+		model.put("user", new User());
+		return "conductor/conductor_add";
+	}
+	
+	@RequestMapping(value = "/conductor_ent",method = RequestMethod.GET)
+	public String conductor_ent(Map<String, Object> model) {
+		model.put("user", new User());
+		return "conductor/conductor_ent";
+	}
+	
+	@RequestMapping(value = "/conductor_sal",method = RequestMethod.GET)
+	public String conductor_sal(Map<String, Object> model) {
+		model.put("user", new User());
+		return "conductor/conductor_sal";
+	}
+	
+	@RequestMapping(value = "/llave_prestamo",method = RequestMethod.GET)
+	public String llave_pre(Map<String, Object> model) {
+		model.put("user", new User());
+		return "llave/llave_pre";
+	}
+	
+	@RequestMapping(value = "/llave_devolucion",method = RequestMethod.GET)
+	public String llave_devolucion(Map<String, Object> model) {
+		model.put("user", new User());
+		return "llave/llave_devolucion";
+	}
 }

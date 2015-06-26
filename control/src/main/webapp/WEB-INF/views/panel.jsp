@@ -239,17 +239,17 @@
 						<a href="#"><i class="fa fa-lg fa-fw fa-coffee"></i>
 						<span class="menu-item-parent">Visitantes</span></a>
 						<ul>
-							<li><a href="flot.html"><i class="fa fa-mail-forward"></i>
-								Ingresar Visita</a></li>
-							<li><a href="flot.html"><i class="fa fa-mail-reply"></i>
-								Salida Visita</a></li>
-							<li><a href="flot.html"><i class="fa fa-exchange"></i>
+							<li><a target="des" href="<c:url value="/visitante_add"/>"><i class="fa fa-mail-forward"></i>
+								Registrar Visitante</a></li>
+							<li><a target="des" href="<c:url value="/visitante_hab_ingre"/>"><i class="fa fa-mail-forward"></i>
+								Habilitar Ingreso</a></li>
+							<li><a target="des" href="<c:url value="/visitante_hab_sal"/>"><i class="fa fa-mail-reply"></i>
+								Habilitar Salida</a></li>
+							<li><a target="des" href="<c:url value="/visitante_conmov"/>"><i class="fa fa-exchange"></i>
 								Consulta Movimiento</a></li>
-							<li><a href="flot.html"><i class="fa fa-cogs"></i>
-								Equipos y Herramientas</a></li>
-							<li><a href="flot.html"><i class="fa fa-calendar"></i>
+							<li><a target="des" href="<c:url value="/visitante_horario"/>"><i class="fa fa-calendar"></i>
 								Gestionar Horarios Habiles</a></li>
-							<li><a href="flot.html"><i class="fa fa-share-alt"></i>
+							<li><a target="des" href="<c:url value="/visitante_nov"/>"><i class="fa fa-share-alt"></i>
 								Gestionar Novedades</a></li>
 						</ul>
 					</li>
@@ -257,9 +257,11 @@
 						<a href="#"><i class="fa fa-lg fa-fw fa-truck"></i>
 						<span class="menu-item-parent">Conductores</span></a>
 						<ul>
-							<li><a href="flot.html"><i class="fa fa-mail-forward"></i>
-								Registrar Llegada</a></li>
-							<li><a href="flot.html"><i class="fa fa-mail-reply"></i>
+							<li><a target="des" href="<c:url value="/conductor_add"/>"><i class="fa fa-mail-forward"></i>
+								Registrar Conductor</a></li>
+							<li><a target="des" href="<c:url value="/conductor_ent"/>"><i class="fa fa-mail-forward"></i>
+								Registrar Entrada</a></li>
+							<li><a target="des" href="<c:url value="/conductor_sal"/>"><i class="fa fa-mail-reply"></i>
 								Registrar Salida</a></li>
 						</ul>
 					</li>
@@ -267,11 +269,11 @@
 						<a href="#"><i class="fa fa-lg fa-fw fa-key"></i>
 						<span class="menu-item-parent">Prestamo de Llaves</span></a>
 						<ul>
-							<li><a href="flot.html"><i class="fa fa-check-square"></i>
+							<li><a target="des" href="<c:url value="/llave_prestamo"/>"><i class="fa fa-check-square"></i>
 								Registrar Prestamo</a></li>
-							<li><a href="flot.html"><i class="fa fa-download"></i>
+							<li><a target="des" href="<c:url value="/llave_devolucion"/>"><i class="fa fa-download"></i>
 								Registrar Devolucion</a></li>
-							<li><a href="flot.html"><i class="fa fa-signal"></i>
+							<li><a target="des" href="<c:url value="/llave_estadistica"/>"><i class="fa fa-signal"></i>
 								Estadisticas</a></li>
 						</ul>
 					</li>
@@ -279,9 +281,9 @@
 						<a href="#"><i class="fa fa-lg fa-fw fa-female"></i>
 						<span class="menu-item-parent">Programacion visitas</span></a>
 						<ul>
-							<li><a href="flot.html"><i class="fa fa-pencil"></i>
+							<li><a target="des" href="<c:url value="/contratista_geshor"/>"><i class="fa fa-pencil"></i>
 								Programar</a></li>
-							<li><a href="flot.html"><i class="fa fa-signal"></i>
+							<li><a target="des" href="<c:url value="/visitante_add"/>"><i class="fa fa-signal"></i>
 								Estadisticas</a></li>
 						</ul>
 					</li>
@@ -289,11 +291,11 @@
 						<a href="#"><i class="fa fa-lg fa-fw fa-tasks"></i>
 						<span class="menu-item-parent">Gestion Permisos</span></a>
 						<ul>
-							<li><a href="flot.html"><i class="fa fa-user"></i>
+							<li><a target="des" href="<c:url value="/visitante_add"/>"><i class="fa fa-user"></i>
 								Registrar Permiso</a></li>
-							<li><a href="flot.html"><i class="fa fa-user"></i>
+							<li><a target="des" href="<c:url value="/visitante_add"/>"><i class="fa fa-user"></i>
 								Retirar Permiso</a></li>
-							<li><a href="flot.html"><i class="fa fa-signal"></i>
+							<li><a target="des" href="<c:url value="/visitante_add"/>"><i class="fa fa-signal"></i>
 								Estadisticas</a></li>
 						</ul>
 					</li>
@@ -305,11 +307,11 @@
 								<a href="#"><i class="fa fa-truck"></i>Control Buses</a>
 								<ul>
 									<li>
-										<a href="fa.html"><i class="fa fa-plane"></i> 
+										<a target="des" href="<c:url value="/visitante_add"/>"><i class="fa fa-plane"></i> 
 										Registrar trayecto</a>
 									</li>	
 									<li>
-										<a href="glyph.html"><i class="fa fa-signal"></i> 
+										<a target="des" href="<c:url value="/visitante_add"/>"><i class="fa fa-signal"></i> 
 										Consultas</a>
 									</li>	
 								</ul>
@@ -318,10 +320,10 @@
 								<a href="#"><i class="fa fa-taxi"></i>Control Taxis</a>
 								<ul>
 									<li>
-										<a href="fa.html"><i class="fa fa-arrow-up"></i> Registrar</a>
+										<a target="des" href="<c:url value="/visitante_add"/>"><i class="fa fa-arrow-up"></i> Registrar</a>
 									</li>	
 									<li>
-										<a href="glyph.html"><i class="fa fa-signal"></i> Consultas</a>
+										<a target="des" href="<c:url value="/visitante_add"/>"><i class="fa fa-signal"></i> Consultas</a>
 									</li>	
 								</ul>
 							</li>
@@ -331,9 +333,9 @@
 						<a href="#"><i class="fa fa-lg fa-fw fa-puzzle-piece"></i>
 						<span class="menu-item-parent">Minutas Digitales</span></a>
 						<ul>
-							<li><a href="flot.html"><i class="fa fa-save"></i>
+							<li><a target="des" href="<c:url value="/visitante_add"/>"><i class="fa fa-save"></i>
 								Registrar</a></li>
-							<li><a href="flot.html"><i class="fa fa-signal"></i>
+							<li><a target="des" href="<c:url value="/visitante_add"/>"><i class="fa fa-signal"></i>
 								Estadisticas</a></li>
 						</ul>
 					</li>
@@ -341,11 +343,11 @@
 						<a href="#"><i class="fa fa-lg fa-fw fa-money"></i>
 						<span class="menu-item-parent">Caja Menor</span></a>
 						<ul>
-							<li><a href="flot.html"><i class="fa fa-recycle"></i>
+							<li><a target="des" href="<c:url value="/visitante_add"/>"><i class="fa fa-recycle"></i>
 								Registrar movimiento</a></li>
-							<li><a href="flot.html"><i class="fa fa-pencil"></i>
+							<li><a target="des" href="<c:url value="/visitante_add"/>"><i class="fa fa-pencil"></i>
 								Escribir nota</a></li>
-							<li><a href="flot.html"><i class="fa fa-signal"></i>
+							<li><a target="des" href="<c:url value="/visitante_add"/>"><i class="fa fa-signal"></i>
 								Estadisticas</a></li>
 						</ul>
 					</li>
@@ -353,11 +355,11 @@
 						<a href="#"><i class="fa fa-lg fa-fw fa-taxi"></i>
 						<span class="menu-item-parent">Control Actividades</span></a>
 						<ul>
-							<li><a href="flot.html"><i class="fa fa-pencil-square-o"></i>
+							<li><a target="des" href="<c:url value="/visitante_add"/>"><i class="fa fa-pencil-square-o"></i>
 								Registrar Actividad</a></li>
-							<li><a href="flot.html"><i class="fa fa-paperclip"></i>
+							<li><a target="des" href="<c:url value="/visitante_add"/>"><i class="fa fa-paperclip"></i>
 								Registrar anotacion</a></li>
-							<li><a href="flot.html"><i class="fa fa-signal"></i>
+							<li><a target="des" href="<c:url value="/visitante_add"/>"><i class="fa fa-signal"></i>
 								Estadisticas</a></li>
 						</ul>
 					</li>
@@ -365,11 +367,11 @@
 						<a href="#"><i class="fa fa-lg fa-fw fa-random"></i>
 						<span class="menu-item-parent">Devoluciones</span></a>
 						<ul>
-							<li><a href="flot.html"><i class="fa fa-random"></i>
+							<li><a target="des" href="<c:url value="/visitante_add"/>"><i class="fa fa-random"></i>
 								Registro de devoluciones</a></li>
-							<li><a href="flot.html"><i class="fa fa-file-text-o"></i>
+							<li><a target="des" href="<c:url value="/visitante_add"/>"><i class="fa fa-file-text-o"></i>
 								Notas devolucion</a></li>
-							<li><a href="flot.html"><i class="fa fa-signal"></i>
+							<li><a target="des" href="<c:url value="/visitante_add"/>"><i class="fa fa-signal"></i>
 								Estadisticas</a></li>
 						</ul>
 					</li>
@@ -377,9 +379,9 @@
 						<a href="#"><i class="fa fa-lg fa-fw fa-paper-plane"></i>
 						<span class="menu-item-parent">Exportaciones</span></a>
 						<ul>
-							<li><a href="flot.html"><i class="fa fa-file-text-o"></i>
+							<li><a target="des" href="<c:url value="/visitante_add"/>"><i class="fa fa-file-text-o"></i>
 								Registro</a></li>
-							<li><a href="flot.html"><i class="fa fa-signal"></i>
+							<li><a target="des" href="<c:url value="/visitante_add"/>"><i class="fa fa-signal"></i>
 								Estadisticas</a></li>
 						</ul>
 					</li>
@@ -387,9 +389,9 @@
 						<a href="#"><i class="fa fa-lg fa-fw fa-cubes"></i>
 						<span class="menu-item-parent">Encomiendas</span></a>
 						<ul>
-							<li><a href="flot.html"><i class="fa fa-file-text-o"></i>
+							<li><a target="des" href="<c:url value="/visitante_add"/>"><i class="fa fa-file-text-o"></i>
 								Registro</a></li>
-							<li><a href="flot.html"><i class="fa fa-signal"></i>
+							<li><a target="des" href="<c:url value="/visitante_add"/>"><i class="fa fa-signal"></i>
 								Estadisticas</a></li>
 						</ul>
 					</li>
@@ -397,9 +399,9 @@
 						<a href="#"><i class="fa fa-lg fa-fw fa-spotify"></i>
 						<span class="menu-item-parent">Gestion Antecedentes</span></a>
 						<ul>
-							<li><a href="flot.html"><i class="fa fa-file-text-o"></i>
+							<li><a target="des" href="<c:url value="/visitante_add"/>"><i class="fa fa-file-text-o"></i>
 								Gestion</a></li>
-							<li><a href="flot.html"><i class="fa fa-signal"></i>
+							<li><a target="des" href="<c:url value="/visitante_add"/>"><i class="fa fa-signal"></i>
 								Estadisticas</a></li>
 						</ul>
 					</li>

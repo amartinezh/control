@@ -58,7 +58,7 @@ public class IndexController {
 
 	@RequestMapping(value = "/validar", method = RequestMethod.POST)
 	public String addEmployee(@Valid @ModelAttribute("user") User user,
-			BindingResult result, Model model) { System.out.print("Co---------------------------9''¿!!!");
+			BindingResult result, Model model) { 
 		if (result.hasErrors()) {
 			model.addAttribute("user", new User());
 			return "key/index";

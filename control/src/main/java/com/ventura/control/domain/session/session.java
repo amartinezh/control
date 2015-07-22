@@ -1,5 +1,6 @@
 package com.ventura.control.domain.session;
 
+
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.LinkedList;

@@ -1,5 +1,6 @@
 package com.ventura.control.service.adm;
 
+
 import java.util.List;
 
 import com.ventura.control.domain.adm.TypeUser;

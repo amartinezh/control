@@ -196,8 +196,8 @@
 								<!-- widget content -->
 								<div class="widget-body">
 
-									<form id="movieForm" method="post" novalidate="novalidate"
-										class="bv-form">
+									<!-- <form id="movieForm" method="post" novalidate="novalidate" class="bv-form">  -->
+									<form:form method="POST" action="validar" ModelAttribute="user" commandName="user" class="bv-form">
 										<button type="submit" class="bv-hidden-submit"
 											style="display: none; width: 0px; height: 0px;"></button>
 
@@ -208,7 +208,8 @@
 													<div class="col-md-12 has-feedback">
 														<label class="control-label">Descripción</label> <input
 															type="text" class="form-control" name="title"
-															data-bv-field="title"> <i
+															data-bv-field="title"> 
+															<i
 															class="form-control-feedback" data-bv-icon-for="title"
 															style="display: none;"></i> <small class="help-block"
 															data-bv-validator="notEmpty" data-bv-for="title"
@@ -235,7 +236,8 @@
 											</div>
 										</div>
 
-									</form>
+									<!--  </form>  -->
+									</form:form>
 
 								</div>
 								<!-- end widget content -->

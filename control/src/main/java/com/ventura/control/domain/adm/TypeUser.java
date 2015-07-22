@@ -1,5 +1,6 @@
 package com.ventura.control.domain.adm;
 
+
 import java.io.Serializable;
 import java.util.Set;
 

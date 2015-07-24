@@ -1,9 +1,9 @@
 <%@ include file="/WEB-INF/views/include.jsp" %>
 <!DOCTYPE html>
-<html lang="en-us">
+<html>
 	<head>
 		
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/> 
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
 		<title> Gestion y control </title>
@@ -199,21 +199,91 @@
 				<ul>
 					<li class="active">
 						<a href="index.html" title="Dashboard"><i class="fa fa-lg fa-fw fa-home"></i> <span class="menu-item-parent">Dashboard</span></a>
-						
 					</li>
-					
 					<li>
 						<a href="#"><i class="fa fa-lg fa-fw fa-bar-chart-o"></i> <span class="menu-item-parent">Administracion</span></a>
 						<ul>
 							<li>
-								<a target="des" href="<c:url value="/tipopersona"/>"> <i class="fa fa-female"></i> Tipo Personas</a>
+								<a href="#"><i class="fa fa-lg fa-fw fa-child"></i>
+								<span class="menu-item-parent">SyC</span></a>
+								<ul>
+									<li><a target="des" href="<c:url value="/actividad"/>"> <i class="fa fa-female"></i> Actividades</a></li>
+									<li><a target="des" href="<c:url value="/area"/>"> <i class="fa fa-female"></i> Áreas</a></li>
+									<li><a target="des" href="<c:url value="/centro"/>"> <i class="fa fa-female"></i> Centro de Costo</a></li>
+									<li><a target="des" href="<c:url value="/cia"/>"> <i class="fa fa-female"></i> Compañías</a></li>
+									<li><a target="des" href="<c:url value="/moneda"/>"> <i class="fa fa-female"></i> Monedas</a></li>
+									<li><a target="des" href="<c:url value="/dependencia"/>"> <i class="fa fa-female"></i> Dependencias</a></li>
+									<li><a target="des" href="<c:url value="/nivel"/>"> <i class="fa fa-female"></i> Niveles</a></li>
+									<li><a target="des" href="<c:url value="motivodevolucion"/>"> <i class="fa fa-female"></i> Motivos Devolución</a></li>
+									<li><a target="des" href="<c:url value="/origen"/>"> <i class="fa fa-female"></i> Origenes</a></li>
+									<li><a target="des" href="<c:url value="/sitio"/>"> <i class="fa fa-female"></i> Sitios</a></li>
+									<li><a target="des" href="<c:url value="/tipoencomienda"/>"> <i class="fa fa-female"></i> Tipos Encomiendas</a></li>
+									<li><a target="des" href="<c:url value="/tipopersona"/>"> <i class="fa fa-female"></i> Tipo Personas</a></li>
+									<li><a target="des" href="<c:url value="/turnos"/>"> <i class="fa fa-female"></i> Turnos</a></li>
+									<li><a target="des" href="<c:url value="/tipousuarios"/>"> <i class="fa fa-female"></i> Tipo Usuarios</a></li>
+									<li><a target="des" href="<c:url value="/sitio"/>"> <i class="fa fa-home"></i> Sitios</a></li>
+									<li><a target="des" href="<c:url value="/tipotransaccion"/>"> <i class="fa fa-dot-circle-o"></i> Tipo Transaccion</a></li>
+								</ul>
 							</li>
+							
 							<li>
-								<a target="des" href="<c:url value="/sitio"/>"> <i class="fa fa-home"></i> Sitios</a>
+								<a href="#"><i class="fa fa-lg fa-fw fa-child"></i>
+								<span class="menu-item-parent">Nomina</span></a>
+								<ul>
+									<li><a target="des" href="<c:url value="/contratista_add"/>"><i class="fa fa-check-square"></i>Trabajador</a></li>
+									<li><a target="des" href="<c:url value="/contratista_add"/>"><i class="fa fa-check-square"></i>Permisos Por Grupo</a></li>
+									<li>
+										<a href="#"><i class="fa fa-lg fa-fw fa-child"></i>
+										<span class="menu-item-parent">Gestion</span></a>
+										<ul>
+											<li><a target="des" href="<c:url value="/contratista_add"/>"><i class="fa fa-check-square"></i>Compañias</a></li>
+											<li><a target="des" href="<c:url value="/contratista_add"/>"><i class="fa fa-check-square"></i>Sucurales</a></li>
+											<li><a target="des" href="<c:url value="/contratista_add"/>"><i class="fa fa-check-square"></i>Departamentos</a></li>
+											<li><a target="des" href="<c:url value="/contratista_add"/>"><i class="fa fa-check-square"></i>Puestos</a></li>
+											<li><a target="des" href="<c:url value="/contratista_add"/>"><i class="fa fa-check-square"></i>Configuraciones</a></li>
+											<li><a target="des" href="<c:url value="/contratista_add"/>"><i class="fa fa-check-square"></i>Tipos de Trabajador</a></li>
+											<li><a target="des" href="<c:url value="/contratista_add"/>"><i class="fa fa-check-square"></i>Calendaio de Feriados</a></li>
+											<li><a target="des" href="<c:url value="/contratista_add"/>"><i class="fa fa-check-square"></i>Horarios</a></li>
+											<li><a target="des" href="<c:url value="/contratista_add"/>"><i class="fa fa-check-square"></i>Rotacion</a></li>
+											<li><a target="des" href="<c:url value="/contratista_add"/>"><i class="fa fa-check-square"></i>Comedores</a></li>
+											<li><a target="des" href="<c:url value="/contratista_add"/>"><i class="fa fa-check-square"></i>Terminales</a></li>
+											<li><a target="des" href="<c:url value="/contratista_add"/>"><i class="fa fa-check-square"></i>Grupos para Permisos</a></li>
+											<li><a target="des" href="<c:url value="/contratista_add"/>"><i class="fa fa-check-square"></i>Grupos de Supervision</a></li>
+											<li><a target="des" href="<c:url value="/contratista_add"/>"><i class="fa fa-check-square"></i>Gerencia</a></li>
+											<li><a target="des" href="<c:url value="/contratista_add"/>"><i class="fa fa-check-square"></i>Justificacion Sobretiempo</a></li>
+											<li><a target="des" href="<c:url value="/contratista_add"/>"><i class="fa fa-check-square"></i>Ausencias</a></li>
+											<li><a target="des" href="<c:url value="/contratista_add"/>"><i class="fa fa-check-square"></i>Estacionamiento</a></li>
+										</ul>
+									</li>
+									<li>
+									<a href="#"><i class="fa fa-lg fa-fw fa-child"></i>
+									<span class="menu-item-parent">Catalogos</span></a>
+									<ul>
+										<li><a target="des" href="<c:url value="/contratista_add"/>"><i class="fa fa-check-square"></i>Trabajador</a></li>
+										<li><a target="des" href="<c:url value="/contratista_add"/>"><i class="fa fa-check-square"></i>Compañias/Departamentos</a></li>
+										<li><a target="des" href="<c:url value="/contratista_add"/>"><i class="fa fa-check-square"></i>Cargos</a></li>
+										<li><a target="des" href="<c:url value="/contratista_add"/>"><i class="fa fa-check-square"></i>Configuraciones</a></li>
+										<li><a target="des" href="<c:url value="/contratista_add"/>"><i class="fa fa-check-square"></i>Tipos Trabajador</a></li>
+										<li><a target="des" href="<c:url value="/contratista_add"/>"><i class="fa fa-check-square"></i>Calendario Feriados</a></li>
+										<li><a target="des" href="<c:url value="/contratista_add"/>"><i class="fa fa-check-square"></i>Horarios</a></li>
+										<li><a target="des" href="<c:url value="/contratista_add"/>"><i class="fa fa-check-square"></i>Rotacion</a></li>
+										<li><a target="des" href="<c:url value="/contratista_add"/>"><i class="fa fa-check-square"></i>Calendario Rotacion</a></li>
+										<li><a target="des" href="<c:url value="/contratista_add"/>"><i class="fa fa-check-square"></i>Comedores</a></li>
+										<li><a target="des" href="<c:url value="/contratista_add"/>"><i class="fa fa-check-square"></i>Terminales</a></li>
+										<li><a target="des" href="<c:url value="/contratista_add"/>"><i class="fa fa-check-square"></i>Grupo Permisos</a></li>
+										<li><a target="des" href="<c:url value="/contratista_add"/>"><i class="fa fa-check-square"></i>Supervision</a></li>
+										<li><a target="des" href="<c:url value="/contratista_add"/>"><i class="fa fa-check-square"></i>Gerencia</a></li>
+										<li><a target="des" href="<c:url value="/contratista_add"/>"><i class="fa fa-check-square"></i>Justificacion Sobretiempo</a></li>
+										<li><a target="des" href="<c:url value="/contratista_add"/>"><i class="fa fa-check-square"></i>Ausencias</a></li>
+										<li><a target="des" href="<c:url value="/contratista_add"/>"><i class="fa fa-check-square"></i>Gerentes</a></li>
+										<li><a target="des" href="<c:url value="/contratista_add"/>"><i class="fa fa-check-square"></i>Supervisores</a></li>
+										<li><a target="des" href="<c:url value="/contratista_add"/>"><i class="fa fa-check-square"></i>Supervisados</a></li>
+										<li><a target="des" href="<c:url value="/contratista_add"/>"><i class="fa fa-check-square"></i>Puestos</a></li>
+									</ul>
+								</li>
+								</ul>
 							</li>
-							<li>
-								<a target="des" href="<c:url value="/tipotransaccion"/>"> <i class="fa fa-dot-circle-o"></i> Tipo Transaccion</a>
-							</li>
+							
 						</ul>
 					</li>
 					<li>

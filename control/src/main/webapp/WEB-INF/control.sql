@@ -384,8 +384,8 @@ CREATE TABLE control.correspondencia(
   CONSTRAINT correspondencia_pk PRIMARY KEY (id ),
   CONSTRAINT fk6e68w6116fg3r56 FOREIGN KEY (tipo_encomienda_id) REFERENCES admin.tipo_encomienda (tipo_encomienda_id)ON UPDATE NO ACTION ON DELETE NO ACTION)WITH ( OIDS=FALSE); ALTER TABLE control.correspondencia OWNER TO postgres;
   
-  INSERT INTO admin.type_users(descripcion, usu_id, estado) VALUES ('Administrador', '1', '1');
-  INSERT INTO admin.users(id, pass, persona_id, type_id, usu_id, estado) VALUES ('adm', 'c4ca4238a0b923820dcc509a6f75849b', '1', 1, '1', '1');
+  INSERT INTO admin.type_users(descripcion, estado) VALUES ('Administrador', '1');
+  INSERT INTO admin.users(id, pass, persona_id, type_id, estado) VALUES ('adm', 'c4ca4238a0b923820dcc509a6f75849b', '1', 1, '1');
   
   
   

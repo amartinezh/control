@@ -17,7 +17,6 @@ import org.springframework.web.bind.support.SessionStatus;
 import com.ventura.control.domain.login.User;
 import com.ventura.control.domain.session.session;
 import com.ventura.control.service.login.UserManager;
-import com.ventura.control.domain.adm.Company;
 import com.ventura.control.domain.adm.TypeUser;
 
 @Controller

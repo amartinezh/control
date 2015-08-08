@@ -22,8 +22,6 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.ventura.control.domain.login.User;
 import com.ventura.control.domain.session.session;
-import com.ventura.control.service.adm.CenterService;
-import com.ventura.control.service.adm.CompanyService;
 import com.ventura.control.service.adm.TypeUserService;
 import com.ventura.control.service.login.UserManager;
 
@@ -40,12 +38,6 @@ public class IndexController {
 
 	@Autowired
 	private TypeUserService typeUserService;
-
-	@Autowired
-	private CompanyService companyService;
-
-	@Autowired
-	private CenterService centerService;
 
 	/*
 	 * @Autowired private PermisoManager permisoManager;
@@ -65,7 +57,7 @@ public class IndexController {
 		} else {
 			User uss = userManager.val(user.getId(), user.getPass());
 			if (uss != null) {
-				if (uss.getType() != null) {
+				//if (uss.getType() != null) {
 					session ses = new session(uss.getId(), uss.getType().getId());
 					String ret = null;
 					List<Object> info = null;
@@ -73,22 +65,22 @@ public class IndexController {
 
 					System.out.print("Conectaras con ello"+uss.getType().getDescripcion());
 					
-					if (uss.getType().getDescripcion().equalsIgnoreCase("administrador")) {
+	//				if (uss.getType().getDescripcion().equalsIgnoreCase("administrador")) {
 						info = new LinkedList<Object>();
 						info.add(0, typeUserService.listTypeUser());
-						info.add(1, companyService.listCompany());
-						info.add(2, centerService.listCenter());
+		//				info.add(1, companyService.listCompany());
+			//			info.add(2, centerService.listCenter());
 						ret = "redirect:/admin/panel";
-					} else {
+		//			} else {
 						
-						ret = "redirect:/key/index";
-					}
+			//			ret = "redirect:/key/index";
+				//	}
 					ses.setInformacion(info);
 					model.addAttribute("user_inicio", ses);
 					return ret;
-				} else {
-					return "key/index";
-				}
+				//} else {
+					//return "key/index";
+//				}
 			} else {
 				model.addAttribute("user", new User());
 				model.addAttribute(

@@ -17,7 +17,6 @@ import org.springframework.web.bind.support.SessionStatus;
 import com.ventura.control.domain.login.User;
 import com.ventura.control.domain.session.session;
 import com.ventura.control.service.login.UserManager;
-import com.ventura.control.domain.adm.Company;
 import com.ventura.control.domain.adm.TypeUser;
 
 @Controller
@@ -58,13 +57,13 @@ public class AdminController {
 			Map<Integer, String> comp = new HashMap<Integer, String>();
 			Map<Integer, String> typ = new HashMap<Integer, String>();
 			List<TypeUser> types = (List<TypeUser>)(ses.getInformacion().get(0));
-			List<Company> companys = (List<Company>)(ses.getInformacion().get(1));
+			//List<Company> companys = (List<Company>)(ses.getInformacion().get(1));
 			for(TypeUser t: types) {
 				typ.put(t.getId(), t.getDescripcion());
 			}
-			for(Company com: companys) {
-				comp.put(com.getId(), com.getDescripcion());
-			}
+			//for(Company com: companys) {
+		//		comp.put(com.getId(), com.getDescripcion());
+			//}
 			model.addAttribute("listype", typ);
 			model.addAttribute("listcomp", comp);
 			return "admin/events/addUser";

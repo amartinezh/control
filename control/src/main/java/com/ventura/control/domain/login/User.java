@@ -18,10 +18,6 @@ import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.util.DigestUtils;
 
-import com.ventura.control.domain.adm.Center;
-import com.ventura.control.domain.adm.Company;
-import com.ventura.control.domain.adm.Currency;
-import com.ventura.control.domain.adm.Level;
 import com.ventura.control.domain.adm.TypeUser;
 
 @Entity
@@ -41,22 +37,6 @@ public class User implements Serializable {
     
     @ManyToOne
     private TypeUser type;
-     
-    @ManyToOne
-    private Level level;
-   
-    @ManyToOne
-    private Company comp;
-    
-    @ManyToOne
-    private Center cent;
-    
-    @ManyToOne
-    private Currency curr;
-    
-	public Currency getCurr() {
-		return curr;
-	}
 
 	public User() {
 		// TODO Auto-generated constructor stub
@@ -96,38 +76,10 @@ public class User implements Serializable {
     	return type;
    	}
     
-    public Center getCent() {
-		return cent;
-	}
-    
     public void setType(TypeUser type) {
 		this.type = type;
 	}
     
-    public Level getLevel() {
-		return level;
-	}
-    
-    public Company getComp() {
-		return comp;
-	}
-    
-    public void setLevel(Level level) {
-		this.level = level;
-	}
-    
-    public void setComp(Company comp) {
-		this.comp = comp;
-	}
-    
-    public void setCent(Center cent) {
-		this.cent = cent;
-	}
-    
-    public void setCurr(Currency curr) {
-		this.curr = curr;
-	}
-  
     public String toString() {
         StringBuffer buffer = new StringBuffer();
         buffer.append("Pass: " + pass + ";");

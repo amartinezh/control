@@ -29,7 +29,6 @@ CREATE SCHEMA control
 CREATE TABLE admin.type_users(
   id serial NOT NULL,
   descripcion character varying(30),
-  usu_id character varying(1),
   estado character varying(1),
   CONSTRAINT tip_id_pk PRIMARY KEY (id )
 )WITH (OIDS=FALSE); ALTER TABLE admin.type_users OWNER TO postgres;
@@ -39,7 +38,6 @@ CREATE TABLE admin.users(
   pass character varying(255) NOT NULL,
   persona_id character varying(64) NOT NULL,
   type_id integer,
-  usu_id character varying(1),
   estado character varying(1),
   CONSTRAINT users_pkey PRIMARY KEY (id ),
   CONSTRAINT fk6a68e0812ff7b56 FOREIGN KEY (type_id)
@@ -50,7 +48,6 @@ CREATE TABLE admin.users(
 CREATE TABLE admin.area(
   area_id serial NOT NULL,
   descripcion character varying(128),
-  usu_id character varying(1),
   estado character varying(1),
   CONSTRAINT area_pk PRIMARY KEY (area_id )
 )WITH ( OIDS=FALSE); ALTER TABLE admin.area OWNER TO postgres;
@@ -58,7 +55,6 @@ CREATE TABLE admin.area(
 CREATE TABLE admin.actividad(
   actividad_id serial NOT NULL,
   descripcion character varying(128),
-  usu_id character varying(1),
   estado character varying(1),
   CONSTRAINT actividad_pk PRIMARY KEY (actividad_id )
 )WITH ( OIDS=FALSE); ALTER TABLE admin.actividad OWNER TO postgres;
@@ -66,7 +62,6 @@ CREATE TABLE admin.actividad(
 CREATE TABLE admin.tipo_producto(
   tipo_producto_id serial NOT NULL,
   descripcion character varying(128),
-  usu_id character varying(1),
   estado character varying(1),
   CONSTRAINT tipoproducto_pk PRIMARY KEY (tipo_producto_id )
 )WITH ( OIDS=FALSE); ALTER TABLE admin.tipo_producto OWNER TO postgres;
@@ -74,7 +69,6 @@ CREATE TABLE admin.tipo_producto(
 CREATE TABLE admin.tipo_encomienda(
   tipo_encomienda_id serial NOT NULL,
   descripcion character varying(128),
-  usu_id character varying(1),
   estado character varying(1),
   CONSTRAINT tipoencomienda_pk PRIMARY KEY (tipo_encomienda_id )
 )WITH ( OIDS=FALSE); ALTER TABLE admin.tipo_encomienda OWNER TO postgres;
@@ -82,7 +76,6 @@ CREATE TABLE admin.tipo_encomienda(
 CREATE TABLE admin.tipo_persona(
   tipo_persona_id serial NOT NULL,
   descripcion character varying(128),
-  usu_id character varying(1),
   estado character varying(1),
   CONSTRAINT tipopersona_pk PRIMARY KEY (tipo_persona_id )
 )WITH ( OIDS=FALSE); ALTER TABLE admin.tipo_persona OWNER TO postgres;
@@ -90,7 +83,6 @@ CREATE TABLE admin.tipo_persona(
 CREATE TABLE admin.dependencia(
   dependencia_id serial NOT NULL,
   descripcion character varying(128),
-  usu_id character varying(1),
   estado character varying(1),
   CONSTRAINT dependencia_pk PRIMARY KEY (dependencia_id )
 )WITH ( OIDS=FALSE); ALTER TABLE admin.dependencia OWNER TO postgres;
@@ -98,7 +90,6 @@ CREATE TABLE admin.dependencia(
 CREATE TABLE admin.motivo_devolucion(
   motivo_devolucion_id serial NOT NULL,
   descripcion character varying(128),
-  usu_id character varying(1),
   estado character varying(1),
   CONSTRAINT motivo_devolucion_pk PRIMARY KEY (motivo_devolucion_id )
 )WITH ( OIDS=FALSE); ALTER TABLE admin.motivo_devolucion OWNER TO postgres;
@@ -106,7 +97,6 @@ CREATE TABLE admin.motivo_devolucion(
 CREATE TABLE admin.sitio(
   sitio_id serial NOT NULL,
   descripcion character varying(128),
-  usu_id character varying(1),
   estado character varying(1),
   CONSTRAINT sitio_pk PRIMARY KEY (sitio_id )
 )WITH ( OIDS=FALSE); ALTER TABLE admin.sitio OWNER TO postgres;
@@ -114,7 +104,6 @@ CREATE TABLE admin.sitio(
 CREATE TABLE admin.tipo_transaccion(
   tipo_transaccion_id serial NOT NULL,
   descripcion character varying(128),
-  usu_id character varying(1),
   estado character varying(1),
   CONSTRAINT tipotransaccion_pk PRIMARY KEY (tipo_transaccion_id )
 )WITH ( OIDS=FALSE); ALTER TABLE admin.tipo_transaccion OWNER TO postgres;
@@ -122,7 +111,6 @@ CREATE TABLE admin.tipo_transaccion(
 CREATE TABLE admin.turno(
   turno_id serial NOT NULL,
   descripcion character varying(128),
-  usu_id character varying(1),
   estado character varying(1),
   CONSTRAINT turno_pk PRIMARY KEY (turno_id )
 )WITH ( OIDS=FALSE); ALTER TABLE admin.turno OWNER TO postgres;
@@ -130,7 +118,6 @@ CREATE TABLE admin.turno(
 CREATE TABLE admin.origen(
   id_origen serial NOT NULL,
   descripcion character varying(128),
-  usu_id character varying(1),
   estado character varying(1),
   CONSTRAINT origen_pk PRIMARY KEY (id_origen )
 )WITH ( OIDS=FALSE); ALTER TABLE admin.origen OWNER TO postgres;
@@ -144,7 +131,6 @@ CREATE TABLE control.antecedente(
   scan_policia bytea,
   scan_fiscalia bytea,
   observaciones text,
-  usu_id character varying(1),
   estado character varying(1),
   CONSTRAINT antecedente_pk PRIMARY KEY (id_antecedente )
 )WITH ( OIDS=FALSE); ALTER TABLE control.antecedente OWNER TO postgres;
@@ -174,7 +160,6 @@ CREATE TABLE control.contratista(
   inventario text,
   scan_inventario bytea,
   observaciones text,
-  usu_id character varying(1),
   estado character varying(1),
   CONSTRAINT contratista_pk PRIMARY KEY (documento ),
   CONSTRAINT fk6a68e0814ff7b56 FOREIGN KEY (tipo_persona_id) REFERENCES admin.tipo_persona (tipo_persona_id) ON UPDATE NO ACTION ON DELETE NO ACTION,
@@ -203,7 +188,6 @@ CREATE TABLE control.visitante(
   inventario text,
   scan_inventario bytea,
   observaciones text,
-  usu_id character varying(1),
   estado character varying(1),
   CONSTRAINT visitante_pk PRIMARY KEY (documento ),
   CONSTRAINT fk4a68r0814ff7b56 FOREIGN KEY (tipo_persona_id) REFERENCES admin.tipo_persona (tipo_persona_id) ON UPDATE NO ACTION ON DELETE NO ACTION,
@@ -222,7 +206,6 @@ CREATE TABLE control.conductor(
   scan_cedula bytea,
   scan_huella bytea,
   observaciones text,
-  usu_id character varying(1),
   estado character varying(1),
   CONSTRAINT conductor_pk PRIMARY KEY (documento ),
   CONSTRAINT fk2a68h0814ff7b56 FOREIGN KEY (tipo_persona_id) REFERENCES admin.tipo_persona (tipo_persona_id) ON UPDATE NO ACTION ON DELETE NO ACTION,
@@ -240,7 +223,6 @@ CREATE TABLE control.presta_llave(
   quien_entrega character varying(128),
   quien_recibe character varying(128),
   observaciones text,
-  usu_id character varying(1),
   estado character varying(1),
   CONSTRAINT presta_llave_pk PRIMARY KEY (id ),
   CONSTRAINT fk6b68w0814ff2b56 FOREIGN KEY (dependencia_id) REFERENCES admin.dependencia (dependencia_id) ON UPDATE NO ACTION ON DELETE NO ACTION
@@ -256,7 +238,6 @@ CREATE TABLE control.horarios_habiles(
   fecha_entra date,
   fecha_sale date,
   observaciones text,
-  usu_id character varying(1),
   estado character varying(1),
   CONSTRAINT horario_pk PRIMARY KEY (id_horario )
 )WITH ( OIDS=FALSE); ALTER TABLE control.horarios_habiles OWNER TO postgres;
@@ -272,7 +253,6 @@ CREATE TABLE control.permisos(
   hora_salida time,
   recibido_por character varying(128),
   observaciones text,
-  usu_id character varying(1),
   estado character varying(1),
   CONSTRAINT permisos_pk PRIMARY KEY (id ),
   CONSTRAINT fk6b68w0834ff7b56 FOREIGN KEY (dependencia_id) REFERENCES admin.dependencia (dependencia_id) ON UPDATE NO ACTION ON DELETE NO ACTION
@@ -284,7 +264,6 @@ CREATE TABLE control.control_bus(
   id_origen serial,
   hora date,
   observaciones text,
-  usu_id character varying(1),
   estado character varying(1),
   CONSTRAINT control_bus_pk PRIMARY KEY (id )
 )WITH ( OIDS=FALSE); ALTER TABLE control.control_bus OWNER TO postgres;
@@ -298,7 +277,6 @@ CREATE TABLE control.control_taxi(
   hora_salida time,
   nombre_conductor character varying(128),
   observaciones text,
-  usu_id character varying(1),
   estado character varying(1),
   CONSTRAINT control_taxi_pk PRIMARY KEY (id ),
   CONSTRAINT fk6b68w0214ff7b56 FOREIGN KEY (dependencia_id) REFERENCES admin.dependencia (dependencia_id) ON UPDATE NO ACTION ON DELETE NO ACTION
@@ -315,7 +293,6 @@ CREATE TABLE control.minuta(
   area_id integer,	
   actividad_id integer,
   observaciones text,
-  usu_id character varying(1),
   estado character varying(1),
   CONSTRAINT minuta_pk PRIMARY KEY (id ),
   CONSTRAINT fk6e68w0816ff3b56 FOREIGN KEY (dependencia_id) REFERENCES admin.dependencia (dependencia_id) ON UPDATE NO ACTION ON DELETE NO ACTION,
@@ -333,7 +310,6 @@ CREATE TABLE control.caja_menor(
   valor bigint,
   hora_registro time,
   observaciones text,
-  usu_id character varying(1),
   estado character varying(1),
   CONSTRAINT caja_menor_pk PRIMARY KEY (id ),
   CONSTRAINT fk6e68w0816fg3b56 FOREIGN KEY (dependencia_id) REFERENCES admin.dependencia (dependencia_id) ON UPDATE NO ACTION ON DELETE NO ACTION 
@@ -352,7 +328,6 @@ CREATE TABLE control.devolucion(
   pacas character varying(128),
   elemnto character varying(128),
   observaciones text,
-  usu_id character varying(1),
   estado character varying(1),
   CONSTRAINT devolucion_pk PRIMARY KEY (id ),
   CONSTRAINT fk6e68w0116fg3b56 FOREIGN KEY (motivo_devolucion_id) REFERENCES admin.motivo_devolucion (motivo_devolucion_id) ON UPDATE NO ACTION ON DELETE NO ACTION
@@ -385,7 +360,6 @@ CREATE TABLE control.exportacion(
   sello_aleatorio character varying(128),
   vigilante_proteccion character varying(128),
   observaciones text,
-  usu_id character varying(1),
   estado character varying(1),
   CONSTRAINT exportacion_pk PRIMARY KEY (id),
   CONSTRAINT fk6e68w0116fg3r56 FOREIGN KEY (tipo_producto_id) REFERENCES admin.tipo_producto (tipo_producto_id)ON UPDATE NO ACTION ON DELETE NO ACTION 
@@ -406,7 +380,6 @@ CREATE TABLE control.correspondencia(
   empresa_transportadora character varying(128),
   corre_confirmacion character varying(128),
   observaciones text,
-  usu_id character varying(1),
   estado character varying(1),
   CONSTRAINT correspondencia_pk PRIMARY KEY (id ),
   CONSTRAINT fk6e68w6116fg3r56 FOREIGN KEY (tipo_encomienda_id) REFERENCES admin.tipo_encomienda (tipo_encomienda_id)ON UPDATE NO ACTION ON DELETE NO ACTION)WITH ( OIDS=FALSE); ALTER TABLE control.correspondencia OWNER TO postgres;

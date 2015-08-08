@@ -321,6 +321,29 @@
 								Gestionar Horarios Habiles</a></li>
 							<li><a target="des" href="<c:url value="/visitante_nov"/>"><i class="fa fa-share-alt"></i>
 								Gestionar Novedades</a></li>
+							<li><a target="des" href="<c:url value="/visitante_nov"/>"><i class="fa fa-share-alt"></i>
+								Tipo Visita</a></li>
+								<li>
+								<a href="#"><i class="fa fa-signal"></i>Reportes</a>
+								<ul>
+									<li>
+										<a target="des" href="<c:url value="/transporte_agregar_bus"/>"><i class="fa fa-signal"></i> 
+										Reporte Visitas Trabajador</a>
+									</li>	
+									<li>
+										<a target="des" href="<c:url value="/transporte_consultar_bus"/>"><i class="fa fa-signal"></i> 
+										Reporte Visitas Visitante</a>
+									</li>
+									<li>
+										<a target="des" href="<c:url value="/transporte_consultar_bus"/>"><i class="fa fa-signal"></i> 
+										Reporte Visitante en Planta</a>
+									</li>
+									<li>
+										<a target="des" href="<c:url value="/transporte_consultar_bus"/>"><i class="fa fa-signal"></i> 
+										Reporte Carnets No Devueltos</a>
+									</li>	
+								</ul>
+							</li>
 						</ul>
 					</li>
 					<li>
@@ -473,7 +496,171 @@
 								Estadisticas</a></li>
 						</ul>
 					</li>
-				
+					<li>
+						<a href="#"><i class="fa fa-lg fa-fw fa-sliders"></i>
+						<span class="menu-item-parent">Nomina</span></a>
+						<ul>
+							<li>
+								<a href="#"><i class="fa fa-recycle"></i>Procesos</a>
+								<ul>
+									<li>
+										<a target="des" href="<c:url value="/transporte_agregar_bus"/>"><i class="fa fa-sort-numeric-asc"></i> 
+										Calculo</a>
+									</li>	
+									<li>
+										<a target="des" href="<c:url value="/transporte_consultar_bus"/>"><i class="fa fa-signal"></i> 
+										Exportacion Resultados</a>
+									</li>
+									<li>
+										<a target="des" href="<c:url value="/transporte_consultar_bus"/>"><i class="fa fa-download"></i> 
+										Importacion Trabajadores</a>
+									</li>
+									<li>
+										<a target="des" href="<c:url value="/transporte_consultar_bus"/>"><i class="fa fa-download"></i> 
+										Importacion Trabajadores</a>
+									</li>
+								</ul>
+							</li>
+							<li>
+								<a href="#"><i class="fa fa-bar-chart-o"></i> Reportes</a>
+								<ul>
+									<li>
+										<a target="des" href="<c:url value="/transporte_agregar_taxi"/>"><i class="fa fa-list"></i>
+										Autorizaciones</a>
+									</li>	
+									<li>
+										<a target="des" href="<c:url value="/transporte_consultar_taxi"/>"><i class="fa fa-list"></i>
+										Movimiento Trabajador</a>
+									</li>
+									<li>
+										<a target="des" href="<c:url value="/transporte_consultar_taxi"/>"><i class="fa fa-list"></i>
+										Movimiento Terminan</a>
+									</li>
+									<li>
+										<a target="des" href="<c:url value="/transporte_consultar_taxi"/>"><i class="fa fa-list"></i>
+										Trabajadores por Grupo</a>
+									</li>
+									<li>
+										<a target="des" href="<c:url value="/transporte_consultar_taxi"/>"><i class="fa fa-list"></i>
+										Asistencia en Planta</a>
+									</li>
+									<li>
+										<a target="des" href="<c:url value="/transporte_consultar_taxi"/>"><i class="fa fa-list"></i>
+										Reporte de Auditoria</a>
+									</li>
+									<li>
+										<a target="des" href="<c:url value="/transporte_consultar_taxi"/>"><i class="fa fa-list"></i>
+										Permisos a Trabajadores</a>
+									</li>
+									<li>
+										<a target="des" href="<c:url value="/transporte_consultar_taxi"/>"><i class="fa fa-list"></i>
+										Usuarios</a>
+									</li>
+									<li>
+										<a target="des" href="<c:url value="/transporte_consultar_taxi"/>"><i class="fa fa-list"></i>
+										Perfiles Usuario</a>
+									</li>	
+								</ul>
+							</li>
+							<li>
+								<a href="#"><i class="fa fa-clock-o"></i>Horario</a>
+								<ul>
+									<li>
+										<a target="des" href="<c:url value="/transporte_agregar_taxi"/>"><i class="fa fa-clock-o"></i>
+										Horas Trabajadas</a>
+									</li>	
+									<li>
+										<a target="des" href="<c:url value="/transporte_consultar_taxi"/>"><i class="fa fa-clock-o"></i>
+										Carga Aprobaciones</a>
+									</li>
+									<li>
+										<a target="des" href="<c:url value="/transporte_consultar_taxi"/>"><i class="fa fa-calendar"></i>
+										Reporte Horas Trabajadas</a>
+									</li>
+									<li>
+										<a target="des" href="<c:url value="/transporte_consultar_taxi"/>"><i class="fa fa-calendar"></i>
+										Reporte Horas Trabajadas en Periodo</a>
+									</li>
+									<li>
+										<a target="des" href="<c:url value="/transporte_consultar_taxi"/>"><i class="fa fa-calendar"></i>
+										Resumen Horas Trabajadas en Periodo</a>
+									</li>
+									<li>
+										<a target="des" href="<c:url value="/transporte_consultar_taxi"/>"><i class="fa fa-calendar"></i>
+										Reporte Ausencia en Periodo</a>
+									</li>
+									<li>
+										<a target="des" href="<c:url value="/transporte_consultar_taxi"/>"><i class="fa fa-calendar"></i>
+										Detallado de Ausencias</a>
+									</li>
+									<li>
+										<a target="des" href="<c:url value="/transporte_consultar_taxi"/>"><i class="fa fa-calendar"></i>
+										Reporte Ausencias Justificadas</a>
+									</li>
+									<li>
+										<a target="des" href="<c:url value="/transporte_consultar_taxi"/>"><i class="fa fa-calendar"></i>
+										Reporte Asistencia Perfecta</a>
+									</li>
+									<li>
+										<a target="des" href="<c:url value="/transporte_consultar_taxi"/>"><i class="fa fa-calendar"></i>
+										Reporte Actualizaciones por Supervisor</a>
+									</li>
+									<li>
+										<a target="des" href="<c:url value="/transporte_consultar_taxi"/>"><i class="fa fa-calendar"></i>
+										Reporte Actualizaciones por Supervisor por Periodo</a>
+									</li>
+									<li>
+										<a target="des" href="<c:url value="/transporte_consultar_taxi"/>"><i class="fa fa-calendar"></i>
+										Reporte Sobretiempo Acumulado</a>
+									</li>
+									<li>
+										<a target="des" href="<c:url value="/transporte_consultar_taxi"/>"><i class="fa fa-calendar"></i>
+										Reporte Autorizaciones Pendientes</a>
+									</li>
+									<li>
+										<a target="des" href="<c:url value="/transporte_consultar_taxi"/>"><i class="fa fa-calendar"></i>
+										Reporte Autorizaciones Previas</a>
+									</li>
+								</ul>
+							</li>
+							<li>
+								<a href="#"><i class="fa fa-cutlery"></i>Comedores</a>
+								<ul>
+									<li>
+										<a target="des" href="<c:url value="/transporte_agregar_taxi"/>"><i class="fa fa-leaf"></i> 
+										Comidas Registradas</a>
+									</li>	
+									<li>
+										<a target="des" href="<c:url value="/transporte_consultar_taxi"/>"><i class="fa fa-fire"></i> 
+										Reporte Comidas Servidas</a>
+									</li>
+									<li>
+										<a target="des" href="<c:url value="/transporte_consultar_taxi"/>"><i class="fa fa-fire"></i> 
+										Reporte Comidas Periodo</a>
+									</li>
+									<li>
+										<a target="des" href="<c:url value="/transporte_consultar_taxi"/>"><i class="fa fa-fire"></i> 
+										Reporte Comidas Trabajador</a>
+									</li>
+									<li>
+										<a target="des" href="<c:url value="/transporte_consultar_taxi"/>"><i class="fa fa-fire"></i> 
+										Reporte Comidas Departamento</a>
+									</li>
+								</ul>
+							</li>
+							<li>
+								<a href="#"><i class="fa fa-male"></i>Visitantes</a>
+								<ul>
+									<li>
+										<a target="des" href="<c:url value="/transporte_agregar_taxi"/>"><i class="fa fa-arrow-up"></i> Registrar</a>
+									</li>	
+									<li>
+										<a target="des" href="<c:url value="/transporte_consultar_taxi"/>"><i class="fa fa-signal"></i> Consultas</a>
+									</li>	
+								</ul>
+							</li>
+						</ul>
+					</li>
 				</ul>
 			</nav>
 			<span class="minifyme" data-action="minifyMenu"> 

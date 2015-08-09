@@ -1,4 +1,8 @@
-<%@ include file="/WEB-INF/views/include.jsp"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html>
 <html lang="en-us">
 <head>
@@ -134,7 +138,7 @@
 										title="" data-placement="bottom"
 										data-original-title="Fullscreen"><i class="fa fa-expand "></i></a>
 								</div>
-								<h2> </h2>
+								<h2></h2>
 								<span class="jarviswidget-loader"><i
 									class="fa fa-refresh fa-spin"></i></span>
 							</header>
@@ -152,19 +156,21 @@
 								<!-- widget content -->
 								<div class="widget-body">
 
-									<form id="frm" method="post" novalidate="novalidate"
-										class="bv-form">
+									<form:form id="frm" method="post" novalidate="novalidate"
+										class="bv-form" ModelAttribute="dependencia"
+										commandName="dependencia">
 										<button type="submit" class="bv-hidden-submit"
 											style="display: none; width: 0px; height: 0px;"></button>
 
 										<fieldset>
-											<legend> Dependencias </legend>
+											<legend> Dependencia </legend>
 											<div class="form-group">
 												<div class="row">
 													<div class="col-md-12 has-feedback">
-														<label class="control-label">Descripci髇</label> 
-														<input type="text" class="form-control" name="descripcion"
-															id="descripcion" data-bv-field="Descripci髇" required>
+														<label class="control-label">Descripci贸n</label>
+														<form:input type="text" class="form-control"
+															path="descripcion" data-bv-field="Descripci贸n"
+															required="required" />
 													</div>
 												</div>
 											</div>
@@ -174,14 +180,15 @@
 										<div class="form-actions">
 											<div class="row">
 												<div class="col-md-12">
-													<button class="btn btn-success" type="submit">
+													<button class="btn btn-success" type="button"
+														onclick="saludar()">
 														<i class="fa fa-save"></i> Actualizar
 													</button>
 												</div>
 											</div>
 										</div>
 
-									</form>
+									</form:form>
 
 								</div>
 								<!-- end widget content -->
@@ -200,10 +207,11 @@
 
 			</section>
 			<!-- end widget grid -->
-			
+
 			<div
 				class="jarviswidget jarviswidget-color-blueDark jarviswidget-sortable"
-				id="wid-id-1" data-widget-editbutton="false" data-widget-editbutton="true" role="widget">
+				id="wid-id-1" data-widget-editbutton="false"
+				data-widget-editbutton="true" role="widget">
 				<!-- widget options:
 								usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
 				
@@ -218,12 +226,14 @@
 				
 								-->
 				<header role="heading">
-			
+
 					<span class="widget-icon"> <i class="fa fa-table"></i>
 					</span>
-					<h2>Herramientas</h2>
+					<h2>Dependencias</h2>
 
-					<span class="jarviswidget-loader"><i class="fa fa-refresh fa-spin"></i></span></header>
+					<span class="jarviswidget-loader"><i
+						class="fa fa-refresh fa-spin"></i></span>
+				</header>
 
 				<!-- widget div-->
 				<div role="content">
@@ -248,79 +258,34 @@
 								style="width: 100%;">
 
 								<thead>
-									<!-- <tr role="row">
-										<th class="hasinput" style="width: 17%" rowspan="1"
-											colspan="1"><input type="text" class="form-control"
-											placeholder="Filtro Descripci贸n"></th>
-										
-									</tr>   -->
+
 									<tr role="row">
 
 										<th data-hide="cmd" class="sorting_asc" tabindex="0"
-											aria-controls="dt_basic" 
-											aria-sort="ascending"
+											aria-controls="dt_basic" aria-sort="ascending"
 											aria-label="ID: activate to sort column ascending"
 											style="width: 15px;"></th>
 
 										<th data-class="expand" class="sorting_asc" tabindex="1"
-											aria-controls="dt_basic" 
-											colspan="1" aria-sort="ascending"
+											aria-controls="dt_basic" colspan="1" aria-sort="ascending"
 											aria-label="Name: activate to sort column ascending"
-											style="width: 540px;">Descripci髇</th>
+											style="width: 540px;">Descripci贸n</th>
 									</tr>
 								</thead>
 
 								<tbody>
-
-									<tr role="row" class="odd">
-										<td class="sorting_1"><span class="responsiveExpander"></span> 
-											<a class="btn btn-success btn-circle btn-sx"
-												href="javascript:void(0);"><i class="fa fa-edit"></i></a> 
-											<a class="btn btn-danger btn-circle" 
-												href="javascript:void(0);"><i class="fa fa-trash-o"></i></a>
-									 	</td>
-										<td class="sorting_1"><span class="responsiveExpander"></span>A</td>
-
-									</tr>
-									<tr role="row" class="even">
-										<td class="sorting_1"><span class="responsiveExpander"></span> 
-											<a class="btn btn-success btn-circle btn-sx"
-												href="javascript:void(0);"><i class="fa fa-edit"></i></a> 
-											<a class="btn btn-danger btn-circle" 
-												href="javascript:void(0);"><i class="fa fa-trash-o"></i></a>
-									 	</td>
-										<td class="sorting_1"><span class="responsiveExpander"></span>B</td>
-
-									</tr>
-									<tr role="row" class="odd">
-										<td class="sorting_1"><span class="responsiveExpander"></span> 
-											<a class="btn btn-success btn-circle btn-sx"
-												href="javascript:void(0);"><i class="fa fa-edit"></i></a> 
-											<a class="btn btn-danger btn-circle" 
-												href="javascript:void(0);"><i class="fa fa-trash-o"></i></a>
-									 	</td>
-										<td class="sorting_1"><span class="responsiveExpander"></span>C</td>
-									</tr>
-
-									<tr role="row" class="even">
-										<td class="sorting_1"><span class="responsiveExpander"></span> 
-											<a class="btn btn-success btn-circle btn-sx"
-												href="javascript:void(0);"><i class="fa fa-edit"></i></a> 
-											<a class="btn btn-danger btn-circle" 
-												href="javascript:void(0);"><i class="fa fa-trash-o"></i></a>
-									 	</td>
-										<td class="sorting_1"><span class="responsiveExpander"></span>D</td>
-									</tr>
-									<tr role="row" class="odd">
-										<td class="sorting_1"><span class="responsiveExpander"></span> 
-											<a class="btn btn-success btn-circle btn-sx"
-												href="javascript:void(0);"><i class="fa fa-edit"></i></a> 
-											<a class="btn btn-danger btn-circle" 
-												href="javascript:void(0);"><i class="fa fa-trash-o"></i></a>
-									 	</td>
-										<td class="sorting_1"><span class="responsiveExpander"></span>E</td>
-									</tr>
-
+									<c:forEach items="${listDependencia}" var="dep"
+										varStatus="loopCounter">
+										<tr role="row" class="odd">
+											<td class="sorting_1"><span class="responsiveExpander"></span>
+												<a class="btn btn-success btn-circle btn-sx"
+												href="javascript:void(0);"><i class="fa fa-edit"></i></a> <a
+												class="btn btn-danger btn-circle" href="javascript:void(0);"><i
+													class="fa fa-trash-o"></i></a></td>
+											<td class="sorting_1"><span class="responsiveExpander"></span>
+												<c:out value="${dep.descripcion}"></c:out></td>
+										</tr>
+									</c:forEach>
 								</tbody>
 
 							</table>
@@ -359,7 +324,9 @@
 		src="<c:url value="/resources/js/plugin/pace/pace.min.js" />"></script>
 
 	<!-- Link to Google CDN's jQuery + jQueryUI; fall back to local -->
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js">
+	<script
+		src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js">
+		
 	</script>
 	<script>
 		if (!window.jQuery) {
@@ -452,7 +419,7 @@
 		src="<c:url value="/resources/js/smart-chat-ui/smart.chat.manager.min.js" />"></script>
 	-->
 	<!-- PAGE RELATED PLUGIN(S) -->
-	
+
 	<script
 		src="<c:url value="/resources/js/plugin/bootstrapvalidator/bootstrapValidator.min.js" />"></script>
 	<script
@@ -688,8 +655,7 @@
 							/* END TABLETOOLS */
 
 						});
-	
-	
+
 		$('#frm').bootstrapValidator({
 			feedbackIcons : {
 				valid : 'glyphicon glyphicon-ok',
@@ -709,7 +675,7 @@
 						}
 					}
 				},
-				
+
 				observaciones : {
 					group : '.col-md-8',
 					validators : {
@@ -720,6 +686,20 @@
 				}
 			}
 		});
+		function saludar() {
+			$.ajax({
+				type : 'POST',
+				url : "/saludar",
+				data : {
+					saludo : $("#descripcion").val()
+				},
+				success : function(data) {
+					//		            $("#rpta_servidor").html(data);
+					alert("hola");
+				}
+			});
+
+		}
 	</script>
 
 	<!-- Your GOOGLE ANALYTICS CODE Below -->

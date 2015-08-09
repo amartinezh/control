@@ -78,50 +78,6 @@
 
 </head>
 
-<!--
-
-	TABLE OF CONTENTS.
-	
-	Use search to find needed section.
-	
-	===================================================================
-	
-	|  01. #CSS Links                |  all CSS links and file paths  |
-	|  02. #FAVICONS                 |  Favicon links and file paths  |
-	|  03. #GOOGLE FONT              |  Google font link              |
-	|  04. #APP SCREEN / ICONS       |  app icons, screen backdrops   |
-	|  05. #BODY                     |  body tag                      |
-	|  06. #HEADER                   |  header tag                    |
-	|  07. #PROJECTS                 |  project lists                 |
-	|  08. #TOGGLE LAYOUT BUTTONS    |  layout buttons and actions    |
-	|  09. #MOBILE                   |  mobile view dropdown          |
-	|  10. #SEARCH                   |  search field                  |
-	|  11. #NAVIGATION               |  left panel & navigation       |
-	|  12. #RIGHT PANEL              |  right panel userlist          |
-	|  13. #MAIN PANEL               |  main panel                    |
-	|  14. #MAIN CONTENT             |  content holder                |
-	|  15. #PAGE FOOTER              |  page footer                   |
-	|  16. #SHORTCUT AREA            |  dropdown shortcuts area       |
-	|  17. #PLUGINS                  |  all scripts and plugins       |
-	
-	===================================================================
-	
-	-->
-
-<!-- #BODY -->
-<!-- Possible Classes
-
-		* 'smart-style-{SKIN#}'
-		* 'smart-rtl'         - Switch theme mode to RTL
-		* 'menu-on-top'       - Switch to top navigation (no DOM change required)
-		* 'no-menu'			  - Hides the menu completely
-		* 'hidden-menu'       - Hides the main menu but still accessable by hovering over left edge
-		* 'fixed-header'      - Fixes the header
-		* 'fixed-navigation'  - Fixes the main menu
-		* 'fixed-ribbon'      - Fixes breadcrumb
-		* 'fixed-page-footer' - Fixes footer
-		* 'container'         - boxed layout mode (non-responsive: will not work with fixed-navigation & fixed-ribbon)
-	-->
 <body class="">
 
 	<!-- HEADER -->
@@ -196,8 +152,8 @@
 								<!-- widget content -->
 								<div class="widget-body">
 
-									<!-- <form id="movieForm" method="post" novalidate="novalidate" class="bv-form">  -->
-									<form:form method="POST" action="validar" ModelAttribute="user" commandName="user" class="bv-form">
+									<!--  <form id="frm" method="post" novalidate="novalidate" class="bv-form"> -->
+									<form:form id="frm" method="POST" action="add" ModelAttribute="area" commandName="area" class="bv-form">
 										<button type="submit" class="bv-hidden-submit"
 											style="display: none; width: 0px; height: 0px;"></button>
 
@@ -206,21 +162,10 @@
 											<div class="form-group">
 												<div class="row">
 													<div class="col-md-12 has-feedback">
-														<label class="control-label">Descripción</label> <input
-															type="text" class="form-control" name="title"
-															data-bv-field="title"> 
-															<i
-															class="form-control-feedback" data-bv-icon-for="title"
-															style="display: none;"></i> <small class="help-block"
-															data-bv-validator="notEmpty" data-bv-for="title"
-															data-bv-result="NOT_VALIDATED" style="display: none;">The
-															title is required</small><small class="help-block"
-															data-bv-validator="stringLength" data-bv-for="title"
-															data-bv-result="NOT_VALIDATED" style="display: none;">The
-															title must be less than 200 characters long</small>
+														<label class="control-label">Descripción</label> 
+														<input type="text" class="form-control" name="descripcion"
+															id="descripcion" data-bv-field="Descripción" required>
 													</div>
-
-
 												</div>
 											</div>
 										</fieldset>
@@ -229,16 +174,15 @@
 										<div class="form-actions">
 											<div class="row">
 												<div class="col-md-12">
-													<button class="btn btn-default" type="submit">
+													<button class="btn btn-success" type="submit">
 														<i class="fa fa-save"></i> Actualizar
 													</button>
 												</div>
 											</div>
 										</div>
 
-									<!--  </form>  -->
+									<!--  </form> -->
 									</form:form>
-
 								</div>
 								<!-- end widget content -->
 
@@ -409,9 +353,7 @@
 		-->
 
 	<!-- END SHORTCUT AREA -->
-
 	<!--================================================== -->
-
 	<!-- PACE LOADER - turn this on if you want ajax loading to show (caution: uses lots of memory on iDevices)-->
 	<script data-pace-options='{ "restartOnRequestAfter": true }'
 		src="<c:url value="/resources/js/plugin/pace/pace.min.js" />"></script>
@@ -475,8 +417,8 @@
 		src="<c:url value="/resources/js/plugin/select2/select2.min.js" />"></script>
 
 	<!-- JQUERY UI + Bootstrap Slider -->
-	<script
-		src="<c:url value="/resources/js/plugin/bootstrap-slider/bootstrap-slider.min.js" />"></script>
+	<!-- <script
+		src="<c:url value="/resources/js/plugin/bootstrap-slider/bootstrap-slider.min.js" />"></script> -->
 
 	<!-- browser msie issue fix -->
 	<script
@@ -510,6 +452,9 @@
 		src="<c:url value="/resources/js/smart-chat-ui/smart.chat.manager.min.js" />"></script>
 	-->
 	<!-- PAGE RELATED PLUGIN(S) -->
+	
+	<script
+		src="<c:url value="/resources/js/plugin/bootstrapvalidator/bootstrapValidator.min.js" />"></script>
 	<script
 		src="<c:url value="/resources/js/plugin/datatables/jquery.dataTables.min.js" />"></script>
 	<script
@@ -742,7 +687,39 @@
 
 							/* END TABLETOOLS */
 
-						})
+						});
+	
+	
+		$('#frm').bootstrapValidator({
+			feedbackIcons : {
+				valid : 'glyphicon glyphicon-ok',
+				invalid : 'glyphicon glyphicon-remove',
+				validating : 'glyphicon glyphicon-refresh'
+			},
+			fields : {
+				descripcion : {
+					group : '.col-md-12',
+					validators : {
+						notEmpty : {
+							message : 'Campo requierido'
+						},
+						stringLength : {
+							max : 200,
+							message : 'De ser menor a 200 caracteres'
+						}
+					}
+				},
+				
+				observaciones : {
+					group : '.col-md-8',
+					validators : {
+						notEmpty : {
+							message : 'Campo requierido'
+						}
+					}
+				}
+			}
+		});
 	</script>
 
 	<!-- Your GOOGLE ANALYTICS CODE Below -->

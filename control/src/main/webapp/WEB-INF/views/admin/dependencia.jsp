@@ -701,6 +701,16 @@
 			});
 
 		}
+		
+		function saludar2() {
+			alert("hola_22");
+			$.post("dependencia/agregar", {
+				variable_enviada: 'el dato que llegará allá en el programa'
+				}, 
+				function(result){
+	           		 $("#descripcion").html(result);
+	        });
+		}
 	</script>
 
 	<!-- Your GOOGLE ANALYTICS CODE Below -->

@@ -170,6 +170,7 @@ CREATE TABLE control.contratista(
   CONSTRAINT fk4b68e0914ff7b56 FOREIGN KEY (id_antecedente) REFERENCES control.antecedente (id_antecedente) ON UPDATE NO ACTION ON DELETE NO ACTION
 )WITH ( OIDS=FALSE); ALTER TABLE control.contratista OWNER TO postgres;
 
+------ N O M I N A --------------------------------------------
 CREATE TABLE admin.compania(
   compania_id serial NOT NULL,
   descripcion character varying(128),
@@ -177,6 +178,24 @@ CREATE TABLE admin.compania(
   CONSTRAINT compania_pk PRIMARY KEY (compania_id)
 )WITH ( OIDS=FALSE); ALTER TABLE admin.compania OWNER TO postgres;
 
+CREATE TABLE nomina.festivos(
+  festivos_id serial NOT NULL,
+  descripcion character varying(128),
+  fecha date,
+  dia_feriado_movil boolean,
+  estado character varying(1),
+  CONSTRAINT festivos_pk PRIMARY KEY (festivos_id)
+)WITH ( OIDS=FALSE); ALTER TABLE nomina.festivos OWNER TO postgres;
+
+CREATE TABLE nomina.calendarios_feriados(
+  calendarios_feriados_id serial NOT NULL,
+  festivos_id integer,
+  estado character varying(1),
+  CONSTRAINT calendarios_feriados_pk PRIMARY KEY (calendarios_feriados_id, festivos_id),
+  CONSTRAINT fk6a63e0814ff7b56 FOREIGN KEY (festivos_id) REFERENCES nomina.festivos (festivos_id) ON UPDATE NO ACTION ON DELETE NO ACTION
+)WITH ( OIDS=FALSE); ALTER TABLE nomina.calendarios_feriados OWNER TO postgres;
+
+-- Pendiente el sobretiempo y las comidas
 CREATE TABLE nomina.tipo_trabajador(
   tipo_trabajador_id serial NOT NULL,
   descripcion character varying(128),
@@ -184,7 +203,8 @@ CREATE TABLE nomina.tipo_trabajador(
   genera_sobretiempo boolean,
   genera_horas_ausencia boolean,
   calcula_horas_en_terminales_de_acceso boolean,
-  
+  horario_fexible boolean,
+  descuenta_salidas_intermedios boolean,
   estado character varying(1),
   CONSTRAINT tipo_trabajador_pk PRIMARY KEY (tipo_trabajador_id)
 )WITH ( OIDS=FALSE); ALTER TABLE nomina.tipo_trabajador OWNER TO postgres;
@@ -196,19 +216,69 @@ CREATE TABLE nomina.cargo(
   CONSTRAINT cargo_pk PRIMARY KEY (cargo_id)
 )WITH ( OIDS=FALSE); ALTER TABLE nomina.cargo OWNER TO postgres;
 
+-- Pendiente Variaciones, Parámetros
 CREATE TABLE nomina.horario(
   horario_id serial NOT NULL,
   descripcion character varying(128),
+  comienzo_jornada integer,
+  comienzo_comida integer,
+  tiempo_comer integer,
+  final_comida integer,
+  final_jornada integer,
+  descanso_lunes boolean,
+  descanso_martes boolean,
+  descanso_miercoles boolean,
+  descanso_nueves boolean,
+  descanso_viernes boolean,
+  descanso_sabado boolean,
+  descanso_domingo boolean,
   estado character varying(1),
   CONSTRAINT horario_pk PRIMARY KEY (horario_id)
 )WITH ( OIDS=FALSE); ALTER TABLE nomina.horario OWNER TO postgres;
 
+CREATE TABLE nomina.tipo_rotacion(
+  tipo_rotacion_id serial NOT NULL,
+  descripcion character varying(128),
+  estado character varying(1),
+  CONSTRAINT tipo_rotacion_pk PRIMARY KEY (tipo_rotacion_id)
+)WITH ( OIDS=FALSE); ALTER TABLE nomina.tipo_rotacion OWNER TO postgres;
+
+CREATE TABLE nomina.item_rotacion(
+  rotacion_id integer,
+  item_rotacion_id integer,
+  horario_id integer,
+  fecha_comienzo date,
+  descripcion character varying(128),
+  estado character varying(1),
+  CONSTRAINT item_rotacion_pk PRIMARY KEY (item_rotacion_id, rotacion_id),
+  CONSTRAINT fk6a68e0814fb7f51 FOREIGN KEY (horario_id) REFERENCES nomina.horario (horario_id) ON UPDATE NO ACTION ON DELETE NO ACTION
+)WITH ( OIDS=FALSE); ALTER TABLE nomina.item_rotacion OWNER TO postgres;
+
+-- Pendiente Horarios adicionales, calendario
 CREATE TABLE nomina.rotacion(
   rotacion_id serial NOT NULL,
   descripcion character varying(128),
+  tipo_rotacion_id integer,
+  secuencia integer,
+  dias_por_grupo integer,
+  cantidad_horario integer,
+  item_rotacion_id integer,
   estado character varying(1),
-  CONSTRAINT rotacion_pk PRIMARY KEY (rotacion_id)
+  CONSTRAINT rotacion_pk PRIMARY KEY (rotacion_id),
+  CONSTRAINT fk6a68e0814fb7b56 FOREIGN KEY (tipo_rotacion_id) REFERENCES nomina.tipo_rotacion (tipo_rotacion_id) ON UPDATE NO ACTION ON DELETE NO ACTION
 )WITH ( OIDS=FALSE); ALTER TABLE nomina.rotacion OWNER TO postgres;
+ALTER TABLE nomina.rotacion ADD CONSTRAINT fk6a68e08dffb7f51 FOREIGN KEY (rotacion_id) REFERENCES nomina.rotacion (rotacion_id) ON UPDATE NO ACTION ON DELETE NO ACTION;
+
+CREATE TABLE nomina.comedor(
+  comedor_id serial NOT NULL,
+  descripcion character varying(128),
+  hora_inicio_lunch integer,
+  hora_fin_lunch integer,
+  costo_lunch integer,
+  costo_comida integer,
+  estado character varying(1),
+  CONSTRAINT comedor_pk PRIMARY KEY (comedor_id)
+)WITH ( OIDS=FALSE); ALTER TABLE nomina.comedor OWNER TO postgres;
 
 CREATE TABLE nomina.sucursal(
   sucursal_id serial NOT NULL,
@@ -217,12 +287,45 @@ CREATE TABLE nomina.sucursal(
   CONSTRAINT sucursal_pk PRIMARY KEY (sucursal_id)
 )WITH ( OIDS=FALSE); ALTER TABLE nomina.sucursal OWNER TO postgres;
 
+CREATE TABLE nomina.terminal(
+  terminal_id serial NOT NULL,
+  descripcion character varying(128),
+  ip character varying(25),
+  estado character varying(1),
+  CONSTRAINT terminal_pk PRIMARY KEY (terminal_id)
+)WITH ( OIDS=FALSE); ALTER TABLE nomina.terminal OWNER TO postgres;
+
 CREATE TABLE nomina.puesto(
   puesto_id serial NOT NULL,
   descripcion character varying(128),
   estado character varying(1),
   CONSTRAINT puesto_pk PRIMARY KEY (puesto_id)
 )WITH ( OIDS=FALSE); ALTER TABLE nomina.puesto OWNER TO postgres;
+
+CREATE TABLE nomina.grupo_supervision(
+  grupo_supervision_id serial NOT NULL,
+  descripcion character varying(128),
+  estado character varying(1),
+  CONSTRAINT grupo_supervision_pk PRIMARY KEY (grupo_supervision_id)
+)WITH ( OIDS=FALSE); ALTER TABLE nomina.grupo_supervision OWNER TO postgres;
+
+-- Crear un árbol organizacional
+CREATE TABLE nomina.gerente(
+  gerente_id serial NOT NULL,
+  descripcion character varying(128),
+  estado character varying(1),
+  CONSTRAINT gerente_pk PRIMARY KEY (gerente_id)
+)WITH ( OIDS=FALSE); ALTER TABLE nomina.gerente OWNER TO postgres;
+
+CREATE TABLE nomina.grupo_gerente(
+  gerente_id serial NOT NULL,
+  grupo_supervision_id integer,
+  descripcion character varying(128),
+  estado character varying(1),
+  CONSTRAINT grupo_gerente_pk PRIMARY KEY (gerente_id),
+  CONSTRAINT fk6a68e0814fb7b53 FOREIGN KEY (gerente_id) REFERENCES nomina.gerente (gerente_id) ON UPDATE NO ACTION ON DELETE NO ACTION,
+  CONSTRAINT fk6a68e0814fb7b54 FOREIGN KEY (grupo_supervision_id) REFERENCES nomina.grupo_supervision (grupo_supervision_id) ON UPDATE NO ACTION ON DELETE NO ACTION
+)WITH ( OIDS=FALSE); ALTER TABLE nomina.gerente OWNER TO postgres;
 
 CREATE TABLE nomina.grupo(
   grupo_id serial NOT NULL,
@@ -279,6 +382,8 @@ CREATE TABLE nomina.trabajador(
   CONSTRAINT fk6b68e0614ff7b61 FOREIGN KEY (puesto_id) REFERENCES nomina.puesto (puesto_id) ON UPDATE NO ACTION ON DELETE NO ACTION,
   CONSTRAINT fk6b68e0614ff7b62 FOREIGN KEY (cargo_id) REFERENCES nomina.cargo (cargo_id) ON UPDATE NO ACTION ON DELETE NO ACTION
 )WITH ( OIDS=FALSE); ALTER TABLE nomina.trabajador OWNER TO postgres;
+ALTER TABLE nomina.trabajador ADD CONSTRAINT fk6a68e0814fb7b56 FOREIGN KEY (codigo_trabajador) REFERENCES nomina.trabajador (codigo_trabajador) ON UPDATE NO ACTION ON DELETE NO ACTION;
+ALTER TABLE nomina.grupo_trabajador ADD CONSTRAINT fk6a68e0814fb7f53 FOREIGN KEY (grupo_id) REFERENCES nomina.grupo (grupo_id) ON UPDATE NO ACTION ON DELETE NO ACTION;
 
 CREATE TABLE nomina.tipo_permiso(
   tipo_permiso_id serial NOT NULL,
@@ -319,6 +424,7 @@ CREATE TABLE nomina.permiso_grupo(
   CONSTRAINT fk6b68e0614ff7b63 FOREIGN KEY (horario_id_para_permiso) REFERENCES nomina.horario (horario_id) ON UPDATE NO ACTION ON DELETE NO ACTION
 )WITH ( OIDS=FALSE); ALTER TABLE nomina.permiso_grupo OWNER TO postgres;
 
+----- C O N T R O L ---------------------------------------
 CREATE TABLE control.visitante(
   documento character varying(64) NOT NULL,
   nombre_completo character varying(128),

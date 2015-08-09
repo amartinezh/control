@@ -687,15 +687,16 @@
 			}
 		});
 		function saludar() {
+			alert("hola");
 			$.ajax({
-				type : 'POST',
-				url : "/saludar",
+				type : "POST",
+				url : "dependencia/agregar",
 				data : {
 					saludo : $("#descripcion").val()
 				},
 				success : function(data) {
 					//		            $("#rpta_servidor").html(data);
-					alert("hola");
+					
 				}
 			});
 

@@ -26,5 +26,12 @@ public class DependenciaController {
 		return "admin/dependencia";
 	}
 	
+	@RequestMapping(value="agregar", method= RequestMethod.POST) 
+	public String agregar(Map<String, Object> model) {
+		//model.put("dependencia", new Dependencia());
+		//model.put("listDependencia", dependencia.listarDependencias());
+		return "admin/dependencia";
+	}
+	
 	
 }

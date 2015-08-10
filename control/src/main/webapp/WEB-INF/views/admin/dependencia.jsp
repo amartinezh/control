@@ -251,7 +251,7 @@
 						<div id="datatable_fixed_column_wrapper"
 							class="dataTables_wrapper form-inline no-footer">
 
-							<table id="datatable_fixed_column"
+							<table id="datatable_fixed_column" name="datatable_fixed_column"
 								class="table table-striped table-bordered dataTable no-footer"
 								width="100%" role="grid"
 								aria-describedby="datatable_fixed_column_info"
@@ -273,7 +273,7 @@
 									</tr>
 								</thead>
 
-								<tbody id="info" name="info">
+								<tbody>
 									<c:forEach items="${listDependencia}" var="dep"
 										varStatus="loopCounter">
 										<tr role="row" class="odd">
@@ -696,7 +696,7 @@
 				},
 				success : function(data) {					
 					document.getElementById('descripcion').value = "";
-					 $("#info").html(data);					
+					 $("#datatable_fixed_column").append(data);					
 				}
 			});
 

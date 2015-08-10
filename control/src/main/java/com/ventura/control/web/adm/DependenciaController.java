@@ -35,10 +35,18 @@ public class DependenciaController {
 		dependencia.agregarDependencia(dep);
 		// model.put("dependencia", new Dependencia());
 		// model.put("listDependencia", dependencia.listarDependencias());
-		return "<tr role='row' class='odd'><td class='sorting_1'><span class='responsiveExpander'></span><a class='btn btn-success btn-circle btn-sx'"
-				+ "href='javascript:void(0);'><i class='fa fa-edit'></i></a> <a class='btn btn-danger btn-circle' href='javascript:void(0);'><i class='fa fa-trash-o'></i></a></td>"
-				+ "<td class='sorting_1'><span class='responsiveExpander'></span>"
-				+ descripcion + "</td>	</tr>";
+		return "<span class='responsiveExpander'></span><a class='btn btn-success btn-circle btn-sx'"
+				+ "href='javascript:con("+dep.getDependencia_id()+");'><i class='fa fa-edit'></i></a> <a class='btn btn-danger btn-circle' href='javascript:del("+dep.getDependencia_id()+");'><i class='fa fa-trash-o'></i></a>"
+				+ "<span class='responsiveExpander'></span>:::"
+				+ descripcion + "";
+	}
+	
+	@RequestMapping(value = "borrar", method = RequestMethod.POST)
+	public @ResponseBody String borrar(@RequestParam String descripcion,
+			Map<String, Object> model) {
+		Dependencia dep = new Dependencia(0, descripcion);
+		dependencia.borrarDependencia(dep);
+		return "";
 	}
 
 }

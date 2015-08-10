@@ -21,6 +21,11 @@ public class DependenciaServiceImpl implements DependeciaService {
 	public void agregarDependencia(Dependencia dependencia) {
 		dependenciaDao.agregar(dependencia);
 	}
+	
+	@Transactional
+	public void borrarDependencia(Dependencia dependencia) {
+		dependenciaDao.borrar(dependencia);
+	}
 
 	@Transactional
 	public List<Dependencia> listarDependencias() {

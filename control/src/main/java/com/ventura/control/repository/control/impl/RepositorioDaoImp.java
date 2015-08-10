@@ -29,6 +29,11 @@ public class RepositorioDaoImp implements RepositorioDao {
 	public void agregar(Object obj) {
 		em.persist(obj);
 	}
+	
+	@Transactional(propagation = Propagation.REQUIRED)
+	public void borrar(Object obj) {
+		em.remove(obj);
+	}
 
 	@SuppressWarnings("unchecked")
 	public List<Object[]> listar(String sql) {

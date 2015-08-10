@@ -696,20 +696,25 @@
 				},
 				success : function(data) {					
 					document.getElementById('descripcion').value = "";
-					 $("#datatable_fixed_column").append(data);					
+					 var res = data.split(":::");
+					 $('#datatable_fixed_column').dataTable().fnAddData( [res[0],res[1]] );
 				}
 			});
-
 		}
 		
-		function saludar2() {
-			alert("hola_22");
-			$.post("dependencia/agregar", {
-				variable_enviada: 'el dato que llegará allá en el programa'
+		function del(dato) {
+			alert("borrando");
+			$.post("dependencia/borrar", {
+				dependencia_id: dato
 				}, 
 				function(result){
-	           		 $("#descripcion").html(result);
+	           		 alert('Borrado');
 	        });
+		}
+		
+		function con(dato) {
+			alert("consultando");
+			document.getElementById('descripcion').value=dato;
 		}
 	</script>
 

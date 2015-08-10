@@ -280,7 +280,7 @@
 											<td class="sorting_1"><span class="responsiveExpander"></span>
 												<a class="btn btn-success btn-circle btn-sx"
 												href="javascript:void(0);"><i class="fa fa-edit"></i></a> <a
-												class="btn btn-danger btn-circle" href="javascript:void(0);"><i
+												class="btn btn-danger btn-circle" onclick="del(<c:out value="${dep.dependencia_id}"></c:out>)"><i
 													class="fa fa-trash-o"></i></a></td>
 											<td class="sorting_1"><span class="responsiveExpander"></span>
 												<c:out value="${dep.descripcion}"></c:out></td>
@@ -698,18 +698,27 @@
 					document.getElementById('descripcion').value = "";
 					 var res = data.split(":::");
 					 $('#datatable_fixed_column').dataTable().fnAddData( [res[0],res[1]] );
+				},
+				error : function(data) {
+					alert("Error agregando");
 				}
 			});
 		}
 		
 		function del(dato) {
-			alert("borrando");
-			$.post("dependencia/borrar", {
-				dependencia_id: dato
-				}, 
-				function(result){
-	           		 alert('Borrado');
-	        });
+			$.ajax({
+				type : "POST",
+				url : "dependencia/borrar",
+				data : {
+					dependencia_id : dato
+				},
+				success : function(data) {					
+					alert("ok");
+				},
+				error : function(data) {
+					alert("Error eliminando");
+				}
+			});
 		}
 		
 		function con(dato) {

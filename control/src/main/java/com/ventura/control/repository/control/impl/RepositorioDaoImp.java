@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.ventura.control.domain.adm.TypeUser;
 import com.ventura.control.repository.control.RepositorioDao;
 
 @Repository
@@ -38,6 +39,11 @@ public class RepositorioDaoImp implements RepositorioDao {
 	@SuppressWarnings("unchecked")
 	public List<Object[]> listar(String sql) {
 		return em.createQuery(sql).getResultList();
+	}
+	
+	@Transactional(propagation = Propagation.REQUIRED)
+	public Object getElemento(Object obj, int id) {
+		return em.find(obj.getClass(), id);		
 	}
 
 }

@@ -38,6 +38,10 @@ public class Dependencia implements Serializable{
 		// TODO Auto-generated constructor stub
 	}
 	
+	public Dependencia(int dependencia_id) {
+		this.dependencia_id = dependencia_id;
+	}
+	
 	public Dependencia(int dependencia_id, String descripcion) {
 		this.dependencia_id = dependencia_id;
 		this.descripcion = descripcion;

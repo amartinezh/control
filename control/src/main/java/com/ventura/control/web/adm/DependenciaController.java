@@ -36,15 +36,15 @@ public class DependenciaController {
 		// model.put("dependencia", new Dependencia());
 		// model.put("listDependencia", dependencia.listarDependencias());
 		return "<span class='responsiveExpander'></span><a class='btn btn-success btn-circle btn-sx'"
-				+ "href='javascript:con("+dep.getDependencia_id()+");'><i class='fa fa-edit'></i></a> <a class='btn btn-danger btn-circle' href='javascript:del("+dep.getDependencia_id()+");'><i class='fa fa-trash-o'></i></a>"
+				+ "href='javascript:con("+dep.getDependencia_id()+");'><i class='fa fa-edit'></i></a> <a class='btn btn-danger btn-circle' onclick='del("+dep.getDependencia_id()+");'><i class='fa fa-trash-o'></i></a>"
 				+ "<span class='responsiveExpander'></span>:::"
 				+ descripcion + "";
 	}
 	
 	@RequestMapping(value = "borrar", method = RequestMethod.POST)
-	public @ResponseBody String borrar(@RequestParam String descripcion,
+	public @ResponseBody String borrar(@RequestParam int dependencia_id,
 			Map<String, Object> model) {
-		Dependencia dep = new Dependencia(0, descripcion);
+		Dependencia dep = new Dependencia(dependencia_id);
 		dependencia.borrarDependencia(dep);
 		return "";
 	}

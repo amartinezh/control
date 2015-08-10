@@ -50,18 +50,23 @@ public class Dependencia implements Serializable{
 	public int getDependencia_id() {
 		return dependencia_id;
 	}
+	
 	public String getDescripcion() {
 		return descripcion;
 	}
+	
 	public String getEstado() {
 		return estado;
 	}
+	
 	public void setDependencia_id(int dependencia_id) {
 		this.dependencia_id = dependencia_id;
 	}
+	
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
 	}
+	
 	public void setEstado(String estado) {
 		this.estado = estado;
 	}

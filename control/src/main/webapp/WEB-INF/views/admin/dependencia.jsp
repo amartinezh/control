@@ -273,7 +273,7 @@
 									</tr>
 								</thead>
 
-								<tbody>
+								<tbody id="info" name="info">
 									<c:forEach items="${listDependencia}" var="dep"
 										varStatus="loopCounter">
 										<tr role="row" class="odd">
@@ -687,16 +687,16 @@
 			}
 		});
 		function saludar() {
-			alert("hola");
+			var des = document.getElementById('descripcion').value;
 			$.ajax({
 				type : "POST",
 				url : "dependencia/agregar",
 				data : {
-					saludo : $("#descripcion").val()
+					descripcion : des
 				},
-				success : function(data) {
-					//		            $("#rpta_servidor").html(data);
-					
+				success : function(data) {					
+					document.getElementById('descripcion').value = "";
+					 $("#info").html(data);					
 				}
 			});
 

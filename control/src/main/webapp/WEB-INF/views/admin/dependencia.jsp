@@ -706,7 +706,6 @@
 		}
 		
 		function del(dato) {
-			alert(dato);
 			$.ajax({
 				type : "POST",
 				url : "dependencia/borrar",

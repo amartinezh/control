@@ -24,7 +24,8 @@ public class DependenciaServiceImpl implements DependeciaService {
 	
 	@Transactional
 	public void borrarDependencia(Dependencia dependencia) {
-		dependenciaDao.borrar(dependencia);
+		Dependencia dep = (Dependencia)(dependenciaDao.getElemento(dependencia, dependencia.getDependencia_id()));
+		dependenciaDao.borrar(dep);
 	}
 
 	@Transactional

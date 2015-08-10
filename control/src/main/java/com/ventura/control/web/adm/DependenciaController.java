@@ -44,8 +44,7 @@ public class DependenciaController {
 	@RequestMapping(value = "borrar", method = RequestMethod.POST)
 	public @ResponseBody String borrar(@RequestParam int dependencia_id,
 			Map<String, Object> model) {
-		Dependencia dep = new Dependencia(dependencia_id);
-		dependencia.borrarDependencia(dep);
+		dependencia.borrarDependencia(new Dependencia(dependencia_id));
 		return "";
 	}
 

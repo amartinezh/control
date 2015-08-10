@@ -17,13 +17,12 @@ public class SitioServiceImpl implements SitioService {
 	private RepositorioDao sitioDao;
 
 	public void agregarSitio(Sitio sitio) {
-		// TODO Auto-generated method stub
-		
+		sitioDao.agregar(sitio);
 	}
 
 	public void borrarSitio(Sitio sitio) {
-		// TODO Auto-generated method stub
-		
+		Sitio sit = (Sitio) sitioDao.getElemento(sitio, sitio.getSitio_id());
+		sitioDao.borrar(sit);
 	}
 
 	public List<Sitio> listarSitios() {

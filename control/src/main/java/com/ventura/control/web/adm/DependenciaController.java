@@ -29,10 +29,13 @@ public class DependenciaController {
 	}
 
 	@RequestMapping(value = "agregar", method = RequestMethod.POST)
-	public @ResponseBody String agregar(@RequestParam String descripcion,
+	public @ResponseBody String agregar(@RequestParam String descripcion, @RequestParam String id,
 			Map<String, Object> model) {
-		Dependencia dep = new Dependencia(0, descripcion);
-		dependencia.agregarDependencia(dep);
+		Dependencia dep = new Dependencia(Integer.parseInt(id), descripcion);
+		if (dep.getDependencia_id() == -1)
+			dependencia.agregarDependencia(dep);
+		else
+			dependencia.agregarDependencia(dep);
 		// model.put("dependencia", new Dependencia());
 		// model.put("listDependencia", dependencia.listarDependencias());
 		return "<span class='responsiveExpander'></span><a class='btn btn-success btn-circle btn-sx'"

@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.ventura.control.domain.adm.TypeUser;
+import com.ventura.control.domain.control.Dependencia;
 import com.ventura.control.repository.control.RepositorioDao;
 
 @Repository
@@ -29,6 +30,11 @@ public class RepositorioDaoImp implements RepositorioDao {
 	@Transactional(propagation = Propagation.REQUIRED)
 	public void agregar(Object obj) {
 		em.persist(obj);
+	}
+	
+	@Transactional(propagation = Propagation.REQUIRED)
+	public void actualizar(Object obj) {
+		em.merge(obj);
 	}
 	
 	@Transactional(propagation = Propagation.REQUIRED)

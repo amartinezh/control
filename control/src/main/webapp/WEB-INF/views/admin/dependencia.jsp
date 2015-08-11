@@ -155,34 +155,31 @@
 
 								<!-- widget content -->
 								<div class="widget-body">
-
-									<form:form id="frm" name="frm" method="post" novalidate="novalidate"
+									<form:form id="frm" name="frm" method="post"
 										class="bv-form" ModelAttribute="dependencia"
 										commandName="dependencia">
 										<button type="submit" class="bv-hidden-submit"
 											style="display: none; width: 0px; height: 0px;"></button>
-
 										<fieldset>
 											<legend> Dependencia </legend>
 											<div class="form-group">
 												<div class="row">
 													<div class="col-md-12 has-feedback">
+														<input type="hidden" id="id" name="id" value="-1"/>
 														<label class="control-label">Descripción</label>
-														<form:input id="descripcion" name="descripcion" type="text" class="form-control"
+														<form:input name="descripcion" type="text" class="form-control"
 															path="descripcion" data-bv-field="Descripción"
 															required="required" />
 													</div>
 												</div>
 											</div>
 										</fieldset>
-
-
 										<div class="form-actions">
 											<div class="row">
 												<div class="col-md-12">
 													<button class="btn btn-success" type="button"
 														onclick="actualizar()">
-														<i class="fa fa-save"></i> Actualizar
+														<i class="fa fa-check"></i> Nuevo
 													</button>
 												</div>
 											</div>
@@ -256,11 +253,8 @@
 								width="100%" role="grid"
 								aria-describedby="datatable_fixed_column_info"
 								style="width: 100%;">
-
 								<thead>
-
 									<tr role="row">
-
 										<th data-hide="cmd" class="sorting_asc" tabindex="0"
 											aria-controls="dt_basic" aria-sort="ascending"
 											aria-label="ID: activate to sort column ascending"
@@ -272,14 +266,13 @@
 											style="width: 540px;">Descripción</th>
 									</tr>
 								</thead>
-
 								<tbody>
 									<c:forEach items="${listDependencia}" var="dep"
 										varStatus="loopCounter">
 										<tr role="row" class="odd">
 											<td class="sorting_1"><span class="responsiveExpander"></span>
 												<a class="btn btn-success btn-circle btn-sx"
-												onclick="con(<c:out value="${dep.dependencia_id}"></c:out>,$(this))"><i class="fa fa-edit"></i></a> 
+												onclick="con('<c:out value="${dep.dependencia_id}"></c:out>','<c:out value="${dep.descripcion}"></c:out>',$(this))"><i class="fa fa-edit"></i></a> 
 												<a class="btn btn-danger btn-circle" onclick="borrar(<c:out value="${dep.dependencia_id}"></c:out>,$(this))"><i
 													class="fa fa-trash-o"></i></a></td>
 											<td class="sorting_1"><span class="responsiveExpander"></span>
@@ -656,38 +649,41 @@
 
 						});
 
-		$('#frm').bootstrapValidator({
-			feedbackIcons : {
-				valid : 'glyphicon glyphicon-ok',
-				invalid : 'glyphicon glyphicon-remove',
-				validating : 'glyphicon glyphicon-refresh'
-			},
-			fields : {
-				descripcion : {
-					group : '.col-md-12',
-					validators : {
-						notEmpty : {
-							message : 'Campo requierido'
-						},
-						stringLength : {
-							max : 200,
-							message : 'De ser menor a 200 caracteres'
-						}
-					}
+		function validar(){
+			$('#frm').bootstrapValidator({
+				feedbackIcons : {
+					valid : 'glyphicon glyphicon-ok',
+					invalid : 'glyphicon glyphicon-remove',
+					validating : 'glyphicon glyphicon-refresh'
 				},
-
-				observaciones : {
-					group : '.col-md-8',
-					validators : {
-						notEmpty : {
-							message : 'Campo requierido'
+				fields : {
+					descripcion : {
+						group : '.col-md-12',
+						validators : {
+							notEmpty : {
+								message : 'Campo requierido'
+							},
+							stringLength : {
+								max : 200,
+								message : 'De ser menor a 200 caracteres'
+							}
+						}
+					},
+	
+					observaciones : {
+						group : '.col-md-8',
+						validators : {
+							notEmpty : {
+								message : 'Campo requierido'
+							}
 						}
 					}
 				}
-			}
-		});
+			});alert('validando');
+		}
 
 		function actualizar() {
+			validar();
 			var des = document.getElementById('descripcion').value;
 			$.ajax({
 				type : "POST",
@@ -775,8 +771,9 @@
 
 		}
 		
-		function con(dato, thi) {
-			document.getElementById('descripcion').value=dato;
+		function con(id, descripcion, thi) {
+			document.getElementById('id').value=id;
+			document.getElementById('descripcion').value=descripcion;
 		}
 	</script>
 

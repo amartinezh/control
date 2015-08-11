@@ -11,45 +11,45 @@ import javax.persistence.Table;
 import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
-@Table(name = "turno", schema = "admin")
-public class Turno implements java.io.Serializable {
+@Table(name = "tipo_persona", schema = "admin")
+public class TipoPersona implements java.io.Serializable {
 
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = -7321586009954528702L;
+	private static final long serialVersionUID = 1399954494093567949L;
 	@Id
-	@Column(name = "turno_id")
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "admin.turno_id_turno_seq")
-	@SequenceGenerator(name = "admin.turno_id_turno_seq", sequenceName = "admin.turno_id_turno_seq", allocationSize = 1)
-	private int turno_id;
+	@Column(name = "tipo_persona_id")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "admin.tipo_persona_tipo_persona_id_seq")
+	@SequenceGenerator(name = "admin.tipo_persona_tipo_persona_id_seq", sequenceName = "admin.tipo_persona_tipo_persona_id_seq", allocationSize = 1)
+	private int tipo_persona_id;
 	@NotEmpty
 	@Column(name = "descripcion")
 	private String descripcion;
 	@Column(name = "estado")
 	private String estado;
 
-	public Turno() {
+	public TipoPersona() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Turno(String descripcion) {
+	public TipoPersona(String descripcion) {
+		this.descripcion = descripcion;
+	}
+	
+	public TipoPersona(int tipo_persona_id, String descripcion) {
+		this.tipo_persona_id = tipo_persona_id;
 		this.descripcion = descripcion;
 	}
 
-	public Turno(int turno_id, String descripcion) {
-		this.turno_id = turno_id;
-		this.descripcion = descripcion;
-	}
-
-	public Turno(int turno_id, String descripcion, String estado) {
-		this.turno_id = turno_id;
+	public TipoPersona(int tipo_persona_id, String descripcion, String estado) {
+		this.tipo_persona_id = tipo_persona_id;
 		this.descripcion = descripcion;
 		this.estado = estado;
 	}
 
-	public int getTurno_id() {
-		return turno_id;
+	public int getTipo_persona_id() {
+		return tipo_persona_id;
 	}
 
 	public String getDescripcion() {
@@ -60,8 +60,8 @@ public class Turno implements java.io.Serializable {
 		return estado;
 	}
 
-	public void setTurno_id(int turno_id) {
-		this.turno_id = turno_id;
+	public void setTipo_persona_id(int tipo_persona_id) {
+		this.tipo_persona_id = tipo_persona_id;
 	}
 
 	public void setDescripcion(String descripcion) {

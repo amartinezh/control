@@ -11,64 +11,61 @@ import javax.persistence.Table;
 import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
-@Table(name="actividad", schema="admin")
-public class Actividad implements java.io.Serializable {
-
+@Table(name="compania", schema="admin")
+public class Compania implements java.io.Serializable {
+	
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 8630587916851841843L;
+	private static final long serialVersionUID = -3386539700181062960L;
 	@Id
-    @Column(name = "actividad_id")
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator="admin.actividad_actividad_id_seq")
-	@SequenceGenerator(name="admin.actividad_actividad_id_seq", sequenceName="admin.actividad_actividad_id_seq", allocationSize=1)
-	private int actividad_id;
+    @Column(name = "compania_id")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator="admin.compania_id_compania_seq")
+	@SequenceGenerator(name="admin.compania_id_compania_seq", sequenceName="admin.compania_id_compania_seq", allocationSize=1)
+	private int compania_id;
 	@NotEmpty
 	@Column(name = "descripcion")
 	private String descripcion;
 	@Column(name = "estado")
 	private String estado;
 	
-	public Actividad() {
+	public Compania() {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public Actividad(String descripcion) {
+	public Compania(String descripcion) {
+		this.descripcion = descripcion;
+	}
+	
+	public Compania(int compania_id, String descripcion) {
+		this.compania_id = compania_id;
 		this.descripcion = descripcion;	
 	}
 	
-	public Actividad(int actividad_id, String descripcion) {
-		this.actividad_id = actividad_id;
-		this.descripcion = descripcion;	
-	}
-	
-	public Actividad(int actividad_id, String descripcion, String estado) {
-		this.actividad_id = actividad_id;
+	public Compania(int compania_id, String descripcion, String estado) {
+		this.compania_id = compania_id;
 		this.descripcion = descripcion;
 		this.estado = estado;	
 	}
-
-	public int getActividad_id() {
-		return actividad_id;
+	
+	public int getCompania_id() {
+		return compania_id;
 	}
-
 	public String getDescripcion() {
 		return descripcion;
 	}
-
 	public String getEstado() {
 		return estado;
 	}
-
-	public void setActividad_id(int actividad_id) {
-		this.actividad_id = actividad_id;
+	public void setCompania_id(int compania_id) {
+		this.compania_id = compania_id;
 	}
-
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
 	}
-
 	public void setEstado(String estado) {
 		this.estado = estado;
 	}
+
+
 }

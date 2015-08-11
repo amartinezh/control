@@ -11,36 +11,42 @@ import javax.persistence.Table;
 import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
-@Table(name="tipo_transaccion", schema="admin")
-public class Tipo_Transaccion implements java.io.Serializable {
+@Table(name = "tipo_transaccion", schema = "admin")
+public class TipoTransaccion implements java.io.Serializable {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 8630587916851841843L;
 	@Id
-    @Column(name = "tipo_transaccion_id")
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator="admin.tipo_transaccion_tipo_transaccion_id_seq")
-	@SequenceGenerator(name="admin.tipo_transaccion_tipo_transaccion_id_seq", sequenceName="admin.tipo_transaccion_tipo_transaccion_id_seq", allocationSize=1)
+	@Column(name = "tipo_transaccion_id")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "admin.tipo_transaccion_tipo_transaccion_id_seq")
+	@SequenceGenerator(name = "admin.tipo_transaccion_tipo_transaccion_id_seq", sequenceName = "admin.tipo_transaccion_tipo_transaccion_id_seq", allocationSize = 1)
 	private int tipo_transaccion_id;
 	@NotEmpty
 	@Column(name = "descripcion")
 	private String descripcion;
 	@Column(name = "estado")
 	private String estado;
-	
-	public Tipo_Transaccion() {
+
+	public TipoTransaccion() {
 		// TODO Auto-generated constructor stub
 	}
-	
-	public Tipo_Transaccion(String descripcion) {
-		this.descripcion = descripcion;	
+
+	public TipoTransaccion(String descripcion) {
+		this.descripcion = descripcion;
 	}
-	
-	public Tipo_Transaccion(int tipo_transaccion_id, String descripcion, String estado) {
+
+	public TipoTransaccion(int tipo_transaccion_id, String descripcion) {
 		this.tipo_transaccion_id = tipo_transaccion_id;
 		this.descripcion = descripcion;
-		this.estado = estado;	
+	}
+
+	public TipoTransaccion(int tipo_transaccion_id, String descripcion,
+			String estado) {
+		this.tipo_transaccion_id = tipo_transaccion_id;
+		this.descripcion = descripcion;
+		this.estado = estado;
 	}
 
 	public int getTipo_transaccion_id() {

@@ -37,6 +37,11 @@ public class Sitio implements java.io.Serializable {
 		this.descripcion = descripcion;	
 	}
 	
+	public Sitio(int sitio_id, String descripcion) {
+		this.sitio_id = sitio_id;
+		this.descripcion = descripcion;	
+	}
+	
 	public Sitio(int sitio_id, String descripcion, String estado) {
 		this.sitio_id = sitio_id;
 		this.descripcion = descripcion;

@@ -106,7 +106,7 @@
 			<section id="widget-grid" class="">
 				<!-- row -->
 				<div class="row">
-
+					<div id="men"></div>
 					<!-- NEW WIDGET START -->
 					<article class="col-sm-12 col-md-12 col-lg-6">
 
@@ -156,7 +156,7 @@
 								<!-- widget content -->
 								<div class="widget-body">
 
-									<form:form id="frm" method="post" novalidate="novalidate"
+									<form:form id="frm" name="frm" method="post" novalidate="novalidate"
 										class="bv-form" ModelAttribute="dependencia"
 										commandName="dependencia">
 										<button type="submit" class="bv-hidden-submit"
@@ -168,7 +168,7 @@
 												<div class="row">
 													<div class="col-md-12 has-feedback">
 														<label class="control-label">Descripción</label>
-														<form:input type="text" class="form-control"
+														<form:input id="descripcion" name="descripcion" type="text" class="form-control"
 															path="descripcion" data-bv-field="Descripción"
 															required="required" />
 													</div>
@@ -181,7 +181,7 @@
 											<div class="row">
 												<div class="col-md-12">
 													<button class="btn btn-success" type="button"
-														onclick="saludar()">
+														onclick="actualizar()">
 														<i class="fa fa-save"></i> Actualizar
 													</button>
 												</div>
@@ -279,8 +279,8 @@
 										<tr role="row" class="odd">
 											<td class="sorting_1"><span class="responsiveExpander"></span>
 												<a class="btn btn-success btn-circle btn-sx"
-												href="javascript:void(0);"><i class="fa fa-edit"></i></a> <a
-												class="btn btn-danger btn-circle" onclick="del(<c:out value="${dep.dependencia_id}"></c:out>)"><i
+												onclick="con(<c:out value="${dep.dependencia_id}"></c:out>,$(this))"><i class="fa fa-edit"></i></a> 
+												<a class="btn btn-danger btn-circle" onclick="borrar(<c:out value="${dep.dependencia_id}"></c:out>,$(this))"><i
 													class="fa fa-trash-o"></i></a></td>
 											<td class="sorting_1"><span class="responsiveExpander"></span>
 												<c:out value="${dep.descripcion}"></c:out></td>
@@ -686,7 +686,8 @@
 				}
 			}
 		});
-		function saludar() {
+
+		function actualizar() {
 			var des = document.getElementById('descripcion').value;
 			$.ajax({
 				type : "POST",
@@ -698,31 +699,83 @@
 					document.getElementById('descripcion').value = "";
 					 var res = data.split(":::");
 					 $('#datatable_fixed_column').dataTable().fnAddData( [res[0],res[1]] );
+					 $.smallBox({
+							title : "La información se registró adecuadamente",
+							content : "Para ingresar un nuevo registro ingrese la información y presione el botón Actualizar",
+							color : "#5384AF",
+							timeout: 8000,
+							icon : "fa fa-bell swing animated"
+					 });
 				},
 				error : function(data) {
-					alert("Error agregando");
+					
+					$.smallBox({
+						title : "El registró no fue guardado!",
+						content : "Por favor verifique<p class='text-align-right'><a href='javascript:void(0);' class='btn btn-danger btn-sm'>Ok</a></p>",
+						color : "#296191",
+						//timeout: 8000,
+						icon : "fa fa-bell swing animated"
+					});
 				}
 			});
 		}
 		
-		function del(dato) {
+		function del(dato, thi) {
 			$.ajax({
 				type : "POST",
 				url : "dependencia/borrar",
 				data : {
 					dependencia_id : dato
 				},
-				success : function(data) {					
-					alert("ok");
+				success : function(data) {
+					nRow=$(thi).closest("tr").index();
+					$('#datatable_fixed_column').dataTable().fnDeleteRow(nRow);
+				 	$.smallBox({
+						title : "Eliminación de Información",
+						content : "La información se eliminó adecuadamente",
+						color : "#5384AF",
+						timeout: 8000,
+						icon : "fa fa-bell"
+				    });
 				},
 				error : function(data) {
-					alert("Error eliminando");
+					$.smallBox({
+						title : "Eliminación de Información",
+						content : "No se eliminó correctamente, verifique por favor",
+						color : rgb(50, 118, 177), //"#5384AF",
+						timeout: 8000,
+						icon : "fa fa-bell"
+				    });
 				}
 			});
 		}
 		
-		function con(dato) {
-			alert("consultando");
+		function borrar(dato, thi){
+			$.SmartMessageBox({
+				title : "Eliminación!",
+				content : "Está apunto de eliminar un registro, está de acuerdo?",
+				buttons : '[No][Si]'
+			}, function(ButtonPressed) {
+				if (ButtonPressed === "Si") {
+					del(dato,thi);
+				}
+				if (ButtonPressed === "No") {
+					$.smallBox({
+						title : "Operación Cancelada",
+						content : "<i class='fa fa-clock-o'></i> <i>No se afectó la información</i>",
+						color : "#C46A69",
+						iconSmall : "fa fa-times fa-2x fadeInRight animated",
+						timeout : 2000
+					});
+				}
+	
+			});
+			e.preventDefault();
+
+
+		}
+		
+		function con(dato, thi) {
 			document.getElementById('descripcion').value=dato;
 		}
 	</script>

@@ -155,9 +155,8 @@
 
 								<!-- widget content -->
 								<div class="widget-body">
-									<form:form id="frm" name="frm" method="post"
-										class="bv-form" ModelAttribute="dependencia"
-										commandName="dependencia">
+									<form:form id="frm" name="frm" method="post" class="bv-form"
+										ModelAttribute="dependencia" commandName="dependencia">
 										<button type="submit" class="bv-hidden-submit"
 											style="display: none; width: 0px; height: 0px;"></button>
 										<fieldset>
@@ -165,10 +164,11 @@
 											<div class="form-group">
 												<div class="row">
 													<div class="col-md-12 has-feedback">
-														<input type="hidden" id="id" name="id" value="-1"/>
+														<form:input type="hidden" path="dependencia_id" value="0" />
+														<form:input type="hidden" path="estado" />
 														<label class="control-label">Descripción</label>
-														<form:input name="descripcion" type="text" class="form-control"
-															path="descripcion" data-bv-field="Descripción"
+														<form:input path="descripcion" type="text"
+															class="form-control" data-bv-field="Descripción"
 															required="required" />
 													</div>
 												</div>
@@ -177,6 +177,10 @@
 										<div class="form-actions">
 											<div class="row">
 												<div class="col-md-12">
+													<button class="btn btn-danger" type="button"
+														onclick="cancelar()">
+														<i class="fa fa-cancel"></i> Cancelar
+													</button>
 													<button class="btn btn-success" type="button"
 														onclick="actualizar()">
 														<i class="fa fa-check"></i> Nuevo
@@ -272,8 +276,10 @@
 										<tr role="row" class="odd">
 											<td class="sorting_1"><span class="responsiveExpander"></span>
 												<a class="btn btn-success btn-circle btn-sx"
-												onclick="con('<c:out value="${dep.dependencia_id}"></c:out>','<c:out value="${dep.descripcion}"></c:out>',$(this))"><i class="fa fa-edit"></i></a> 
-												<a class="btn btn-danger btn-circle" onclick="borrar(<c:out value="${dep.dependencia_id}"></c:out>,$(this))"><i
+												onclick="con('<c:out value="${dep.dependencia_id}"></c:out>','<c:out value="${dep.descripcion}"></c:out>',$(this))"><i
+													class="fa fa-edit"></i></a> <a
+												class="btn btn-danger btn-circle"
+												onclick="borrar(<c:out value="${dep.dependencia_id}"></c:out>, $(this))"><i
 													class="fa fa-trash-o"></i></a></td>
 											<td class="sorting_1"><span class="responsiveExpander"></span>
 												<c:out value="${dep.descripcion}"></c:out></td>
@@ -298,7 +304,7 @@
 	</div>
 	<!-- END MAIN CONTENT -->
 
-	</div>
+
 	<!-- END MAIN PANEL -->
 
 	<!-- PAGE FOOTER -->
@@ -683,16 +689,19 @@
 		}
 
 		function actualizar() {
-			validar();
+			//validar();
+			var dep_id = document.getElementById('dependencia_id').value;
 			var des = document.getElementById('descripcion').value;
 			$.ajax({
 				type : "POST",
 				url : "dependencia/agregar",
 				data : {
+					dependencia_id: dep_id,
 					descripcion : des
 				},
 				success : function(data) {					
 					document.getElementById('descripcion').value = "";
+					document.getElementById('dependencia_id').value = "0";
 					 var res = data.split(":::");
 					 $('#datatable_fixed_column').dataTable().fnAddData( [res[0],res[1]] );
 					 $.smallBox({
@@ -767,13 +776,37 @@
 	
 			});
 			e.preventDefault();
-
-
 		}
 		
-		function con(id, descripcion, thi) {
-			document.getElementById('id').value=id;
+		function cancelar() {
+			var dep_id = document.getElementById('dependencia_id').value;
+			var des = document.getElementById('estado').value;
+			$.ajax({
+				type : "POST",
+				url : "dependencia/cancelar",
+				data : {
+					dependencia_id: dep_id,
+					descripcion : des
+				},
+				success : function(data) {					
+					document.getElementById('descripcion').value = "";
+					document.getElementById('dependencia_id').value = "0";
+					 var res = data.split(":::");
+					 $('#datatable_fixed_column').dataTable().fnAddData( [res[0],res[1]] );					
+				},
+				error : function(data) {
+					document.getElementById('descripcion').value = "";
+					document.getElementById('dependencia_id').value = "0";					
+				}
+			});
+		}
+		
+		function con(dep_id, descripcion, thi) {
+			document.getElementById('dependencia_id').value=dep_id;
 			document.getElementById('descripcion').value=descripcion;
+			document.getElementById('estado').value=descripcion;
+			nRow=$(thi).closest("tr").index();
+			$('#datatable_fixed_column').dataTable().fnDeleteRow(nRow);
 		}
 	</script>
 

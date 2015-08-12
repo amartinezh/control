@@ -19,10 +19,13 @@ public class DependenciaServiceImpl implements DependeciaService {
 
 	@Transactional
 	public void agregarDependencia(Dependencia dependencia) {
-		if (dependencia.getDependencia_id() == -1)
+		if (dependencia.getDependencia_id() == 0)
 			dependenciaDao.agregar(dependencia);
-		else
+		else {
+			Dependencia dep = (Dependencia) dependenciaDao.getElemento(dependencia, dependencia.getDependencia_id());
+			dep.setDescripcion(dependencia.getDescripcion());
 			dependenciaDao.actualizar(dependencia);
+		}
 	}
 	
 	@Transactional

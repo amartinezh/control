@@ -29,21 +29,48 @@ public class DependenciaController {
 	}
 
 	@RequestMapping(value = "agregar", method = RequestMethod.POST)
-	public @ResponseBody String agregar(@RequestParam String descripcion, @RequestParam String id,
-			Map<String, Object> model) {
-		Dependencia dep = new Dependencia(Integer.parseInt(id), descripcion);
-		if (dep.getDependencia_id() == -1)
-			dependencia.agregarDependencia(dep);
-		else
-			dependencia.agregarDependencia(dep);
+	public @ResponseBody String agregar(@RequestParam int dependencia_id,
+			@RequestParam String descripcion, Map<String, Object> model) {
+		Dependencia dep = new Dependencia(dependencia_id, descripcion);
+		dependencia.agregarDependencia(dep);
+		// else
+		// dependencia.agregarDependencia(dep);
 		// model.put("dependencia", new Dependencia());
 		// model.put("listDependencia", dependencia.listarDependencias());
 		return "<span class='responsiveExpander'></span><a class='btn btn-success btn-circle btn-sx'"
-				+ "href='javascript:con("+dep.getDependencia_id()+");'><i class='fa fa-edit'></i></a> <a class='btn btn-danger btn-circle' onclick='del("+dep.getDependencia_id()+")'><i class='fa fa-trash-o'></i></a>"
+				+ "onclick = con("
+				+ dep.getDependencia_id()
+				+ ")><i class='fa fa-edit'></i></a> <a class='btn btn-danger btn-circle' onclick='borrar("
+				+ dep.getDependencia_id()
+				+ ", $(this))'><i class='fa fa-trash-o'></i></a>"
 				+ "<span class='responsiveExpander'></span>:::"
-				+ descripcion + "";
+				+ descripcion
+				+ "";
 	}
-	
+
+	@RequestMapping(value = "cancelar", method = RequestMethod.POST)
+	public @ResponseBody String cancelar(@RequestParam int dependencia_id,
+			@RequestParam String descripcion, Map<String, Object> model) {
+		if (dependencia_id > 0) {
+			String cad = "'"+dependencia_id + "', '" + descripcion + "', $(this)";
+			return "<span class='responsiveExpander'></span><a class='btn btn-success btn-circle btn-sx'"
+					+ " onclick=con(" + cad
+					+ ")><i class='fa fa-edit'></i></a>"
+					+ " <a class='btn btn-danger btn-circle' onclick='borrar("
+					+ dependencia_id
+					+ ", $(this))'><i class='fa fa-trash-o'></i></a>"
+					+ "<span class='responsiveExpander'></span>:::"
+					+ descripcion + "";
+		} else {
+			try {
+				Integer.parseInt("a");
+			} catch (Exception ex) {
+
+			}
+			return "";
+		}
+	}
+
 	@RequestMapping(value = "borrar", method = RequestMethod.POST)
 	public @ResponseBody String borrar(@RequestParam int dependencia_id,
 			Map<String, Object> model) {

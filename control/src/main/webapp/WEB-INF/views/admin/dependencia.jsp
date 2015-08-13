@@ -177,7 +177,7 @@
 										<div class="form-actions">
 											<div class="row">
 												<div class="col-md-12">
-													<button class="btn btn-danger" type="button"
+													<button id="cance" class="btn btn-danger" type="button"
 														onclick="cancelar()">
 														<i class="fa fa-cancel"></i> Cancelar
 													</button>
@@ -491,7 +491,7 @@
 								tablet : 1024,
 								phone : 480
 							};
-
+							$('#cance').hide();
 							$('#dt_basic')
 									.dataTable(
 											{
@@ -700,10 +700,11 @@
 					descripcion : des
 				},
 				success : function(data) {					
-					document.getElementById('descripcion').value = "";
-					document.getElementById('dependencia_id').value = "0";
+					 document.getElementById('descripcion').value = "";
+					 document.getElementById('dependencia_id').value = "0";
 					 var res = data.split(":::");
 					 $('#datatable_fixed_column').dataTable().fnAddData( [res[0],res[1]] );
+					 alert(res[0]);
 					 $.smallBox({
 							title : "La información se registró adecuadamente",
 							content : "Para ingresar un nuevo registro ingrese la información y presione el botón Actualizar",
@@ -711,6 +712,7 @@
 							timeout: 8000,
 							icon : "fa fa-bell swing animated"
 					 });
+					 $('#cance').hide();
 				},
 				error : function(data) {
 					
@@ -775,7 +777,7 @@
 				}
 	
 			});
-			e.preventDefault();
+			//e.preventDefault();
 		}
 		
 		function cancelar() {
@@ -792,7 +794,15 @@
 					document.getElementById('descripcion').value = "";
 					document.getElementById('dependencia_id').value = "0";
 					 var res = data.split(":::");
-					 $('#datatable_fixed_column').dataTable().fnAddData( [res[0],res[1]] );					
+					 $('#datatable_fixed_column').dataTable().fnAddData( [res[0],res[1]] );
+					 $.smallBox({
+							title : "Operación Cancelada",
+							content : "<i class='fa fa-clock-o'></i> <i>Se regresó la información a la tabla sin modificaciones</i>",
+							color : "#C46A69",
+							iconSmall : "fa fa-times fa-2x fadeInRight animated",
+							timeout : 4000
+					 });
+					 $('#cance').hide();
 				},
 				error : function(data) {
 					document.getElementById('descripcion').value = "";
@@ -805,8 +815,16 @@
 			document.getElementById('dependencia_id').value=dep_id;
 			document.getElementById('descripcion').value=descripcion;
 			document.getElementById('estado').value=descripcion;
+			$('#cance').show();
 			nRow=$(thi).closest("tr").index();
 			$('#datatable_fixed_column').dataTable().fnDeleteRow(nRow);
+			$.smallBox({
+				title : "Inició la modificación del registro",
+				content : "Ya no está en el listado, en caso de no querer precione el botón Cancelar",
+				color : "#5384AF",
+				timeout: 8000,
+				icon : "fa fa-bell"
+		    });
 		}
 	</script>
 

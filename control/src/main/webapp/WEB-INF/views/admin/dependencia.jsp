@@ -155,7 +155,7 @@
 
 								<!-- widget content -->
 								<div class="widget-body">
-									<form:form id="frm" name="frm" method="post" class="bv-form"
+									<form:form id="frm" method="post" class="bv-form"
 										ModelAttribute="dependencia" commandName="dependencia">
 										<button type="submit" class="bv-hidden-submit"
 											style="display: none; width: 0px; height: 0px;"></button>
@@ -181,7 +181,7 @@
 														onclick="cancelar()">
 														<i class="fa fa-cancel"></i> Cancelar
 													</button>
-													<button class="btn btn-success" type="button"
+													<button id="elboton" class="btn btn-success" type="button"
 														onclick="actualizar()">
 														<i class="fa fa-check"></i> Nuevo
 													</button>
@@ -383,8 +383,8 @@
 		src="<c:url value="/resources/js/plugin/select2/select2.min.js" />"></script>
 
 	<!-- JQUERY UI + Bootstrap Slider -->
-	<!-- <script
-		src="<c:url value="/resources/js/plugin/bootstrap-slider/bootstrap-slider.min.js" />"></script> -->
+	<script
+		src="<c:url value="/resources/js/plugin/bootstrap-slider/bootstrap-slider.min.js" />"></script>
 
 	<!-- browser msie issue fix -->
 	<script
@@ -492,6 +492,38 @@
 								phone : 480
 							};
 							$('#cance').hide();
+							
+							$('#frm').bootstrapValidator({
+								feedbackIcons : {
+									valid : 'glyphicon glyphicon-ok',
+									invalid : 'glyphicon glyphicon-remove',
+									validating : 'glyphicon glyphicon-refresh'
+								},
+								fields : {
+									descripcion : {
+										group : '.col-md-12',
+										validators : {
+											notEmpty : {
+												message : 'Campo requierido'
+											},
+											stringLength : {
+												max : 200,
+												message : 'De ser menor a 200 caracteres'
+											}
+										}
+									},
+					
+									observaciones : {
+										group : '.col-md-8',
+										validators : {
+											notEmpty : {
+												message : 'Campo requierido'
+											}
+										}
+									}
+								}
+							});
+							
 							$('#dt_basic')
 									.dataTable(
 											{
@@ -650,46 +682,20 @@
 															.respond();
 												}
 											});
+							
+											
 
 							/* END TABLETOOLS */
 
 						});
 
 		function validar(){
-			$('#frm').bootstrapValidator({
-				feedbackIcons : {
-					valid : 'glyphicon glyphicon-ok',
-					invalid : 'glyphicon glyphicon-remove',
-					validating : 'glyphicon glyphicon-refresh'
-				},
-				fields : {
-					descripcion : {
-						group : '.col-md-12',
-						validators : {
-							notEmpty : {
-								message : 'Campo requierido'
-							},
-							stringLength : {
-								max : 200,
-								message : 'De ser menor a 200 caracteres'
-							}
-						}
-					},
-	
-					observaciones : {
-						group : '.col-md-8',
-						validators : {
-							notEmpty : {
-								message : 'Campo requierido'
-							}
-						}
-					}
-				}
-			});alert('validando');
+			alert('validando');
 		}
 
 		function actualizar() {
 			//validar();
+			$( "#frm" ).submit();
 			var dep_id = document.getElementById('dependencia_id').value;
 			var des = document.getElementById('descripcion').value;
 			$.ajax({
@@ -814,6 +820,7 @@
 			document.getElementById('descripcion').value=descripcion;
 			document.getElementById('estado').value=descripcion;
 			$('#cance').show();
+			$('#elboton').text('Actualizar');
 			nRow=$(thi).closest("tr").index();
 			$('#datatable_fixed_column').dataTable().fnDeleteRow(nRow);
 			$.smallBox({

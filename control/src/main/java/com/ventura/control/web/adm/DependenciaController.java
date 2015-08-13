@@ -37,31 +37,42 @@ public class DependenciaController {
 		// dependencia.agregarDependencia(dep);
 		// model.put("dependencia", new Dependencia());
 		// model.put("listDependencia", dependencia.listarDependencias());
-		//return "<span class='responsiveExpander'></span><a class='btn btn-success btn-circle btn-sx'"
-		//		+ "onclick = con("
-		//		+ dep.getDependencia_id()
-		//		+ ")><i class='fa fa-edit'></i></a> <a class='btn btn-danger btn-circle' onclick='borrar("
-		//		+ dep.getDependencia_id()
-		//		+ ", $(this))'><i class='fa fa-trash-o'></i></a>"
-		//		+ "<span class='responsiveExpander'></span>:::"
-		//		+ descripcion
-		//		+ "";
-		String cad = "'"+dependencia_id + "', '" + descripcion + "', $(this)";
-		System.out.print(cad);
+		// return
+		// "<span class='responsiveExpander'></span><a class='btn btn-success btn-circle btn-sx'"
+		// + "onclick = con("
+		// + dep.getDependencia_id()
+		// +
+		// ")><i class='fa fa-edit'></i></a> <a class='btn btn-danger btn-circle' onclick='borrar("
+		// + dep.getDependencia_id()
+		// + ", $(this))'><i class='fa fa-trash-o'></i></a>"
+		// + "<span class='responsiveExpander'></span>:::"
+		// + descripcion
+		// + "";
 		return "<span class='responsiveExpander'></span><a class='btn btn-success btn-circle btn-sx'"
-			+ " onclick=con(" + cad	+ ")><i class='fa fa-edit'></i></a> <a class='btn btn-danger btn-circle' onclick='borrar("
-			+ dependencia_id + ", $(this))'><i class='fa fa-trash-o'></i></a><span class='responsiveExpander'></span>:::"
-			+ descripcion;
+				+ " onclick=\"con('"
+				+ dep.getDependencia_id()
+				+ "', '"
+				+ dep.getDescripcion()
+				+ "', $(this)"
+				+ ")\"><i class='fa fa-edit'></i></a> <a class='btn btn-danger btn-circle' onclick='borrar("
+				+ dependencia_id
+				+ ", $(this))'><i class='fa fa-trash-o'></i></a><span class='responsiveExpander'></span>:::"
+				+ descripcion;
 	}
 
 	@RequestMapping(value = "cancelar", method = RequestMethod.POST)
 	public @ResponseBody String cancelar(@RequestParam int dependencia_id,
 			@RequestParam String descripcion, Map<String, Object> model) {
 		if (dependencia_id > 0) {
-			String cad = "'"+dependencia_id + "', '" + descripcion + "', $(this)";
+			String cad = "";
+			System.out.print(cad);
 			return "<span class='responsiveExpander'></span><a class='btn btn-success btn-circle btn-sx'"
-					+ " onclick=con(" + cad
-					+ ")><i class='fa fa-edit'></i></a>"
+					+ " onclick=\"con('"
+					+ dependencia_id
+					+ "', '"
+					+ descripcion
+					+ "', $(this)"
+					+ ")\"><i class='fa fa-edit'></i></a>"
 					+ " <a class='btn btn-danger btn-circle' onclick='borrar("
 					+ dependencia_id
 					+ ", $(this))'><i class='fa fa-trash-o'></i></a>"

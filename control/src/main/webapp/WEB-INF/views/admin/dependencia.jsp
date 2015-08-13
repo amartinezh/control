@@ -704,7 +704,6 @@
 					 document.getElementById('dependencia_id').value = "0";
 					 var res = data.split(":::");
 					 $('#datatable_fixed_column').dataTable().fnAddData( [res[0],res[1]] );
-					 alert(res[0]);
 					 $.smallBox({
 							title : "La información se registró adecuadamente",
 							content : "Para ingresar un nuevo registro ingrese la información y presione el botón Actualizar",
@@ -714,8 +713,7 @@
 					 });
 					 $('#cance').hide();
 				},
-				error : function(data) {
-					
+				error : function(data) {					
 					$.smallBox({
 						title : "El registró no fue guardado!",
 						content : "Por favor verifique<p class='text-align-right'><a href='javascript:void(0);' class='btn btn-danger btn-sm'>Ok</a></p>",

@@ -178,13 +178,9 @@
 											<div class="row">
 												<div class="col-md-12">
 													<button id="cance" class="btn btn-danger" type="button"
-														onclick="cancelar()">
-														<i class="fa fa-cancel"></i> Cancelar
-													</button>
+														onclick="cancelar()">Cancelar</button>
 													<button id="elboton" class="btn btn-success" type="button"
-														onclick="actualizar()">
-														<i class="fa fa-check"></i> Nuevo
-													</button>
+														onclick="actualizar()">Nuevo</button>
 												</div>
 											</div>
 										</div>
@@ -787,6 +783,7 @@
 		function cancelar() {
 			var dep_id = document.getElementById('dependencia_id').value;
 			var des = document.getElementById('estado').value;
+			$('#elboton').text('Nuevo');
 			$.ajax({
 				type : "POST",
 				url : "dependencia/cancelar",
@@ -820,7 +817,7 @@
 			document.getElementById('descripcion').value=descripcion;
 			document.getElementById('estado').value=descripcion;
 			$('#cance').show();
-			$('#elboton').text('Actualizar');
+			document.getElementById('elboton').innerHTML='Actualizar';
 			nRow=$(thi).closest("tr").index();
 			$('#datatable_fixed_column').dataTable().fnDeleteRow(nRow);
 			$.smallBox({

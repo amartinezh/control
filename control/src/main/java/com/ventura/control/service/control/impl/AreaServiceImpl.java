@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.ventura.control.domain.control.Actividad;
 import com.ventura.control.domain.control.Area;
 import com.ventura.control.repository.control.RepositorioDao;
 import com.ventura.control.service.control.AreaService;
@@ -18,12 +19,18 @@ public class AreaServiceImpl implements AreaService {
 	private RepositorioDao areaDao;
 
 	@Transactional
-	public void agregarSitio(Area area) {
-		areaDao.agregar(area);
+	public void agregarArea(Area area) {
+		if (area.getArea_id() == 0)
+			areaDao.agregar(area);
+		else {
+			Area obj = (Area) areaDao.getElemento(area, area.getArea_id());
+			obj.setDescripcion(area.getDescripcion());
+			areaDao.actualizar(area);
+		}
 	}
 
 	@Transactional
-	public void borrarSitio(Area area) {
+	public void borrarArea(Area area) {
 		Area are = (Area) areaDao.getElemento(area, area.getArea_id());
 		areaDao.borrar(are);
 	}

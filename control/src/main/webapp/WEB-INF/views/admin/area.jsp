@@ -1,4 +1,8 @@
-<%@ include file="/WEB-INF/views/include.jsp"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html>
 <html lang="en-us">
 <head>
@@ -102,7 +106,7 @@
 			<section id="widget-grid" class="">
 				<!-- row -->
 				<div class="row">
-
+					<div id="men"></div>
 					<!-- NEW WIDGET START -->
 					<article class="col-sm-12 col-md-12 col-lg-6">
 
@@ -134,7 +138,7 @@
 										title="" data-placement="bottom"
 										data-original-title="Fullscreen"><i class="fa fa-expand "></i></a>
 								</div>
-								<h2> </h2>
+								<h2></h2>
 								<span class="jarviswidget-loader"><i
 									class="fa fa-refresh fa-spin"></i></span>
 							</header>
@@ -151,38 +155,38 @@
 
 								<!-- widget content -->
 								<div class="widget-body">
-
-									<!--  <form id="frm" method="post" novalidate="novalidate" class="bv-form"> -->
-									<form:form id="frm" method="POST" action="add" ModelAttribute="area" commandName="area" class="bv-form">
+									<form:form id="frm" method="post" class="bv-form"
+										ModelAttribute="area" commandName="area">
 										<button type="submit" class="bv-hidden-submit"
 											style="display: none; width: 0px; height: 0px;"></button>
-
 										<fieldset>
-											<legend> Areas </legend>
+											<legend> Área </legend>
 											<div class="form-group">
 												<div class="row">
 													<div class="col-md-12 has-feedback">
-														<label class="control-label">Descripci�n</label> 
-														<input type="text" class="form-control" name="descripcion"
-															id="descripcion" data-bv-field="Descripci�n" required>
+														<form:input type="hidden" path="area_id" value="0" />
+														<form:input type="hidden" path="estado" />
+														<label class="control-label">Descripción</label>
+														<form:input path="descripcion" type="text"
+															class="form-control" data-bv-field="Descripción"
+															required="required" />
 													</div>
 												</div>
 											</div>
 										</fieldset>
-
-
 										<div class="form-actions">
 											<div class="row">
 												<div class="col-md-12">
-													<button class="btn btn-success" type="submit">
-														<i class="fa fa-save"></i> Actualizar
-													</button>
+													<button id="cance" class="btn btn-danger" type="button"
+														onclick="cancelar()">Cancelar</button>
+													<button id="elboton" class="btn btn-success" type="button"
+														onclick="actualizar()">Nuevo</button>
 												</div>
 											</div>
 										</div>
 
-									<!--  </form> -->
 									</form:form>
+
 								</div>
 								<!-- end widget content -->
 
@@ -200,10 +204,11 @@
 
 			</section>
 			<!-- end widget grid -->
-			
+
 			<div
 				class="jarviswidget jarviswidget-color-blueDark jarviswidget-sortable"
-				id="wid-id-1" data-widget-editbutton="false" data-widget-editbutton="true" role="widget">
+				id="wid-id-1" data-widget-editbutton="false"
+				data-widget-editbutton="true" role="widget">
 				<!-- widget options:
 								usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
 				
@@ -218,12 +223,14 @@
 				
 								-->
 				<header role="heading">
-			
+
 					<span class="widget-icon"> <i class="fa fa-table"></i>
 					</span>
-					<h2>Herramientas</h2>
+					<h2>Areas</h2>
 
-					<span class="jarviswidget-loader"><i class="fa fa-refresh fa-spin"></i></span></header>
+					<span class="jarviswidget-loader"><i
+						class="fa fa-refresh fa-spin"></i></span>
+				</header>
 
 				<!-- widget div-->
 				<div role="content">
@@ -241,86 +248,39 @@
 						<div id="datatable_fixed_column_wrapper"
 							class="dataTables_wrapper form-inline no-footer">
 
-							<table id="datatable_fixed_column"
+							<table id="datatable_fixed_column" name="datatable_fixed_column"
 								class="table table-striped table-bordered dataTable no-footer"
 								width="100%" role="grid"
 								aria-describedby="datatable_fixed_column_info"
 								style="width: 100%;">
-
 								<thead>
-									<!-- <tr role="row">
-										<th class="hasinput" style="width: 17%" rowspan="1"
-											colspan="1"><input type="text" class="form-control"
-											placeholder="Filtro Descripción"></th>
-										
-									</tr>   -->
 									<tr role="row">
-
 										<th data-hide="cmd" class="sorting_asc" tabindex="0"
-											aria-controls="dt_basic" 
-											aria-sort="ascending"
+											aria-controls="dt_basic" aria-sort="ascending"
 											aria-label="ID: activate to sort column ascending"
 											style="width: 15px;"></th>
 
 										<th data-class="expand" class="sorting_asc" tabindex="1"
-											aria-controls="dt_basic" 
-											colspan="1" aria-sort="ascending"
+											aria-controls="dt_basic" colspan="1" aria-sort="ascending"
 											aria-label="Name: activate to sort column ascending"
-											style="width: 540px;">Descripci�n</th>
+											style="width: 540px;">Descripción</th>
 									</tr>
 								</thead>
-
 								<tbody>
-
-									<tr role="row" class="odd">
-										<td class="sorting_1"><span class="responsiveExpander"></span> 
-											<a class="btn btn-success btn-circle btn-sx"
-												href="javascript:void(0);"><i class="fa fa-edit"></i></a> 
-											<a class="btn btn-danger btn-circle" 
-												href="javascript:void(0);"><i class="fa fa-trash-o"></i></a>
-									 	</td>
-										<td class="sorting_1"><span class="responsiveExpander"></span>A</td>
-
-									</tr>
-									<tr role="row" class="even">
-										<td class="sorting_1"><span class="responsiveExpander"></span> 
-											<a class="btn btn-success btn-circle btn-sx"
-												href="javascript:void(0);"><i class="fa fa-edit"></i></a> 
-											<a class="btn btn-danger btn-circle" 
-												href="javascript:void(0);"><i class="fa fa-trash-o"></i></a>
-									 	</td>
-										<td class="sorting_1"><span class="responsiveExpander"></span>B</td>
-
-									</tr>
-									<tr role="row" class="odd">
-										<td class="sorting_1"><span class="responsiveExpander"></span> 
-											<a class="btn btn-success btn-circle btn-sx"
-												href="javascript:void(0);"><i class="fa fa-edit"></i></a> 
-											<a class="btn btn-danger btn-circle" 
-												href="javascript:void(0);"><i class="fa fa-trash-o"></i></a>
-									 	</td>
-										<td class="sorting_1"><span class="responsiveExpander"></span>C</td>
-									</tr>
-
-									<tr role="row" class="even">
-										<td class="sorting_1"><span class="responsiveExpander"></span> 
-											<a class="btn btn-success btn-circle btn-sx"
-												href="javascript:void(0);"><i class="fa fa-edit"></i></a> 
-											<a class="btn btn-danger btn-circle" 
-												href="javascript:void(0);"><i class="fa fa-trash-o"></i></a>
-									 	</td>
-										<td class="sorting_1"><span class="responsiveExpander"></span>D</td>
-									</tr>
-									<tr role="row" class="odd">
-										<td class="sorting_1"><span class="responsiveExpander"></span> 
-											<a class="btn btn-success btn-circle btn-sx"
-												href="javascript:void(0);"><i class="fa fa-edit"></i></a> 
-											<a class="btn btn-danger btn-circle" 
-												href="javascript:void(0);"><i class="fa fa-trash-o"></i></a>
-									 	</td>
-										<td class="sorting_1"><span class="responsiveExpander"></span>E</td>
-									</tr>
-
+									<c:forEach items="${listArea}" var="obj"
+										varStatus="loopCounter">
+										<tr role="row" class="odd">
+											<td class="sorting_1"><span class="responsiveExpander"></span>
+												<a class="btn btn-success btn-circle btn-sx"
+												onclick="con('<c:out value="${obj.area_id}"></c:out>','<c:out value="${obj.descripcion}"></c:out>',$(this))"><i
+													class="fa fa-edit"></i></a> <a
+												class="btn btn-danger btn-circle"
+												onclick="borrar(<c:out value="${obj.area_id}"></c:out>, $(this))"><i
+													class="fa fa-trash-o"></i></a></td>
+											<td class="sorting_1"><span class="responsiveExpander"></span>
+												<c:out value="${obj.descripcion}"></c:out></td>
+										</tr>
+									</c:forEach>
 								</tbody>
 
 							</table>
@@ -340,7 +300,7 @@
 	</div>
 	<!-- END MAIN CONTENT -->
 
-	</div>
+
 	<!-- END MAIN PANEL -->
 
 	<!-- PAGE FOOTER -->
@@ -359,7 +319,9 @@
 		src="<c:url value="/resources/js/plugin/pace/pace.min.js" />"></script>
 
 	<!-- Link to Google CDN's jQuery + jQueryUI; fall back to local -->
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js">
+	<script
+		src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js">
+		
 	</script>
 	<script>
 		if (!window.jQuery) {
@@ -417,8 +379,8 @@
 		src="<c:url value="/resources/js/plugin/select2/select2.min.js" />"></script>
 
 	<!-- JQUERY UI + Bootstrap Slider -->
-	<!-- <script
-		src="<c:url value="/resources/js/plugin/bootstrap-slider/bootstrap-slider.min.js" />"></script> -->
+	<script
+		src="<c:url value="/resources/js/plugin/bootstrap-slider/bootstrap-slider.min.js" />"></script>
 
 	<!-- browser msie issue fix -->
 	<script
@@ -452,7 +414,7 @@
 		src="<c:url value="/resources/js/smart-chat-ui/smart.chat.manager.min.js" />"></script>
 	-->
 	<!-- PAGE RELATED PLUGIN(S) -->
-	
+
 	<script
 		src="<c:url value="/resources/js/plugin/bootstrapvalidator/bootstrapValidator.min.js" />"></script>
 	<script
@@ -525,7 +487,39 @@
 								tablet : 1024,
 								phone : 480
 							};
-
+							$('#cance').hide();
+							
+							$('#frm').bootstrapValidator({
+								feedbackIcons : {
+									valid : 'glyphicon glyphicon-ok',
+									invalid : 'glyphicon glyphicon-remove',
+									validating : 'glyphicon glyphicon-refresh'
+								},
+								fields : {
+									descripcion : {
+										group : '.col-md-12',
+										validators : {
+											notEmpty : {
+												message : 'Campo requierido'
+											},
+											stringLength : {
+												max : 200,
+												message : 'De ser menor a 200 caracteres'
+											}
+										}
+									},
+					
+									observaciones : {
+										group : '.col-md-8',
+										validators : {
+											notEmpty : {
+												message : 'Campo requierido'
+											}
+										}
+									}
+								}
+							});
+							
 							$('#dt_basic')
 									.dataTable(
 											{
@@ -684,42 +678,155 @@
 															.respond();
 												}
 											});
+							
+											
 
 							/* END TABLETOOLS */
 
 						});
-	
-	
-		$('#frm').bootstrapValidator({
-			feedbackIcons : {
-				valid : 'glyphicon glyphicon-ok',
-				invalid : 'glyphicon glyphicon-remove',
-				validating : 'glyphicon glyphicon-refresh'
-			},
-			fields : {
-				descripcion : {
-					group : '.col-md-12',
-					validators : {
-						notEmpty : {
-							message : 'Campo requierido'
-						},
-						stringLength : {
-							max : 200,
-							message : 'De ser menor a 200 caracteres'
-						}
-					}
+
+		function validar(){
+			alert('validando');
+		}
+
+		function actualizar() {
+			$( "#frm" ).submit();
+			var acti_id = document.getElementById('area_id').value;
+			var des = document.getElementById('descripcion').value;
+			$.ajax({
+				type : "POST",
+				url : "area/agregar",
+				data : {
+					area_id: acti_id,
+					descripcion : des
 				},
-				
-				observaciones : {
-					group : '.col-md-8',
-					validators : {
-						notEmpty : {
-							message : 'Campo requierido'
-						}
-					}
+				success : function(data) {			
+					 document.getElementById('descripcion').value = "";
+					 document.getElementById('area_id').value = "0";
+					 var res = data.split(":::");
+					 $('#datatable_fixed_column').dataTable().fnAddData( [res[0],res[1]] );
+					 $.smallBox({
+							title : "La información se registró adecuadamente",
+							content : "Para ingresar un nuevo registro ingrese la información y presione el botón Actualizar",
+							color : "#5384AF",
+							timeout: 8000,
+							icon : "fa fa-bell swing animated"
+					 });
+					 $('#cance').hide();
+				},
+				error : function(data) {					
+					$.smallBox({
+						title : "El registró no fue guardado!",
+						content : "Por favor verifique<p class='text-align-right'><a href='javascript:void(0);' class='btn btn-danger btn-sm'>Ok</a></p>",
+						color : "#296191",
+						//timeout: 8000,
+						icon : "fa fa-bell swing animated"
+					});
 				}
-			}
-		});
+			});
+		}
+		
+		function del(dato, thi) {
+			$.ajax({
+				type : "POST",
+				url : "area/borrar",
+				data : {
+					area_id : dato
+				},
+				success : function(data) {
+					nRow=$(thi).closest("tr").index();
+					$('#datatable_fixed_column').dataTable().fnDeleteRow(nRow);
+				 	$.smallBox({
+						title : "Eliminación de Información",
+						content : "La información se eliminó adecuadamente",
+						color : "#5384AF",
+						timeout: 8000,
+						icon : "fa fa-bell"
+				    });
+				},
+				error : function(data) {
+					$.smallBox({
+						title : "Eliminación de Información",
+						content : "No se eliminó correctamente, verifique por favor",
+						color : rgb(50, 118, 177), //"#5384AF",
+						timeout: 8000,
+						icon : "fa fa-bell"
+				    });
+				}
+			});
+		}
+		
+		function borrar(dato, thi){
+			$.SmartMessageBox({
+				title : "Eliminación!",
+				content : "Está apunto de eliminar un registro, está de acuerdo?",
+				buttons : '[No][Si]'
+			}, function(ButtonPressed) {
+				if (ButtonPressed === "Si") {
+					del(dato,thi);
+				}
+				if (ButtonPressed === "No") {
+					$.smallBox({
+						title : "Operación Cancelada",
+						content : "<i class='fa fa-clock-o'></i> <i>No se afectó la información</i>",
+						color : "#C46A69",
+						iconSmall : "fa fa-times fa-2x fadeInRight animated",
+						timeout : 2000
+					});
+				}
+	
+			});
+			//e.preventDefault();
+		}
+		
+		function cancelar() {
+			var obj_id = document.getElementById('area_id').value;
+			var des = document.getElementById('estado').value;
+			$('#elboton').text('Nuevo');
+			$.ajax({
+				type : "POST",
+				url : "area/cancelar",
+				data : {
+					area_id: obj_id,
+					descripcion : des
+				},
+				success : function(data) {					
+					document.getElementById('descripcion').value = "";
+					document.getElementById('area_id').value = "0";
+					 var res = data.split(":::");
+					 $('#datatable_fixed_column').dataTable().fnAddData( [res[0],res[1]] );
+					 $.smallBox({
+							title : "Operación Cancelada",
+							content : "<i class='fa fa-clock-o'></i> <i>Se regresó la información a la tabla sin modificaciones</i>",
+							color : "#C46A69",
+							iconSmall : "fa fa-times fa-2x fadeInRight animated",
+							timeout : 4000
+					 });
+					 $('#cance').hide();
+				},
+				error : function(data) {
+					document.getElementById('descripcion').value = "";
+					document.getElementById('area_id').value = "0";					
+				}
+			});
+		}
+		
+		function con(acti_id, descripcion, thi) {
+			document.getElementById('area_id').value=acti_id;
+			document.getElementById('descripcion').value=descripcion;
+			document.getElementById('estado').value=descripcion;
+			$('#cance').show();
+			document.getElementById('elboton').innerHTML='Actualizar';
+			nRow=$(thi).closest("tr").index();
+			$('#datatable_fixed_column').dataTable().fnDeleteRow(nRow);
+			$.smallBox({
+				title : "Inició la modificación del registro",
+				content : "Ya no está en el listado, en caso de no querer precione el botón Cancelar",
+				color : "#5384AF",
+				timeout: 8000,
+				icon : "fa fa-bell"
+		    });
+		}
 	</script>
 
 	<!-- Your GOOGLE ANALYTICS CODE Below -->

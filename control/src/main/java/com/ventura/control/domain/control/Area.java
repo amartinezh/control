@@ -37,6 +37,10 @@ public class Area implements java.io.Serializable {
 		this.descripcion = descripcion;
 	}
 	
+	public Area(int area_id) {
+		this.area_id = area_id;
+	}
+	
 	public Area(int area_id, String descripcion) {
 		this.area_id = area_id;
 		this.descripcion = descripcion;

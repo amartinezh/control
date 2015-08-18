@@ -8,9 +8,10 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.ventura.control.domain.control.Actividad;
+import com.ventura.control.domain.control.Dependencia;
 import com.ventura.control.repository.control.RepositorioDao;
 import com.ventura.control.service.control.ActividadService;
-
+ 
 @Service
 public class ActividadServiceImpl implements ActividadService {
 
@@ -19,8 +20,13 @@ public class ActividadServiceImpl implements ActividadService {
 
 	@Transactional
 	public void agregarActividad(Actividad actividad) {
-		actividadDao.agregar(actividad);
-
+		if (actividad.getActividad_id() == 0)
+			actividadDao.agregar(actividad);
+		else {
+			Actividad dep = (Actividad) actividadDao.getElemento(actividad, actividad.getActividad_id());
+			dep.setDescripcion(actividad.getDescripcion());
+			actividadDao.actualizar(actividad);
+		}
 	}
 
 	@Transactional

@@ -42,12 +42,14 @@ public class Compania implements java.io.Serializable {
 		this.descripcion = descripcion;	
 	}
 	
+	public Compania(int compania_id) {
+		this.compania_id = compania_id;
+	}
 	public Compania(int compania_id, String descripcion, String estado) {
 		this.compania_id = compania_id;
 		this.descripcion = descripcion;
 		this.estado = estado;	
 	}
-	
 	public int getCompania_id() {
 		return compania_id;
 	}

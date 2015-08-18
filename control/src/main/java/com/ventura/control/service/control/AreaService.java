@@ -6,8 +6,8 @@ import com.ventura.control.domain.control.Area;
 
 public interface AreaService {
 	
-	public void agregarSitio(Area area);
-	public void borrarSitio(Area area);
+	public void agregarArea(Area area);
+	public void borrarArea(Area area);
 	public List<Area> listarAreas();
 
 }

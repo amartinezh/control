@@ -37,6 +37,10 @@ public class Actividad implements java.io.Serializable {
 		this.descripcion = descripcion;	
 	}
 	
+	public Actividad(int actividad_id) {
+		this.actividad_id = actividad_id;
+	}
+	
 	public Actividad(int actividad_id, String descripcion) {
 		this.actividad_id = actividad_id;
 		this.descripcion = descripcion;	

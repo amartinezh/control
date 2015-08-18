@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.ventura.control.domain.control.Area;
 import com.ventura.control.domain.control.Compania;
 import com.ventura.control.repository.control.RepositorioDao;
 import com.ventura.control.service.control.CompaniaService;
@@ -19,7 +20,13 @@ public class CompaniaServiceImpl implements CompaniaService {
 
 	@Transactional
 	public void agregarCompania(Compania compania) {
-		companiaDao.agregar(compania);
+		if (compania.getCompania_id() == 0)
+			companiaDao.agregar(compania);
+		else {
+			Compania obj = (Compania) companiaDao.getElemento(compania, compania.getCompania_id());
+			obj.setDescripcion(compania.getDescripcion());
+			companiaDao.actualizar(compania);
+		}
 	}
 
 	@Transactional

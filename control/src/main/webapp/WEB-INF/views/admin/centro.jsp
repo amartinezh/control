@@ -156,15 +156,15 @@
 								<!-- widget content -->
 								<div class="widget-body">
 									<form:form id="frm" method="post" class="bv-form"
-										ModelAttribute="actividad" commandName="actividad">
+										ModelAttribute="centro" commandName="centro">
 										<button type="submit" class="bv-hidden-submit"
 											style="display: none; width: 0px; height: 0px;"></button>
 										<fieldset>
-											<legend> Compañía </legend>
+											<legend> Centros de Costos </legend>
 											<div class="form-group">
 												<div class="row">
 													<div class="col-md-12 has-feedback">
-														<form:input type="hidden" path="compania_id" value="0" />
+														<form:input type="hidden" path="centro_costo_id" value="0" />
 														<form:input type="hidden" path="estado" />
 														<label class="control-label">Descripción</label>
 														<form:input path="descripcion" type="text"
@@ -226,7 +226,7 @@
 
 					<span class="widget-icon"> <i class="fa fa-table"></i>
 					</span>
-					<h2>Actividades</h2>
+					<h2>Areas</h2>
 
 					<span class="jarviswidget-loader"><i
 						class="fa fa-refresh fa-spin"></i></span>
@@ -267,15 +267,15 @@
 									</tr>
 								</thead>
 								<tbody>
-									<c:forEach items="${listActividad}" var="obj"
+									<c:forEach items="${listCentro}" var="obj"
 										varStatus="loopCounter">
 										<tr role="row" class="odd">
 											<td class="sorting_1"><span class="responsiveExpander"></span>
 												<a class="btn btn-success btn-circle btn-sx"
-												onclick="con('<c:out value="${obj.compania_id}"></c:out>','<c:out value="${obj.descripcion}"></c:out>',$(this))"><i
+												onclick="con('<c:out value="${obj.centro_costo_id}"></c:out>','<c:out value="${obj.descripcion}"></c:out>',$(this))"><i
 													class="fa fa-edit"></i></a> <a
 												class="btn btn-danger btn-circle"
-												onclick="borrar(<c:out value="${obj.compania_id}"></c:out>, $(this))"><i
+												onclick="borrar(<c:out value="${obj.centro_costo_id}"></c:out>, $(this))"><i
 													class="fa fa-trash-o"></i></a></td>
 											<td class="sorting_1"><span class="responsiveExpander"></span>
 												<c:out value="${obj.descripcion}"></c:out></td>
@@ -691,18 +691,18 @@
 
 		function actualizar() {
 			$( "#frm" ).submit();
-			var acti_id = document.getElementById('compania_id').value;
+			var id = document.getElementById('centro_costo_id').value;
 			var des = document.getElementById('descripcion').value;
 			$.ajax({
 				type : "POST",
-				url : "compania/agregar",
+				url : "centro/agregar",
 				data : {
-					compania_id: acti_id,
+					centro_costo_id: id,
 					descripcion : des
 				},
-				success : function(data) {				
+				success : function(data) {	
 					 document.getElementById('descripcion').value = "";
-					 document.getElementById('compania_id').value = "0";
+					 document.getElementById('centro_costo_id').value = "0";
 					 var res = data.split(":::");
 					 $('#datatable_fixed_column').dataTable().fnAddData( [res[0],res[1]] );
 					 $.smallBox({
@@ -729,9 +729,9 @@
 		function del(dato, thi) {
 			$.ajax({
 				type : "POST",
-				url : "compania/borrar",
+				url : "centro/borrar",
 				data : {
-					compania_id : dato
+					centro_costo_id : dato
 				},
 				success : function(data) {
 					nRow=$(thi).closest("tr").index();
@@ -780,19 +780,19 @@
 		}
 		
 		function cancelar() {
-			var acti_id = document.getElementById('compania_id').value;
+			var obj_id = document.getElementById('centro_costo_id').value;
 			var des = document.getElementById('estado').value;
 			$('#elboton').text('Nuevo');
 			$.ajax({
 				type : "POST",
-				url : "compania/cancelar",
+				url : "centro/cancelar",
 				data : {
-					compania_id: acti_id,
+					centro_costo_id: obj_id,
 					descripcion : des
 				},
 				success : function(data) {					
 					document.getElementById('descripcion').value = "";
-					document.getElementById('compania_id').value = "0";
+					document.getElementById('centro_costo_id').value = "0";
 					 var res = data.split(":::");
 					 $('#datatable_fixed_column').dataTable().fnAddData( [res[0],res[1]] );
 					 $.smallBox({
@@ -806,13 +806,13 @@
 				},
 				error : function(data) {
 					document.getElementById('descripcion').value = "";
-					document.getElementById('compania_id').value = "0";					
+					document.getElementById('centro_costo_id').value = "0";					
 				}
 			});
 		}
 		
 		function con(acti_id, descripcion, thi) {
-			document.getElementById('compania_id').value=acti_id;
+			document.getElementById('centro_costo_id').value=acti_id;
 			document.getElementById('descripcion').value=descripcion;
 			document.getElementById('estado').value=descripcion;
 			$('#cance').show();

@@ -55,6 +55,20 @@ CREATE TABLE admin.area(
   CONSTRAINT area_pk PRIMARY KEY (area_id )
 )WITH ( OIDS=FALSE); ALTER TABLE admin.area OWNER TO postgres;
 
+CREATE TABLE admin.centro_costo(
+  centro_costo_id serial NOT NULL,
+  descripcion character varying(128),
+  estado character varying(1),
+  CONSTRAINT centro_costo_pk PRIMARY KEY (centro_costo_id )
+)WITH ( OIDS=FALSE); ALTER TABLE admin.centro_costo OWNER TO postgres;
+
+CREATE TABLE admin.moneda(
+  moneda_id serial NOT NULL,
+  descripcion character varying(128),
+  estado character varying(1),
+  CONSTRAINT moneda_pk PRIMARY KEY (moneda_id )
+)WITH ( OIDS=FALSE); ALTER TABLE admin.moneda OWNER TO postgres;
+
 CREATE TABLE admin.actividad(
   actividad_id serial NOT NULL,
   descripcion character varying(128),
@@ -125,20 +139,8 @@ CREATE TABLE admin.origen(
   CONSTRAINT origen_pk PRIMARY KEY (id_origen )
 )WITH ( OIDS=FALSE); ALTER TABLE admin.origen OWNER TO postgres;
 
-CREATE TABLE control.antecedente(
-  id_antecedente serial,
-  documento character varying(128),
-  fecha date,
-  scan_responsabilidad bytea,
-  scan_produraduria bytea,
-  scan_policia bytea,
-  scan_fiscalia bytea,
-  observaciones text,
-  estado character varying(1),
-  CONSTRAINT antecedente_pk PRIMARY KEY (id_antecedente )
-)WITH ( OIDS=FALSE); ALTER TABLE control.antecedente OWNER TO postgres;
-
-CREATE TABLE control.contratista(
+CREATE TABLE control.contratista
+(
   documento character varying(64) NOT NULL,
   nombre_completo character varying(128),
   apellido character varying(128),
@@ -152,9 +154,7 @@ CREATE TABLE control.contratista(
   empresa character varying(128),
   nit_empresa character varying(128),
   fecha_ven_curso_ley character varying(128),
--- Pendiente de tabla
   id_persona_responsable character varying(128),
-  id_antecedente integer,
   placa character varying(16),
   eps character varying(64),
   eps_vence date,
@@ -164,11 +164,34 @@ CREATE TABLE control.contratista(
   scan_inventario bytea,
   observaciones text,
   estado character varying(1),
-  CONSTRAINT contratista_pk PRIMARY KEY (documento ),
-  CONSTRAINT fk6a68e0814ff7b56 FOREIGN KEY (tipo_persona_id) REFERENCES admin.tipo_persona (tipo_persona_id) ON UPDATE NO ACTION ON DELETE NO ACTION,
-  CONSTRAINT fk6b68e0614ff7b56 FOREIGN KEY (dependencia_id) REFERENCES admin.dependencia (dependencia_id) ON UPDATE NO ACTION ON DELETE NO ACTION,
-  CONSTRAINT fk4b68e0914ff7b56 FOREIGN KEY (id_antecedente) REFERENCES control.antecedente (id_antecedente) ON UPDATE NO ACTION ON DELETE NO ACTION
+  CONSTRAINT contratista_pk PRIMARY KEY (documento),
+  CONSTRAINT fk6a68e0814ff7b56 FOREIGN KEY (tipo_persona_id)
+      REFERENCES admin.tipo_persona (tipo_persona_id) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE NO ACTION,
+  CONSTRAINT fk6b68e0614ff7b56 FOREIGN KEY (dependencia_id)
+      REFERENCES admin.dependencia (dependencia_id) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE NO ACTION
 )WITH ( OIDS=FALSE); ALTER TABLE control.contratista OWNER TO postgres;
+
+CREATE TABLE control.antecedente
+(
+  id_antecedente serial NOT NULL,
+  contratista_documento character varying(64),
+  fecha date,
+  scan_responsabilidad bytea,
+  scan_produraduria bytea,
+  scan_policia bytea,
+  scan_fiscalia bytea,
+  observaciones text,
+  estado character varying(1),
+  CONSTRAINT antecedente_pk PRIMARY KEY (id_antecedente),
+  CONSTRAINT contratista_id_fk FOREIGN KEY (contratista_documento)
+      REFERENCES control.contratista (documento) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE NO ACTION
+)
+WITH (OIDS=FALSE);
+ALTER TABLE control.antecedente
+  OWNER TO postgres;
 
 ------ N O M I N A --------------------------------------------
 CREATE TABLE admin.compania(

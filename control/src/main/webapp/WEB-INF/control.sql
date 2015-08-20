@@ -201,6 +201,15 @@ CREATE TABLE admin.compania(
   CONSTRAINT compania_pk PRIMARY KEY (compania_id)
 )WITH ( OIDS=FALSE); ALTER TABLE admin.compania OWNER TO postgres;
 
+-- Se debe verificar bien que configuración por parámetros se tendrán
+CREATE TABLE nomina.configuracion(
+  configuracion_id serial NOT NULL,
+  descripcion character varying(128),
+  tolerancia character varying(64),
+  estado character varying(1),
+  CONSTRAINT configuracion_pk PRIMARY KEY (configuracion_id)
+)WITH ( OIDS=FALSE); ALTER TABLE nomina.configuracion OWNER TO postgres;
+
 CREATE TABLE nomina.festivos(
   festivos_id serial NOT NULL,
   descripcion character varying(128),
@@ -218,7 +227,7 @@ CREATE TABLE nomina.calendarios_feriados(
   CONSTRAINT fk6a63e0814ff7b56 FOREIGN KEY (festivos_id) REFERENCES nomina.festivos (festivos_id) ON UPDATE NO ACTION ON DELETE NO ACTION
 )WITH ( OIDS=FALSE); ALTER TABLE nomina.calendarios_feriados OWNER TO postgres;
 
--- Pendiente el sobretiempo y las comidas
+-- Pendiente el sobretiempo y las comidas que estan en pestañas aparte
 CREATE TABLE nomina.tipo_trabajador(
   tipo_trabajador_id serial NOT NULL,
   descripcion character varying(128),
@@ -239,7 +248,7 @@ CREATE TABLE nomina.cargo(
   CONSTRAINT cargo_pk PRIMARY KEY (cargo_id)
 )WITH ( OIDS=FALSE); ALTER TABLE nomina.cargo OWNER TO postgres;
 
--- Pendiente Variaciones, Parámetros
+-- Pendiente Variaciones, Parámetros, están en otras pantallas
 CREATE TABLE nomina.horario(
   horario_id serial NOT NULL,
   descripcion character varying(128),
@@ -310,6 +319,7 @@ CREATE TABLE nomina.sucursal(
   CONSTRAINT sucursal_pk PRIMARY KEY (sucursal_id)
 )WITH ( OIDS=FALSE); ALTER TABLE nomina.sucursal OWNER TO postgres;
 
+-- Pendiente detalles técnicos de las terminales lectoras de huellas
 CREATE TABLE nomina.terminal(
   terminal_id serial NOT NULL,
   descripcion character varying(128),
@@ -357,6 +367,27 @@ CREATE TABLE nomina.grupo(
   CONSTRAINT grupo_pk PRIMARY KEY (grupo_id)
 )WITH ( OIDS=FALSE); ALTER TABLE nomina.grupo OWNER TO postgres;
 
+CREATE TABLE nomina.justificacion_sobretiempo(
+  justificacion_sobretiempo_id serial NOT NULL,
+  descripcion character varying(128),
+  estado character varying(1),
+  CONSTRAINT justificacion_sobretiempo_pk PRIMARY KEY (justificacion_sobretiempo_id)
+)WITH ( OIDS=FALSE); ALTER TABLE nomina.justificacion_sobretiempo OWNER TO postgres;
+
+CREATE TABLE nomina.ausencias(
+  ausencias_id serial NOT NULL,
+  descripcion character varying(128),
+  estado character varying(1),
+  CONSTRAINT ausencias_pk PRIMARY KEY (ausencias_id)
+)WITH ( OIDS=FALSE); ALTER TABLE nomina.ausencias OWNER TO postgres;
+
+CREATE TABLE nomina.estacionamiento(
+  estacionamiento_id serial NOT NULL,
+  descripcion character varying(128),
+  estado character varying(1),
+  CONSTRAINT estacionamiento_pk PRIMARY KEY (estacionamiento_id)
+)WITH ( OIDS=FALSE); ALTER TABLE nomina.estacionamiento OWNER TO postgres;
+
 CREATE TABLE nomina.grupo_trabajador(
   grupo_id serial NOT NULL,
   codigo_trabajador character varying(64) NOT NULL,
@@ -376,7 +407,8 @@ CREATE TABLE nomina.trabajador(
   rotacion_id integer,
   puesto_id integer,
   coreo_e character varying(128),
-  telefono character varying(64),
+  telefono_casa character varying(64),
+  telefono_interno character varying(64),
   scan_foto bytea,
   scan_cedula bytea,
   scan_huella bytea,
@@ -407,6 +439,17 @@ CREATE TABLE nomina.trabajador(
 )WITH ( OIDS=FALSE); ALTER TABLE nomina.trabajador OWNER TO postgres;
 ALTER TABLE nomina.trabajador ADD CONSTRAINT fk6a68e0814fb7b56 FOREIGN KEY (codigo_trabajador) REFERENCES nomina.trabajador (codigo_trabajador) ON UPDATE NO ACTION ON DELETE NO ACTION;
 ALTER TABLE nomina.grupo_trabajador ADD CONSTRAINT fk6a68e0814fb7f53 FOREIGN KEY (grupo_id) REFERENCES nomina.grupo (grupo_id) ON UPDATE NO ACTION ON DELETE NO ACTION;
+
+CREATE TABLE nomina.suplencias(
+  suplencias_id serial NOT NULL,
+  descripcion character varying(128),
+  codigo_trabajador character varying(64) NOT NULL,
+  desde date,
+  hasta date,
+  estado character varying(1),
+  CONSTRAINT suplencias_pk PRIMARY KEY (suplencias_id),
+  CONSTRAINT fk6b68e0614ff7b61 FOREIGN KEY (codigo_trabajador) REFERENCES nomina.trabajador (codigo_trabajador) ON UPDATE NO ACTION ON DELETE NO ACTION
+)WITH ( OIDS=FALSE); ALTER TABLE nomina.suplencias OWNER TO postgres;
 
 CREATE TABLE nomina.tipo_permiso(
   tipo_permiso_id serial NOT NULL,

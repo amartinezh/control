@@ -299,7 +299,7 @@ CREATE TABLE nomina.rotacion(
   CONSTRAINT rotacion_pk PRIMARY KEY (rotacion_id),
   CONSTRAINT fk6a68e0814fb7b56 FOREIGN KEY (tipo_rotacion_id) REFERENCES nomina.tipo_rotacion (tipo_rotacion_id) ON UPDATE NO ACTION ON DELETE NO ACTION
 )WITH ( OIDS=FALSE); ALTER TABLE nomina.rotacion OWNER TO postgres;
-ALTER TABLE nomina.rotacion ADD CONSTRAINT fk6a68e08dffb7f51 FOREIGN KEY (rotacion_id) REFERENCES nomina.rotacion (rotacion_id) ON UPDATE NO ACTION ON DELETE NO ACTION;
+ALTER TABLE nomina.item_rotacion ADD CONSTRAINT fk6a68e08dffb7f51 FOREIGN KEY (rotacion_id) REFERENCES nomina.rotacion (rotacion_id) ON UPDATE NO ACTION ON DELETE NO ACTION;
 
 CREATE TABLE nomina.comedor(
   comedor_id serial NOT NULL,
@@ -437,7 +437,7 @@ CREATE TABLE nomina.trabajador(
   CONSTRAINT fk6b68e0614ff7b61 FOREIGN KEY (puesto_id) REFERENCES nomina.puesto (puesto_id) ON UPDATE NO ACTION ON DELETE NO ACTION,
   CONSTRAINT fk6b68e0614ff7b62 FOREIGN KEY (cargo_id) REFERENCES nomina.cargo (cargo_id) ON UPDATE NO ACTION ON DELETE NO ACTION
 )WITH ( OIDS=FALSE); ALTER TABLE nomina.trabajador OWNER TO postgres;
-ALTER TABLE nomina.trabajador ADD CONSTRAINT fk6a68e0814fb7b56 FOREIGN KEY (codigo_trabajador) REFERENCES nomina.trabajador (codigo_trabajador) ON UPDATE NO ACTION ON DELETE NO ACTION;
+ALTER TABLE nomina.grupo_trabajador ADD CONSTRAINT fk6a68e0814fb7b56 FOREIGN KEY (codigo_trabajador) REFERENCES nomina.trabajador (codigo_trabajador) ON UPDATE NO ACTION ON DELETE NO ACTION;
 ALTER TABLE nomina.grupo_trabajador ADD CONSTRAINT fk6a68e0814fb7f53 FOREIGN KEY (grupo_id) REFERENCES nomina.grupo (grupo_id) ON UPDATE NO ACTION ON DELETE NO ACTION;
 
 CREATE TABLE nomina.suplencias(

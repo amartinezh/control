@@ -1,12 +1,14 @@
 package com.ventura.control.domain.control;
 
 import java.io.Serializable;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -33,6 +35,9 @@ public class Dependencia implements Serializable{
 	
 	@Column(name = "estado")
 	private String estado;
+	
+	@OneToMany(mappedBy = "dependenciaId")
+    private Set<Contratista> contratistaSet;
 	
 	public Dependencia() {
 		// TODO Auto-generated constructor stub
@@ -73,6 +78,14 @@ public class Dependencia implements Serializable{
 	
 	public void setEstado(String estado) {
 		this.estado = estado;
+	}
+	
+	public Set<Contratista> getContratistaSet() {
+		return contratistaSet;
+	}
+	
+	public void setContratistaSet(Set<Contratista> contratistaSet) {
+		this.contratistaSet = contratistaSet;
 	}
 
 }

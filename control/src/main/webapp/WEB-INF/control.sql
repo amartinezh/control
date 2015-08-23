@@ -133,10 +133,10 @@ CREATE TABLE admin.turno(
 )WITH ( OIDS=FALSE); ALTER TABLE admin.turno OWNER TO postgres;
 
 CREATE TABLE admin.origen(
-  id_origen serial NOT NULL,
+  origen_id serial NOT NULL,
   descripcion character varying(128),
   estado character varying(1),
-  CONSTRAINT origen_pk PRIMARY KEY (id_origen )
+  CONSTRAINT origen_pk PRIMARY KEY (origen_id )
 )WITH ( OIDS=FALSE); ALTER TABLE admin.origen OWNER TO postgres;
 
 CREATE TABLE control.contratista

@@ -32,6 +32,10 @@ public class Origen implements java.io.Serializable {
 	public Origen() {
 		// TODO Auto-generated constructor stub
 	}
+	
+	public Origen(int origen_id) {
+		this.origen_id = origen_id;
+	}
 
 	public Origen(String descripcion) {
 		this.descripcion = descripcion;

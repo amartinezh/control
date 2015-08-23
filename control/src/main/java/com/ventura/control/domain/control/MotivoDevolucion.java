@@ -33,6 +33,10 @@ public class MotivoDevolucion implements java.io.Serializable {
 		// TODO Auto-generated constructor stub
 	}
 	
+	public MotivoDevolucion(int motivo_devolucion_id) {
+		this.motivo_devolucion_id = motivo_devolucion_id;
+	}
+	
 	public MotivoDevolucion(String descripcion) {
 		this.descripcion = descripcion;
 	}

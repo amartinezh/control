@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.Set;
 
+import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -26,6 +27,7 @@ public class Contratista implements Serializable {
 	private static final long serialVersionUID = -9068113467850707780L;
 
 	@Id
+	@Basic(optional = false)
 	@Column(name = "documento")
 	private String documento;
 	@Column(name = "nombre_completo")

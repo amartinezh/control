@@ -39,6 +39,12 @@ public class Dependencia implements Serializable{
 	@OneToMany(mappedBy = "dependenciaId")
     private Set<Contratista> contratistaSet;
 	
+	@OneToMany(mappedBy = "dependenciaId")
+    private Set<Conductor> conductorSet;
+	
+	@OneToMany(mappedBy = "dependenciaId")
+    private Set<Visitante> visitanteSet;
+	
 	public Dependencia() {
 		// TODO Auto-generated constructor stub
 	}
@@ -88,4 +94,20 @@ public class Dependencia implements Serializable{
 		this.contratistaSet = contratistaSet;
 	}
 
+	public void setConductorSet(Set<Conductor> conductorSet) {
+		this.conductorSet = conductorSet;
+	}
+	
+	public Set<Conductor> getConductorSet() {
+		return conductorSet;
+	}
+	
+	public void setVisitanteSet(Set<Visitante> visitanteSet) {
+		this.visitanteSet = visitanteSet;
+	}
+	
+	public Set<Visitante> getVisitanteSet() {
+		return visitanteSet;
+	}
+	
 }

@@ -226,7 +226,7 @@
 
 					<span class="widget-icon"> <i class="fa fa-table"></i>
 					</span>
-					<h2>Areas</h2>
+					<h2>Motivos Devolución</h2>
 
 					<span class="jarviswidget-loader"><i
 						class="fa fa-refresh fa-spin"></i></span>

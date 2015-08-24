@@ -19,7 +19,13 @@ public class TipoProductoServiceImpl implements TipoProductoService {
 
 	@Transactional
 	public void agregarTipoProducto(TipoProducto tipoProducto) {
-		tipoProductoDao.agregar(tipoProducto);
+		if (tipoProducto.getTipo_producto_id() == 0)
+			tipoProductoDao.agregar(tipoProducto);
+		else {
+			TipoProducto obj = (TipoProducto) tipoProductoDao.getElemento(tipoProducto, tipoProducto.getTipo_producto_id());
+			obj.setDescripcion(tipoProducto.getDescripcion());
+			tipoProductoDao.actualizar(tipoProducto);
+		}
 	}
 
 	@Transactional

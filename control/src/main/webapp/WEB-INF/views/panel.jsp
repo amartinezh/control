@@ -219,9 +219,9 @@
 									<li><a target="des" href="<c:url value="/sitio"/>"> <i class="fa fa-female"></i> Sitios</a></li>
 									<li><a target="des" href="<c:url value="/tipoencomienda"/>"> <i class="fa fa-female"></i> Tipos Encomiendas</a></li>
 									<li><a target="des" href="<c:url value="/tipopersona"/>"> <i class="fa fa-female"></i> Tipo Personas</a></li>
-									<li><a target="des" href="<c:url value="/turnos"/>"> <i class="fa fa-female"></i> Turnos</a></li>
+									<li><a target="des" href="<c:url value="/turno"/>"> <i class="fa fa-female"></i> Turnos</a></li>
 									<li><a target="des" href="<c:url value="/tipousuarios"/>"> <i class="fa fa-female"></i> Tipo Usuarios</a></li>
-									<li><a target="des" href="<c:url value="/sitio"/>"> <i class="fa fa-home"></i> Sitios</a></li>
+									<li><a target="des" href="<c:url value="/tipoproducto"/>"> <i class="fa fa-home"></i> Tipo Producto</a></li>
 									<li><a target="des" href="<c:url value="/tipotransaccion"/>"> <i class="fa fa-dot-circle-o"></i> Tipo Transaccion</a></li>
 								</ul>
 							</li>

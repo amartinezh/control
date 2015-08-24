@@ -19,7 +19,13 @@ public class TurnoServiceImpl implements TurnoService {
 
 	@Transactional
 	public void agregarTurno(Turno turno) {
-		turnoDao.agregar(turno);
+		if (turno.getTurno_id() == 0)
+			turnoDao.agregar(turno);
+		else {
+			Turno obj = (Turno) turnoDao.getElemento(turno, turno.getTurno_id());
+			obj.setDescripcion(turno.getDescripcion());
+			turnoDao.actualizar(turno);
+		}
 	}
 
 	@Transactional

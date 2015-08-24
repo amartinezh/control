@@ -44,6 +44,10 @@ public class TipoPersona implements java.io.Serializable {
 	public TipoPersona() {
 		// TODO Auto-generated constructor stub
 	}
+	
+	public TipoPersona(int tipo_persona_id) {
+		this.tipo_persona_id = tipo_persona_id;
+	}
 
 	public TipoPersona(String descripcion) {
 		this.descripcion = descripcion;

@@ -32,6 +32,10 @@ public class TipoProducto implements java.io.Serializable {
 	public TipoProducto() {
 		// TODO Auto-generated constructor stub
 	}
+	
+	public TipoProducto(int tipo_producto_id) {
+		this.tipo_producto_id = tipo_producto_id;
+	}
 
 	public TipoProducto(String descripcion) {
 		this.descripcion = descripcion;

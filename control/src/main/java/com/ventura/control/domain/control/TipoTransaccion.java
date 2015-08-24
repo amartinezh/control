@@ -33,6 +33,10 @@ public class TipoTransaccion implements java.io.Serializable {
 		// TODO Auto-generated constructor stub
 	}
 
+	public TipoTransaccion(int tipo_transaccion_id) {
+		this.tipo_transaccion_id = tipo_transaccion_id;
+	}
+	
 	public TipoTransaccion(String descripcion) {
 		this.descripcion = descripcion;
 	}

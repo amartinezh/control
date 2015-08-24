@@ -33,6 +33,10 @@ public class TipoEncomienda implements java.io.Serializable {
 		// TODO Auto-generated constructor stub
 	}
 
+	public TipoEncomienda(int tipo_encomienda_id) {
+		this.tipo_encomienda_id = tipo_encomienda_id;
+	}
+	
 	public TipoEncomienda(String descripcion) {
 		this.descripcion = descripcion;
 	}

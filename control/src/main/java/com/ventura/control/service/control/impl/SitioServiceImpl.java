@@ -19,7 +19,13 @@ public class SitioServiceImpl implements SitioService {
 
 	@Transactional
 	public void agregarSitio(Sitio sitio) {
-		sitioDao.agregar(sitio);
+		if (sitio.getSitio_id() == 0)
+			sitioDao.agregar(sitio);
+		else {
+			Sitio obj = (Sitio) sitioDao.getElemento(sitio, sitio.getSitio_id());
+			obj.setDescripcion(sitio.getDescripcion());
+			sitioDao.actualizar(sitio);
+		}
 	}
 
 	@Transactional

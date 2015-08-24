@@ -8,6 +8,6 @@ public interface TipoEncomiendaService {
 
 	public void agregarTipoEncomienda(TipoEncomienda tipoEncomienda);
 	public void borrarTipoEncomienda(TipoEncomienda tipoEncomienda);
-	public List<TipoEncomienda> listarTipoEncomiendaes();	
+	public List<TipoEncomienda> listarTipoEncomiendas();	
 
 }

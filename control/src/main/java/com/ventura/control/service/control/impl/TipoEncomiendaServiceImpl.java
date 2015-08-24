@@ -19,7 +19,13 @@ public class TipoEncomiendaServiceImpl implements TipoEncomiendaService {
 
 	@Transactional
 	public void agregarTipoEncomienda(TipoEncomienda tipoEncomienda) {
-		tipoEncomiendaDao.agregar(tipoEncomienda);
+		if (tipoEncomienda.getTipo_encomienda_id() == 0)
+			tipoEncomiendaDao.agregar(tipoEncomienda);
+		else {
+			TipoEncomienda obj = (TipoEncomienda) tipoEncomiendaDao.getElemento(tipoEncomienda, tipoEncomienda.getTipo_encomienda_id());
+			obj.setDescripcion(tipoEncomienda.getDescripcion());
+			tipoEncomiendaDao.actualizar(tipoEncomienda);
+		}
 	}
 
 	@Transactional
@@ -30,7 +36,7 @@ public class TipoEncomiendaServiceImpl implements TipoEncomiendaService {
 	}
 
 	@Transactional
-	public List<TipoEncomienda> listarTipoEncomiendaes() {
+	public List<TipoEncomienda> listarTipoEncomiendas() {
 		List<TipoEncomienda> listTipEnc = new LinkedList<TipoEncomienda>();
 		String sql = "Select t.tipo_encomienda_id as tipo_encomienda_id, t.descripcion as descripcion FROM TipoEncomienda as t";
 		List<Object[]> data = tipoEncomiendaDao.listar(sql);

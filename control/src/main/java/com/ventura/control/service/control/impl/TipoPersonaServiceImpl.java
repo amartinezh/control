@@ -19,7 +19,13 @@ public class TipoPersonaServiceImpl implements TipoPersonaService {
 
 	@Transactional
 	public void agregarTipoPersona(TipoPersona tipoPersona) {
-		tipoPersonaDao.agregar(tipoPersona);
+		if (tipoPersona.getTipo_persona_id() == 0)
+			tipoPersonaDao.agregar(tipoPersona);
+		else {
+			TipoPersona obj = (TipoPersona) tipoPersonaDao.getElemento(tipoPersona, tipoPersona.getTipo_persona_id());
+			obj.setDescripcion(tipoPersona.getDescripcion());
+			tipoPersonaDao.actualizar(tipoPersona);
+		}
 	}
 
 	@Transactional

@@ -33,6 +33,10 @@ public class Sitio implements java.io.Serializable {
 		// TODO Auto-generated constructor stub
 	}
 	
+	public Sitio(int sitio_id) {
+		this.sitio_id = sitio_id;	
+	}
+	
 	public Sitio(String descripcion) {
 		this.descripcion = descripcion;	
 	}

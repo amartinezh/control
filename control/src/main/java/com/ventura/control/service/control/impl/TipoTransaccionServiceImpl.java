@@ -19,7 +19,13 @@ public class TipoTransaccionServiceImpl implements TipoTransaccionService {
 
 	@Transactional
 	public void agregarTipoTransaccion(TipoTransaccion tipoTransaccion) {
-		tipoTransaccionDao.agregar(tipoTransaccion);
+		if (tipoTransaccion.getTipo_transaccion_id() == 0)
+			tipoTransaccionDao.agregar(tipoTransaccion);
+		else {
+			TipoTransaccion obj = (TipoTransaccion) tipoTransaccionDao.getElemento(tipoTransaccion, tipoTransaccion.getTipo_transaccion_id());
+			obj.setDescripcion(tipoTransaccion.getDescripcion());
+			tipoTransaccionDao.actualizar(tipoTransaccion);
+		}
 	}
 
 	@Transactional

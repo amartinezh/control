@@ -19,7 +19,13 @@ public class OrigenServiceImpl implements OrigenService {
 
 	@Transactional
 	public void agregarOrigen(Origen origen) {
-		origenDao.agregar(origen);
+		if (origen.getOrigen_id() == 0)
+			origenDao.agregar(origen);
+		else {
+			Origen obj = (Origen) origenDao.getElemento(origen, origen.getOrigen_id());
+			obj.setDescripcion(origen.getDescripcion());
+			origenDao.actualizar(origen);
+		}
 	}
 
 	@Transactional

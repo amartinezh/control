@@ -32,6 +32,10 @@ public class Turno implements java.io.Serializable {
 	public Turno() {
 		// TODO Auto-generated constructor stub
 	}
+	
+	public Turno(int turno_id) {
+		this.turno_id = turno_id;
+	}
 
 	public Turno(String descripcion) {
 		this.descripcion = descripcion;

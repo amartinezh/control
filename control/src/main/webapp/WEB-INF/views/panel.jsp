@@ -214,7 +214,7 @@
 									<li><a target="des" href="<c:url value="/moneda"/>"> <i class="fa fa-female"></i> Monedas</a></li>
 									<li><a target="des" href="<c:url value="/dependencia"/>"> <i class="fa fa-female"></i> Dependencias</a></li>
 									<li><a target="des" href="<c:url value="/nivel"/>"> <i class="fa fa-female"></i> Niveles</a></li>
-									<li><a target="des" href="<c:url value="motivodevolucion"/>"> <i class="fa fa-female"></i> Motivos Devolución</a></li>
+									<li><a target="des" href="<c:url value="/motivodevolucion"/>"> <i class="fa fa-female"></i> Motivos Devolución</a></li>
 									<li><a target="des" href="<c:url value="/origen"/>"> <i class="fa fa-female"></i> Origenes</a></li>
 									<li><a target="des" href="<c:url value="/sitio"/>"> <i class="fa fa-female"></i> Sitios</a></li>
 									<li><a target="des" href="<c:url value="/tipoencomienda"/>"> <i class="fa fa-female"></i> Tipos Encomiendas</a></li>

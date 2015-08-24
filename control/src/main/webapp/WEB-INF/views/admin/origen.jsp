@@ -156,7 +156,7 @@
 								<!-- widget content -->
 								<div class="widget-body">
 									<form:form id="frm" method="post" class="bv-form"
-										ModelAttribute="area" commandName="area">
+										ModelAttribute="origen" commandName="origen">
 										<button type="submit" class="bv-hidden-submit"
 											style="display: none; width: 0px; height: 0px;"></button>
 										<fieldset>
@@ -226,7 +226,7 @@
 
 					<span class="widget-icon"> <i class="fa fa-table"></i>
 					</span>
-					<h2>Areas</h2>
+					<h2>Origenes</h2>
 
 					<span class="jarviswidget-loader"><i
 						class="fa fa-refresh fa-spin"></i></span>
@@ -700,7 +700,7 @@
 					origen_id: acti_id,
 					descripcion : des
 				},
-				success : function(data) {			
+				success : function(data) {		
 					 document.getElementById('descripcion').value = "";
 					 document.getElementById('origen_id').value = "0";
 					 var res = data.split(":::");

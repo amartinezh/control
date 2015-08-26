@@ -1,5 +1,6 @@
 package com.ventura.control.service.control.impl;
 
+import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -45,6 +46,19 @@ public class ActividadServiceImpl implements ActividadService {
 			for (Object[] d : data) {
 				listActividad.add(new Actividad(Integer.parseInt(d[0]
 						.toString()), d[1].toString()));
+			}
+		}
+		return listActividad;
+	}
+	
+	@Transactional
+	public LinkedHashMap<Integer, String> cmbActividades() {
+		LinkedHashMap<Integer, String> listActividad = new LinkedHashMap<Integer, String>();
+		String sql = "Select a.actividad_id as actividad_id, a.descripcion as descripcion FROM Actividad as a";
+		List<Object[]> data = actividadDao.listar(sql);
+		if (data != null) {
+			for (Object[] d : data) {
+				listActividad.put(Integer.parseInt(d[0].toString()), d[1].toString());
 			}
 		}
 		return listActividad;

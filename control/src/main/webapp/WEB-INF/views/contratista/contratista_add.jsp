@@ -156,15 +156,15 @@
 								<!-- widget content -->
 								<div class="widget-body">
 									<form:form id="frm" method="post" class="bv-form"
-										ModelAttribute="contratista" commandName="contratista">
+										ModelAttribute="area" commandName="area">
 										<button type="submit" class="bv-hidden-submit"
 											style="display: none; width: 0px; height: 0px;"></button>
 										<fieldset>
-											<legend> Dependencia </legend>
+											<legend> Área </legend>
 											<div class="form-group">
 												<div class="row">
 													<div class="col-md-12 has-feedback">
-														<form:input type="hidden" path="dependencia_id" value="0" />
+														<form:input type="hidden" path="area_id" value="0" />
 														<form:input type="hidden" path="estado" />
 														<label class="control-label">Descripción</label>
 														<form:input path="descripcion" type="text"
@@ -179,10 +179,23 @@
 												<div class="row">
 													<div class="col-sm-12 col-md-4">
 														<label class="control-label">Documento</label> 
+													</div>
+													<div class="col-sm-12 col-md-4">
 														
-														<form:input path="documento" type="text"
-															class="form-control" data-bv-field="Documento"
-															required="required" />
+													</div>
+													<div class="col-sm-12 col-md-4">
+														
+													</div>
+												</div>
+											</div>
+										</fieldset>
+										<fieldset>
+											<div class="form-group">
+												<div class="row">
+													<div class="col-sm-12 col-md-4">
+														<label class="control-label">Documento</label> 
+														
+													
 													</div>
 													<div class="col-sm-12 col-md-4">
 														<label class="control-label">Nombre Completo</label> <input
@@ -211,13 +224,11 @@
 													</div>
 		
 													<div class="col-md-6 selectContainer">
-														<label class="control-label">Dependencia</label> <select
-															class="form-control" name="id_dependencia">
-															<option value="">Seleccione</option>
-															<option value="action">Sistemas</option>
-															<option value="comedy">Contabilidad</option>
-															<option value="horror">Compras</option>
-														</select>
+														<label class="control-label">Dependencia</label> 
+														<form:select  path="nameOfInstitution">
+															<form:option value="NONE"> --SELECT--</form:option>
+															<form:options items="${dependenciaList}"></form:options>
+														</form:select>
 													</div>
 												</div>
 											</div>
@@ -393,7 +404,7 @@
 
 					<span class="widget-icon"> <i class="fa fa-table"></i>
 					</span>
-					<h2>Dependencias</h2>
+					<h2>Areas</h2>
 
 					<span class="jarviswidget-loader"><i
 						class="fa fa-refresh fa-spin"></i></span>
@@ -434,18 +445,18 @@
 									</tr>
 								</thead>
 								<tbody>
-									<c:forEach items="${listDependencia}" var="dep"
+									<c:forEach items="${listArea}" var="obj"
 										varStatus="loopCounter">
 										<tr role="row" class="odd">
 											<td class="sorting_1"><span class="responsiveExpander"></span>
 												<a class="btn btn-success btn-circle btn-sx"
-												onclick="con('<c:out value="${dep.dependencia_id}"></c:out>','<c:out value="${dep.descripcion}"></c:out>',$(this))"><i
+												onclick="con('<c:out value="${obj.area_id}"></c:out>','<c:out value="${obj.descripcion}"></c:out>',$(this))"><i
 													class="fa fa-edit"></i></a> <a
 												class="btn btn-danger btn-circle"
-												onclick="borrar(<c:out value="${dep.dependencia_id}"></c:out>, $(this))"><i
+												onclick="borrar(<c:out value="${obj.area_id}"></c:out>, $(this))"><i
 													class="fa fa-trash-o"></i></a></td>
 											<td class="sorting_1"><span class="responsiveExpander"></span>
-												<c:out value="${dep.descripcion}"></c:out></td>
+												<c:out value="${obj.descripcion}"></c:out></td>
 										</tr>
 									</c:forEach>
 								</tbody>
@@ -857,20 +868,19 @@
 		}
 
 		function actualizar() {
-			//validar();
 			$( "#frm" ).submit();
-			var dep_id = document.getElementById('dependencia_id').value;
+			var acti_id = document.getElementById('area_id').value;
 			var des = document.getElementById('descripcion').value;
 			$.ajax({
 				type : "POST",
-				url : "dependencia/agregar",
+				url : "area/agregar",
 				data : {
-					dependencia_id: dep_id,
+					area_id: acti_id,
 					descripcion : des
 				},
-				success : function(data) {					
+				success : function(data) {			
 					 document.getElementById('descripcion').value = "";
-					 document.getElementById('dependencia_id').value = "0";
+					 document.getElementById('area_id').value = "0";
 					 var res = data.split(":::");
 					 $('#datatable_fixed_column').dataTable().fnAddData( [res[0],res[1]] );
 					 $.smallBox({
@@ -897,9 +907,9 @@
 		function del(dato, thi) {
 			$.ajax({
 				type : "POST",
-				url : "dependencia/borrar",
+				url : "area/borrar",
 				data : {
-					dependencia_id : dato
+					area_id : dato
 				},
 				success : function(data) {
 					nRow=$(thi).closest("tr").index();
@@ -948,19 +958,19 @@
 		}
 		
 		function cancelar() {
-			var dep_id = document.getElementById('dependencia_id').value;
+			var obj_id = document.getElementById('area_id').value;
 			var des = document.getElementById('estado').value;
 			$('#elboton').text('Nuevo');
 			$.ajax({
 				type : "POST",
-				url : "dependencia/cancelar",
+				url : "area/cancelar",
 				data : {
-					dependencia_id: dep_id,
+					area_id: obj_id,
 					descripcion : des
 				},
 				success : function(data) {					
 					document.getElementById('descripcion').value = "";
-					document.getElementById('dependencia_id').value = "0";
+					document.getElementById('area_id').value = "0";
 					 var res = data.split(":::");
 					 $('#datatable_fixed_column').dataTable().fnAddData( [res[0],res[1]] );
 					 $.smallBox({
@@ -974,13 +984,13 @@
 				},
 				error : function(data) {
 					document.getElementById('descripcion').value = "";
-					document.getElementById('dependencia_id').value = "0";					
+					document.getElementById('area_id').value = "0";					
 				}
 			});
 		}
 		
-		function con(dep_id, descripcion, thi) {
-			document.getElementById('dependencia_id').value=dep_id;
+		function con(acti_id, descripcion, thi) {
+			document.getElementById('area_id').value=acti_id;
 			document.getElementById('descripcion').value=descripcion;
 			document.getElementById('estado').value=descripcion;
 			$('#cance').show();

@@ -167,9 +167,15 @@
 														<form:input type="hidden" path="actividad_id" value="0" />
 														<form:input type="hidden" path="estado" />
 														<label class="control-label">Descripción</label>
-														<form:input path="descripcion" type="text"
+														 <form:input path="descripcion" type="text"
 															class="form-control" data-bv-field="Descripción"
-															required="required" />
+															required="required" /> 
+															
+														<!--	<form:select  path="descripcion">
+														    	<form:option value="NONE"> --SELECT--</form:option>
+														    	<form:options items="${cmbActividad}"></form:options>
+														  </form:select> -->
+															
 													</div>
 												</div>
 											</div>

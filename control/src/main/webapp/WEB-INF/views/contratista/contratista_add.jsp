@@ -225,7 +225,7 @@
 		
 													<div class="col-md-6 selectContainer">
 														<label class="control-label">Dependencia</label> 
-														<form:select  path="nameOfInstitution">
+														<form:select  path="dependencia_id">
 															<form:option value="NONE"> --SELECT--</form:option>
 															<form:options items="${dependenciaList}"></form:options>
 														</form:select>

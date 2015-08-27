@@ -52,7 +52,7 @@ public class DependenciaServiceImpl implements DependeciaService {
 	@Transactional
 	public LinkedHashMap<Integer, String> cmbDependencias() {
 		LinkedHashMap<Integer, String> listDependencia = new LinkedHashMap<Integer, String>();
-		String sql = "Select a.actividad_id as actividad_id, a.descripcion as descripcion FROM Actividad as a";
+		String sql = "Select d.dependencia_id as dependencia, d.descripcion as descripcion FROM Dependencia as d";
 		List<Object[]> data = dependenciaDao.listar(sql);
 		if (data != null) {
 			for (Object[] d : data) {

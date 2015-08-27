@@ -16,7 +16,7 @@ import com.ventura.control.domain.control.Dependencia;
 import com.ventura.control.domain.login.User;
 import com.ventura.control.service.control.AreaService;
 import com.ventura.control.service.control.ContratistaService;
-import com.ventura.control.service.control.impl.DependenciaServiceImpl;
+import com.ventura.control.service.control.DependeciaService;
  
 @Controller
 //@RequestMapping("/area")
@@ -26,6 +26,8 @@ public class ContratistaController {
 	@Autowired
 	private ContratistaService contratista;
 	
+	@Autowired
+	private DependeciaService dep;
 	
 	
 	@RequestMapping(value = "/contratista_add",method = RequestMethod.GET)
@@ -34,7 +36,6 @@ public class ContratistaController {
 		//model.put("listArea", area.listarAreas());
 		//model.put("user", new User());
 		//model.put("contratista", new Contratista());
-		DependenciaServiceImpl dep = new DependenciaServiceImpl();
 		model.put("dependenciaList", dep.cmbDependencias());
 		return "contratista/contratista_add";
 	}

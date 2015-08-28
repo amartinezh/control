@@ -36,13 +36,13 @@ public class Dependencia implements Serializable{
 	@Column(name = "estado")
 	private String estado;
 	
-	@OneToMany(mappedBy = "dependenciaId")
+	@OneToMany(mappedBy = "dependencia_id")
     private Set<Contratista> contratistaSet;
 	
-	@OneToMany(mappedBy = "dependenciaId")
+	@OneToMany(mappedBy = "dependencia_id")
     private Set<Conductor> conductorSet;
 	
-	@OneToMany(mappedBy = "dependenciaId")
+	@OneToMany(mappedBy = "dependencia_id")
     private Set<Visitante> visitanteSet;
 	
 	public Dependencia() {

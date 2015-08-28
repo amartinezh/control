@@ -156,7 +156,7 @@
 								<!-- widget content -->
 								<div class="widget-body">
 									<form:form id="frm" method="post" class="bv-form"
-										ModelAttribute="area" commandName="area">
+										ModelAttribute="contratista" commandName="contratista">
 										<button type="submit" class="bv-hidden-submit"
 											style="display: none; width: 0px; height: 0px;"></button>
 										<fieldset>

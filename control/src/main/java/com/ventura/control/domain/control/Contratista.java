@@ -81,7 +81,7 @@ public class Contratista implements Serializable {
 	private TipoPersona tipoPersonaId;
 	@JoinColumn(name = "dependencia_id", referencedColumnName = "dependencia_id")
 	@ManyToOne
-	private Dependencia dependenciaId;
+	private Dependencia dependencia_id;
 	@OneToMany(mappedBy = "contratistaDocumento")
 	private Set<Antecedente> antecedente;
 
@@ -166,7 +166,7 @@ public class Contratista implements Serializable {
 	}
 
 	public Dependencia getDependenciaId() {
-		return dependenciaId;
+		return dependencia_id;
 	}
 
 	public Set<Antecedente> getAntecedente() {
@@ -249,8 +249,8 @@ public class Contratista implements Serializable {
 		this.tipoPersonaId = tipoPersonaId;
 	}
 
-	public void setDependenciaId(Dependencia dependenciaId) {
-		this.dependenciaId = dependenciaId;
+	public void setDependenciaId(Dependencia dependencia_id) {
+		this.dependencia_id = dependencia_id;
 	}
 
 	public void setAntecedente(Set<Antecedente> antecedente) {
@@ -305,7 +305,7 @@ public class Contratista implements Serializable {
 				+ ((apellido == null) ? 0 : apellido.hashCode());
 		result = prime * result + ((coreoE == null) ? 0 : coreoE.hashCode());
 		result = prime * result
-				+ ((dependenciaId == null) ? 0 : dependenciaId.hashCode());
+				+ ((dependencia_id == null) ? 0 : dependencia_id.hashCode());
 		result = prime * result
 				+ ((documento == null) ? 0 : documento.hashCode());
 		result = prime * result + ((empresa == null) ? 0 : empresa.hashCode());
@@ -374,10 +374,10 @@ public class Contratista implements Serializable {
 				return false;
 		} else if (!coreoE.equals(other.coreoE))
 			return false;
-		if (dependenciaId == null) {
-			if (other.dependenciaId != null)
+		if (dependencia_id == null) {
+			if (other.dependencia_id != null)
 				return false;
-		} else if (!dependenciaId.equals(other.dependenciaId))
+		} else if (!dependencia_id.equals(other.dependencia_id))
 			return false;
 		if (documento == null) {
 			if (other.documento != null)

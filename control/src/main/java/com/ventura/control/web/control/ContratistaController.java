@@ -10,11 +10,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
-import com.ventura.control.domain.control.Area;
 import com.ventura.control.domain.control.Contratista;
-import com.ventura.control.domain.control.Dependencia;
 import com.ventura.control.domain.login.User;
-import com.ventura.control.service.control.AreaService;
 import com.ventura.control.service.control.ContratistaService;
 import com.ventura.control.service.control.DependeciaService;
  
@@ -32,7 +29,7 @@ public class ContratistaController {
 	
 	@RequestMapping(value = "/contratista_add",method = RequestMethod.GET)
 	public String panel(Map<String, Object> model) {
-		model.put("area", new Area());
+		model.put("contratista", new Contratista());
 		//model.put("listArea", area.listarAreas());
 		//model.put("user", new User());
 		//model.put("contratista", new Contratista());

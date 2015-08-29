@@ -1,10 +1,12 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/include.jsp" %>
 <!DOCTYPE html>
 <html>
 	<head>
 		
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/> 
-		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<!-- <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/> 
+		 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">  -->
 
 		<title> Gestion y control </title>
 		<meta name="description" content="">
@@ -201,7 +203,7 @@
 						<a href="index.html" title="Dashboard"><i class="fa fa-lg fa-fw fa-home"></i> <span class="menu-item-parent">Dashboard</span></a>
 					</li>
 					<li>
-						<a href="#"><i class="fa fa-lg fa-fw fa-bar-chart-o"></i> <span class="menu-item-parent">Administracion</span></a>
+						<a href="#"><i class="fa fa-lg fa-fw fa-bar-chart-o"></i> <span class="menu-item-parent">Administración</span></a>
 						<ul>
 							<li>
 								<a href="#"><i class="fa fa-lg fa-fw fa-child"></i>

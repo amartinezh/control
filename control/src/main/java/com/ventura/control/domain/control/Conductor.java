@@ -46,12 +46,14 @@ public class Conductor implements Serializable {
     private String observaciones;
     @Column(name = "estado")
     private String estado;
+    
     @JoinColumn(name = "tipo_persona_id", referencedColumnName = "tipo_persona_id")
     @ManyToOne
     private TipoPersona tipoPersonaId;
+    
     @JoinColumn(name = "dependencia_id", referencedColumnName = "dependencia_id")
     @ManyToOne
-    private Dependencia dependenciaId;
+    private Dependencia dependencia_id;
 
     public Conductor() {
     }
@@ -148,12 +150,12 @@ public class Conductor implements Serializable {
         this.tipoPersonaId = tipoPersonaId;
     }
 
-    public Dependencia getDependenciaId() {
-        return dependenciaId;
+    public Dependencia getDependencia_id() {
+        return dependencia_id;
     }
 
-    public void setDependenciaId(Dependencia dependenciaId) {
-        this.dependenciaId = dependenciaId;
+    public void setDependencia_id(Dependencia dependencia_id) {
+        this.dependencia_id = dependencia_id;
     }
 
     @Override

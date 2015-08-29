@@ -164,13 +164,10 @@
 											<div class="form-group">
 												<div class="row">
 													<div class="col-md-12 has-feedback">
-														<form:input type="hidden" path="area_id" value="0" />
+														<form:input type="hidden" path="documento" value="0" />
 														<form:input type="hidden" path="estado" />
 														<label class="control-label">Descripción</label>
-														<form:input path="descripcion" type="text"
-															class="form-control" data-bv-field="Descripción"
-															required="required" />
-													</div>
+														
 												</div>
 											</div>
 										</fieldset>
@@ -445,15 +442,14 @@
 									</tr>
 								</thead>
 								<tbody>
-									<c:forEach items="${listArea}" var="obj"
+									<c:forEach items="${dependenciaList}" var="obj"
 										varStatus="loopCounter">
 										<tr role="row" class="odd">
 											<td class="sorting_1"><span class="responsiveExpander"></span>
 												<a class="btn btn-success btn-circle btn-sx"
-												onclick="con('<c:out value="${obj.area_id}"></c:out>','<c:out value="${obj.descripcion}"></c:out>',$(this))"><i
+												onclick="con('<c:out value="${obj.dependencia_id}"></c:out>','<c:out value="${obj.descripcion}"></c:out>',$(this))"><i
 													class="fa fa-edit"></i></a> <a
-												class="btn btn-danger btn-circle"
-												onclick="borrar(<c:out value="${obj.area_id}"></c:out>, $(this))"><i
+												class="btn btn-danger btn-circle" onclick="borrar(<c:out value="${obj.dependencia_id}"></c:out>, $(this))"><i
 													class="fa fa-trash-o"></i></a></td>
 											<td class="sorting_1"><span class="responsiveExpander"></span>
 												<c:out value="${obj.descripcion}"></c:out></td>

@@ -1,8 +1,9 @@
 package com.ventura.control.service.control.impl;
 
-import java.util.LinkedHashMap;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -50,16 +51,17 @@ public class DependenciaServiceImpl implements DependeciaService {
 	}
 	
 	@Transactional
-	public LinkedHashMap<Integer, String> cmbDependencias() {
-		LinkedHashMap<Integer, String> listDependencia = new LinkedHashMap<Integer, String>();
+	public Map<Integer, String> cmbDependencias() {
+		Map<Integer, String> dependencias = new HashMap<Integer, String>();
 		String sql = "Select d.dependencia_id as dependencia, d.descripcion as descripcion FROM Dependencia as d";
 		List<Object[]> data = dependenciaDao.listar(sql);
+		dependencias.put(0, "Seleccione");
 		if (data != null) {
 			for (Object[] d : data) {
-				listDependencia.put(Integer.parseInt(d[0].toString()), d[1].toString());
+				dependencias.put(Integer.parseInt(d[0].toString()), d[1].toString());
 			}
 		}
-		return listDependencia;
+		return dependencias;
 	}
 
 }

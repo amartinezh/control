@@ -459,5 +459,13 @@ public class Contratista implements Serializable {
 			return false;
 		return true;
 	}
+	
+	public Dependencia getDependencia_id() {
+		return dependencia_id;
+	}
+	
+	public void setDependencia_id(Dependencia dependencia_id) {
+		this.dependencia_id = dependencia_id;
+	}
 
 }

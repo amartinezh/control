@@ -209,7 +209,8 @@
 											<div class="form-group">
 												<div class="row">
 													<div class="col-md-6 selectContainer">
-														<label class="control-label">Tipo Persona</label> <select
+														<label class="control-label">Tipo Persona</label> 
+														<select
 															class="form-control" name="id_tipo_persona">
 															<option value="">Seleccione</option>
 															<option value="Contratista">Contratista</option>
@@ -222,10 +223,9 @@
 		
 													<div class="col-md-6 selectContainer">
 														<label class="control-label">Dependencia</label> 
-													<!-- 	<form:select  path="dependencia_id">
-															<form:option value="NONE"> --SELECT--</form:option>
-															<form:options items="${dependenciaList}"></form:options>
-														</form:select>  -->
+													 	<form:select class="form-control" path="dependencia_id.dependencia_id" items="${dependenciaList}">
+															
+														</form:select>
 													</div>
 												</div>
 											</div>
@@ -418,54 +418,7 @@
 					<!-- end widget edit box -->
 
 					<!-- widget content -->
-					<div class="widget-body no-padding">
-
-						<div id="datatable_fixed_column_wrapper"
-							class="dataTables_wrapper form-inline no-footer">
-
-							<table id="datatable_fixed_column" name="datatable_fixed_column"
-								class="table table-striped table-bordered dataTable no-footer"
-								width="100%" role="grid"
-								aria-describedby="datatable_fixed_column_info"
-								style="width: 100%;">
-								<thead>
-									<tr role="row">
-										<th data-hide="cmd" class="sorting_asc" tabindex="0"
-											aria-controls="dt_basic" aria-sort="ascending"
-											aria-label="ID: activate to sort column ascending"
-											style="width: 15px;"></th>
-
-										<th data-class="expand" class="sorting_asc" tabindex="1"
-											aria-controls="dt_basic" colspan="1" aria-sort="ascending"
-											aria-label="Name: activate to sort column ascending"
-											style="width: 540px;">Descripción</th>
-									</tr>
-								</thead>
-								<tbody>
-									<c:forEach items="${dependenciaList}" var="obj"
-										varStatus="loopCounter">
-										<tr role="row" class="odd">
-											<td class="sorting_1"><span class="responsiveExpander"></span>
-												<a class="btn btn-success btn-circle btn-sx"
-												onclick="con('<c:out value="${obj.dependencia_id}"></c:out>','<c:out value="${obj.descripcion}"></c:out>',$(this))"><i
-													class="fa fa-edit"></i></a> <a
-												class="btn btn-danger btn-circle" onclick="borrar(<c:out value="${obj.dependencia_id}"></c:out>, $(this))"><i
-													class="fa fa-trash-o"></i></a></td>
-											<td class="sorting_1"><span class="responsiveExpander"></span>
-												<c:out value="${obj.descripcion}"></c:out></td>
-										</tr>
-									</c:forEach>
-								</tbody>
-
-							</table>
-
-						</div>
-
-					</div>
-					<!-- end widget content -->
-
-				</div>
-				<!-- end widget div -->
+					
 
 			</div>
 

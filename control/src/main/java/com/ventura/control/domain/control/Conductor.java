@@ -117,7 +117,7 @@ public class Conductor implements Serializable {
     public void setScanCedula(byte[] scanCedula) {
         this.scanCedula = scanCedula;
     }
-
+ 
     public byte[] getScanHuella() {
         return scanHuella;
     }

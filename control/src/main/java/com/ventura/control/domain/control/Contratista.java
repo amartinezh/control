@@ -111,7 +111,7 @@ public class Contratista implements Serializable {
 
 	public String getEmpresa() {
 		return empresa;
-	}
+	} 
 
 	public String getNitEmpresa() {
 		return nitEmpresa;

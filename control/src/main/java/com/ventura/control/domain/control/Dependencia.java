@@ -32,7 +32,7 @@ public class Dependencia implements Serializable{
 	@Column(name = "descripcion")
     @NotEmpty
 	private String descripcion;
-	
+	 
 	@Column(name = "estado")
 	private String estado;
 	

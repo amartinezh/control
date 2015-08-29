@@ -170,7 +170,7 @@
 														
 												</div>
 											</div>
-										</fieldset>
+										</fieldset> 
 										<fieldset>
 											<div class="form-group">
 												<div class="row">

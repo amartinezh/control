@@ -1,7 +1,9 @@
 package com.ventura.control.service.control.impl;
 
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -47,6 +49,20 @@ public class TipoPersonaServiceImpl implements TipoPersonaService {
 			}
 		}
 		return listTipPers;
+	}
+	
+	@Transactional
+	public Map<Integer, String> cmbTipoPersona() {
+		Map<Integer, String> dependencias = new HashMap<Integer, String>();
+		String sql = "Select t.tipo_persona_id as tipo_persona_id, t.descripcion as descripcion FROM TipoPersona as t";
+		List<Object[]> data = tipoPersonaDao.listar(sql);
+		dependencias.put(0, "Seleccione");
+		if (data != null) {
+			for (Object[] d : data) {
+				dependencias.put(Integer.parseInt(d[0].toString()), d[1].toString());
+			}
+		}
+		return dependencias;
 	}
 
 }

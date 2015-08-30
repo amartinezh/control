@@ -19,7 +19,7 @@ import com.ventura.control.service.control.DependeciaService;
 import com.ventura.control.service.control.TipoPersonaService;
  
 @Controller
-//@RequestMapping("/area")
+@RequestMapping("/contratista_add")
 @SessionAttributes({ "user_inicio" })
 public class ContratistaController {
 
@@ -32,58 +32,21 @@ public class ContratistaController {
 	@Autowired
 	private TipoPersonaService tip;
 	
-	@RequestMapping(value = "/contratista_add",method = RequestMethod.GET)
+	@RequestMapping(method = RequestMethod.GET)
 	public String panel(Map<String, Object> model) {
 		model.put("contratista", new Contratista());
-		//model.put("listArea", area.listarAreas());
-		//model.put("user", new User());
-		//model.put("contratista", new Contratista());
 		model.put("tipopersonaList", tip.cmbTipoPersona());
 		model.put("dependenciaList", dep.cmbDependencias());
 		return "contratista/contratista_add";
 	}
 	
-	@RequestMapping(value = "/contratista_hab_ingre",method = RequestMethod.GET)
-	public String habilitar_ingreso(Map<String, Object> model) {
-		model.put("user", new User());
-		model.put("contratista", new Contratista());
-		return "contratista/contratista_hab_ingre";
-	}
-	
-	@RequestMapping(value = "/contratista_hab_sal",method = RequestMethod.GET)
-	public String habilitar_salida(Map<String, Object> model) {
-		model.put("user", new User());
-		model.put("contratista", new Contratista());
-		return "contratista/contratista_hab_sal";
-	}
-	
-	@RequestMapping(value = "/contratista_conmov",method = RequestMethod.GET)
-	public String consulta_movimiento(Map<String, Object> model) {
-		model.put("user", new User());
-		model.put("contratista", new Contratista());
-		return "contratista/contratista_conmov";
-	}
-	
-	@RequestMapping(value = "/contratista_geshor",method = RequestMethod.GET)
-	public String gestiona_horario(Map<String, Object> model) {
-		model.put("user", new User());
-		model.put("contratista", new Contratista());
-		return "contratista/contratista_horario";
-	}
-	
-	@RequestMapping(value = "/contratista_nov",method = RequestMethod.GET)
-	public String gestiona_novedad(Map<String, Object> model) {
-		model.put("user", new User());
-		model.put("contratista", new Contratista());
-		return "contratista/contratista_nov";
-	}
-
-	@RequestMapping(value = "contratista/agregar", method = RequestMethod.POST)
-	public @ResponseBody String agregar(@RequestParam int documento,
+	@RequestMapping(value = "agregar", method = RequestMethod.POST)
+	public @ResponseBody String agregar(
+			@RequestParam int documento,
 			@RequestParam String nombreCompleto,
 			@RequestParam String apellido,
-			@RequestParam TipoPersona tipoPersonaId,
-			@RequestParam Dependencia dependencia_id,
+			//@RequestParam TipoPersona tipoPersonaId,
+			//@RequestParam Dependencia dependencia_id,
 			@RequestParam String coreoE,
 			@RequestParam String telefono,
 			@RequestParam byte[] scanFoto,

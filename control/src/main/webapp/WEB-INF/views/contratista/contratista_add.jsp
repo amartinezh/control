@@ -944,8 +944,8 @@
 			var documento = document.getElementById('documento').value;
 			var nombreCompleto = document.getElementById('nombreCompleto').value;
 			var apellido = document.getElementById('apellido').value;
-			var tipoPersonaId = document.getElementById('tipoPersonaId.tipo_persona_id');
-			var dependencia_id = document.getElementById('dependencia_id.dependencia_id');
+			//var tipoPersonaId = document.getElementById('tipoPersonaId.tipo_persona_id');
+			//var dependencia_id = document.getElementById('dependencia_id.dependencia_id');
 			var coreoE = document.getElementById('coreoE').value;
 			var telefono = document.getElementById('telefono').value;
 			var scanFoto = document.getElementById('scanFoto').value;
@@ -964,15 +964,35 @@
 			var inventario = document.getElementById('inventario').value;
 			var scanInventario = document.getElementById('scanInventario').value;
 			var observaciones = document.getElementById('observaciones').value;
-			alert(dependencia_id);
+			//alert(dependencia_id);
 			$.ajax({
 				type : "POST",
-				url : "contratista/agregar",
+				url : "contratista_add/agregar",
+				processData: false,
 				data : {
 					documento: documento,
 					nombreCompleto : nombreCompleto,
 					apellido : apellido,
-					tipoPersonaId : tipoPersonaId
+					//tipoPersonaId : tipoPersonaId,
+					//dependencia_id : dependencia_id,
+					coreoE : coreoE,
+					telefono : telefono,
+					scanFoto : scanFoto,
+					scanCedula : scanCedula,
+					scanHuella : scanHuella,
+					empresa : empresa,
+					nitEmpresa : nitEmpresa,
+					fechaVenCursoLey : fechaVenCursoLey,
+					idPersonaResponsable : idPersonaResponsable,
+					antecedente : antecedente,
+					placa : placa,
+					eps : eps,
+					epsVence : epsVence,
+					alr : alr,
+					alrVence : alrVence,
+					inventario : inventario,
+					scanInventario : scanInventario,
+					observaciones :	observaciones
 				},
 				success : function(data) {			
 					 document.getElementById('apellido').value = "";

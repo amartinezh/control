@@ -71,13 +71,7 @@ public class menuController_old {
 		model.put("user", new User());
 		return "conductor/conductor_sal";
 	}
-	
-	@RequestMapping(value = "/llave_prestamo",method = RequestMethod.GET)
-	public String llave_pre(Map<String, Object> model) {
-		model.put("user", new User());
-		return "llave/llave_pre";
-	}
-	
+		
 	@RequestMapping(value = "/llave_devolucion",method = RequestMethod.GET)
 	public String llave_devolucion(Map<String, Object> model) {
 		model.put("user", new User());

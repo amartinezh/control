@@ -1,4 +1,7 @@
 <%@ include file="/WEB-INF/views/include.jsp"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html>
 <html lang="en-us">
 <head>
@@ -162,7 +165,7 @@
 				<div class="jarviswidget" id="wid-id-0"
 					data-widget-colorbutton="false" data-widget-editbutton="false"
 					data-widget-deletebutton="false" data-widget-sortable="false">
-					
+
 					<header>
 						<h2>Contratistas</h2>
 					</header>
@@ -179,21 +182,24 @@
 
 						<!-- widget content -->
 						<div class="widget-body">
-							<form id="frm" method="post">
+							<form:form id="frm" class="bv-form"
+								ModelAttribute="prestamo" commandName="prestamo">
 								<fieldset>
 									<div class="form-group">
 										<div class="row">
 											<div class="col-sm-12 col-md-4">
-												<label class="control-label">Fecha</label> <input
-													type="text" class="form-control" name="id_persona" placeholder="Documento de Identificación"/>
+												<label class="control-label">Fecha</label>
+												<form:input type="text" class="form-control" path="fecha"
+													placeholder="Fecha" />
 											</div>
 											<div class="col-sm-12 col-md-4">
-												<label class="control-label">Nombre Completo</label> <input
-													type="text" class="form-control" name="nombre_completo" />
+												<label class="control-label">Nombre Completo</label>
+												<form:input type="text" class="form-control"
+													path="nombreCompleto" />
 											</div>
 											<div class="col-sm-12 col-md-4">
-												<label class="control-label">Apellidos</label> <input
-													type="text" class="form-control" name="apellido" />
+												<label class="control-label">Apellidos</label>
+												<form:input type="text" class="form-control" path="apellido" />
 											</div>
 										</div>
 									</div>
@@ -202,20 +208,18 @@
 									<div class="form-group">
 										<div class="row">
 											<div class="col-sm-12 col-md-6">
-												<label class="control-label"># llaves</label> <input
-													type="text" class="form-control" name="nro_llaves" />
+												<label class="control-label"># llaves</label>
+												<form:input type="text" class="form-control"
+													path="cantidadLlave" />
 											</div>
 
 											<div class="col-md-6 selectContainer">
-												<label class="control-label">Dependencia</label> <select
-													class="form-control" name="id_dependencia">
-													<option value="">Seleccione</option>
-													<option value="action">Sistemas</option>
-													<option value="comedy">Contabilidad</option>
-													<option value="horror">Compras</option>
-												</select>
+												<label class="control-label">Dependencia</label>
+												<form:select class="form-control"
+													path="dependenciaId.dependencia_id"
+													items="${dependenciaList}" />
 											</div>
-											
+
 										</div>
 									</div>
 								</fieldset>
@@ -223,23 +227,25 @@
 									<div class="form-group">
 										<div class="row">
 											<div class="col-sm-12 col-md-6">
-												<label class="control-label">A quien se entrega</label> <input
-													type="text" class="form-control" name="quien_entrega" />
+												<label class="control-label">A quien se entrega</label>
+												<form:input type="text" class="form-control"
+													path="quienEntrega" />
 											</div>
 											<div class="col-sm-12 col-md-6">
-												<label class="control-label">Quien Recibe</label> <input
-													type="text" class="form-control" name="quien_recibe" />
+												<label class="control-label">Quien Recibe</label>
+												<form:input type="text" class="form-control"
+													path="quienRecibe" />
 											</div>
 										</div>
 									</div>
 								</fieldset>
-								
+
 								<fieldset>
 									<div class="form-group">
 										<div class="row">
 											<div class="col-sm-12 col-md-8">
-												<label class="control-label">Observaciones</label> <textarea
-													 class="form-control" name="observaciones" ></textarea>
+												<label class="control-label">Observaciones</label>
+												<form:textarea class="form-control" path="observaciones" />
 											</div>
 										</div>
 									</div>
@@ -247,14 +253,15 @@
 								<div class="form-actions">
 									<div class="row">
 										<div class="col-md-12">
-											<button class="btn btn-success" type="submit">
+											<button id="elboton" class="btn btn-success" type="button"
+														onclick="actualizar()">
 												<i class="fa fa-eye"></i> Actualizar
 											</button>
 										</div>
 									</div>
 								</div>
 
-							</form>
+							</form:form>
 
 						</div>
 						<!-- end widget content -->
@@ -276,10 +283,11 @@
 	<!-- end widget grid -->
 
 
-<div
-				class="jarviswidget jarviswidget-color-blueDark jarviswidget-sortable"
-				id="wid-id-1" data-widget-editbutton="false" data-widget-editbutton="true" role="widget">
-				<!-- widget options:
+	<div
+		class="jarviswidget jarviswidget-color-blueDark jarviswidget-sortable"
+		id="wid-id-1" data-widget-editbutton="false"
+		data-widget-editbutton="true" role="widget">
+		<!-- widget options:
 								usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
 				
 								data-widget-colorbutton="false"
@@ -292,123 +300,118 @@
 								data-widget-sortable="false"
 				
 								-->
-				<header role="heading">
-			
-					<span class="widget-icon"> <i class="fa fa-table"></i>
-					</span>
-					<h2>Herramientas</h2>
+		<header role="heading">
 
-					<span class="jarviswidget-loader"><i class="fa fa-refresh fa-spin"></i></span></header>
+			<span class="widget-icon"> <i class="fa fa-table"></i>
+			</span>
+			<h2>Herramientas</h2>
 
-				<!-- widget div-->
-				<div role="content">
+			<span class="jarviswidget-loader"><i
+				class="fa fa-refresh fa-spin"></i></span>
+		</header>
 
-					<!-- widget edit box -->
-					<div class="jarviswidget-editbox">
-						<!-- This area used as dropdown edit box -->
+		<!-- widget div-->
+		<div role="content">
 
-					</div>
-					<!-- end widget edit box -->
+			<!-- widget edit box -->
+			<div class="jarviswidget-editbox">
+				<!-- This area used as dropdown edit box -->
 
-					<!-- widget content -->
-					<div class="widget-body no-padding">
+			</div>
+			<!-- end widget edit box -->
 
-						<div id="datatable_fixed_column_wrapper"
-							class="dataTables_wrapper form-inline no-footer">
+			<!-- widget content -->
+			<div class="widget-body no-padding">
 
-							<table id="datatable_fixed_column"
-								class="table table-striped table-bordered dataTable no-footer"
-								width="100%" role="grid"
-								aria-describedby="datatable_fixed_column_info"
-								style="width: 100%;">
+				<div id="datatable_fixed_column_wrapper"
+					class="dataTables_wrapper form-inline no-footer">
 
-								<thead>
-									<!-- <tr role="row">
+					<table id="datatable_fixed_column"
+						class="table table-striped table-bordered dataTable no-footer"
+						width="100%" role="grid"
+						aria-describedby="datatable_fixed_column_info"
+						style="width: 100%;">
+
+						<thead>
+							<!-- <tr role="row">
 										<th class="hasinput" style="width: 17%" rowspan="1"
 											colspan="1"><input type="text" class="form-control"
 											placeholder="Filtro DescripciÃ³n"></th>
 										
 									</tr>   -->
-									<tr role="row">
+							<tr role="row">
 
-										<th data-hide="cmd" class="sorting_asc" tabindex="0"
-											aria-controls="dt_basic" 
-											aria-sort="ascending"
-											aria-label="ID: activate to sort column ascending"
-											style="width: 15px;"></th>
+								<th data-hide="cmd" class="sorting_asc" tabindex="0"
+									aria-controls="dt_basic" aria-sort="ascending"
+									aria-label="ID: activate to sort column ascending"
+									style="width: 15px;"></th>
 
-										<th data-class="expand" class="sorting_asc" tabindex="1"
-											aria-controls="dt_basic" 
-											colspan="1" aria-sort="ascending"
-											aria-label="Name: activate to sort column ascending"
-											style="width: 540px;">Descripción</th>
-									</tr>
-								</thead>
+								<th data-class="expand" class="sorting_asc" tabindex="1"
+									aria-controls="dt_basic" colspan="1" aria-sort="ascending"
+									aria-label="Name: activate to sort column ascending"
+									style="width: 540px;">Descripción</th>
+							</tr>
+						</thead>
 
-								<tbody>
+						<tbody>
 
-									<tr role="row" class="odd">
-										<td class="sorting_1"><span class="responsiveExpander"></span> 
-											<a class="btn btn-success btn-circle btn-sx"
-												href="javascript:void(0);"><i class="fa fa-edit"></i></a> 
-											<a class="btn btn-danger btn-circle" 
-												href="javascript:void(0);"><i class="fa fa-trash-o"></i></a>
-									 	</td>
-										<td class="sorting_1"><span class="responsiveExpander"></span>A</td>
+							<tr role="row" class="odd">
+								<td class="sorting_1"><span class="responsiveExpander"></span>
+									<a class="btn btn-success btn-circle btn-sx"
+									href="javascript:void(0);"><i class="fa fa-edit"></i></a> <a
+									class="btn btn-danger btn-circle" href="javascript:void(0);"><i
+										class="fa fa-trash-o"></i></a></td>
+								<td class="sorting_1"><span class="responsiveExpander"></span>A</td>
 
-									</tr>
-									<tr role="row" class="even">
-										<td class="sorting_1"><span class="responsiveExpander"></span> 
-											<a class="btn btn-success btn-circle btn-sx"
-												href="javascript:void(0);"><i class="fa fa-edit"></i></a> 
-											<a class="btn btn-danger btn-circle" 
-												href="javascript:void(0);"><i class="fa fa-trash-o"></i></a>
-									 	</td>
-										<td class="sorting_1"><span class="responsiveExpander"></span>B</td>
+							</tr>
+							<tr role="row" class="even">
+								<td class="sorting_1"><span class="responsiveExpander"></span>
+									<a class="btn btn-success btn-circle btn-sx"
+									href="javascript:void(0);"><i class="fa fa-edit"></i></a> <a
+									class="btn btn-danger btn-circle" href="javascript:void(0);"><i
+										class="fa fa-trash-o"></i></a></td>
+								<td class="sorting_1"><span class="responsiveExpander"></span>B</td>
 
-									</tr>
-									<tr role="row" class="odd">
-										<td class="sorting_1"><span class="responsiveExpander"></span> 
-											<a class="btn btn-success btn-circle btn-sx"
-												href="javascript:void(0);"><i class="fa fa-edit"></i></a> 
-											<a class="btn btn-danger btn-circle" 
-												href="javascript:void(0);"><i class="fa fa-trash-o"></i></a>
-									 	</td>
-										<td class="sorting_1"><span class="responsiveExpander"></span>C</td>
-									</tr>
+							</tr>
+							<tr role="row" class="odd">
+								<td class="sorting_1"><span class="responsiveExpander"></span>
+									<a class="btn btn-success btn-circle btn-sx"
+									href="javascript:void(0);"><i class="fa fa-edit"></i></a> <a
+									class="btn btn-danger btn-circle" href="javascript:void(0);"><i
+										class="fa fa-trash-o"></i></a></td>
+								<td class="sorting_1"><span class="responsiveExpander"></span>C</td>
+							</tr>
 
-									<tr role="row" class="even">
-										<td class="sorting_1"><span class="responsiveExpander"></span> 
-											<a class="btn btn-success btn-circle btn-sx"
-												href="javascript:void(0);"><i class="fa fa-edit"></i></a> 
-											<a class="btn btn-danger btn-circle" 
-												href="javascript:void(0);"><i class="fa fa-trash-o"></i></a>
-									 	</td>
-										<td class="sorting_1"><span class="responsiveExpander"></span>D</td>
-									</tr>
-									<tr role="row" class="odd">
-										<td class="sorting_1"><span class="responsiveExpander"></span> 
-											<a class="btn btn-success btn-circle btn-sx"
-												href="javascript:void(0);"><i class="fa fa-edit"></i></a> 
-											<a class="btn btn-danger btn-circle" 
-												href="javascript:void(0);"><i class="fa fa-trash-o"></i></a>
-									 	</td>
-										<td class="sorting_1"><span class="responsiveExpander"></span>E</td>
-									</tr>
+							<tr role="row" class="even">
+								<td class="sorting_1"><span class="responsiveExpander"></span>
+									<a class="btn btn-success btn-circle btn-sx"
+									href="javascript:void(0);"><i class="fa fa-edit"></i></a> <a
+									class="btn btn-danger btn-circle" href="javascript:void(0);"><i
+										class="fa fa-trash-o"></i></a></td>
+								<td class="sorting_1"><span class="responsiveExpander"></span>D</td>
+							</tr>
+							<tr role="row" class="odd">
+								<td class="sorting_1"><span class="responsiveExpander"></span>
+									<a class="btn btn-success btn-circle btn-sx"
+									href="javascript:void(0);"><i class="fa fa-edit"></i></a> <a
+									class="btn btn-danger btn-circle" href="javascript:void(0);"><i
+										class="fa fa-trash-o"></i></a></td>
+								<td class="sorting_1"><span class="responsiveExpander"></span>E</td>
+							</tr>
 
-								</tbody>
+						</tbody>
 
-							</table>
-
-						</div>
-
-					</div>
-					<!-- end widget content -->
+					</table>
 
 				</div>
-				<!-- end widget div -->
 
 			</div>
+			<!-- end widget content -->
+
+		</div>
+		<!-- end widget div -->
+
+	</div>
 
 	<!-- END MAIN PANEL -->
 
@@ -556,7 +559,7 @@
 		src="<c:url value="/resources/js/plugin/datatables/dataTables.bootstrap.min.js" />"></script>
 	<script
 		src="<c:url value="/resources/js/plugin/datatable-responsive/datatables.responsive.min.js" />"></script>
-	
+
 
 	<script>
 		$(document)
@@ -1306,208 +1309,247 @@
 
 						});
 
-		$('#frm')
-				.bootstrapValidator(
-						{
-							feedbackIcons : {
-								valid : 'glyphicon glyphicon-ok',
-								invalid : 'glyphicon glyphicon-remove',
-								validating : 'glyphicon glyphicon-refresh'
-							},
-							fields : {
-								id_persona : {
-									group : '.col-md-4',
-									validators : {
-										notEmpty : {
-											message : 'Campo requierido'
-										},
-										stringLength : {
-											max : 200,
-											message : 'De ser menor a 200 caracteres'
-										}
-									}
-								},
-								nombre_completo : {
-									group : '.col-md-4',
-									validators : {
-										notEmpty : {
-											message : 'Campo requierido'
-										}
-									}
-								},
-								apellido : {
-									group : '.col-md-4',
-									validators : {
-										notEmpty : {
-											message : 'Campo requierido'
-										}
-									}
-								},
-								id_tipo_persona : {
-									group : '.col-md-6',
-									validators : {
-										notEmpty : {
-											message : 'Campo requierido'
-										}
-									}
-								},
-								id_dependencia : {
-									group : '.col-md-6',
-									validators : {
-										notEmpty : {
-											message : 'Campo requierido'
-										}
-									}
-								},
-								correo_e : {
-									group : '.col-md-6',
-									validators : {
-										notEmpty : {
-											message : 'Campo requierido'
-										}
-									}
-								},
-								telefono : {
-									group : '.col-md-6',
-									validators : {
-										notEmpty : {
-											message : 'Campo requierido'
-										}
-									}
-								},
-								empresa : {
-									group : '.col-md-4',
-									validators : {
-										notEmpty : {
-											message : 'Campo requierido'
-										}
-									}
-								},
-								nit_empresa : {
-									group : '.col-md-4',
-									validators : {
-										notEmpty : {
-											message : 'Campo requierido'
-										}
-									}
-								},
-								vencimiento_ley : {
-									group : '.col-md-4',
-									validators : {
-										notEmpty : {
-											message : 'Campo requierido'
-										}
-									}
-								},
-								foto_scan : {
-									group : '.col-md-4',
-									validators : {
-										notEmpty : {
-											message : 'Campo requierido'
-										}
-									}
-								},
-								cedula_scan : {
-									group : '.col-md-4',
-									validators : {
-										notEmpty : {
-											message : 'Campo requierido'
-										}
-									}
-								},
-								huella_scan : {
-									group : '.col-md-4',
-									validators : {
-										notEmpty : {
-											message : 'Campo requierido'
-										}
-									}
-								},
-								id_persona_responsable : {
-									group : '.col-md-6',
-									validators : {
-										notEmpty : {
-											message : 'Campo requierido'
-										}
-									}
-								},
-								codigo_antecedente : {
-									group : '.col-md-3',
-									validators : {
-										notEmpty : {
-											message : 'Campo requierido'
-										}
-									}
-								},
-								placa_vehiculo : {
-									group : '.col-md-3',
-									validators : {
-										notEmpty : {
-											message : 'Campo requierido'
-										}
-									}
-								},
-								eps : {
-									group : '.col-md-3',
-									validators : {
-										notEmpty : {
-											message : 'Campo requierido'
-										}
-									}
-								},
-								eps_vence : {
-									group : '.col-md-3',
-									validators : {
-										notEmpty : {
-											message : 'Campo requierido'
-										}
-									}
-								},
-								arl : {
-									group : '.col-md-3',
-									validators : {
-										notEmpty : {
-											message : 'Campo requierido'
-										}
-									}
-								},
-								alr_vence : {
-									group : '.col-md-3',
-									validators : {
-										notEmpty : {
-											message : 'Campo requierido'
-										}
-									}
-								},
-								inventario : {
-									group : '.col-md-8',
-									validators : {
-										notEmpty : {
-											message : 'Campo requierido'
-										}
-									}
-								},
-								inventario_scan : {
-									group : '.col-md-4',
-									validators : {
-										notEmpty : {
-											message : 'Campo requierido'
-										}
-									}
-								},
-								observaciones : {
-									group : '.col-md-8',
-									validators : {
-										notEmpty : {
-											message : 'Campo requierido'
-										}
-									}
-								}
-							}
-						});
+		$('#frm').bootstrapValidator({
+			feedbackIcons : {
+				valid : 'glyphicon glyphicon-ok',
+				invalid : 'glyphicon glyphicon-remove',
+				validating : 'glyphicon glyphicon-refresh'
+			},
+			fields : {
+				id_persona : {
+					group : '.col-md-4',
+					validators : {
+						notEmpty : {
+							message : 'Campo requierido'
+						},
+						stringLength : {
+							max : 200,
+							message : 'De ser menor a 200 caracteres'
+						}
+					}
+				},
+				nombre_completo : {
+					group : '.col-md-4',
+					validators : {
+						notEmpty : {
+							message : 'Campo requierido'
+						}
+					}
+				},
+				apellido : {
+					group : '.col-md-4',
+					validators : {
+						notEmpty : {
+							message : 'Campo requierido'
+						}
+					}
+				},
+				id_tipo_persona : {
+					group : '.col-md-6',
+					validators : {
+						notEmpty : {
+							message : 'Campo requierido'
+						}
+					}
+				},
+				id_dependencia : {
+					group : '.col-md-6',
+					validators : {
+						notEmpty : {
+							message : 'Campo requierido'
+						}
+					}
+				},
+				correo_e : {
+					group : '.col-md-6',
+					validators : {
+						notEmpty : {
+							message : 'Campo requierido'
+						}
+					}
+				},
+				telefono : {
+					group : '.col-md-6',
+					validators : {
+						notEmpty : {
+							message : 'Campo requierido'
+						}
+					}
+				},
+				empresa : {
+					group : '.col-md-4',
+					validators : {
+						notEmpty : {
+							message : 'Campo requierido'
+						}
+					}
+				},
+				nit_empresa : {
+					group : '.col-md-4',
+					validators : {
+						notEmpty : {
+							message : 'Campo requierido'
+						}
+					}
+				},
+				vencimiento_ley : {
+					group : '.col-md-4',
+					validators : {
+						notEmpty : {
+							message : 'Campo requierido'
+						}
+					}
+				},
+				foto_scan : {
+					group : '.col-md-4',
+					validators : {
+						notEmpty : {
+							message : 'Campo requierido'
+						}
+					}
+				},
+				cedula_scan : {
+					group : '.col-md-4',
+					validators : {
+						notEmpty : {
+							message : 'Campo requierido'
+						}
+					}
+				},
+				huella_scan : {
+					group : '.col-md-4',
+					validators : {
+						notEmpty : {
+							message : 'Campo requierido'
+						}
+					}
+				},
+				id_persona_responsable : {
+					group : '.col-md-6',
+					validators : {
+						notEmpty : {
+							message : 'Campo requierido'
+						}
+					}
+				},
+				codigo_antecedente : {
+					group : '.col-md-3',
+					validators : {
+						notEmpty : {
+							message : 'Campo requierido'
+						}
+					}
+				},
+				placa_vehiculo : {
+					group : '.col-md-3',
+					validators : {
+						notEmpty : {
+							message : 'Campo requierido'
+						}
+					}
+				},
+				eps : {
+					group : '.col-md-3',
+					validators : {
+						notEmpty : {
+							message : 'Campo requierido'
+						}
+					}
+				},
+				eps_vence : {
+					group : '.col-md-3',
+					validators : {
+						notEmpty : {
+							message : 'Campo requierido'
+						}
+					}
+				},
+				arl : {
+					group : '.col-md-3',
+					validators : {
+						notEmpty : {
+							message : 'Campo requierido'
+						}
+					}
+				},
+				alr_vence : {
+					group : '.col-md-3',
+					validators : {
+						notEmpty : {
+							message : 'Campo requierido'
+						}
+					}
+				},
+				inventario : {
+					group : '.col-md-8',
+					validators : {
+						notEmpty : {
+							message : 'Campo requierido'
+						}
+					}
+				},
+				inventario_scan : {
+					group : '.col-md-4',
+					validators : {
+						notEmpty : {
+							message : 'Campo requierido'
+						}
+					}
+				},
+				observaciones : {
+					group : '.col-md-8',
+					validators : {
+						notEmpty : {
+							message : 'Campo requierido'
+						}
+					}
+				}
+			}
+		});
+		
+		function actualizar() {
+			var fech = document.getElementById('fecha').value;
+			var nom = document.getElementById('nombreCompleto').value;
+			var ape= document.getElementById('apellido').value;
+			var cant = document.getElementById('cantidadLlave').value;
+			var dep = document.getElementById('dependenciaId.dependencia_id').value;
+			var ent = document.getElementById('quienEntrega').value;
+			var rec = document.getElementById('quienRecibe').value;
+			var obs = document.getElementById('observaciones').value;
+			$.ajax({
+				type : "POST",
+				url : "llave_prestamo/agregar",
+				data : {
+					apellido: ape
+				},
+				success : function(data) {	
+					 //document.getElementById('descripcion').value = "";
+					 //document.getElementById('centro_costo_id').value = "0";
+					 var res = data.split(":::");
+					 $('#datatable_fixed_column').dataTable().fnAddData( [res[0],res[1]] );
+					 $.smallBox({
+				title : "La información se registró adecuadamente",
+							content : "Para ingresar un nuevo registro ingrese la información y presione el botón Actualizar",
+							color : "#5384AF",
+							timeout: 8000,
+							icon : "fa fa-bell swing animated"
+					 });
+					 $('#cance').hide();
+				},
+				error : function(data) {					
+					$.smallBox({
+					title : "El registró no fue guardado!",
+						content : "Por favor verifique<p class='text-align-right'><a href='javascript:void(0);' class='btn btn-danger btn-sm'>Ok</a></p>",
+						color : "#296191",
+			//			timeout: 8000,
+						icon : "fa fa-bell swing animated"
+					});
+				}
+			});
+		}
 	</script>
-	
-	
+
+
 	<script type="text/javascript">
 		// DO NOT REMOVE : GLOBAL FUNCTIONS!
 

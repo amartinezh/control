@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
+import com.ventura.control.domain.control.Antecedente;
 import com.ventura.control.domain.control.Contratista;
 import com.ventura.control.domain.control.Dependencia;
 import com.ventura.control.domain.control.TipoPersona;
@@ -56,7 +57,7 @@ public class ContratistaController {
 			@RequestParam String nitEmpresa,
 			@RequestParam String fechaVenCursoLey,
 			@RequestParam String idPersonaResponsable,
-			@RequestParam String antecedente,
+			@RequestParam int antecedente,
 			@RequestParam String placa,
 			@RequestParam String eps,
 			@RequestParam java.util.Date epsVence,
@@ -66,7 +67,8 @@ public class ContratistaController {
 			@RequestParam byte[] scanInventario,
 			@RequestParam String observaciones,	
 			Map<String, Object> model) {
-		Contratista obj = new Contratista();
+		Contratista obj = new Contratista(documento,nombreCompleto,apellido,new TipoPersona(tipoPersonaId), new Dependencia(dependencia_id), coreoE,telefono,scanFoto,scanCedula,scanHuella, empresa,nitEmpresa,fechaVenCursoLey,idPersonaResponsable, new Antecedente(antecedente),placa,eps,epsVence,alr,alrVence,inventario,scanInventario,observaciones);
+		
 		contratista.agregarContratista(false, obj);
 		return "<span class='responsiveExpander'></span><a class='btn btn-success btn-circle btn-sx'"
 				+ " onclick=\"con('"

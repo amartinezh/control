@@ -17,6 +17,8 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import org.springframework.web.bind.annotation.RequestParam;
+
 @Entity
 @Table(name = "contratista", schema = "control")
 public class Contratista implements Serializable {
@@ -260,7 +262,33 @@ public class Contratista implements Serializable {
 	public Contratista() {
 		// TODO Auto-generated constructor stub
 	}
-
+	
+	public Contratista(String documento, String nombreCompleto, String apellido, TipoPersona tipoPersonaId, Dependencia dependencia_id, String coreoE, String telefono, byte[] scanFoto, byte[] scanCedula, byte[] scanHuella, String empresa, String nitEmpresa, String fechaVenCursoLey, String idPersonaResponsable, Antecedente antecedente, String placa, String eps, java.util.Date epsVence, String alr, java.util.Date alrVence, String inventario, byte[] scanInventario, String observaciones){
+		this.documento=documento;
+		this.nombreCompleto=nombreCompleto;
+		this.apellido=apellido;
+		this.tipoPersonaId=tipoPersonaId;
+		this.dependencia_id=dependencia_id;
+		this.coreoE=coreoE;
+		this.telefono=telefono;
+		this.scanFoto=scanFoto;
+		this.scanCedula=scanCedula;
+		this.scanHuella=scanHuella;
+		this.empresa=empresa;
+		this.nitEmpresa=nitEmpresa;
+		this.fechaVenCursoLey=fechaVenCursoLey;
+		this.idPersonaResponsable=idPersonaResponsable;
+		this.antecedente=(Set<Antecedente>) antecedente;
+		this.placa=placa;
+		this.eps=eps;
+		this.epsVence=epsVence;
+		this.alr=alr;
+		this.alrVence=alrVence;
+		this.inventario=inventario;
+		this.scanInventario=scanInventario;
+		this.observaciones=observaciones;			
+	}
+	
 	public String getDocumento() {
 		return documento;
 	}

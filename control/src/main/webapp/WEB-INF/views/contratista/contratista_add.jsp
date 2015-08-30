@@ -941,7 +941,7 @@
 
 		function actualizar() {
 			$( "#frm" ).submit();
-			var documentoo = document.getElementById('documento').value;
+			var documento = document.getElementById('documento').value;
 			var nombreCompleto = document.getElementById('nombreCompleto').value;
 			var apellido = document.getElementById('apellido').value;
 			var tipoPersonaId = document.getElementById('tipoPersonaId.tipo_persona_id').value;
@@ -964,13 +964,13 @@
 			var inventario = document.getElementById('inventario').value;
 			var scanInventario = document.getElementById('scanInventario').value;
 			var observaciones = document.getElementById('observaciones').value;
-			alert(documentoo);
+			alert(scanFoto);
 			$.ajax({
 				type : "POST",
 				url : "contratista_add/agregar",
 				processData: true,
 				data : {
-					documento: documentoo,
+					documento: documento,
 					nombreCompleto : nombreCompleto,
 					apellido : apellido,
 					tipoPersonaId : tipoPersonaId,

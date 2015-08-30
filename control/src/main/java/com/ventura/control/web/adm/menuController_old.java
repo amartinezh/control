@@ -84,12 +84,6 @@ public class menuController_old {
 		return "llave/llave_devolucion";
 	}
 	
-	@RequestMapping(value = "/permisos_agregar",method = RequestMethod.GET)
-	public String permiso_add(Map<String, Object> model) {
-		model.put("user", new User());
-		return "permiso/permiso_add";
-	}
-	
 	@RequestMapping(value = "/permisos_retirar",method = RequestMethod.GET)
 	public String permiso_ret(Map<String, Object> model) {
 		model.put("user", new User());

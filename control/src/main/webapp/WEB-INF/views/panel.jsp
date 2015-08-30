@@ -372,7 +372,7 @@
 								Estadisticas</a></li>
 						</ul>
 					</li>
-					<li>
+					<!-- <li>
 						<a href="#"><i class="fa fa-lg fa-fw fa-female"></i>
 						<span class="menu-item-parent">Programacion visitas</span></a>
 						<ul>
@@ -381,12 +381,12 @@
 							<li><a target="des" href="<c:url value="/visitante_add"/>"><i class="fa fa-signal"></i>
 								Estadisticas</a></li>
 						</ul>
-					</li>
+					</li>  -->
 					<li>
 						<a href="#"><i class="fa fa-lg fa-fw fa-tasks"></i>
 						<span class="menu-item-parent">Gestion Permisos</span></a>
 						<ul>
-							<li><a target="des" href="<c:url value="/permisos_agregar"/>"><i class="fa fa-user"></i>
+							<li><a target="des" href="<c:url value="/permiso"/>"><i class="fa fa-user"></i>
 								Registrar Permiso</a></li>
 							<li><a target="des" href="<c:url value="/permisos_retirar"/>"><i class="fa fa-user"></i>
 								Retirar Permiso</a></li>

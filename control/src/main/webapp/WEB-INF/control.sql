@@ -567,19 +567,16 @@ CREATE TABLE control.horarios_habiles(
 )WITH ( OIDS=FALSE); ALTER TABLE control.horarios_habiles OWNER TO postgres;
 
 CREATE TABLE control.permisos(
-  id serial NOT NULL,
-  documento character varying(64) NOT NULL,
-  nombre_completo character varying(128),
-  apellido character varying(128),
+  permiso_id serial NOT NULL,
+  codigo_trabajador character varying(64) NOT NULL,
   novedad text,
-  dependencia_id integer,
   hora_entrada time,
   hora_salida time,
   recibido_por character varying(128),
   observaciones text,
   estado character varying(1),
-  CONSTRAINT permisos_pk PRIMARY KEY (id ),
-  CONSTRAINT fk6b68w0834ff7b56 FOREIGN KEY (dependencia_id) REFERENCES admin.dependencia (dependencia_id) ON UPDATE NO ACTION ON DELETE NO ACTION
+  CONSTRAINT permisos_pk PRIMARY KEY (permiso_id),
+  CONSTRAINT fk6b68w0834ff7b56 FOREIGN KEY (codigo_trabajador) REFERENCES nomina.trabajador (codigo_trabajador) ON UPDATE NO ACTION ON DELETE NO ACTION
 )WITH ( OIDS=FALSE); ALTER TABLE control.permisos OWNER TO postgres;
 
 CREATE TABLE control.control_bus(
@@ -711,6 +708,11 @@ CREATE TABLE control.correspondencia(
   INSERT INTO admin.type_users(descripcion, estado) VALUES ('Administrador', '1');
   INSERT INTO admin.users(id, pass, persona_id, type_id, estado) VALUES ('adm', 'c4ca4238a0b923820dcc509a6f75849b', '1', 1, '1');
   
+  INSERT INTO admin.compania(compania_id, descripcion, estado) VALUES ('1', 'PANASA', '1');
+  INSERT INTO admin.dependencia(dependencia_id, descripcion, estado) VALUES ('1', 'Dependencia', '1');
+  INSERT INTO nomina.tipo_trabajador(descripcion, genera_horas_trabajadas, genera_sobretiempo, genera_horas_ausencia, calcula_horas_en_terminales_de_acceso, horario_fexible, descuenta_salidas_intermedios, estado) VALUES ('Tipo Trabajador', true, true, true, true, true, true, '1');
+  
+
   
   
   

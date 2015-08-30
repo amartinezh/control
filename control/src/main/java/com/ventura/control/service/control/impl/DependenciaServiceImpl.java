@@ -63,5 +63,11 @@ public class DependenciaServiceImpl implements DependeciaService {
 		}
 		return dependencias;
 	}
+	
+	@Transactional(readOnly = true)
+	public Dependencia getDependencia(Dependencia dependencia) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 }

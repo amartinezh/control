@@ -11,4 +11,6 @@ public interface DependeciaService {
 	public void borrarDependencia(Dependencia dependencia);
 	public List<Dependencia> listarDependencias();
 	public Map<Integer, String> cmbDependencias();
+	public Dependencia getDependencia(Dependencia dependencia);
+	
 }

@@ -182,14 +182,14 @@
 
 						<!-- widget content -->
 						<div class="widget-body">
-							<form:form id="frm" class="bv-form"
-								ModelAttribute="prestamo" commandName="prestamo">
+							<form:form id="frm" class="bv-form" ModelAttribute="prestamo"
+								commandName="prestamo">
 								<fieldset>
 									<div class="form-group">
 										<div class="row">
 											<div class="col-sm-12 col-md-4">
 												<label class="control-label">Fecha</label>
-												<form:input type="text" class="form-control" path="fecha"
+												<form:input type="date" class="form-control" path="fecha"
 													placeholder="Fecha" />
 											</div>
 											<div class="col-sm-12 col-md-4">
@@ -254,7 +254,7 @@
 									<div class="row">
 										<div class="col-md-12">
 											<button id="elboton" class="btn btn-success" type="button"
-														onclick="actualizar()">
+												onclick="actualizar()">
 												<i class="fa fa-eye"></i> Actualizar
 											</button>
 										</div>
@@ -1506,46 +1506,57 @@
 				}
 			}
 		});
-		
+
 		function actualizar() {
 			var fech = document.getElementById('fecha').value;
 			var nom = document.getElementById('nombreCompleto').value;
-			var ape= document.getElementById('apellido').value;
+			var ape = document.getElementById('apellido').value;
 			var cant = document.getElementById('cantidadLlave').value;
 			var dep = document.getElementById('dependenciaId.dependencia_id').value;
 			var ent = document.getElementById('quienEntrega').value;
 			var rec = document.getElementById('quienRecibe').value;
 			var obs = document.getElementById('observaciones').value;
-			$.ajax({
-				type : "POST",
-				url : "llave_prestamo/agregar",
-				data : {
-					apellido: ape
-				},
-				success : function(data) {	
-					 //document.getElementById('descripcion').value = "";
-					 //document.getElementById('centro_costo_id').value = "0";
-					 var res = data.split(":::");
-					 $('#datatable_fixed_column').dataTable().fnAddData( [res[0],res[1]] );
-					 $.smallBox({
-				title : "La información se registró adecuadamente",
-							content : "Para ingresar un nuevo registro ingrese la información y presione el botón Actualizar",
-							color : "#5384AF",
-							timeout: 8000,
-							icon : "fa fa-bell swing animated"
-					 });
-					 $('#cance').hide();
-				},
-				error : function(data) {					
-					$.smallBox({
-					title : "El registró no fue guardado!",
-						content : "Por favor verifique<p class='text-align-right'><a href='javascript:void(0);' class='btn btn-danger btn-sm'>Ok</a></p>",
-						color : "#296191",
-			//			timeout: 8000,
-						icon : "fa fa-bell swing animated"
+			$
+					.ajax({
+						type : "POST",
+						url : "llave_prestamo/agregar",
+						data : {
+							fecha: fech,
+							nombreCompleto: nom,
+							apellido: ape,
+							cantidadLlave: cant,
+							dependencia: dep,
+							quienEntrego: ent,
+							quienRecibio: rec,
+							observaciones: obs
+						},
+						success : function(data) {
+							//document.getElementById('descripcion').value = "";
+							//document.getElementById('centro_costo_id').value = "0";
+							var res = data.split(":::");
+							$('#datatable_fixed_column').dataTable().fnAddData(
+									[ res[0], res[1] ]);
+							$
+									.smallBox({
+										title : "La información se registró adecuadamente",
+										content : "Para ingresar un nuevo registro ingrese la información y presione el botón Actualizar",
+										color : "#5384AF",
+										timeout : 8000,
+										icon : "fa fa-bell swing animated"
+									});
+							$('#cance').hide();
+						},
+						error : function(data) {
+							$
+									.smallBox({
+										title : "El registró no fue guardado!",
+										content : "Por favor verifique<p class='text-align-right'><a href='javascript:void(0);' class='btn btn-danger btn-sm'>Ok</a></p>",
+										color : "#296191",
+										timeout : 8000,
+										icon : "fa fa-bell swing animated"
+									});
+						}
 					});
-				}
-			});
 		}
 	</script>
 

@@ -51,5 +51,5 @@ public class RepositorioDaoImp implements RepositorioDao {
 	public Object getElemento(Object obj, int id) {
 		return em.find(obj.getClass(), id);		
 	}
-
+	
 }

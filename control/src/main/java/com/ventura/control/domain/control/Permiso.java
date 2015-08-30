@@ -17,7 +17,7 @@ public class Permiso implements java.io.Serializable {
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 3958570611606289360L;
+	private static final long serialVersionUID = 3958570611606289361L;
 	@Id
     @Column(name = "permiso_id")
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator="control.permisos_permiso_id_seq")

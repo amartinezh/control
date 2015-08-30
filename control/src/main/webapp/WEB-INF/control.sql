@@ -711,7 +711,16 @@ CREATE TABLE control.correspondencia(
   INSERT INTO admin.compania(compania_id, descripcion, estado) VALUES ('1', 'PANASA', '1');
   INSERT INTO admin.dependencia(dependencia_id, descripcion, estado) VALUES ('1', 'Dependencia', '1');
   INSERT INTO nomina.tipo_trabajador(descripcion, genera_horas_trabajadas, genera_sobretiempo, genera_horas_ausencia, calcula_horas_en_terminales_de_acceso, horario_fexible, descuenta_salidas_intermedios, estado) VALUES ('Tipo Trabajador', true, true, true, true, true, true, '1');
+  INSERT INTO nomina.horario(descripcion, comienzo_jornada, comienzo_comida, tiempo_comer, final_comida, final_jornada, descanso_lunes, descanso_martes, descanso_miercoles, descanso_nueves, descanso_viernes, descanso_sabado, descanso_domingo, estado) VALUES ('Horario', 1, 1, 1, 1, 1, true, true, true, true, true, true, true, '1');
+  INSERT INTO nomina.tipo_rotacion( descripcion, estado)VALUES ('Tipo Rotacion', '1');
+  INSERT INTO nomina.rotacion(descripcion, tipo_rotacion_id, secuencia, dias_por_grupo, cantidad_horario, item_rotacion_id, estado)VALUES ('Rotacion', 1, 1, 1, 1, 1, '1');
+  INSERT INTO nomina.item_rotacion(rotacion_id, item_rotacion_id, horario_id, fecha_comienzo, descripcion, estado) VALUES (1, 1, 1, '01/01/2015', 'Horario Item', '1');
+  INSERT INTO nomina.puesto(descripcion, estado) VALUES ('Puesto', '1');
+  INSERT INTO nomina.cargo(descripcion, estado)VALUES ('Cargo', '1');
+  INSERT INTO nomina.trabajador(codigo_trabajador, nombre_completo, apellido, compania_id, dependencia_id, tipo_trabajador_id, horario_id, rotacion_id, puesto_id, coreo_e, telefono_casa, telefono_interno, scan_foto, scan_cedula, scan_huella, codigo_carnet, autorizador_terminal, viajero, paso_libre_terminales, trabajador_inactivo, ocasional, acceso_estacionamiento, primario, secundario, codigo_trabajador_grupo_gerente, codigo_trabajador_grupo_supervisor, cedula, visitable, cargo_id, observaciones, estado)VALUES ('1', 'Trabajador', 'Apellido', 1, 1, 1, 1, 1, 1, 'correo@correo.com', '111', '111', '', '', '', '111', true, true, true, true, true, true, true, true, '1', '1', '101010', true, 1, 'Observa', '1');
+
   
+
 
   
   

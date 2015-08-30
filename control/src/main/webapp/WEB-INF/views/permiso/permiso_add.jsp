@@ -188,10 +188,10 @@
 												<div class="row">
 													<div class="col-sm-12 col-md-4">
 														<label class="control-label">Hora Salida</label>
-														<form:input path="hora_salida" type="text"
+														<form:input path="hora_salida" type="time"
 															class="form-control" data-bv-field="Hora Salida" required="required" />
 													</div>
-													<div class="col-md-6 selectContainer">
+													<div class="col-md-8 selectContainer">
 														<label class="control-label">Recibido Por</label> 
 														<form:input path="recibido_por" type="text"
 															class="form-control" data-bv-field="Recibido Por" required="required" />
@@ -533,8 +533,8 @@
 									validating : 'glyphicon glyphicon-refresh'
 								},
 								fields : {
-									descripcion : {
-										group : '.col-md-12',
+									codigo_trabajador : {
+										group : '.col-md-4',
 										validators : {
 											notEmpty : {
 												message : 'Campo requierido'
@@ -545,7 +545,38 @@
 											}
 										}
 									},
-					
+									novedad : {
+										group : '.col-md-4',
+										validators : {
+											notEmpty : {
+												message : 'Campo requierido'
+											}
+										}
+									},
+									hora_entrega : {
+										group : '.col-md-4',
+										validators : {
+											notEmpty : {
+												message : 'Campo requierido'
+											}
+										}
+									},
+									hora_salida : {
+										group : '.col-md-4',
+										validators : {
+											notEmpty : {
+												message : 'Campo requierido'
+											}
+										}
+									},
+									recibido_por : {
+										group : '.col-md-8',
+										validators : {
+											notEmpty : {
+												message : 'Campo requierido'
+											}
+										}
+									},
 									observaciones : {
 										group : '.col-md-8',
 										validators : {

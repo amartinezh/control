@@ -43,7 +43,7 @@ public class PermisoServiceImpl implements PermisoService {
 	@Transactional
 	public List<Permiso> listarPermisos() {
 		List<Permiso> listPermiso = new LinkedList<Permiso>();
-		String sql = "Select a.permiso_id as permiso_id, a.codigo_trabajador as codigo_trabajador FROM Permiso as a";
+		String sql = "Select a.permiso_id as permiso_id, a.codigo_trabajador as codigo_trabajador, a.novedad as novedad, a.hora_entrada as hora_entrada, a.hora_salida as hora_salida, a.recibido_por as recibido_por, a.observaciones as observaciones, a.estado as estado FROM Permiso as a";
 		List<Object[]> data = permisoDao.listar(sql);
 		if (data != null) {
 			for (Object[] d : data) {

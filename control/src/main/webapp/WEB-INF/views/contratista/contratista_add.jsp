@@ -941,11 +941,11 @@
 
 		function actualizar() {
 			$( "#frm" ).submit();
-			var documento = document.getElementById('documento').value;
+			var documentoo = document.getElementById('documento').value;
 			var nombreCompleto = document.getElementById('nombreCompleto').value;
 			var apellido = document.getElementById('apellido').value;
-			//var tipoPersonaId = document.getElementById('tipoPersonaId.tipo_persona_id');
-			//var dependencia_id = document.getElementById('dependencia_id.dependencia_id');
+			var tipoPersonaId = document.getElementById('tipoPersonaId.tipo_persona_id').value;
+			var dependencia_id = document.getElementById('dependencia_id.dependencia_id').value;
 			var coreoE = document.getElementById('coreoE').value;
 			var telefono = document.getElementById('telefono').value;
 			var scanFoto = document.getElementById('scanFoto').value;
@@ -964,17 +964,17 @@
 			var inventario = document.getElementById('inventario').value;
 			var scanInventario = document.getElementById('scanInventario').value;
 			var observaciones = document.getElementById('observaciones').value;
-			//alert(dependencia_id);
+			alert(documentoo);
 			$.ajax({
 				type : "POST",
 				url : "contratista_add/agregar",
-				processData: false,
+				processData: true,
 				data : {
-					documento: documento,
+					documento: documentoo,
 					nombreCompleto : nombreCompleto,
 					apellido : apellido,
-					//tipoPersonaId : tipoPersonaId,
-					//dependencia_id : dependencia_id,
+					tipoPersonaId : tipoPersonaId,
+					dependencia_id : dependencia_id,
 					coreoE : coreoE,
 					telefono : telefono,
 					scanFoto : scanFoto,

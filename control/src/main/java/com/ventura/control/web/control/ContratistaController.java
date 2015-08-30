@@ -42,11 +42,11 @@ public class ContratistaController {
 	
 	@RequestMapping(value = "agregar", method = RequestMethod.POST)
 	public @ResponseBody String agregar(
-			@RequestParam int documento,
+			@RequestParam String documento,
 			@RequestParam String nombreCompleto,
 			@RequestParam String apellido,
-			//@RequestParam TipoPersona tipoPersonaId,
-			//@RequestParam Dependencia dependencia_id,
+			@RequestParam int tipoPersonaId,
+			@RequestParam int dependencia_id,
 			@RequestParam String coreoE,
 			@RequestParam String telefono,
 			@RequestParam byte[] scanFoto,

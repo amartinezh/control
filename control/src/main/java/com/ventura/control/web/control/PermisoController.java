@@ -30,12 +30,12 @@ public class PermisoController {
 
 	@RequestMapping(value = "agregar", method = RequestMethod.POST)
 	public @ResponseBody String agregar(
-			@RequestParam int permiso_id, @RequestParam String codigo_trabajador,
-			@RequestParam String novedad, @RequestParam String hora_entrada,
-			@RequestParam String hora_salida, @RequestParam String recibido_por,
-			@RequestParam String observaciones, @RequestParam String estado,
+			@RequestParam int permiso_id, @RequestParam int tipo_permiso_id,
+			@RequestParam java.util.Date fecha, @RequestParam String codigo_trabajador,
+			@RequestParam String hora_entrada, @RequestParam String hora_salida, 
+			@RequestParam String recibido_por, @RequestParam String novedad, @RequestParam String estado,
 			Map<String, Object> model) {
-		Permiso obj = new Permiso(permiso_id, codigo_trabajador, novedad, hora_entrada, hora_salida, recibido_por, observaciones, estado);
+		Permiso obj = new Permiso(permiso_id, tipo_permiso_id, fecha, codigo_trabajador, hora_entrada, hora_salida, recibido_por, novedad, estado);
 		permiso.agregarPermiso(obj);
 		return "<span class='responsiveExpander'></span><a class='btn btn-success btn-circle btn-sx'"
 				+ " onclick=\"con('"

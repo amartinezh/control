@@ -568,14 +568,16 @@ CREATE TABLE control.horarios_habiles(
 
 CREATE TABLE control.permisos(
   permiso_id serial NOT NULL,
+  tipo_permiso_id integer,
+  fecha date,
   codigo_trabajador character varying(64) NOT NULL,
-  novedad text,
-  hora_entrada time,
-  hora_salida time,
+  hora_entrada character varying,
+  hora_salida character varying,
   recibido_por character varying(128),
-  observaciones text,
+  novedad text,
   estado character varying(1),
   CONSTRAINT permisos_pk PRIMARY KEY (permiso_id),
+  CONSTRAINT fk6b68e0614ff7b61 FOREIGN KEY (tipo_permiso_id) REFERENCES nomina.tipo_permiso (tipo_permiso_id) ON UPDATE NO ACTION ON DELETE NO ACTION,
   CONSTRAINT fk6b68w0834ff7b56 FOREIGN KEY (codigo_trabajador) REFERENCES nomina.trabajador (codigo_trabajador) ON UPDATE NO ACTION ON DELETE NO ACTION
 )WITH ( OIDS=FALSE); ALTER TABLE control.permisos OWNER TO postgres;
 
@@ -718,7 +720,7 @@ CREATE TABLE control.correspondencia(
   INSERT INTO nomina.puesto(descripcion, estado) VALUES ('Puesto', '1');
   INSERT INTO nomina.cargo(descripcion, estado)VALUES ('Cargo', '1');
   INSERT INTO nomina.trabajador(codigo_trabajador, nombre_completo, apellido, compania_id, dependencia_id, tipo_trabajador_id, horario_id, rotacion_id, puesto_id, coreo_e, telefono_casa, telefono_interno, scan_foto, scan_cedula, scan_huella, codigo_carnet, autorizador_terminal, viajero, paso_libre_terminales, trabajador_inactivo, ocasional, acceso_estacionamiento, primario, secundario, codigo_trabajador_grupo_gerente, codigo_trabajador_grupo_supervisor, cedula, visitable, cargo_id, observaciones, estado)VALUES ('1', 'Trabajador', 'Apellido', 1, 1, 1, 1, 1, 1, 'correo@correo.com', '111', '111', '', '', '', '111', true, true, true, true, true, true, true, true, '1', '1', '101010', true, 1, 'Observa', '1');
-
+  INSERT INTO nomina.tipo_permiso(descripcion, estado) VALUES ('Cita médica', '1');
   
 
 

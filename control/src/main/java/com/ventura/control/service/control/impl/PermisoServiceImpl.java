@@ -1,5 +1,6 @@
 package com.ventura.control.service.control.impl;
 
+import java.text.ParseException;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -23,12 +24,13 @@ public class PermisoServiceImpl implements PermisoService {
 			permisoDao.agregar(permiso);
 		else {
 			Permiso obj = (Permiso) permisoDao.getElemento(permiso, permiso.getPermiso_id());
+			obj.setTipo_permiso_id(permiso.getTipo_permiso_id());
+			obj.setFecha(permiso.getFecha());
 			obj.setCodigo_trabajador(permiso.getCodigo_trabajador());
-			obj.setNovedad(permiso.getNovedad());
 			obj.setHora_entrada(permiso.getHora_entrada());
 			obj.setHora_salida(permiso.getHora_salida());
 			obj.setRecibido_por(permiso.getRecibido_por());
-			obj.setObservaciones(permiso.getObservaciones());
+			obj.setNovedad(permiso.getNovedad());
 			obj.setEstado(permiso.getEstado());
 			permisoDao.actualizar(permiso);
 		}
@@ -43,11 +45,18 @@ public class PermisoServiceImpl implements PermisoService {
 	@Transactional
 	public List<Permiso> listarPermisos() {
 		List<Permiso> listPermiso = new LinkedList<Permiso>();
-		String sql = "Select a.permiso_id as permiso_id, a.codigo_trabajador as codigo_trabajador, a.novedad as novedad, a.hora_entrada as hora_entrada, a.hora_salida as hora_salida, a.recibido_por as recibido_por, a.observaciones as observaciones, a.estado as estado FROM Permiso as a";
+		String sql = "Select a.permiso_id as permiso_id, a.codigo_trabajador as codigo_trabajador, a.hora_entrada as hora_entrada, a.hora_salida as hora_salida, a.recibido_por as recibido_por, a.novedad as novedad, a.estado as estado FROM Permiso as a";
 		List<Object[]> data = permisoDao.listar(sql);
+		java.text.SimpleDateFormat formatter = new java.text.SimpleDateFormat("dd-MMM-yyyy");
 		if (data != null) {
 			for (Object[] d : data) {
-				listPermiso.add(new Permiso(Integer.parseInt(d[0].toString()), d[1].toString(), d[2].toString(), d[3].toString(), d[4].toString(), d[5].toString(), d[6].toString(), d[7].toString()));
+				try {
+					listPermiso.add(new Permiso(Integer.parseInt(d[0].toString()), Integer.parseInt(d[1].toString()), formatter.parse(d[2].toString()), d[3].toString(), d[4].toString(), d[5].toString(), d[6].toString(), d[7].toString(), d[8].toString()));
+				} catch (NumberFormatException e) {
+					e.printStackTrace();
+				} catch (ParseException e) {
+					e.printStackTrace();
+				}
 			}
 		}
 		return listPermiso;

@@ -163,51 +163,62 @@
 											<div class="form-group">
 												<div class="row">
 													<legend> Gestión de Permisos </legend>
+													<form:input type="hidden" path="permiso_id" value="0" />
+													<form:input type="hidden" path="estado" />
 													<div class="col-sm-12 col-md-4">
-														<form:input type="hidden" path="permiso_id" value="0" />
-														<form:input type="hidden" path="estado" />
+														<label class="control-label">Fecha</label>
+														<form:input path="fecha" type="date"
+															class="form-control" data-bv-field="Fecha" required="required" />
+													</div>
+													<div class="col-sm-12 col-md-4">
+														<label class="control-label">Hora Entrada</label>
+														<form:input path="hora_entrada" type="text"
+															class="form-control" data-bv-field="Hora Entrada" required="required" />
+													</div>
+													<div class="col-sm-12 col-md-4">
+														<label class="control-label">Hora Salida</label>
+														<form:input path="hora_salida" type="text"
+															class="form-control" data-bv-field="Hora Salida" required="required" />
+													</div>
+												</div>
+											</div>
+										</fieldset>
+										<fieldset>
+											<div class="form-group">
+												<div class="row">
+													<div class="col-sm-12 col-md-4">
+														<label class="control-label">Tipo Permiso</label> 
+														<form:input path="tipo_permiso_id" type="text"
+															class="form-control" data-bv-field="Tipo Permiso" required="required" />
+													</div>
+													<div class="col-sm-12 col-md-4">
 														<label class="control-label">Codigo Trabajador</label>
 														<form:input path="codigo_trabajador" type="text"
 															class="form-control" data-bv-field="Descripción" required="required" />
 													</div>
 													<div class="col-sm-12 col-md-4">
-														<label class="control-label">Novedad</label>
-														<form:input path="novedad" type="text"
-															class="form-control" data-bv-field="Novedad" required="required" />
-													</div>
-													<div class="col-sm-12 col-md-4">
-														<label class="control-label">Hora Entrada</label>
-														<form:input path="hora_entrada" type="time"
-															class="form-control" data-bv-field="Hora Entrada" required="required" />
-													</div>
-												</div>
-											</div>
-										</fieldset>
-										<fieldset>
-											<div class="form-group">
-												<div class="row">
-													<div class="col-sm-12 col-md-4">
-														<label class="control-label">Hora Salida</label>
-														<form:input path="hora_salida" type="time"
-															class="form-control" data-bv-field="Hora Salida" required="required" />
-													</div>
-													<div class="col-md-8 selectContainer">
 														<label class="control-label">Recibido Por</label> 
 														<form:input path="recibido_por" type="text"
 															class="form-control" data-bv-field="Recibido Por" required="required" />
 													</div>
-													
 												</div>
 											</div>
 										</fieldset>
 										<fieldset>
 											<div class="form-group">
 												<div class="row">
-													<div class="col-sm-12 col-md-8">
-														<label class="control-label">Observaciones</label>
-														<form:textarea path="observaciones" type="text"
-															class="form-control" data-bv-field="Observaciones" required="required" />
+													<div class="col-sm-12 col-md-12">
+														<label class="control-label">Novedades</label>
+														<form:textarea path="novedad" type="text"
+															class="form-control" data-bv-field="Novedades" required="required" />
 													</div>
+												</div>
+											</div>
+										</fieldset>
+										<fieldset>
+											<div class="form-group">
+												<div class="row">
+													
 												</div>
 											</div>
 										</fieldset>
@@ -760,24 +771,25 @@
 		function actualizar() {
 			$( "#frm" ).submit();
 			var permiso_id = document.getElementById('permiso_id').value;
+			var tipo_permiso_id = document.getElementById('tipo_permiso_id').value;
 			var codigo_trabajador = document.getElementById('codigo_trabajador').value;
-			var novedad = document.getElementById('novedad').value;
 			var hora_entrada = document.getElementById('hora_entrada').value;
 			var hora_salida = document.getElementById('hora_salida').value;
 			var recibido_por = document.getElementById('recibido_por').value;
-			var observaciones = document.getElementById('observaciones').value;
+			var novedad = document.getElementById('novedad').value;
 			var estado = document.getElementById('estado').value;
 			$.ajax({
 				type : "POST",
 				url : "permiso/agregar",
 				data : {
 					permiso_id: permiso_id,
+					tipo_permiso_id : tipo_permiso_id,
 					codigo_trabajador : codigo_trabajador,
 					novedad : novedad,
 					hora_entrada : hora_entrada,
 					hora_salida : hora_salida,
 					recibido_por : recibido_por,
-					observaciones : observaciones,
+					novedad : novedad,
 					estado : estado
 				},
 				success : function(data) {			
@@ -860,8 +872,14 @@
 		}
 		
 		function cancelar() {
-			var obj_id = document.getElementById('Permiso_id').value;
-			var des = document.getElementById('estado').value;
+			var permiso_id = document.getElementById('permiso_id').value;
+			var tipo_permiso_id = document.getElementById('tipo_permiso_id').value;
+			var codigo_trabajador = document.getElementById('codigo_trabajador').value;
+			var hora_entrada = document.getElementById('hora_entrada').value;
+			var hora_salida = document.getElementById('hora_salida').value;
+			var recibido_por = document.getElementById('recibido_por').value;
+			var novedad = document.getElementById('novedad').value;
+			var estado = document.getElementById('estado').value;
 			$('#elboton').text('Nuevo');
 			$.ajax({
 				type : "POST",
@@ -869,11 +887,10 @@
 				data : {
 					permiso_id: permiso_id,
 					codigo_trabajador : codigo_trabajador,
-					novedad : novedad,
 					hora_entrada : hora_entrada,
 					hora_salida : hora_salida,
 					recibido_por : recibido_por,
-					observaciones : observaciones,
+					novedad : novedad,
 					estado : estado
 				},
 				success : function(data) {					

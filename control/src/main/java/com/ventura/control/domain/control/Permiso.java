@@ -1,5 +1,7 @@
 package com.ventura.control.domain.control;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -25,12 +27,16 @@ public class Permiso implements java.io.Serializable {
 	private int permiso_id;
 	
 	@NotEmpty
-	@Column(name = "codigo_trabajador")
-	private String codigo_trabajador;
+	@Column(name = "tipo_permiso_id")
+	private int tipo_permiso_id;
 	
 	@NotEmpty
-	@Column(name = "novedad")
-	private String novedad;
+	@Column(name = "fecha")
+	private java.util.Date fecha;
+	
+	@NotEmpty
+	@Column(name = "codigo_trabajador")
+	private String codigo_trabajador;
 	
 	@NotEmpty
 	@Column(name = "hora_entrada")
@@ -45,8 +51,8 @@ public class Permiso implements java.io.Serializable {
 	private String recibido_por;
 	
 	@NotEmpty
-	@Column(name = "observaciones")
-	private String observaciones;
+	@Column(name = "novedad")
+	private String novedad;
 	
 	@Column(name = "estado")
 	private String estado;
@@ -54,22 +60,24 @@ public class Permiso implements java.io.Serializable {
 	public Permiso() {
 		// TODO Auto-generated constructor stub
 	}
+	
+	public Permiso(int permiso_id) {
+		this.permiso_id=permiso_id;
+	}
 
-	public Permiso(int permiso_id, String codigo_trabajador, String novedad,
-			String hora_entrada, String hora_salida, String recibido_por,
-			String observaciones, String estado) {
+	public Permiso(int permiso_id, int tipo_permiso_id, Date fecha,
+			String codigo_trabajador, String hora_entrada, String hora_salida,
+			String recibido_por, String novedad, String estado) {
+		super();
 		this.permiso_id = permiso_id;
+		this.tipo_permiso_id = tipo_permiso_id;
+		this.fecha = fecha;
 		this.codigo_trabajador = codigo_trabajador;
-		this.novedad = novedad;
 		this.hora_entrada = hora_entrada;
 		this.hora_salida = hora_salida;
 		this.recibido_por = recibido_por;
-		this.observaciones = observaciones;
+		this.novedad = novedad;
 		this.estado = estado;
-	}
-
-	public Permiso(int permiso_id) {
-		this.permiso_id = permiso_id;
 	}
 
 	public int getPermiso_id() {
@@ -80,20 +88,28 @@ public class Permiso implements java.io.Serializable {
 		this.permiso_id = permiso_id;
 	}
 
+	public int getTipo_permiso_id() {
+		return tipo_permiso_id;
+	}
+
+	public void setTipo_permiso_id(int tipo_permiso_id) {
+		this.tipo_permiso_id = tipo_permiso_id;
+	}
+
+	public java.util.Date getFecha() {
+		return fecha;
+	}
+
+	public void setFecha(java.util.Date fecha) {
+		this.fecha = fecha;
+	}
+
 	public String getCodigo_trabajador() {
 		return codigo_trabajador;
 	}
 
 	public void setCodigo_trabajador(String codigo_trabajador) {
 		this.codigo_trabajador = codigo_trabajador;
-	}
-
-	public String getNovedad() {
-		return novedad;
-	}
-
-	public void setNovedad(String novedad) {
-		this.novedad = novedad;
 	}
 
 	public String getHora_entrada() {
@@ -120,12 +136,12 @@ public class Permiso implements java.io.Serializable {
 		this.recibido_por = recibido_por;
 	}
 
-	public String getObservaciones() {
-		return observaciones;
+	public String getNovedad() {
+		return novedad;
 	}
 
-	public void setObservaciones(String observaciones) {
-		this.observaciones = observaciones;
+	public void setNovedad(String novedad) {
+		this.novedad = novedad;
 	}
 
 	public String getEstado() {
@@ -139,6 +155,7 @@ public class Permiso implements java.io.Serializable {
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
+	
 	
 	
 }

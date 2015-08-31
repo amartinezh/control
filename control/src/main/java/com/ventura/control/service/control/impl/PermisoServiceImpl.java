@@ -47,16 +47,9 @@ public class PermisoServiceImpl implements PermisoService {
 		List<Permiso> listPermiso = new LinkedList<Permiso>();
 		String sql = "Select a.permiso_id as permiso_id, a.codigo_trabajador as codigo_trabajador, a.hora_entrada as hora_entrada, a.hora_salida as hora_salida, a.recibido_por as recibido_por, a.novedad as novedad, a.estado as estado FROM Permiso as a";
 		List<Object[]> data = permisoDao.listar(sql);
-		java.text.SimpleDateFormat formatter = new java.text.SimpleDateFormat("dd-MMM-yyyy");
 		if (data != null) {
 			for (Object[] d : data) {
-				try {
-					listPermiso.add(new Permiso(Integer.parseInt(d[0].toString()), Integer.parseInt(d[1].toString()), formatter.parse(d[2].toString()), d[3].toString(), d[4].toString(), d[5].toString(), d[6].toString(), d[7].toString(), d[8].toString()));
-				} catch (NumberFormatException e) {
-					e.printStackTrace();
-				} catch (ParseException e) {
-					e.printStackTrace();
-				}
+					listPermiso.add(new Permiso(Integer.parseInt(d[0].toString()), Integer.parseInt(d[1].toString()), d[2].toString(), d[3].toString(), d[4].toString(), d[5].toString(), d[6].toString(), d[7].toString(), d[8].toString()));
 			}
 		}
 		return listPermiso;

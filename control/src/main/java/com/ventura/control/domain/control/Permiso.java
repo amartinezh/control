@@ -1,7 +1,5 @@
 package com.ventura.control.domain.control;
 
-import java.util.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -19,7 +17,7 @@ public class Permiso implements java.io.Serializable {
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 3958570611606289361L;
+	private static final long serialVersionUID = 3958570614606289361L;
 	@Id
     @Column(name = "permiso_id")
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator="control.permisos_permiso_id_seq")
@@ -32,7 +30,7 @@ public class Permiso implements java.io.Serializable {
 	
 	@NotEmpty
 	@Column(name = "fecha")
-	private java.util.Date fecha;
+	private String fecha;
 	
 	@NotEmpty
 	@Column(name = "codigo_trabajador")
@@ -65,7 +63,7 @@ public class Permiso implements java.io.Serializable {
 		this.permiso_id=permiso_id;
 	}
 
-	public Permiso(int permiso_id, int tipo_permiso_id, Date fecha,
+	public Permiso(int permiso_id, int tipo_permiso_id, String fecha,
 			String codigo_trabajador, String hora_entrada, String hora_salida,
 			String recibido_por, String novedad, String estado) {
 		super();
@@ -96,11 +94,11 @@ public class Permiso implements java.io.Serializable {
 		this.tipo_permiso_id = tipo_permiso_id;
 	}
 
-	public java.util.Date getFecha() {
+	public String getFecha() {
 		return fecha;
 	}
 
-	public void setFecha(java.util.Date fecha) {
+	public void setFecha(String fecha) {
 		this.fecha = fecha;
 	}
 
@@ -151,11 +149,4 @@ public class Permiso implements java.io.Serializable {
 	public void setEstado(String estado) {
 		this.estado = estado;
 	}
-
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
-	
-	
-	
 }

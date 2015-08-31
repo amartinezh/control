@@ -29,13 +29,13 @@ public class PermisoController {
 	}
 
 	@RequestMapping(value = "agregar", method = RequestMethod.POST)
-	public @ResponseBody String agregar(
-			@RequestParam int permiso_id, @RequestParam int tipo_permiso_id,
-			@RequestParam java.util.Date fecha, @RequestParam String codigo_trabajador,
+	public @ResponseBody String agregar( @RequestParam int tipo_permiso_id,
+			@RequestParam String fecha, @RequestParam String codigo_trabajador,
 			@RequestParam String hora_entrada, @RequestParam String hora_salida, 
 			@RequestParam String recibido_por, @RequestParam String novedad, @RequestParam String estado,
 			Map<String, Object> model) {
-		Permiso obj = new Permiso(permiso_id, tipo_permiso_id, fecha, codigo_trabajador, hora_entrada, hora_salida, recibido_por, novedad, estado);
+		System.out.print("............................."+fecha+hora_salida);
+		Permiso obj = new Permiso(0, tipo_permiso_id, fecha, codigo_trabajador, hora_entrada, hora_salida, recibido_por, novedad, estado);
 		permiso.agregarPermiso(obj);
 		return "<span class='responsiveExpander'></span><a class='btn btn-success btn-circle btn-sx'"
 				+ " onclick=\"con('"
@@ -44,7 +44,7 @@ public class PermisoController {
 				+ obj.getCodigo_trabajador()
 				+ "', $(this)"
 				+ ")\"><i class='fa fa-edit'></i></a> <a class='btn btn-danger btn-circle' onclick='borrar("
-				+ permiso_id
+				+ obj.getPermiso_id()
 				+ ", $(this))'><i class='fa fa-trash-o'></i></a><span class='responsiveExpander'></span>:::"
 				+ codigo_trabajador;
 	}

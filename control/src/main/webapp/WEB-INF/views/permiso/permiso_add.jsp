@@ -167,7 +167,7 @@
 													<form:input type="hidden" path="estado" />
 													<div class="col-sm-12 col-md-4">
 														<label class="control-label">Fecha</label>
-														<form:input path="fecha" type="date"
+														<form:input path="fecha" type="text"
 															class="form-control" data-bv-field="Fecha" required="required" />
 													</div>
 													<div class="col-sm-12 col-md-4">
@@ -556,14 +556,6 @@
 											}
 										}
 									},
-									novedad : {
-										group : '.col-md-4',
-										validators : {
-											notEmpty : {
-												message : 'Campo requierido'
-											}
-										}
-									},
 									hora_entrega : {
 										group : '.col-md-4',
 										validators : {
@@ -588,8 +580,8 @@
 											}
 										}
 									},
-									observaciones : {
-										group : '.col-md-8',
+									novedad : {
+										group : '.col-md-12',
 										validators : {
 											notEmpty : {
 												message : 'Campo requierido'
@@ -770,29 +762,30 @@
 
 		function actualizar() {
 			$( "#frm" ).submit();
-			var permiso_id = document.getElementById('permiso_id').value;
-			var tipo_permiso_id = document.getElementById('tipo_permiso_id').value;
-			var codigo_trabajador = document.getElementById('codigo_trabajador').value;
-			var hora_entrada = document.getElementById('hora_entrada').value;
-			var hora_salida = document.getElementById('hora_salida').value;
-			var recibido_por = document.getElementById('recibido_por').value;
-			var novedad = document.getElementById('novedad').value;
-			var estado = document.getElementById('estado').value;
+			var pid = document.getElementById('permiso_id').value;
+			var tpid = document.getElementById('tipo_permiso_id').value;
+			var fe = document.getElementById('fecha').value;
+			var ct = document.getElementById('codigo_trabajador').value;
+			var he = document.getElementById('hora_entrada').value;
+			var hs = document.getElementById('hora_salida').value;
+			var rp = document.getElementById('recibido_por').value;
+			var n = document.getElementById('novedad').value;
+			var e = document.getElementById('estado').value;
 			$.ajax({
 				type : "POST",
 				url : "permiso/agregar",
 				data : {
-					permiso_id: permiso_id,
-					tipo_permiso_id : tipo_permiso_id,
-					codigo_trabajador : codigo_trabajador,
-					novedad : novedad,
-					hora_entrada : hora_entrada,
-					hora_salida : hora_salida,
-					recibido_por : recibido_por,
-					novedad : novedad,
-					estado : estado
+					
+					fecha: fe,
+					tipo_permiso_id: tpid,
+					codigo_trabajador: ct,
+					hora_entrada: he,
+					hora_salida: hs,
+					recibido_por: rp,
+					novedad: n,
+					estado: e
 				},
-				success : function(data) {			
+				success : function(data) {	alert(data);		
 					 document.getElementById('codigo_trabajador').value = "";
 					 document.getElementById('permiso_id').value = "0";
 					 var res = data.split(":::");
@@ -873,6 +866,7 @@
 		
 		function cancelar() {
 			var permiso_id = document.getElementById('permiso_id').value;
+			var fecha = document.getElementById('fecha').value;
 			var tipo_permiso_id = document.getElementById('tipo_permiso_id').value;
 			var codigo_trabajador = document.getElementById('codigo_trabajador').value;
 			var hora_entrada = document.getElementById('hora_entrada').value;
@@ -886,7 +880,10 @@
 				url : "permiso/cancelar",
 				data : {
 					permiso_id: permiso_id,
+					fecha : fecha,
+					tipo_permiso_id : tipo_permiso_id,
 					codigo_trabajador : codigo_trabajador,
+					novedad : novedad,
 					hora_entrada : hora_entrada,
 					hora_salida : hora_salida,
 					recibido_por : recibido_por,

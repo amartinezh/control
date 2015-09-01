@@ -721,6 +721,7 @@ CREATE TABLE control.correspondencia(
   INSERT INTO nomina.cargo(descripcion, estado)VALUES ('Cargo', '1');
   INSERT INTO nomina.trabajador(codigo_trabajador, nombre_completo, apellido, compania_id, dependencia_id, tipo_trabajador_id, horario_id, rotacion_id, puesto_id, coreo_e, telefono_casa, telefono_interno, scan_foto, scan_cedula, scan_huella, codigo_carnet, autorizador_terminal, viajero, paso_libre_terminales, trabajador_inactivo, ocasional, acceso_estacionamiento, primario, secundario, codigo_trabajador_grupo_gerente, codigo_trabajador_grupo_supervisor, cedula, visitable, cargo_id, observaciones, estado)VALUES ('1', 'Trabajador', 'Apellido', 1, 1, 1, 1, 1, 1, 'correo@correo.com', '111', '111', '', '', '', '111', true, true, true, true, true, true, true, true, '1', '1', '101010', true, 1, 'Observa', '1');
   INSERT INTO nomina.tipo_permiso(descripcion, estado) VALUES ('Cita médica', '1');
+  INSERT INTO nomina.tipo_permiso(descripcion, estado) VALUES ('Diligencia Bancaria', '1');
   
 
 

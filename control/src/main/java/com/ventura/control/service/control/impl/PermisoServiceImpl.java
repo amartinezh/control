@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.ventura.control.domain.control.Permiso;
+import com.ventura.control.domain.nomina.TipoPermiso;
 import com.ventura.control.repository.control.RepositorioDao;
 import com.ventura.control.service.control.PermisoService;
 
@@ -51,7 +52,8 @@ public class PermisoServiceImpl implements PermisoService {
 		if (data != null) {
 			for (Object[] d : data) {
 					try {
-						listPermiso.add(new Permiso(Integer.parseInt(d[0].toString()), Integer.parseInt(d[1].toString()), formatter.parse(d[2].toString()), d[3].toString(), d[4].toString(), d[5].toString(), d[6].toString(), d[7].toString(), d[8].toString()));
+						//System.out.println("............."+(TipoPermiso)d[1]);
+						listPermiso.add(new Permiso(Integer.parseInt(d[0].toString()), (TipoPermiso)d[1], formatter.parse(d[2].toString()), d[3].toString(), d[4].toString(), d[5].toString(), d[6].toString(), d[7].toString(), d[8].toString()));
 					} catch (NumberFormatException e) {
 						e.printStackTrace();
 					} catch (ParseException e) {

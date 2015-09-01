@@ -1,16 +1,26 @@
 package com.ventura.control.domain.control;
 
+import java.util.Collection;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 import org.hibernate.validator.constraints.NotEmpty;
+
+import com.ventura.control.domain.nomina.TipoPermiso;
 
 @Entity
 @Table(name="permisos", schema="control")
@@ -26,8 +36,9 @@ public class Permiso implements java.io.Serializable {
 	@SequenceGenerator(name="control.permisos_permiso_id_seq", sequenceName="control.permisos_permiso_id_seq", allocationSize=1)
 	private int permiso_id;
 	
-	@Column(name = "tipo_permiso_id")
-	private Integer tipo_permiso_id;
+	@JoinColumn(name = "tipo_permiso_id", referencedColumnName = "tipo_permiso_id")
+	@ManyToOne
+	private TipoPermiso tipo_permiso_id;
 	
 	@Column(name = "fecha")
 	private java.util.Date fecha;
@@ -63,7 +74,9 @@ public class Permiso implements java.io.Serializable {
 		this.permiso_id=permiso_id;
 	}
 	
-	public Permiso(int permiso_id, Integer tipo_permiso_id, Date fecha,
+	
+
+	public Permiso(int permiso_id, TipoPermiso tipo_permiso_id, Date fecha,
 			String codigo_trabajador, String hora_entrada, String hora_salida,
 			String recibido_por, String novedad, String estado) {
 		super();
@@ -86,11 +99,11 @@ public class Permiso implements java.io.Serializable {
 		this.permiso_id = permiso_id;
 	}
 
-	public Integer getTipo_permiso_id() {
+	public TipoPermiso getTipo_permiso_id() {
 		return tipo_permiso_id;
 	}
 
-	public void setTipo_permiso_id(Integer tipo_permiso_id) {
+	public void setTipo_permiso_id(TipoPermiso tipo_permiso_id) {
 		this.tipo_permiso_id = tipo_permiso_id;
 	}
 
@@ -148,10 +161,6 @@ public class Permiso implements java.io.Serializable {
 
 	public void setEstado(String estado) {
 		this.estado = estado;
-	}
-
-	public static long getSerialversionuid() {
-		return serialVersionUID;
 	}
 
 	@Override

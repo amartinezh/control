@@ -188,8 +188,8 @@
 												<div class="row">
 													<div class="col-sm-12 col-md-4">
 														<label class="control-label">Tipo Permiso</label> 
-														<form:input path="tipo_permiso_id" type="text"
-															class="form-control" data-bv-field="Tipo Permiso" required="required" />
+														<form:select class="form-control" path="tipo_permiso_id.tipo_permiso_id" items="${listTipoPermiso}">
+														</form:select>
 													</div>
 													<div class="col-sm-12 col-md-4">
 														<label class="control-label">Codigo Trabajador</label>
@@ -763,7 +763,10 @@
 		function actualizar() {
 			$( "#frm" ).submit();
 			var pid = document.getElementById('permiso_id').value;
-			var tpid = document.getElementById('tipo_permiso_id').value;
+			
+			var x = document.getElementById('tipo_permiso_id.tipo_permiso_id').selectedIndex;
+			var tpid_sel = document.getElementsByTagName("option")[x].value
+			
 			var fe = document.getElementById('fecha').value;
 			var ct = document.getElementById('codigo_trabajador').value;
 			var he = document.getElementById('hora_entrada').value;
@@ -777,7 +780,7 @@
 				data : {
 					
 					fecha: fe,
-					tipo_permiso_id: tpid,
+					tipo_permiso_id: tpid_sel,
 					codigo_trabajador: ct,
 					hora_entrada: he,
 					hora_salida: hs,
@@ -785,7 +788,7 @@
 					novedad: n,
 					estado: e
 				},
-				success : function(data) {	alert(data);		
+				success : function(data) {		
 					 document.getElementById('codigo_trabajador').value = "";
 					 document.getElementById('permiso_id').value = "0";
 					 var res = data.split(":::");

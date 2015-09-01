@@ -42,13 +42,13 @@ public class Contratista implements Serializable {
 	private String telefono;
 	@Lob
 	@Column(name = "scan_foto")
-	private byte[] scanFoto;
+	private String scanFoto;
 	@Lob
 	@Column(name = "scan_cedula")
-	private byte[] scanCedula;
+	private String scanCedula;
 	@Lob
 	@Column(name = "scan_huella")
-	private byte[] scanHuella;
+	private String scanHuella;
 	@Column(name = "empresa")
 	private String empresa;
 	@Column(name = "nit_empresa")
@@ -73,7 +73,7 @@ public class Contratista implements Serializable {
 	private String inventario;
 	@Lob
 	@Column(name = "scan_inventario")
-	private byte[] scanInventario;
+	private String scanInventario;
 	@Column(name = "observaciones")
 	private String observaciones;
 	@Column(name = "estado")
@@ -86,209 +86,43 @@ public class Contratista implements Serializable {
 	private Dependencia dependencia_id;
 	@OneToMany(mappedBy = "contratistaDocumento")
 	private Set<Antecedente> antecedente;
-
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
-
-	public String getCoreoE() {
-		return coreoE;
-	}
-
-	public String getTelefono() {
-		return telefono;
-	}
-
-	public byte[] getScanFoto() {
-		return scanFoto;
-	}
-
-	public byte[] getScanCedula() {
-		return scanCedula;
-	}
-
-	public byte[] getScanHuella() {
-		return scanHuella;
-	}
-
-	public String getEmpresa() {
-		return empresa;
-	} 
-
-	public String getNitEmpresa() {
-		return nitEmpresa;
-	}
-
-	public String getFechaVenCursoLey() {
-		return fechaVenCursoLey;
-	}
-
-	public String getIdPersonaResponsable() {
-		return idPersonaResponsable;
-	}
-
-	public String getPlaca() {
-		return placa;
-	}
-
-	public String getEps() {
-		return eps;
-	}
-
-	public Date getEpsVence() {
-		return epsVence;
-	}
-
-	public String getAlr() {
-		return alr;
-	}
-
-	public Date getAlrVence() {
-		return alrVence;
-	}
-
-	public String getInventario() {
-		return inventario;
-	}
-
-	public byte[] getScanInventario() {
-		return scanInventario;
-	}
-
-	public String getObservaciones() {
-		return observaciones;
-	}
-
-	public String getEstado() {
-		return estado;
-	}
-
-	public TipoPersona getTipoPersonaId() {
-		return tipoPersonaId;
-	}
-
-	public Dependencia getDependenciaId() {
-		return dependencia_id;
-	}
-
-	public Set<Antecedente> getAntecedente() {
-		return antecedente;
-	}
-
-	public void setCoreoE(String coreoE) {
+	
+	public Contratista(String documento, String nombreCompleto,
+			String apellido, String coreoE, String telefono, String scanFoto,
+			String scanCedula, String scanHuella, String empresa,
+			String nitEmpresa, String fechaVenCursoLey,
+			String idPersonaResponsable, String placa, String eps,
+			Date epsVence, String alr, Date alrVence, String inventario,
+			String scanInventario, String observaciones, String estado,
+			TipoPersona tipoPersonaId, Dependencia dependencia_id,
+			Set<Antecedente> antecedente) {
+		super();
+		this.documento = documento;
+		this.nombreCompleto = nombreCompleto;
+		this.apellido = apellido;
 		this.coreoE = coreoE;
-	}
-
-	public void setTelefono(String telefono) {
 		this.telefono = telefono;
-	}
-
-	public void setScanFoto(byte[] scanFoto) {
 		this.scanFoto = scanFoto;
-	}
-
-	public void setScanCedula(byte[] scanCedula) {
 		this.scanCedula = scanCedula;
-	}
-
-	public void setScanHuella(byte[] scanHuella) {
 		this.scanHuella = scanHuella;
-	}
-
-	public void setEmpresa(String empresa) {
 		this.empresa = empresa;
-	}
-
-	public void setNitEmpresa(String nitEmpresa) {
 		this.nitEmpresa = nitEmpresa;
-	}
-
-	public void setFechaVenCursoLey(String fechaVenCursoLey) {
 		this.fechaVenCursoLey = fechaVenCursoLey;
-	}
-
-	public void setIdPersonaResponsable(String idPersonaResponsable) {
 		this.idPersonaResponsable = idPersonaResponsable;
-	}
-
-	public void setPlaca(String placa) {
 		this.placa = placa;
-	}
-
-	public void setEps(String eps) {
 		this.eps = eps;
-	}
-
-	public void setEpsVence(Date epsVence) {
 		this.epsVence = epsVence;
-	}
-
-	public void setAlr(String alr) {
 		this.alr = alr;
-	}
-
-	public void setAlrVence(Date alrVence) {
 		this.alrVence = alrVence;
-	}
-
-	public void setInventario(String inventario) {
 		this.inventario = inventario;
-	}
-
-	public void setScanInventario(byte[] scanInventario) {
 		this.scanInventario = scanInventario;
-	}
-
-	public void setObservaciones(String observaciones) {
 		this.observaciones = observaciones;
-	}
-
-	public void setEstado(String estado) {
 		this.estado = estado;
-	}
-
-	public void setTipoPersonaId(TipoPersona tipoPersonaId) {
 		this.tipoPersonaId = tipoPersonaId;
-	}
-
-	public void setDependenciaId(Dependencia dependencia_id) {
 		this.dependencia_id = dependencia_id;
-	}
-
-	public void setAntecedente(Set<Antecedente> antecedente) {
 		this.antecedente = antecedente;
 	}
 
-	public Contratista() {
-		// TODO Auto-generated constructor stub
-	}
-	
-	public Contratista(String documento, String nombreCompleto, String apellido, TipoPersona tipoPersonaId, Dependencia dependencia_id, String coreoE, String telefono, byte[] scanFoto, byte[] scanCedula, byte[] scanHuella, String empresa, String nitEmpresa, String fechaVenCursoLey, String idPersonaResponsable, Antecedente antecedente, String placa, String eps, java.util.Date epsVence, String alr, java.util.Date alrVence, String inventario, byte[] scanInventario, String observaciones){
-		this.documento=documento;
-		this.nombreCompleto=nombreCompleto;
-		this.apellido=apellido;
-		this.tipoPersonaId=tipoPersonaId;
-		this.dependencia_id=dependencia_id;
-		this.coreoE=coreoE;
-		this.telefono=telefono;
-		this.scanFoto=scanFoto;
-		this.scanCedula=scanCedula;
-		this.scanHuella=scanHuella;
-		this.empresa=empresa;
-		this.nitEmpresa=nitEmpresa;
-		this.fechaVenCursoLey=fechaVenCursoLey;
-		this.idPersonaResponsable=idPersonaResponsable;
-		this.antecedente=(Set<Antecedente>) antecedente;
-		this.placa=placa;
-		this.eps=eps;
-		this.epsVence=epsVence;
-		this.alr=alr;
-		this.alrVence=alrVence;
-		this.inventario=inventario;
-		this.scanInventario=scanInventario;
-		this.observaciones=observaciones;			
-	}
-	
 	public String getDocumento() {
 		return documento;
 	}
@@ -313,187 +147,173 @@ public class Contratista implements Serializable {
 		this.apellido = apellido;
 	}
 
-	@Override
-	public String toString() {
-		return "Contratista [documento=" + documento + ", nombreCompleto="
-				+ nombreCompleto + ", apellido=" + apellido + ", antecedente="
-				+ antecedente + "]";
+	public String getCoreoE() {
+		return coreoE;
 	}
 
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((alr == null) ? 0 : alr.hashCode());
-		result = prime * result
-				+ ((alrVence == null) ? 0 : alrVence.hashCode());
-		result = prime * result
-				+ ((antecedente == null) ? 0 : antecedente.hashCode());
-		result = prime * result
-				+ ((apellido == null) ? 0 : apellido.hashCode());
-		result = prime * result + ((coreoE == null) ? 0 : coreoE.hashCode());
-		result = prime * result
-				+ ((dependencia_id == null) ? 0 : dependencia_id.hashCode());
-		result = prime * result
-				+ ((documento == null) ? 0 : documento.hashCode());
-		result = prime * result + ((empresa == null) ? 0 : empresa.hashCode());
-		result = prime * result + ((eps == null) ? 0 : eps.hashCode());
-		result = prime * result
-				+ ((epsVence == null) ? 0 : epsVence.hashCode());
-		result = prime * result + ((estado == null) ? 0 : estado.hashCode());
-		result = prime
-				* result
-				+ ((fechaVenCursoLey == null) ? 0 : fechaVenCursoLey.hashCode());
-		result = prime
-				* result
-				+ ((idPersonaResponsable == null) ? 0 : idPersonaResponsable
-						.hashCode());
-		result = prime * result
-				+ ((inventario == null) ? 0 : inventario.hashCode());
-		result = prime * result
-				+ ((nitEmpresa == null) ? 0 : nitEmpresa.hashCode());
-		result = prime * result
-				+ ((nombreCompleto == null) ? 0 : nombreCompleto.hashCode());
-		result = prime * result
-				+ ((observaciones == null) ? 0 : observaciones.hashCode());
-		result = prime * result + ((placa == null) ? 0 : placa.hashCode());
-		result = prime * result + Arrays.hashCode(scanCedula);
-		result = prime * result + Arrays.hashCode(scanFoto);
-		result = prime * result + Arrays.hashCode(scanHuella);
-		result = prime * result + Arrays.hashCode(scanInventario);
-		result = prime * result
-				+ ((telefono == null) ? 0 : telefono.hashCode());
-		result = prime * result
-				+ ((tipoPersonaId == null) ? 0 : tipoPersonaId.hashCode());
-		return result;
+	public void setCoreoE(String coreoE) {
+		this.coreoE = coreoE;
 	}
 
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Contratista other = (Contratista) obj;
-		if (alr == null) {
-			if (other.alr != null)
-				return false;
-		} else if (!alr.equals(other.alr))
-			return false;
-		if (alrVence == null) {
-			if (other.alrVence != null)
-				return false;
-		} else if (!alrVence.equals(other.alrVence))
-			return false;
-		if (antecedente == null) {
-			if (other.antecedente != null)
-				return false;
-		} else if (!antecedente.equals(other.antecedente))
-			return false;
-		if (apellido == null) {
-			if (other.apellido != null)
-				return false;
-		} else if (!apellido.equals(other.apellido))
-			return false;
-		if (coreoE == null) {
-			if (other.coreoE != null)
-				return false;
-		} else if (!coreoE.equals(other.coreoE))
-			return false;
-		if (dependencia_id == null) {
-			if (other.dependencia_id != null)
-				return false;
-		} else if (!dependencia_id.equals(other.dependencia_id))
-			return false;
-		if (documento == null) {
-			if (other.documento != null)
-				return false;
-		} else if (!documento.equals(other.documento))
-			return false;
-		if (empresa == null) {
-			if (other.empresa != null)
-				return false;
-		} else if (!empresa.equals(other.empresa))
-			return false;
-		if (eps == null) {
-			if (other.eps != null)
-				return false;
-		} else if (!eps.equals(other.eps))
-			return false;
-		if (epsVence == null) {
-			if (other.epsVence != null)
-				return false;
-		} else if (!epsVence.equals(other.epsVence))
-			return false;
-		if (estado == null) {
-			if (other.estado != null)
-				return false;
-		} else if (!estado.equals(other.estado))
-			return false;
-		if (fechaVenCursoLey == null) {
-			if (other.fechaVenCursoLey != null)
-				return false;
-		} else if (!fechaVenCursoLey.equals(other.fechaVenCursoLey))
-			return false;
-		if (idPersonaResponsable == null) {
-			if (other.idPersonaResponsable != null)
-				return false;
-		} else if (!idPersonaResponsable.equals(other.idPersonaResponsable))
-			return false;
-		if (inventario == null) {
-			if (other.inventario != null)
-				return false;
-		} else if (!inventario.equals(other.inventario))
-			return false;
-		if (nitEmpresa == null) {
-			if (other.nitEmpresa != null)
-				return false;
-		} else if (!nitEmpresa.equals(other.nitEmpresa))
-			return false;
-		if (nombreCompleto == null) {
-			if (other.nombreCompleto != null)
-				return false;
-		} else if (!nombreCompleto.equals(other.nombreCompleto))
-			return false;
-		if (observaciones == null) {
-			if (other.observaciones != null)
-				return false;
-		} else if (!observaciones.equals(other.observaciones))
-			return false;
-		if (placa == null) {
-			if (other.placa != null)
-				return false;
-		} else if (!placa.equals(other.placa))
-			return false;
-		if (!Arrays.equals(scanCedula, other.scanCedula))
-			return false;
-		if (!Arrays.equals(scanFoto, other.scanFoto))
-			return false;
-		if (!Arrays.equals(scanHuella, other.scanHuella))
-			return false;
-		if (!Arrays.equals(scanInventario, other.scanInventario))
-			return false;
-		if (telefono == null) {
-			if (other.telefono != null)
-				return false;
-		} else if (!telefono.equals(other.telefono))
-			return false;
-		if (tipoPersonaId == null) {
-			if (other.tipoPersonaId != null)
-				return false;
-		} else if (!tipoPersonaId.equals(other.tipoPersonaId))
-			return false;
-		return true;
+	public String getTelefono() {
+		return telefono;
 	}
-	
+
+	public void setTelefono(String telefono) {
+		this.telefono = telefono;
+	}
+
+	public String getScanFoto() {
+		return scanFoto;
+	}
+
+	public void setScanFoto(String scanFoto) {
+		this.scanFoto = scanFoto;
+	}
+
+	public String getScanCedula() {
+		return scanCedula;
+	}
+
+	public void setScanCedula(String scanCedula) {
+		this.scanCedula = scanCedula;
+	}
+
+	public String getScanHuella() {
+		return scanHuella;
+	}
+
+	public void setScanHuella(String scanHuella) {
+		this.scanHuella = scanHuella;
+	}
+
+	public String getEmpresa() {
+		return empresa;
+	}
+
+	public void setEmpresa(String empresa) {
+		this.empresa = empresa;
+	}
+
+	public String getNitEmpresa() {
+		return nitEmpresa;
+	}
+
+	public void setNitEmpresa(String nitEmpresa) {
+		this.nitEmpresa = nitEmpresa;
+	}
+
+	public String getFechaVenCursoLey() {
+		return fechaVenCursoLey;
+	}
+
+	public void setFechaVenCursoLey(String fechaVenCursoLey) {
+		this.fechaVenCursoLey = fechaVenCursoLey;
+	}
+
+	public String getIdPersonaResponsable() {
+		return idPersonaResponsable;
+	}
+
+	public void setIdPersonaResponsable(String idPersonaResponsable) {
+		this.idPersonaResponsable = idPersonaResponsable;
+	}
+
+	public String getPlaca() {
+		return placa;
+	}
+
+	public void setPlaca(String placa) {
+		this.placa = placa;
+	}
+
+	public String getEps() {
+		return eps;
+	}
+
+	public void setEps(String eps) {
+		this.eps = eps;
+	}
+
+	public Date getEpsVence() {
+		return epsVence;
+	}
+
+	public void setEpsVence(Date epsVence) {
+		this.epsVence = epsVence;
+	}
+
+	public String getAlr() {
+		return alr;
+	}
+
+	public void setAlr(String alr) {
+		this.alr = alr;
+	}
+
+	public Date getAlrVence() {
+		return alrVence;
+	}
+
+	public void setAlrVence(Date alrVence) {
+		this.alrVence = alrVence;
+	}
+
+	public String getInventario() {
+		return inventario;
+	}
+
+	public void setInventario(String inventario) {
+		this.inventario = inventario;
+	}
+
+	public String getScanInventario() {
+		return scanInventario;
+	}
+
+	public void setScanInventario(String scanInventario) {
+		this.scanInventario = scanInventario;
+	}
+
+	public String getObservaciones() {
+		return observaciones;
+	}
+
+	public void setObservaciones(String observaciones) {
+		this.observaciones = observaciones;
+	}
+
+	public String getEstado() {
+		return estado;
+	}
+
+	public void setEstado(String estado) {
+		this.estado = estado;
+	}
+
+	public TipoPersona getTipoPersonaId() {
+		return tipoPersonaId;
+	}
+
+	public void setTipoPersonaId(TipoPersona tipoPersonaId) {
+		this.tipoPersonaId = tipoPersonaId;
+	}
+
 	public Dependencia getDependencia_id() {
 		return dependencia_id;
 	}
-	
+
 	public void setDependencia_id(Dependencia dependencia_id) {
 		this.dependencia_id = dependencia_id;
 	}
 
+	public Set<Antecedente> getAntecedente() {
+		return antecedente;
+	}
+
+	public void setAntecedente(Set<Antecedente> antecedente) {
+		this.antecedente = antecedente;
+	}
+
+	
 }

@@ -868,15 +868,18 @@
 		}
 		
 		function cancelar() {
-			var permiso_id = document.getElementById('permiso_id').value;
-			var fecha = document.getElementById('fecha').value;
-			var tipo_permiso_id = document.getElementById('tipo_permiso_id').value;
-			var codigo_trabajador = document.getElementById('codigo_trabajador').value;
-			var hora_entrada = document.getElementById('hora_entrada').value;
-			var hora_salida = document.getElementById('hora_salida').value;
-			var recibido_por = document.getElementById('recibido_por').value;
-			var novedad = document.getElementById('novedad').value;
-			var estado = document.getElementById('estado').value;
+			var pid = document.getElementById('permiso_id').value;
+			
+			var x = document.getElementById('tipo_permiso_id.tipo_permiso_id').selectedIndex;
+			var tpid_sel = document.getElementsByTagName("option")[x].value
+			
+			var fe = document.getElementById('fecha').value;
+			var ct = document.getElementById('codigo_trabajador').value;
+			var he = document.getElementById('hora_entrada').value;
+			var hs = document.getElementById('hora_salida').value;
+			var rp = document.getElementById('recibido_por').value;
+			var n = document.getElementById('novedad').value;
+			var e = document.getElementById('estado').value;
 			$('#elboton').text('Nuevo');
 			$.ajax({
 				type : "POST",
@@ -884,7 +887,7 @@
 				data : {
 					permiso_id: permiso_id,
 					fecha : fecha,
-					tipo_permiso_id : tipo_permiso_id,
+					tipo_permiso_id : tpid_sel,
 					codigo_trabajador : codigo_trabajador,
 					novedad : novedad,
 					hora_entrada : hora_entrada,

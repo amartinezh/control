@@ -256,8 +256,9 @@
 											<div class="form-group">
 												<div class="row">
 													<div class="col-md-6 selectContainer">
-														<label class="control-label">Persona Responsable</label> <select
-															class="form-control" name="idPersonaResponsable">
+														<label class="control-label">Persona Responsable</label>
+														<select
+															class="form-control" name="idPersonaResponsable" id="idPersonaResponsable">
 															<option value="">Seleccione</option>
 															<option value="action">Juan</option>
 															<option value="comedy">Pablo</option>
@@ -284,7 +285,7 @@
 													</div>
 													<div class="col-sm-12 col-md-3">
 														<label class="control-label">Fecha Vencimiento EPS</label>
-														<form:input path="epsVence" type="text"	class="form-control" data-bv-field="Fecha Vencimiento EPS" required="required" />
+														<form:input path="epsVence" type="date"	class="form-control" data-bv-field="Fecha Vencimiento EPS" required="required" />
 													</div>
 													<div class="col-sm-12 col-md-3">
 														<label class="control-label">ARL</label>
@@ -292,7 +293,7 @@
 													</div>
 													<div class="col-sm-12 col-md-3">
 														<label class="control-label">Fecha Vencimiento ARL</label>
-														<form:input path="alrVence" type="text"	class="form-control" data-bv-field="Fecha Vencimiento ARL" required="required" />
+														<form:input path="alrVence" type="date"	class="form-control" data-bv-field="Fecha Vencimiento ARL" required="required" />
 													</div>
 												</div>
 											</div>
@@ -941,58 +942,70 @@
 
 		function actualizar() {
 			$( "#frm" ).submit();
-			var documento = document.getElementById('documento').value;
-			var nombreCompleto = document.getElementById('nombreCompleto').value;
-			var apellido = document.getElementById('apellido').value;
-			var tipoPersonaId = document.getElementById('tipoPersonaId.tipo_persona_id').value;
-			var dependencia_id = document.getElementById('dependencia_id.dependencia_id').value;
-			var coreoE = document.getElementById('coreoE').value;
-			var telefono = document.getElementById('telefono').value;
-			var scanFoto = document.getElementById('scanFoto').value;
-			var scanCedula = document.getElementById('scanCedula').value;
-			var scanHuella = document.getElementById('scanHuella').value;
-			var empresa = document.getElementById('empresa').value;
-			var nitEmpresa = document.getElementById('nitEmpresa').value;
-			var fechaVenCursoLey = document.getElementById('fechaVenCursoLey').value;
-			var idPersonaResponsable = document.getElementById('idPersonaResponsable');
-			var antecedente = document.getElementById('antecedente').value;
-			var placa = document.getElementById('placa').value;
-			var eps = document.getElementById('eps').value;
-			var epsVence = document.getElementById('epsVence').value;
-			var alr = document.getElementById('alr').value;
-			var alrVence = document.getElementById('alrVence').value;
-			var inventario = document.getElementById('inventario').value;
-			var scanInventario = document.getElementById('scanInventario').value;
-			var observaciones = document.getElementById('observaciones').value;
-			alert(scanFoto);
+			var doc = document.getElementById('documento').value;
+			var nc = document.getElementById('nombreCompleto').value;
+			var ap = document.getElementById('apellido').value;
+			
+			//var tipoPersonaId = document.getElementById('tipoPersonaId.tipo_persona_id').value;
+			var x = document.getElementById('tipoPersonaId.tipo_persona_id').selectedIndex;
+			var tpi = document.getElementsByTagName("option")[x].value
+			
+			
+			//var dependencia_id = document.getElementById('dependencia_id.dependencia_id').value;
+			x = document.getElementById('dependencia_id.dependencia_id').selectedIndex;
+			var di = document.getElementsByTagName("option")[x].value
+			
+			var ce = document.getElementById('coreoE').value;
+			var te = document.getElementById('telefono').value;
+			var sf = document.getElementById('scanFoto').value;
+			var sc = document.getElementById('scanCedula').value;
+			var sh = document.getElementById('scanHuella').value;
+			var em = document.getElementById('empresa').value;
+			var nem = document.getElementById('nitEmpresa').value;
+			var fvcl = document.getElementById('fechaVenCursoLey').value;
+			
+			//var idPersonaResponsable = document.getElementById('idPersonaResponsable');
+			x = document.getElementById('idPersonaResponsable').selectedIndex;
+			var ipr = document.getElementsByTagName("option")[x].value
+			
+			var an = document.getElementById('antecedente').value;
+			var pl = document.getElementById('placa').value;
+			var epese = document.getElementById('eps').value;
+			var epv = document.getElementById('epsVence').value;
+			var aeler = document.getElementById('alr').value;
+			var alrv = document.getElementById('alrVence').value;
+			var inv = document.getElementById('inventario').value;
+			var sinv = document.getElementById('scanInventario').value;
+			var o = document.getElementById('observaciones').value;
+			alert(ipr);
 			$.ajax({
 				type : "POST",
 				url : "contratista_add/agregar",
 				processData: true,
 				data : {
-					documento: documento,
-					nombreCompleto : nombreCompleto,
-					apellido : apellido,
-					tipoPersonaId : tipoPersonaId,
-					dependencia_id : dependencia_id,
-					coreoE : coreoE,
-					telefono : telefono,
-					scanFoto : scanFoto,
-					scanCedula : scanCedula,
-					scanHuella : scanHuella,
-					empresa : empresa,
-					nitEmpresa : nitEmpresa,
-					fechaVenCursoLey : fechaVenCursoLey,
-					idPersonaResponsable : idPersonaResponsable,
-					antecedente : antecedente,
-					placa : placa,
-					eps : eps,
-					epsVence : epsVence,
-					alr : alr,
-					alrVence : alrVence,
-					inventario : inventario,
-					scanInventario : scanInventario,
-					observaciones :	observaciones
+					documento: doc,
+					nombreCompleto: nc,
+					apellido: ap,
+					tipoPersonaId: tpi,
+					dependencia_id: di,
+					coreoE: ce,
+					telefono: te,
+					scanFoto: sf,
+					scanCedula: sc,
+					scanHuella: sh,
+					empresa: em,
+					nitEmpresa: nem,
+					fechaVenCursoLey: fvcl,
+					idPersonaResponsable: ipr,
+					antecedente: an,
+					placa: pl,
+					eps: epese,
+					epsVence: epv,
+					alr: aeler,
+					alrVence : alrv,
+					inventario : inv,
+					scanInventario : sinv,
+					observaciones:	o
 				},
 				success : function(data) {			
 					 document.getElementById('apellido').value = "";

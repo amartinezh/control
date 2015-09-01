@@ -50,24 +50,24 @@ public class ContratistaController {
 			@RequestParam int dependencia_id,
 			@RequestParam String coreoE,
 			@RequestParam String telefono,
-			@RequestParam byte[] scanFoto,
-			@RequestParam byte[] scanCedula,
-			@RequestParam byte[] scanHuella,
+			@RequestParam String scanFoto,
+			@RequestParam String scanCedula,
+			@RequestParam String scanHuella,
 			@RequestParam String empresa,
 			@RequestParam String nitEmpresa,
 			@RequestParam String fechaVenCursoLey,
 			@RequestParam String idPersonaResponsable,
-			@RequestParam int antecedente,
+			@RequestParam String antecedente,
 			@RequestParam String placa,
 			@RequestParam String eps,
 			@RequestParam java.util.Date epsVence,
 			@RequestParam String alr,
 			@RequestParam java.util.Date alrVence,
 			@RequestParam String inventario,
-			@RequestParam byte[] scanInventario,
+			@RequestParam String scanInventario,
 			@RequestParam String observaciones,	
 			Map<String, Object> model) {
-		Contratista obj = new Contratista(documento,nombreCompleto,apellido,new TipoPersona(tipoPersonaId), new Dependencia(dependencia_id), coreoE,telefono,scanFoto,scanCedula,scanHuella, empresa,nitEmpresa,fechaVenCursoLey,idPersonaResponsable, new Antecedente(antecedente),placa,eps,epsVence,alr,alrVence,inventario,scanInventario,observaciones);
+		/* Contratista obj = new Contratista(documento,nombreCompleto,apellido,new TipoPersona(tipoPersonaId), new Dependencia(dependencia_id), coreoE,telefono,scanFoto,scanCedula,scanHuella, empresa,nitEmpresa,fechaVenCursoLey,idPersonaResponsable, new Antecedente(antecedente),placa,eps,epsVence,alr,alrVence,inventario,scanInventario,observaciones);
 		
 		contratista.agregarContratista(false, obj);
 		return "<span class='responsiveExpander'></span><a class='btn btn-success btn-circle btn-sx'"
@@ -80,6 +80,8 @@ public class ContratistaController {
 				+ documento
 				+ ", $(this))'><i class='fa fa-trash-o'></i></a><span class='responsiveExpander'></span>:::"
 				+ nombreCompleto;
+				*/
+		return "";
 	}
 
 	@RequestMapping(value = "cancelar", method = RequestMethod.POST)

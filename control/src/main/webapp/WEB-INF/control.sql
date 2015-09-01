@@ -584,11 +584,13 @@ CREATE TABLE control.permisos(
 CREATE TABLE control.control_bus(
   id serial NOT NULL,
   turno_id serial,
-  id_origen serial,
+  origen_id serial,
   hora date,
   observaciones text,
   estado character varying(1),
-  CONSTRAINT control_bus_pk PRIMARY KEY (id )
+  CONSTRAINT control_bus_pk PRIMARY KEY (id ),
+  CONSTRAINT fk6b68e0614ff7b61 FOREIGN KEY (turno_id) REFERENCES admin.turno (turno_id) ON UPDATE NO ACTION ON DELETE NO ACTION,
+  CONSTRAINT fk6b68e0614ff7b71 FOREIGN KEY (origen_id) REFERENCES admin.origen (origen_id) ON UPDATE NO ACTION ON DELETE NO ACTION
 )WITH ( OIDS=FALSE); ALTER TABLE control.control_bus OWNER TO postgres;
 
 CREATE TABLE control.control_taxi(

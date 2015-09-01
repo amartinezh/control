@@ -568,7 +568,7 @@ CREATE TABLE control.horarios_habiles(
 
 CREATE TABLE control.permisos(
   permiso_id serial NOT NULL,
-  tipo_permiso_id integer,
+  tipo_permiso_id integer NOT NULL,
   fecha date,
   codigo_trabajador character varying(64) NOT NULL,
   hora_entrada character varying,
@@ -583,8 +583,8 @@ CREATE TABLE control.permisos(
 
 CREATE TABLE control.control_bus(
   id serial NOT NULL,
-  turno_id serial,
-  origen_id serial,
+  turno_id integer NOT NULL,
+  origen_id integer NOT NULL,
   hora date,
   observaciones text,
   estado character varying(1),

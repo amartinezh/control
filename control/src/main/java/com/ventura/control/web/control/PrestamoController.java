@@ -69,7 +69,7 @@ public class PrestamoController {
 			@RequestParam String observaciones, Map<String, Object> model) {
 		// CentroCosto obj = new CentroCosto(centro_costo_id, descripcion);
 		PrestaLlave pr = new PrestaLlave(0, nombreCompleto, apellido, cantidadLlave, quienEntrego, quienRecibio, observaciones);
-		pr.setDependenciaId(dep.getDependencia(new Dependencia(dependencia)));
+		pr.setDependenciaId(new Dependencia(dependencia));
 		presta.agregarPrestaLlave(pr);		
 		// centro.agregarCentro(obj);
 		return "<span class='responsiveExpander'></span><a class='btn btn-success btn-circle btn-sx'"

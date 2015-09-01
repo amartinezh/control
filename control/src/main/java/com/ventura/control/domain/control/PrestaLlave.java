@@ -28,7 +28,7 @@ public class PrestaLlave implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Basic(optional = false)
 	@Column(name = "id")
-	private Integer id;
+	private int id;
 	@Column(name = "fecha")
 	@Temporal(TemporalType.DATE)
 	private Date fecha;
@@ -40,7 +40,7 @@ public class PrestaLlave implements Serializable {
 	@Column(name = "apellido")
 	private String apellido;
 	@Column(name = "cantidad_llave")
-	private Integer cantidadLlave;
+	private int cantidadLlave;
 	@Column(name = "quien_entrega")
 	private String quienEntrega;
 	@Column(name = "quien_recibe")
@@ -56,11 +56,11 @@ public class PrestaLlave implements Serializable {
 	public PrestaLlave() {
 	}
 
-	public PrestaLlave(Integer id) {
+	public PrestaLlave(int id) {
 		this.id = id;
 	}
 
-	public PrestaLlave(Integer id, String nombreCompleto, String apellido,
+	public PrestaLlave(int id, String nombreCompleto, String apellido,
 			int cantidadLlave, String quienEntrega, String quienRecibe,
 			String observaciones) {
 		this.id = id;
@@ -72,11 +72,11 @@ public class PrestaLlave implements Serializable {
 		this.observaciones = observaciones;
 	}
 
-	public Integer getId() {
+	public int getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 
@@ -163,7 +163,7 @@ public class PrestaLlave implements Serializable {
 	@Override
 	public int hashCode() {
 		int hash = 0;
-		hash += (id != null ? id.hashCode() : 0);
+		hash += id;
 		return hash;
 	}
 
@@ -175,8 +175,7 @@ public class PrestaLlave implements Serializable {
 			return false;
 		}
 		PrestaLlave other = (PrestaLlave) object;
-		if ((this.id == null && other.id != null)
-				|| (this.id != null && !this.id.equals(other.id))) {
+		if (this.id != (other.id)) {
 			return false;
 		}
 		return true;

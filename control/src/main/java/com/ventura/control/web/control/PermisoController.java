@@ -1,5 +1,6 @@
 package com.ventura.control.web.control;
 
+import java.text.ParseException;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,13 +30,22 @@ public class PermisoController {
 	}
 
 	@RequestMapping(value = "agregar", method = RequestMethod.POST)
-	public @ResponseBody String agregar( @RequestParam int tipo_permiso_id,
+	public @ResponseBody String agregar( @RequestParam String tipo_permiso_id,
 			@RequestParam String fecha, @RequestParam String codigo_trabajador,
 			@RequestParam String hora_entrada, @RequestParam String hora_salida, 
 			@RequestParam String recibido_por, @RequestParam String novedad, @RequestParam String estado,
 			Map<String, Object> model) {
-		System.out.print("............................."+fecha+hora_salida);
-		Permiso obj = new Permiso(0, tipo_permiso_id, fecha, codigo_trabajador, hora_entrada, hora_salida, recibido_por, novedad, estado);
+		int x=Integer.parseInt(tipo_permiso_id);
+		java.text.SimpleDateFormat formatter = new java.text.SimpleDateFormat("yyyy-MM-dd");
+		Permiso obj = null;
+		try {
+			obj = new Permiso(0, x, formatter.parse(fecha), codigo_trabajador, hora_entrada, hora_salida, recibido_por, novedad, estado);
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		obj.setTipo_permiso_id(x);
+		obj.setEstado("1");
+		System.out.println("............................."+obj.toString());
 		permiso.agregarPermiso(obj);
 		return "<span class='responsiveExpander'></span><a class='btn btn-success btn-circle btn-sx'"
 				+ " onclick=\"con('"

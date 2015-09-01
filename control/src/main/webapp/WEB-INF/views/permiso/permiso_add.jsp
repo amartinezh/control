@@ -167,7 +167,7 @@
 													<form:input type="hidden" path="estado" />
 													<div class="col-sm-12 col-md-4">
 														<label class="control-label">Fecha</label>
-														<form:input path="fecha" type="text"
+														<form:input path="fecha" type="date"
 															class="form-control" data-bv-field="Fecha" required="required" />
 													</div>
 													<div class="col-sm-12 col-md-4">

@@ -1,5 +1,7 @@
 package com.ventura.control.domain.control;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -24,13 +26,11 @@ public class Permiso implements java.io.Serializable {
 	@SequenceGenerator(name="control.permisos_permiso_id_seq", sequenceName="control.permisos_permiso_id_seq", allocationSize=1)
 	private int permiso_id;
 	
-	@NotEmpty
 	@Column(name = "tipo_permiso_id")
-	private int tipo_permiso_id;
+	private Integer tipo_permiso_id;
 	
-	@NotEmpty
 	@Column(name = "fecha")
-	private String fecha;
+	private java.util.Date fecha;
 	
 	@NotEmpty
 	@Column(name = "codigo_trabajador")
@@ -62,8 +62,8 @@ public class Permiso implements java.io.Serializable {
 	public Permiso(int permiso_id) {
 		this.permiso_id=permiso_id;
 	}
-
-	public Permiso(int permiso_id, int tipo_permiso_id, String fecha,
+	
+	public Permiso(int permiso_id, Integer tipo_permiso_id, Date fecha,
 			String codigo_trabajador, String hora_entrada, String hora_salida,
 			String recibido_por, String novedad, String estado) {
 		super();
@@ -86,19 +86,19 @@ public class Permiso implements java.io.Serializable {
 		this.permiso_id = permiso_id;
 	}
 
-	public int getTipo_permiso_id() {
+	public Integer getTipo_permiso_id() {
 		return tipo_permiso_id;
 	}
 
-	public void setTipo_permiso_id(int tipo_permiso_id) {
+	public void setTipo_permiso_id(Integer tipo_permiso_id) {
 		this.tipo_permiso_id = tipo_permiso_id;
 	}
 
-	public String getFecha() {
+	public java.util.Date getFecha() {
 		return fecha;
 	}
 
-	public void setFecha(String fecha) {
+	public void setFecha(java.util.Date fecha) {
 		this.fecha = fecha;
 	}
 
@@ -149,4 +149,20 @@ public class Permiso implements java.io.Serializable {
 	public void setEstado(String estado) {
 		this.estado = estado;
 	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
+	@Override
+	public String toString() {
+		return "Permiso [permiso_id=" + permiso_id + ", tipo_permiso_id="
+				+ tipo_permiso_id + ", fecha=" + fecha + ", codigo_trabajador="
+				+ codigo_trabajador + ", hora_entrada=" + hora_entrada
+				+ ", hora_salida=" + hora_salida + ", recibido_por="
+				+ recibido_por + ", novedad=" + novedad + ", estado=" + estado
+				+ "]";
+	}
+	
+	
 }

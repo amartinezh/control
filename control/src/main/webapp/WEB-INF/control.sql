@@ -569,7 +569,7 @@ CREATE TABLE control.horarios_habiles(
 CREATE TABLE control.permisos(
   permiso_id serial NOT NULL,
   tipo_permiso_id integer,
-  fecha character varying,
+  fecha date,
   codigo_trabajador character varying(64) NOT NULL,
   hora_entrada character varying,
   hora_salida character varying,
@@ -577,8 +577,8 @@ CREATE TABLE control.permisos(
   novedad text,
   estado character varying(1),
   CONSTRAINT permisos_pk PRIMARY KEY (permiso_id),
-  CONSTRAINT fk6b68e0614ff7b61 FOREIGN KEY (tipo_permiso_id) REFERENCES nomina.tipo_permiso (tipo_permiso_id) ON UPDATE NO ACTION ON DELETE NO ACTION,
-  CONSTRAINT fk6b68w0834ff7b56 FOREIGN KEY (codigo_trabajador) REFERENCES nomina.trabajador (codigo_trabajador) ON UPDATE NO ACTION ON DELETE NO ACTION
+  CONSTRAINT fk6b68e0614ff7b61 FOREIGN KEY (tipo_permiso_id) REFERENCES nomina.tipo_permiso (tipo_permiso_id) ON UPDATE NO ACTION ON DELETE NO ACTION
+  --CONSTRAINT fk6b68w0834ff7b56 FOREIGN KEY (codigo_trabajador) REFERENCES nomina.trabajador (codigo_trabajador) ON UPDATE NO ACTION ON DELETE NO ACTION
 )WITH ( OIDS=FALSE); ALTER TABLE control.permisos OWNER TO postgres;
 
 CREATE TABLE control.control_bus(

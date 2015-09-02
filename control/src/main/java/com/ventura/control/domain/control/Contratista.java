@@ -19,6 +19,8 @@ import javax.persistence.TemporalType;
 
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.ventura.control.domain.nomina.TipoPermiso;
+
 @Entity
 @Table(name = "contratista", schema = "control")
 public class Contratista implements Serializable {
@@ -29,98 +31,117 @@ public class Contratista implements Serializable {
 	private static final long serialVersionUID = -9068113467850707780L;
 
 	@Id
-	@Basic(optional = false)
 	@Column(name = "documento")
 	private String documento;
+	
 	@Column(name = "nombre_completo")
-	private String nombreCompleto;
+	private String nombre_completo;
+	
 	@Column(name = "apellido")
 	private String apellido;
-	@Column(name = "coreo_e")
-	private String coreoE;
-	@Column(name = "telefono")
-	private String telefono;
-	@Lob
-	@Column(name = "scan_foto")
-	private String scanFoto;
-	@Lob
-	@Column(name = "scan_cedula")
-	private String scanCedula;
-	@Lob
-	@Column(name = "scan_huella")
-	private String scanHuella;
-	@Column(name = "empresa")
-	private String empresa;
-	@Column(name = "nit_empresa")
-	private String nitEmpresa;
-	@Column(name = "fecha_ven_curso_ley")
-	private String fechaVenCursoLey;
-	@Column(name = "id_persona_responsable")
-	private String idPersonaResponsable;
-	@Column(name = "placa")
-	private String placa;
-	@Column(name = "eps")
-	private String eps;
-	@Column(name = "eps_vence")
-	@Temporal(TemporalType.DATE)
-	private Date epsVence;
-	@Column(name = "alr")
-	private String alr;
-	@Column(name = "alr_vence")
-	@Temporal(TemporalType.DATE)
-	private Date alrVence;
-	@Column(name = "inventario")
-	private String inventario;
-	@Lob
-	@Column(name = "scan_inventario")
-	private String scanInventario;
-	@Column(name = "observaciones")
-	private String observaciones;
-	@Column(name = "estado")
-	private String estado;
+	
 	@JoinColumn(name = "tipo_persona_id", referencedColumnName = "tipo_persona_id")
 	@ManyToOne
-	private TipoPersona tipoPersonaId;
+	private TipoPersona tipo_persona_id;
+	
 	@JoinColumn(name = "dependencia_id", referencedColumnName = "dependencia_id")
 	@ManyToOne
 	private Dependencia dependencia_id;
-	@OneToMany(mappedBy = "contratistaDocumento")
-	private Set<Antecedente> antecedente;
 	
-	public Contratista(String documento, String nombreCompleto,
-			String apellido, String coreoE, String telefono, String scanFoto,
-			String scanCedula, String scanHuella, String empresa,
-			String nitEmpresa, String fechaVenCursoLey,
-			String idPersonaResponsable, String placa, String eps,
-			Date epsVence, String alr, Date alrVence, String inventario,
-			String scanInventario, String observaciones, String estado,
-			TipoPersona tipoPersonaId, Dependencia dependencia_id,
-			Set<Antecedente> antecedente) {
+	@Column(name = "coreo_e")
+	private String coreo_e;
+	
+	@Column(name = "telefono")
+	private String telefono;
+	
+	@Column(name = "scan_foto")
+	private String scan_foto;
+	
+	@Column(name = "scan_cedula")
+	private String scan_cedula;
+	
+	@Column(name = "scan_huella")
+	private String scan_huella;
+	
+	@Column(name = "empresa")
+	private String empresa;
+	
+	@Column(name = "nit_empresa")
+	private String nit_empresa;
+	
+	@Column(name = "fecha_ven_curso_ley")
+	private String fecha_ven_curso_ley;
+	
+	@Column(name = "id_persona_responsable")
+	private String id_persona_responsable;
+	
+	@Column(name = "placa")
+	private String placa;
+	
+	@Column(name = "eps")
+	private String eps;
+	
+	@Column(name = "eps_vence")
+	private Date eps_vence;
+	
+	@Column(name = "alr")
+	private String alr;
+	
+	@Column(name = "alr_vence")
+	private Date alr_vence;
+	
+	@Column(name = "inventario")
+	private String inventario;
+	
+	@Column(name = "scan_inventario")
+	private String scan_inventario;
+	
+	@Column(name = "codigo_antecedente")
+	String codigo_antecedente;
+	
+	@Column(name = "observaciones")
+	private String observaciones;
+	
+	@Column(name = "estado")
+	private String estado;
+	
+	public Contratista() {
+	}
+
+	public Contratista(String documento, String nombre_completo,
+			String apellido, TipoPersona tipo_persona_id,
+			Dependencia dependencia_id, String coreo_e, String telefono,
+			String scan_foto, String scan_cedula, String scan_huella,
+			String empresa, String nit_empresa, String fecha_ven_curso_ley,
+			String id_persona_responsable, String placa, String eps,
+			Date eps_vence, String alr, Date alr_vence, String inventario,
+			String scan_inventario, String codigo_antecedente,
+			String observaciones, String estado) {
 		super();
 		this.documento = documento;
-		this.nombreCompleto = nombreCompleto;
+		this.nombre_completo = nombre_completo;
 		this.apellido = apellido;
-		this.coreoE = coreoE;
+		this.tipo_persona_id = tipo_persona_id;
+		this.dependencia_id = dependencia_id;
+		this.coreo_e = coreo_e;
 		this.telefono = telefono;
-		this.scanFoto = scanFoto;
-		this.scanCedula = scanCedula;
-		this.scanHuella = scanHuella;
+		this.scan_foto = scan_foto;
+		this.scan_cedula = scan_cedula;
+		this.scan_huella = scan_huella;
 		this.empresa = empresa;
-		this.nitEmpresa = nitEmpresa;
-		this.fechaVenCursoLey = fechaVenCursoLey;
-		this.idPersonaResponsable = idPersonaResponsable;
+		this.nit_empresa = nit_empresa;
+		this.fecha_ven_curso_ley = fecha_ven_curso_ley;
+		this.id_persona_responsable = id_persona_responsable;
 		this.placa = placa;
 		this.eps = eps;
-		this.epsVence = epsVence;
+		this.eps_vence = eps_vence;
 		this.alr = alr;
-		this.alrVence = alrVence;
+		this.alr_vence = alr_vence;
 		this.inventario = inventario;
-		this.scanInventario = scanInventario;
+		this.scan_inventario = scan_inventario;
+		this.codigo_antecedente = codigo_antecedente;
 		this.observaciones = observaciones;
 		this.estado = estado;
-		this.tipoPersonaId = tipoPersonaId;
-		this.dependencia_id = dependencia_id;
-		this.antecedente = antecedente;
 	}
 
 	public String getDocumento() {
@@ -131,12 +152,12 @@ public class Contratista implements Serializable {
 		this.documento = documento;
 	}
 
-	public String getNombreCompleto() {
-		return nombreCompleto;
+	public String getNombre_completo() {
+		return nombre_completo;
 	}
 
-	public void setNombreCompleto(String nombreCompleto) {
-		this.nombreCompleto = nombreCompleto;
+	public void setNombre_completo(String nombre_completo) {
+		this.nombre_completo = nombre_completo;
 	}
 
 	public String getApellido() {
@@ -147,12 +168,28 @@ public class Contratista implements Serializable {
 		this.apellido = apellido;
 	}
 
-	public String getCoreoE() {
-		return coreoE;
+	public TipoPersona getTipo_persona_id() {
+		return tipo_persona_id;
 	}
 
-	public void setCoreoE(String coreoE) {
-		this.coreoE = coreoE;
+	public void setTipo_persona_id(TipoPersona tipo_persona_id) {
+		this.tipo_persona_id = tipo_persona_id;
+	}
+
+	public Dependencia getDependencia_id() {
+		return dependencia_id;
+	}
+
+	public void setDependencia_id(Dependencia dependencia_id) {
+		this.dependencia_id = dependencia_id;
+	}
+
+	public String getCoreo_e() {
+		return coreo_e;
+	}
+
+	public void setCoreo_e(String coreo_e) {
+		this.coreo_e = coreo_e;
 	}
 
 	public String getTelefono() {
@@ -163,28 +200,28 @@ public class Contratista implements Serializable {
 		this.telefono = telefono;
 	}
 
-	public String getScanFoto() {
-		return scanFoto;
+	public String getScan_foto() {
+		return scan_foto;
 	}
 
-	public void setScanFoto(String scanFoto) {
-		this.scanFoto = scanFoto;
+	public void setScan_foto(String scan_foto) {
+		this.scan_foto = scan_foto;
 	}
 
-	public String getScanCedula() {
-		return scanCedula;
+	public String getScan_cedula() {
+		return scan_cedula;
 	}
 
-	public void setScanCedula(String scanCedula) {
-		this.scanCedula = scanCedula;
+	public void setScan_cedula(String scan_cedula) {
+		this.scan_cedula = scan_cedula;
 	}
 
-	public String getScanHuella() {
-		return scanHuella;
+	public String getScan_huella() {
+		return scan_huella;
 	}
 
-	public void setScanHuella(String scanHuella) {
-		this.scanHuella = scanHuella;
+	public void setScan_huella(String scan_huella) {
+		this.scan_huella = scan_huella;
 	}
 
 	public String getEmpresa() {
@@ -195,28 +232,28 @@ public class Contratista implements Serializable {
 		this.empresa = empresa;
 	}
 
-	public String getNitEmpresa() {
-		return nitEmpresa;
+	public String getNit_empresa() {
+		return nit_empresa;
 	}
 
-	public void setNitEmpresa(String nitEmpresa) {
-		this.nitEmpresa = nitEmpresa;
+	public void setNit_empresa(String nit_empresa) {
+		this.nit_empresa = nit_empresa;
 	}
 
-	public String getFechaVenCursoLey() {
-		return fechaVenCursoLey;
+	public String getFecha_ven_curso_ley() {
+		return fecha_ven_curso_ley;
 	}
 
-	public void setFechaVenCursoLey(String fechaVenCursoLey) {
-		this.fechaVenCursoLey = fechaVenCursoLey;
+	public void setFecha_ven_curso_ley(String fecha_ven_curso_ley) {
+		this.fecha_ven_curso_ley = fecha_ven_curso_ley;
 	}
 
-	public String getIdPersonaResponsable() {
-		return idPersonaResponsable;
+	public String getId_persona_responsable() {
+		return id_persona_responsable;
 	}
 
-	public void setIdPersonaResponsable(String idPersonaResponsable) {
-		this.idPersonaResponsable = idPersonaResponsable;
+	public void setId_persona_responsable(String id_persona_responsable) {
+		this.id_persona_responsable = id_persona_responsable;
 	}
 
 	public String getPlaca() {
@@ -235,12 +272,12 @@ public class Contratista implements Serializable {
 		this.eps = eps;
 	}
 
-	public Date getEpsVence() {
-		return epsVence;
+	public Date getEps_vence() {
+		return eps_vence;
 	}
 
-	public void setEpsVence(Date epsVence) {
-		this.epsVence = epsVence;
+	public void setEps_vence(Date eps_vence) {
+		this.eps_vence = eps_vence;
 	}
 
 	public String getAlr() {
@@ -251,12 +288,12 @@ public class Contratista implements Serializable {
 		this.alr = alr;
 	}
 
-	public Date getAlrVence() {
-		return alrVence;
+	public Date getAlr_vence() {
+		return alr_vence;
 	}
 
-	public void setAlrVence(Date alrVence) {
-		this.alrVence = alrVence;
+	public void setAlr_vence(Date alr_vence) {
+		this.alr_vence = alr_vence;
 	}
 
 	public String getInventario() {
@@ -267,12 +304,20 @@ public class Contratista implements Serializable {
 		this.inventario = inventario;
 	}
 
-	public String getScanInventario() {
-		return scanInventario;
+	public String getScan_inventario() {
+		return scan_inventario;
 	}
 
-	public void setScanInventario(String scanInventario) {
-		this.scanInventario = scanInventario;
+	public void setScan_inventario(String scan_inventario) {
+		this.scan_inventario = scan_inventario;
+	}
+
+	public String getCodigo_antecedente() {
+		return codigo_antecedente;
+	}
+
+	public void setCodigo_antecedente(String codigo_antecedente) {
+		this.codigo_antecedente = codigo_antecedente;
 	}
 
 	public String getObservaciones() {
@@ -291,29 +336,45 @@ public class Contratista implements Serializable {
 		this.estado = estado;
 	}
 
-	public TipoPersona getTipoPersonaId() {
-		return tipoPersonaId;
+	@Override
+	public String toString() {
+		return "Contratista [documento=" + documento + ", nombre_completo="
+				+ nombre_completo + ", apellido=" + apellido
+				+ ", tipo_persona_id=" + tipo_persona_id + ", dependencia_id="
+				+ dependencia_id + ", coreo_e=" + coreo_e + ", telefono="
+				+ telefono + ", scan_foto=" + scan_foto + ", scan_cedula="
+				+ scan_cedula + ", scan_huella=" + scan_huella + ", empresa="
+				+ empresa + ", nit_empresa=" + nit_empresa
+				+ ", fecha_ven_curso_ley=" + fecha_ven_curso_ley
+				+ ", id_persona_responsable=" + id_persona_responsable
+				+ ", placa=" + placa + ", eps=" + eps + ", eps_vence="
+				+ eps_vence + ", alr=" + alr + ", alr_vence=" + alr_vence
+				+ ", inventario=" + inventario + ", scan_inventario="
+				+ scan_inventario + ", codigo_antecedente="
+				+ codigo_antecedente + ", observaciones=" + observaciones
+				+ ", estado=" + estado + ", getDocumento()=" + getDocumento()
+				+ ", getNombre_completo()=" + getNombre_completo()
+				+ ", getApellido()=" + getApellido()
+				+ ", getTipo_persona_id()=" + getTipo_persona_id()
+				+ ", getDependencia_id()=" + getDependencia_id()
+				+ ", getCoreo_e()=" + getCoreo_e() + ", getTelefono()="
+				+ getTelefono() + ", getScan_foto()=" + getScan_foto()
+				+ ", getScan_cedula()=" + getScan_cedula()
+				+ ", getScan_huella()=" + getScan_huella() + ", getEmpresa()="
+				+ getEmpresa() + ", getNit_empresa()=" + getNit_empresa()
+				+ ", getFecha_ven_curso_ley()=" + getFecha_ven_curso_ley()
+				+ ", getId_persona_responsable()="
+				+ getId_persona_responsable() + ", getPlaca()=" + getPlaca()
+				+ ", getEps()=" + getEps() + ", getEps_vence()="
+				+ getEps_vence() + ", getAlr()=" + getAlr()
+				+ ", getAlr_vence()=" + getAlr_vence() + ", getInventario()="
+				+ getInventario() + ", getScan_inventario()="
+				+ getScan_inventario() + ", getCodigo_antecedente()="
+				+ getCodigo_antecedente() + ", getObservaciones()="
+				+ getObservaciones() + ", getEstado()=" + getEstado()
+				+ ", getClass()=" + getClass() + ", hashCode()=" + hashCode()
+				+ ", toString()=" + super.toString() + "]";
 	}
-
-	public void setTipoPersonaId(TipoPersona tipoPersonaId) {
-		this.tipoPersonaId = tipoPersonaId;
-	}
-
-	public Dependencia getDependencia_id() {
-		return dependencia_id;
-	}
-
-	public void setDependencia_id(Dependencia dependencia_id) {
-		this.dependencia_id = dependencia_id;
-	}
-
-	public Set<Antecedente> getAntecedente() {
-		return antecedente;
-	}
-
-	public void setAntecedente(Set<Antecedente> antecedente) {
-		this.antecedente = antecedente;
-	}
-
+	
 	
 }

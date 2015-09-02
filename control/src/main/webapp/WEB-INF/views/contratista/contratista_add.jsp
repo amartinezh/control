@@ -174,7 +174,7 @@
 													</div>
 													<div class="col-sm-12 col-md-4">
 														<label class="control-label">Nombre Completo</label>
-														 <form:input path="nombreCompleto" type="text"
+														 <form:input path="nombre_completo" type="text"
 															class="form-control" data-bv-field="Nombre Completo"
 															required="required" />
 													</div>
@@ -190,7 +190,7 @@
 												<div class="row">
 													<div class="col-md-6 selectContainer">
 														<label class="control-label">Tipo Persona</label> 
-														<form:select class="form-control" path="tipoPersonaId.tipo_persona_id" items="${tipopersonaList}">
+														<form:select class="form-control" path="tipo_persona_id.tipo_persona_id" items="${tipopersonaList}">
 														</form:select>
 													</div>
 		
@@ -207,7 +207,7 @@
 												<div class="row">
 													<div class="col-sm-12 col-md-6">
 														<label class="control-label">Correo  Electrónico</label>
-														<form:input path="coreoE" type="text"	class="form-control" data-bv-field="Coreo Electrónico" required="required" />
+														<form:input path="coreo_e" type="text"	class="form-control" data-bv-field="Coreo Electrónico" required="required" />
 													</div>
 													<div class="col-sm-12 col-md-6">
 														<label class="control-label">Teléfonos</label>
@@ -221,15 +221,15 @@
 												<div class="row">
 													<div class="col-md-4">
 														<label class="control-label">Archivo Foto</label> 
-														<form:input path="scanFoto" type="file"	class="form-control" data-bv-field="Foto" required="required" />
+														<form:input path="scan_foto" type="file"	class="form-control" data-bv-field="Foto" required="required" />
 													</div>
 													<div class="col-md-4">
 														<label class="control-label input-file">Archivo Cédula</label>
-														<form:input path="scanCedula" type="file"	class="form-control" data-bv-field="Cédula" required="required" />
+														<form:input path="scan_cedula" type="file"	class="form-control" data-bv-field="Cédula" required="required" />
 													</div>
 													<div class="col-md-4">
 														<label class="control-label">Archivo Huella</label>
-														<form:input path="scanHuella" type="file"	class="form-control" data-bv-field="Huella" required="required" />
+														<form:input path="scan_huella" type="file"	class="form-control" data-bv-field="Huella" required="required" />
 													</div>
 												</div>
 											</div>
@@ -243,11 +243,11 @@
 													</div>
 													<div class="col-sm-12 col-md-4">
 														<label class="control-label">NIT Empresa</label>
-														<form:input path="nitEmpresa" type="text"	class="form-control" data-bv-field="NIT Empresa" required="required" />
+														<form:input path="nit_empresa" type="text"	class="form-control" data-bv-field="NIT Empresa" required="required" />
 													</div>
 													<div class="col-sm-12 col-md-4">
 														<label class="control-label">Fecha Vencimiento Ley Industrial</label>
-														<form:input path="fechaVenCursoLey" type="date"	class="form-control" data-bv-field="Fecha Vencimiento" required="required" />
+														<form:input path="fecha_ven_curso_ley" type="date"	class="form-control" data-bv-field="Fecha Vencimiento" required="required" />
 													</div>
 												</div>
 											</div>
@@ -258,7 +258,7 @@
 													<div class="col-md-6 selectContainer">
 														<label class="control-label">Persona Responsable</label>
 														<select
-															class="form-control" name="idPersonaResponsable" id="idPersonaResponsable">
+															class="form-control" name="id_persona_responsable" id="id_persona_responsable">
 															<option value="">Seleccione</option>
 															<option value="action">Juan</option>
 															<option value="comedy">Pablo</option>
@@ -267,7 +267,7 @@
 													</div>
 													<div class="col-sm-4 col-md-3">
 														<label class="control-label">Código Antecedente</label>
-														<form:input path="antecedente" type="text"	class="form-control" data-bv-field="Empresa" required="required" />
+														<form:input path="codigo_antecedente" type="text"	class="form-control" data-bv-field="Empresa" required="required" />
 													</div>
 													<div class="col-sm-4 col-md-3">
 														<label class="control-label">Placa Vehiculo</label>
@@ -285,7 +285,7 @@
 													</div>
 													<div class="col-sm-12 col-md-3">
 														<label class="control-label">Fecha Vencimiento EPS</label>
-														<form:input path="epsVence" type="date"	class="form-control" data-bv-field="Fecha Vencimiento EPS" required="required" />
+														<form:input path="eps_vence" type="date"	class="form-control" data-bv-field="Fecha Vencimiento EPS" required="required" />
 													</div>
 													<div class="col-sm-12 col-md-3">
 														<label class="control-label">ARL</label>
@@ -293,7 +293,7 @@
 													</div>
 													<div class="col-sm-12 col-md-3">
 														<label class="control-label">Fecha Vencimiento ARL</label>
-														<form:input path="alrVence" type="date"	class="form-control" data-bv-field="Fecha Vencimiento ARL" required="required" />
+														<form:input path="alr_vence" type="date"	class="form-control" data-bv-field="Fecha Vencimiento ARL" required="required" />
 													</div>
 												</div>
 											</div>
@@ -307,7 +307,7 @@
 													</div>
 													<div class="col-sm-12 col-md-4">
 														<label class="control-label">Imagen Inventario</label>
-														<form:input path="scanInventario" type="file"	class="form-control" data-bv-field="Huella" required="required" />
+														<form:input path="scan_inventario" type="file"	class="form-control" data-bv-field="Huella" required="required" />
 													</div>
 												</div>
 											</div>
@@ -696,7 +696,7 @@
 											}
 										}
 									},
-									antecedente : {
+									codigo_antecedente : {
 										group : '.col-md-3',
 										validators : {
 											notEmpty : {
@@ -943,11 +943,11 @@
 		function actualizar() {
 			$( "#frm" ).submit();
 			var doc = document.getElementById('documento').value;
-			var nc = document.getElementById('nombreCompleto').value;
+			var nc = document.getElementById('nombre_completo').value;
 			var ap = document.getElementById('apellido').value;
 			
 			//var tipoPersonaId = document.getElementById('tipoPersonaId.tipo_persona_id').value;
-			var x = document.getElementById('tipoPersonaId.tipo_persona_id').selectedIndex;
+			var x = document.getElementById('tipo_persona_id.tipo_persona_id').selectedIndex;
 			var tpi = document.getElementsByTagName("option")[x].value
 			
 			
@@ -955,27 +955,28 @@
 			x = document.getElementById('dependencia_id.dependencia_id').selectedIndex;
 			var di = document.getElementsByTagName("option")[x].value
 			
-			var ce = document.getElementById('coreoE').value;
+			var ce = document.getElementById('coreo_e').value;
 			var te = document.getElementById('telefono').value;
-			var sf = document.getElementById('scanFoto').value;
-			var sc = document.getElementById('scanCedula').value;
-			var sh = document.getElementById('scanHuella').value;
+			var sf = document.getElementById('scan_foto').value;
+			var sc = document.getElementById('scan_cedula').value;
+			var sh = document.getElementById('scan_huella').value;
 			var em = document.getElementById('empresa').value;
-			var nem = document.getElementById('nitEmpresa').value;
-			var fvcl = document.getElementById('fechaVenCursoLey').value;
+			var nem = document.getElementById('nit_empresa').value;
+			var fvcl = document.getElementById('fecha_ven_curso_ley').value;
 			
 			//var idPersonaResponsable = document.getElementById('idPersonaResponsable');
-			x = document.getElementById('idPersonaResponsable').selectedIndex;
+			x = document.getElementById('id_persona_responsable').selectedIndex;
 			var ipr = document.getElementsByTagName("option")[x].value
 			
-			var an = document.getElementById('antecedente').value;
+			
 			var pl = document.getElementById('placa').value;
 			var epese = document.getElementById('eps').value;
-			var epv = document.getElementById('epsVence').value;
+			var epv = document.getElementById('eps_vence').value;
 			var aeler = document.getElementById('alr').value;
-			var alrv = document.getElementById('alrVence').value;
+			var alrv = document.getElementById('alr_vence').value;
 			var inv = document.getElementById('inventario').value;
-			var sinv = document.getElementById('scanInventario').value;
+			var sinv = document.getElementById('scan_inventario').value;
+			var an = document.getElementById('codigo_antecedente').value;
 			var o = document.getElementById('observaciones').value;
 			alert(ipr);
 			$.ajax({
@@ -984,27 +985,27 @@
 				processData: true,
 				data : {
 					documento: doc,
-					nombreCompleto: nc,
+					nombre_completo: nc,
 					apellido: ap,
-					tipoPersonaId: tpi,
+					tipo_persona_id: tpi,
 					dependencia_id: di,
-					coreoE: ce,
+					coreo_e: ce,
 					telefono: te,
-					scanFoto: sf,
-					scanCedula: sc,
-					scanHuella: sh,
+					scan_foto: sf,
+					scan_cedula: sc,
+					scan_huella: sh,
 					empresa: em,
-					nitEmpresa: nem,
-					fechaVenCursoLey: fvcl,
-					idPersonaResponsable: ipr,
-					antecedente: an,
+					nit_empresa: nem,
+					fecha_ven_curso_ley: fvcl,
+					id_persona_responsable: ipr,
 					placa: pl,
 					eps: epese,
-					epsVence: epv,
+					eps_vence: epv,
 					alr: aeler,
-					alrVence : alrv,
+					alr_vence : alrv,
 					inventario : inv,
-					scanInventario : sinv,
+					scan_inventario : sinv,
+					codigo_antecedente: an,
 					observaciones:	o
 				},
 				success : function(data) {			

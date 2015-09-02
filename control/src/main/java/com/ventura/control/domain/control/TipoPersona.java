@@ -32,14 +32,8 @@ public class TipoPersona implements java.io.Serializable {
 	@Column(name = "estado")
 	private String estado;
 	
-	@OneToMany(mappedBy = "tipoPersonaId")
+	@OneToMany(mappedBy = "tipo_persona_id")
     private Set<Contratista> contratistaSet;
-	
-	@OneToMany(mappedBy = "tipoPersonaId")
-    private Set<Conductor> conductorSet;
-	
-	@OneToMany(mappedBy = "tipoPersonaId")
-    private Set<Visitante> visitanteSet;
 
 	public TipoPersona() {
 		// TODO Auto-generated constructor stub
@@ -95,21 +89,4 @@ public class TipoPersona implements java.io.Serializable {
 	public void setContratistaSet(Set<Contratista> contratistaSet) {
 		this.contratistaSet = contratistaSet;
 	}
-
-	public void setConductorSet(Set<Conductor> conductorSet) {
-		this.conductorSet = conductorSet;
-	}
-	
-	public Set<Conductor> getConductorSet() {
-		return conductorSet;
-	}
-	
-	public void setVisitanteSet(Set<Visitante> visitanteSet) {
-		this.visitanteSet = visitanteSet;
-	}
-	
-	public Set<Visitante> getVisitanteSet() {
-		return visitanteSet;
-	}
-	
 }

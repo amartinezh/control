@@ -153,7 +153,7 @@ CREATE TABLE control.contratista
   scan_huella character varying,
   empresa character varying(128),
   nit_empresa character varying(128),
-  fecha_ven_curso_ley character varying(128),
+  fecha_ven_curso_ley date,
   id_persona_responsable character varying(128),
   placa character varying(16),
   eps character varying(64),
@@ -162,21 +162,16 @@ CREATE TABLE control.contratista
   alr_vence date,
   inventario text,
   scan_inventario character varying,
-  codigo_antecedente integer,
   observaciones text,
   estado character varying(1),
   CONSTRAINT contratista_pk PRIMARY KEY (documento),
-  CONSTRAINT fk6a68e0814ff7b56 FOREIGN KEY (tipo_persona_id)
-      REFERENCES admin.tipo_persona (tipo_persona_id) MATCH SIMPLE
-      ON UPDATE NO ACTION ON DELETE NO ACTION,
-  CONSTRAINT fk6b68e0614ff7b56 FOREIGN KEY (dependencia_id)
-      REFERENCES admin.dependencia (dependencia_id) MATCH SIMPLE
-      ON UPDATE NO ACTION ON DELETE NO ACTION
+  CONSTRAINT fk6a68e0814ff7b56 FOREIGN KEY (tipo_persona_id) REFERENCES admin.tipo_persona (tipo_persona_id) MATCH SIMPLE ON UPDATE NO ACTION ON DELETE NO ACTION,
+  CONSTRAINT fk6b68e0614ff7b56 FOREIGN KEY (dependencia_id) REFERENCES admin.dependencia (dependencia_id) MATCH SIMPLE ON UPDATE NO ACTION ON DELETE NO ACTION
 )WITH ( OIDS=FALSE); ALTER TABLE control.contratista OWNER TO postgres;
 
 CREATE TABLE control.antecedente
 (
-  id_antecedente serial NOT NULL,
+  antecedente_id serial NOT NULL,
   contratista_documento character varying(64),
   fecha date,
   scan_responsabilidad bytea,
@@ -185,7 +180,7 @@ CREATE TABLE control.antecedente
   scan_fiscalia bytea,
   observaciones text,
   estado character varying(1),
-  CONSTRAINT antecedente_pk PRIMARY KEY (id_antecedente),
+  CONSTRAINT antecedente_pk PRIMARY KEY (antecedente_id),
   CONSTRAINT contratista_id_fk FOREIGN KEY (contratista_documento)
       REFERENCES control.contratista (documento) MATCH SIMPLE
       ON UPDATE NO ACTION ON DELETE NO ACTION

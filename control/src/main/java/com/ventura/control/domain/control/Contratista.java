@@ -70,7 +70,7 @@ public class Contratista implements Serializable {
 	private String nit_empresa;
 	
 	@Column(name = "fecha_ven_curso_ley")
-	private String fecha_ven_curso_ley;
+	private Date fecha_ven_curso_ley;
 	
 	@Column(name = "id_persona_responsable")
 	private String id_persona_responsable;
@@ -96,9 +96,6 @@ public class Contratista implements Serializable {
 	@Column(name = "scan_inventario")
 	private String scan_inventario;
 	
-	@Column(name = "codigo_antecedente")
-	String codigo_antecedente;
-	
 	@Column(name = "observaciones")
 	private String observaciones;
 	
@@ -112,11 +109,10 @@ public class Contratista implements Serializable {
 			String apellido, TipoPersona tipo_persona_id,
 			Dependencia dependencia_id, String coreo_e, String telefono,
 			String scan_foto, String scan_cedula, String scan_huella,
-			String empresa, String nit_empresa, String fecha_ven_curso_ley,
+			String empresa, String nit_empresa, Date fecha_ven_curso_ley,
 			String id_persona_responsable, String placa, String eps,
 			Date eps_vence, String alr, Date alr_vence, String inventario,
-			String scan_inventario, String codigo_antecedente,
-			String observaciones, String estado) {
+			String scan_inventario, String observaciones, String estado) {
 		super();
 		this.documento = documento;
 		this.nombre_completo = nombre_completo;
@@ -139,7 +135,6 @@ public class Contratista implements Serializable {
 		this.alr_vence = alr_vence;
 		this.inventario = inventario;
 		this.scan_inventario = scan_inventario;
-		this.codigo_antecedente = codigo_antecedente;
 		this.observaciones = observaciones;
 		this.estado = estado;
 	}
@@ -240,11 +235,11 @@ public class Contratista implements Serializable {
 		this.nit_empresa = nit_empresa;
 	}
 
-	public String getFecha_ven_curso_ley() {
+	public Date getFecha_ven_curso_ley() {
 		return fecha_ven_curso_ley;
 	}
 
-	public void setFecha_ven_curso_ley(String fecha_ven_curso_ley) {
+	public void setFecha_ven_curso_ley(Date fecha_ven_curso_ley) {
 		this.fecha_ven_curso_ley = fecha_ven_curso_ley;
 	}
 
@@ -312,14 +307,6 @@ public class Contratista implements Serializable {
 		this.scan_inventario = scan_inventario;
 	}
 
-	public String getCodigo_antecedente() {
-		return codigo_antecedente;
-	}
-
-	public void setCodigo_antecedente(String codigo_antecedente) {
-		this.codigo_antecedente = codigo_antecedente;
-	}
-
 	public String getObservaciones() {
 		return observaciones;
 	}
@@ -350,31 +337,9 @@ public class Contratista implements Serializable {
 				+ ", placa=" + placa + ", eps=" + eps + ", eps_vence="
 				+ eps_vence + ", alr=" + alr + ", alr_vence=" + alr_vence
 				+ ", inventario=" + inventario + ", scan_inventario="
-				+ scan_inventario + ", codigo_antecedente="
-				+ codigo_antecedente + ", observaciones=" + observaciones
-				+ ", estado=" + estado + ", getDocumento()=" + getDocumento()
-				+ ", getNombre_completo()=" + getNombre_completo()
-				+ ", getApellido()=" + getApellido()
-				+ ", getTipo_persona_id()=" + getTipo_persona_id()
-				+ ", getDependencia_id()=" + getDependencia_id()
-				+ ", getCoreo_e()=" + getCoreo_e() + ", getTelefono()="
-				+ getTelefono() + ", getScan_foto()=" + getScan_foto()
-				+ ", getScan_cedula()=" + getScan_cedula()
-				+ ", getScan_huella()=" + getScan_huella() + ", getEmpresa()="
-				+ getEmpresa() + ", getNit_empresa()=" + getNit_empresa()
-				+ ", getFecha_ven_curso_ley()=" + getFecha_ven_curso_ley()
-				+ ", getId_persona_responsable()="
-				+ getId_persona_responsable() + ", getPlaca()=" + getPlaca()
-				+ ", getEps()=" + getEps() + ", getEps_vence()="
-				+ getEps_vence() + ", getAlr()=" + getAlr()
-				+ ", getAlr_vence()=" + getAlr_vence() + ", getInventario()="
-				+ getInventario() + ", getScan_inventario()="
-				+ getScan_inventario() + ", getCodigo_antecedente()="
-				+ getCodigo_antecedente() + ", getObservaciones()="
-				+ getObservaciones() + ", getEstado()=" + getEstado()
-				+ ", getClass()=" + getClass() + ", hashCode()=" + hashCode()
-				+ ", toString()=" + super.toString() + "]";
+				+ scan_inventario + ", observaciones=" + observaciones
+				+ ", estado=" + estado + "]";
 	}
-	
+
 	
 }

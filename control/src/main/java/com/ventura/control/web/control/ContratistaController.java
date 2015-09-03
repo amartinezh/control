@@ -1,5 +1,6 @@
 package com.ventura.control.web.control;
 
+import java.text.ParseException;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,6 +39,7 @@ public class ContratistaController {
 		model.put("contratista", new Contratista());
 		model.put("tipopersonaList", tip.cmbTipoPersona());
 		model.put("dependenciaList", dep.cmbDependencias());
+		model.put("contratistaList", contratista.listarContratistas());
 		return "contratista/contratista_add";
 	}
 	
@@ -59,30 +61,33 @@ public class ContratistaController {
 			@RequestParam String id_persona_responsable,
 			@RequestParam String placa,
 			@RequestParam String eps,
-			@RequestParam java.util.Date eps_vence,
+			@RequestParam String eps_vence,
 			@RequestParam String alr,
-			@RequestParam java.util.Date alr_vence,
+			@RequestParam String alr_vence,
 			@RequestParam String inventario,
 			@RequestParam String scan_inventario,
-			@RequestParam String codigo_antecedente,
 			@RequestParam String observaciones,
-			@RequestParam String estado,
+			
 			Map<String, Object> model) {
-		/* Contratista obj = new Contratista(documento,nombreCompleto,apellido,new TipoPersona(tipoPersonaId), new Dependencia(dependencia_id), coreoE,telefono,scanFoto,scanCedula,scanHuella, empresa,nitEmpresa,fechaVenCursoLey,idPersonaResponsable, new Antecedente(antecedente),placa,eps,epsVence,alr,alrVence,inventario,scanInventario,observaciones);
-		
+		java.text.SimpleDateFormat formatter = new java.text.SimpleDateFormat("yyyy-MM-dd");
+		Contratista obj=null;
+		try {
+			obj = new Contratista(documento, nombre_completo, apellido, new TipoPersona(tipo_persona_id), new Dependencia(dependencia_id), coreo_e, telefono, scan_foto, scan_cedula, scan_huella, empresa, nit_empresa, formatter.parse(fecha_ven_curso_ley), id_persona_responsable, placa, eps, formatter.parse(eps_vence), alr, formatter.parse(alr_vence), inventario, scan_inventario, observaciones,"1");
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		System.out.println(obj.toString());
 		contratista.agregarContratista(false, obj);
 		return "<span class='responsiveExpander'></span><a class='btn btn-success btn-circle btn-sx'"
 				+ " onclick=\"con('"
 				+ obj.getDocumento()
 				+ "', '"
-				+ obj.getNombreCompleto()
+				+ obj.getNombre_completo()
 				+ "', $(this)"
 				+ ")\"><i class='fa fa-edit'></i></a> <a class='btn btn-danger btn-circle' onclick='borrar("
 				+ documento
 				+ ", $(this))'><i class='fa fa-trash-o'></i></a><span class='responsiveExpander'></span>:::"
-				+ nombreCompleto;
-				*/
-		return "";
+				+ obj.getNombre_completo();
 	}
 
 	@RequestMapping(value = "cancelar", method = RequestMethod.POST)

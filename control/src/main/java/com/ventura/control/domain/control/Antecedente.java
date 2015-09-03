@@ -3,6 +3,7 @@ package com.ventura.control.domain.control;
 import java.io.Serializable;
 import java.util.Arrays;
 import java.util.Date;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -12,6 +13,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -26,45 +29,88 @@ public class Antecedente implements Serializable {
 	private static final long serialVersionUID = -6542964097398704437L;
 
 	@Id
+    @Column(name = "permiso_id")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator="control.antecedente_antecedente_id_seq")
+	@SequenceGenerator(name="control.antecedente_antecedente_id_seq", sequenceName="control.antecedente_antecedente_id_seq", allocationSize=1)
+	private int permiso_id;
+	
+	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id_antecedente")
-	private Integer idAntecedente;
+	@Column(name = "antecedente_id")
+	private int antecedente_id;
+	
+	@Column(name = "contratista_documento")
+	private String contratista_documento;
+	
 	@Column(name = "fecha")
-	@Temporal(TemporalType.DATE)
 	private Date fecha;
+	
 	@Lob
 	@Column(name = "scan_responsabilidad")
-	private byte[] scanResponsabilidad;
+	private byte[] scan_responsabilidad;
 	@Lob
 	@Column(name = "scan_produraduria")
-	private byte[] scanProduraduria;
+	private byte[] scan_produraduria;
 	@Lob
 	@Column(name = "scan_policia")
-	private byte[] scanPolicia;
+	private byte[] scan_policia;
 	@Lob
 	@Column(name = "scan_fiscalia")
-	private byte[] scanFiscalia;
+	private byte[] scan_fiscalia;
+	
 	@Column(name = "observaciones")
 	private String observaciones;
+	
 	@Column(name = "estado")
 	private String estado;
-	@JoinColumn(name = "contratista_documento", referencedColumnName = "documento")
-	@ManyToOne
-	private Contratista contratistaDocumento;
 
 	public Antecedente() {
 	}
 
-	public Antecedente(Integer idAntecedente) {
-		this.idAntecedente = idAntecedente;
+	public Antecedente(int antecedente_id) {
+		this.antecedente_id = antecedente_id;
 	}
 
-	public Integer getIdAntecedente() {
-		return idAntecedente;
+	public Antecedente(int permiso_id, int antecedente_id,
+			String contratista_documento, Date fecha,
+			byte[] scan_responsabilidad, byte[] scan_produraduria,
+			byte[] scan_policia, byte[] scan_fiscalia, String observaciones,
+			String estado) {
+		super();
+		this.permiso_id = permiso_id;
+		this.antecedente_id = antecedente_id;
+		this.contratista_documento = contratista_documento;
+		this.fecha = fecha;
+		this.scan_responsabilidad = scan_responsabilidad;
+		this.scan_produraduria = scan_produraduria;
+		this.scan_policia = scan_policia;
+		this.scan_fiscalia = scan_fiscalia;
+		this.observaciones = observaciones;
+		this.estado = estado;
 	}
 
-	public void setIdAntecedente(Integer idAntecedente) {
-		this.idAntecedente = idAntecedente;
+	public int getPermiso_id() {
+		return permiso_id;
+	}
+
+	public void setPermiso_id(int permiso_id) {
+		this.permiso_id = permiso_id;
+	}
+
+	public int getAntecedente_id() {
+		return antecedente_id;
+	}
+
+	public void setAntecedente_id(int antecedente_id) {
+		this.antecedente_id = antecedente_id;
+	}
+
+	public String getContratista_documento() {
+		return contratista_documento;
+	}
+
+	public void setContratista_documento(String contratista_documento) {
+		this.contratista_documento = contratista_documento;
 	}
 
 	public Date getFecha() {
@@ -75,36 +121,36 @@ public class Antecedente implements Serializable {
 		this.fecha = fecha;
 	}
 
-	public byte[] getScanResponsabilidad() {
-		return scanResponsabilidad;
+	public byte[] getScan_responsabilidad() {
+		return scan_responsabilidad;
 	}
 
-	public void setScanResponsabilidad(byte[] scanResponsabilidad) {
-		this.scanResponsabilidad = scanResponsabilidad;
+	public void setScan_responsabilidad(byte[] scan_responsabilidad) {
+		this.scan_responsabilidad = scan_responsabilidad;
 	}
 
-	public byte[] getScanProduraduria() {
-		return scanProduraduria;
+	public byte[] getScan_produraduria() {
+		return scan_produraduria;
 	}
 
-	public void setScanProduraduria(byte[] scanProduraduria) {
-		this.scanProduraduria = scanProduraduria;
+	public void setScan_produraduria(byte[] scan_produraduria) {
+		this.scan_produraduria = scan_produraduria;
 	}
 
-	public byte[] getScanPolicia() {
-		return scanPolicia;
+	public byte[] getScan_policia() {
+		return scan_policia;
 	}
 
-	public void setScanPolicia(byte[] scanPolicia) {
-		this.scanPolicia = scanPolicia;
+	public void setScan_policia(byte[] scan_policia) {
+		this.scan_policia = scan_policia;
 	}
 
-	public byte[] getScanFiscalia() {
-		return scanFiscalia;
+	public byte[] getScan_fiscalia() {
+		return scan_fiscalia;
 	}
 
-	public void setScanFiscalia(byte[] scanFiscalia) {
-		this.scanFiscalia = scanFiscalia;
+	public void setScan_fiscalia(byte[] scan_fiscalia) {
+		this.scan_fiscalia = scan_fiscalia;
 	}
 
 	public String getObservaciones() {
@@ -122,91 +168,7 @@ public class Antecedente implements Serializable {
 	public void setEstado(String estado) {
 		this.estado = estado;
 	}
-
-	public Contratista getContratistaDocumento() {
-		return contratistaDocumento;
-	}
-
-	public void setContratistaDocumento(Contratista contratistaDocumento) {
-		this.contratistaDocumento = contratistaDocumento;
-	}
-
-	@Override
-	public String toString() {
-		return "Antecedente [idAntecedente=" + idAntecedente + ", fecha="
-				+ fecha + ", scanResponsabilidad="
-				+ Arrays.toString(scanResponsabilidad) + ", scanProduraduria="
-				+ Arrays.toString(scanProduraduria) + ", scanPolicia="
-				+ Arrays.toString(scanPolicia) + ", scanFiscalia="
-				+ Arrays.toString(scanFiscalia) + ", observaciones="
-				+ observaciones + ", estado=" + estado
-				+ ", contratistaDocumento=" + contratistaDocumento + "]";
-	}
-
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime
-				* result
-				+ ((contratistaDocumento == null) ? 0 : contratistaDocumento
-						.hashCode());
-		result = prime * result + ((estado == null) ? 0 : estado.hashCode());
-		result = prime * result + ((fecha == null) ? 0 : fecha.hashCode());
-		result = prime * result
-				+ ((idAntecedente == null) ? 0 : idAntecedente.hashCode());
-		result = prime * result
-				+ ((observaciones == null) ? 0 : observaciones.hashCode());
-		result = prime * result + Arrays.hashCode(scanFiscalia);
-		result = prime * result + Arrays.hashCode(scanPolicia);
-		result = prime * result + Arrays.hashCode(scanProduraduria);
-		result = prime * result + Arrays.hashCode(scanResponsabilidad);
-		return result;
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Antecedente other = (Antecedente) obj;
-		if (contratistaDocumento == null) {
-			if (other.contratistaDocumento != null)
-				return false;
-		} else if (!contratistaDocumento.equals(other.contratistaDocumento))
-			return false;
-		if (estado == null) {
-			if (other.estado != null)
-				return false;
-		} else if (!estado.equals(other.estado))
-			return false;
-		if (fecha == null) {
-			if (other.fecha != null)
-				return false;
-		} else if (!fecha.equals(other.fecha))
-			return false;
-		if (idAntecedente == null) {
-			if (other.idAntecedente != null)
-				return false;
-		} else if (!idAntecedente.equals(other.idAntecedente))
-			return false;
-		if (observaciones == null) {
-			if (other.observaciones != null)
-				return false;
-		} else if (!observaciones.equals(other.observaciones))
-			return false;
-		if (!Arrays.equals(scanFiscalia, other.scanFiscalia))
-			return false;
-		if (!Arrays.equals(scanPolicia, other.scanPolicia))
-			return false;
-		if (!Arrays.equals(scanProduraduria, other.scanProduraduria))
-			return false;
-		if (!Arrays.equals(scanResponsabilidad, other.scanResponsabilidad))
-			return false;
-		return true;
-	}
 	
+	
+
 }

@@ -374,7 +374,7 @@
 
 					<span class="widget-icon"> <i class="fa fa-table"></i>
 					</span>
-					<h2>Areas</h2>
+					<h2>Permisos</h2>
 
 					<span class="jarviswidget-loader"><i
 						class="fa fa-refresh fa-spin"></i></span>
@@ -385,17 +385,63 @@
 
 					<!-- widget edit box -->
 					<div class="jarviswidget-editbox">
-						<!-- This area used as dropdown edit box -->
+						<!-- This Permiso used as dropdown edit box -->
 
 					</div>
 					<!-- end widget edit box -->
 
 					<!-- widget content -->
-					
+					<div class="widget-body no-padding">
+
+						<div id="datatable_fixed_column_wrapper"
+							class="dataTables_wrapper form-inline no-footer">
+
+							<table id="datatable_fixed_column" name="datatable_fixed_column"
+								class="table table-striped table-bordered dataTable no-footer"
+								width="100%" role="grid"
+								aria-describedby="datatable_fixed_column_info"
+								style="width: 100%;">
+								<thead>
+									<tr role="row">
+										<th data-hide="cmd" class="sorting_asc" tabindex="0"
+											aria-controls="dt_basic" aria-sort="ascending"
+											aria-label="ID: activate to sort column ascending"
+											style="width: 15px;"></th>
+
+										<th data-class="expand" class="sorting_asc" tabindex="1"
+											aria-controls="dt_basic" colspan="1" aria-sort="ascending"
+											aria-label="Name: activate to sort column ascending"
+											style="width: 540px;">Descripción</th>
+									</tr>
+								</thead>
+								<tbody>
+									<c:forEach items="${contratistaList}" var="obj"
+										varStatus="loopCounter">
+										<tr role="row" class="odd">
+											<td class="sorting_1"><span class="responsiveExpander"></span>
+												<a class="btn btn-success btn-circle btn-sx"
+												onclick="con('<c:out value="${obj.documento}"></c:out>','<c:out value="${obj.documento}"></c:out>',$(this))"><i
+													class="fa fa-edit"></i></a> <a
+												class="btn btn-danger btn-circle"
+												onclick="borrar(<c:out value="${obj.documento}"></c:out>, $(this))"><i
+													class="fa fa-trash-o"></i></a></td>
+											<td class="sorting_1"><span class="responsiveExpander"></span>
+												<c:out value="${obj.nombre_completo}"></c:out></td>
+										</tr>
+									</c:forEach>
+								</tbody>
+
+							</table>
+
+						</div>
+
+					</div>
+					<!-- end widget content -->
+
+				</div>
+				<!-- end widget div -->
 
 			</div>
-
-		</div>
 
 	</div>
 	<!-- END MAIN CONTENT -->

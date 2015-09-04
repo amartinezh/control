@@ -154,7 +154,7 @@ CREATE TABLE control.contratista
   empresa character varying(128),
   nit_empresa character varying(128),
   fecha_ven_curso_ley date,
-  id_persona_responsable character varying(128),
+  codigo_trabajador character varying(64),
   placa character varying(16),
   eps character varying(64),
   eps_vence date,

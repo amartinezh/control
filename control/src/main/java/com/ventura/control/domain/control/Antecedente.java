@@ -168,6 +168,71 @@ public class Antecedente implements Serializable {
 	public void setEstado(String estado) {
 		this.estado = estado;
 	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + antecedente_id;
+		result = prime
+				* result
+				+ ((contratista_documento == null) ? 0 : contratista_documento
+						.hashCode());
+		result = prime * result + ((estado == null) ? 0 : estado.hashCode());
+		result = prime * result + ((fecha == null) ? 0 : fecha.hashCode());
+		result = prime * result
+				+ ((observaciones == null) ? 0 : observaciones.hashCode());
+		result = prime * result + permiso_id;
+		result = prime * result + Arrays.hashCode(scan_fiscalia);
+		result = prime * result + Arrays.hashCode(scan_policia);
+		result = prime * result + Arrays.hashCode(scan_produraduria);
+		result = prime * result + Arrays.hashCode(scan_responsabilidad);
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Antecedente other = (Antecedente) obj;
+		if (antecedente_id != other.antecedente_id)
+			return false;
+		if (contratista_documento == null) {
+			if (other.contratista_documento != null)
+				return false;
+		} else if (!contratista_documento.equals(other.contratista_documento))
+			return false;
+		if (estado == null) {
+			if (other.estado != null)
+				return false;
+		} else if (!estado.equals(other.estado))
+			return false;
+		if (fecha == null) {
+			if (other.fecha != null)
+				return false;
+		} else if (!fecha.equals(other.fecha))
+			return false;
+		if (observaciones == null) {
+			if (other.observaciones != null)
+				return false;
+		} else if (!observaciones.equals(other.observaciones))
+			return false;
+		if (permiso_id != other.permiso_id)
+			return false;
+		if (!Arrays.equals(scan_fiscalia, other.scan_fiscalia))
+			return false;
+		if (!Arrays.equals(scan_policia, other.scan_policia))
+			return false;
+		if (!Arrays.equals(scan_produraduria, other.scan_produraduria))
+			return false;
+		if (!Arrays.equals(scan_responsabilidad, other.scan_responsabilidad))
+			return false;
+		return true;
+	}
 	
 	
 

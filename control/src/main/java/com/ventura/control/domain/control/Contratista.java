@@ -72,8 +72,8 @@ public class Contratista implements Serializable {
 	@Column(name = "fecha_ven_curso_ley")
 	private Date fecha_ven_curso_ley;
 	
-	@Column(name = "id_persona_responsable")
-	private String id_persona_responsable;
+	@Column(name = "codigo_trabajador")
+	private String codigo_trabajador;
 	
 	@Column(name = "placa")
 	private String placa;
@@ -104,14 +104,18 @@ public class Contratista implements Serializable {
 	
 	public Contratista() {
 	}
+	
+	public Contratista(String documento) {
+		this.documento=documento;
+	}
 
 	public Contratista(String documento, String nombre_completo,
 			String apellido, TipoPersona tipo_persona_id,
 			Dependencia dependencia_id, String coreo_e, String telefono,
 			String scan_foto, String scan_cedula, String scan_huella,
 			String empresa, String nit_empresa, Date fecha_ven_curso_ley,
-			String id_persona_responsable, String placa, String eps,
-			Date eps_vence, String alr, Date alr_vence, String inventario,
+			String codigo_trabajador, String placa, String eps, Date eps_vence,
+			String alr, Date alr_vence, String inventario,
 			String scan_inventario, String observaciones, String estado) {
 		super();
 		this.documento = documento;
@@ -127,7 +131,7 @@ public class Contratista implements Serializable {
 		this.empresa = empresa;
 		this.nit_empresa = nit_empresa;
 		this.fecha_ven_curso_ley = fecha_ven_curso_ley;
-		this.id_persona_responsable = id_persona_responsable;
+		this.codigo_trabajador = codigo_trabajador;
 		this.placa = placa;
 		this.eps = eps;
 		this.eps_vence = eps_vence;
@@ -243,12 +247,12 @@ public class Contratista implements Serializable {
 		this.fecha_ven_curso_ley = fecha_ven_curso_ley;
 	}
 
-	public String getId_persona_responsable() {
-		return id_persona_responsable;
+	public String getCodigo_trabajador() {
+		return codigo_trabajador;
 	}
 
-	public void setId_persona_responsable(String id_persona_responsable) {
-		this.id_persona_responsable = id_persona_responsable;
+	public void setCodigo_trabajador(String codigo_trabajador) {
+		this.codigo_trabajador = codigo_trabajador;
 	}
 
 	public String getPlaca() {
@@ -333,13 +337,13 @@ public class Contratista implements Serializable {
 				+ scan_cedula + ", scan_huella=" + scan_huella + ", empresa="
 				+ empresa + ", nit_empresa=" + nit_empresa
 				+ ", fecha_ven_curso_ley=" + fecha_ven_curso_ley
-				+ ", id_persona_responsable=" + id_persona_responsable
-				+ ", placa=" + placa + ", eps=" + eps + ", eps_vence="
-				+ eps_vence + ", alr=" + alr + ", alr_vence=" + alr_vence
-				+ ", inventario=" + inventario + ", scan_inventario="
-				+ scan_inventario + ", observaciones=" + observaciones
-				+ ", estado=" + estado + "]";
+				+ ", codigo_trabajador=" + codigo_trabajador + ", placa="
+				+ placa + ", eps=" + eps + ", eps_vence=" + eps_vence
+				+ ", alr=" + alr + ", alr_vence=" + alr_vence + ", inventario="
+				+ inventario + ", scan_inventario=" + scan_inventario
+				+ ", observaciones=" + observaciones + ", estado=" + estado
+				+ "]";
 	}
-
+	
 	
 }

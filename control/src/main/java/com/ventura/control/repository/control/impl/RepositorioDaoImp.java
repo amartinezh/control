@@ -49,7 +49,11 @@ public class RepositorioDaoImp implements RepositorioDao {
 	
 	@Transactional(propagation = Propagation.REQUIRED)
 	public Object getElemento(Object obj, int id) {
-		return em.find(obj.getClass(), id);		
+		return em.find(obj.getClass(), id);	
 	}
-	
+
+	@Transactional(propagation = Propagation.REQUIRED)
+	public Object getElemento(Object obj, String id) {
+		return em.find(obj.getClass(), id);	
+	}
 }

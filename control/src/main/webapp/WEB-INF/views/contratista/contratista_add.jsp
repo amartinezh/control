@@ -165,20 +165,20 @@
 													<legend>  Contratistas </legend>
 													<!-- <form:input type="hidden" path="documento" value="0" /> -->
 														<form:input type="hidden" path="estado" />
-													<div class="col-sm-12 col-md-4">
+													<div class="col-md-4">
 														<label class="control-label">Documento</label> 
 														<form:input path="documento" type="text"
 															class="form-control" data-bv-field="Documento"
 															required="required" /> 
 													
 													</div>
-													<div class="col-sm-12 col-md-4">
+													<div class="col-md-4">
 														<label class="control-label">Nombre Completo</label>
 														 <form:input path="nombre_completo" type="text"
 															class="form-control" data-bv-field="Nombre Completo"
 															required="required" />
 													</div>
-													<div class="col-sm-12 col-md-4">
+													<div class="col-md-4">
 														<label class="control-label">Apellidos</label>
 														<form:input path="apellido" type="text"	class="form-control" data-bv-field="Apellido" required="required" />
 													</div>
@@ -205,11 +205,11 @@
 										<fieldset>
 											<div class="form-group">
 												<div class="row">
-													<div class="col-sm-12 col-md-6">
+													<div class="col-md-6">
 														<label class="control-label">Correo  Electrónico</label>
 														<form:input path="coreo_e" type="text"	class="form-control" data-bv-field="Coreo Electrónico" required="required" />
 													</div>
-													<div class="col-sm-12 col-md-6">
+													<div class="col-md-6">
 														<label class="control-label">Teléfonos</label>
 														<form:input path="telefono" type="text"	class="form-control" data-bv-field="Teléfono" required="required" />
 													</div>
@@ -237,15 +237,15 @@
 										<fieldset>
 											<div class="form-group">
 												<div class="row">
-													<div class="col-sm-12 col-md-4">
+													<div class="col-md-4">
 														<label class="control-label">Empresa</label>
 														<form:input path="empresa" type="text"	class="form-control" data-bv-field="Empresa" required="required" />
 													</div>
-													<div class="col-sm-12 col-md-4">
+													<div class="col-md-4">
 														<label class="control-label">NIT Empresa</label>
 														<form:input path="nit_empresa" type="text"	class="form-control" data-bv-field="NIT Empresa" required="required" />
 													</div>
-													<div class="col-sm-12 col-md-4">
+													<div class="col-md-4">
 														<label class="control-label">Fecha Vencimiento Ley Industrial</label>
 														<form:input path="fecha_ven_curso_ley" type="date"	class="form-control" data-bv-field="Fecha Vencimiento" required="required" />
 													</div>
@@ -258,18 +258,14 @@
 													<div class="col-md-6 selectContainer">
 														<label class="control-label">Persona Responsable</label>
 														<select
-															class="form-control" name="id_persona_responsable" id="id_persona_responsable">
+															class="form-control" name="codigo_trabajador" id="codigo_trabajador">
 															<option value="">Seleccione</option>
 															<option value="action">Juan</option>
 															<option value="comedy">Pablo</option>
 															<option value="horror">Pedro</option>
 														</select>
 													</div>
-													<div class="col-sm-4 col-md-3">
-														<label class="control-label">Código Antecedente</label>
-														<form:input path="codigo_antecedente" type="text"	class="form-control" data-bv-field="Empresa" required="required" />
-													</div>
-													<div class="col-sm-4 col-md-3">
+													<div class="col-sm-4 col-md-6">
 														<label class="control-label">Placa Vehiculo</label>
 														<form:input path="placa" type="text"	class="form-control" data-bv-field="Empresa" required="required" />
 													</div>
@@ -279,19 +275,19 @@
 										<fieldset>
 											<div class="form-group">
 												<div class="row">
-													<div class="col-sm-12 col-md-3">
+													<div class="col-md-3">
 														<label class="control-label">EPS</label>
 														<form:input path="eps" type="text"	class="form-control" data-bv-field="EPS" required="required" />
 													</div>
-													<div class="col-sm-12 col-md-3">
+													<div class="col-md-3">
 														<label class="control-label">Fecha Vencimiento EPS</label>
 														<form:input path="eps_vence" type="date"	class="form-control" data-bv-field="Fecha Vencimiento EPS" required="required" />
 													</div>
-													<div class="col-sm-12 col-md-3">
+													<div class="col-md-3">
 														<label class="control-label">ARL</label>
 														<form:input path="alr" type="text"	class="form-control" data-bv-field="ARL" required="required" />
 													</div>
-													<div class="col-sm-12 col-md-3">
+													<div class="col-md-3">
 														<label class="control-label">Fecha Vencimiento ARL</label>
 														<form:input path="alr_vence" type="date"	class="form-control" data-bv-field="Fecha Vencimiento ARL" required="required" />
 													</div>
@@ -301,11 +297,11 @@
 										<fieldset>
 											<div class="form-group">
 												<div class="row">
-													<div class="col-sm-12 col-md-8">
+													<div class="col-md-8">
 														<label class="control-label">Inventario</label>
 														<form:textarea path="inventario" type="text" class="form-control" data-bv-field="Placa" required="required" />
 													</div>
-													<div class="col-sm-12 col-md-4">
+													<div class="col-md-4">
 														<label class="control-label">Imagen Inventario</label>
 														<form:input path="scan_inventario" type="file"	class="form-control" data-bv-field="Huella" required="required" />
 													</div>
@@ -315,7 +311,7 @@
 										<fieldset>
 											<div class="form-group">
 												<div class="row">
-													<div class="col-sm-12 col-md-8">
+													<div class="col-md-12">
 														<label class="control-label">Observaciones</label> 
 														<form:textarea path="observaciones" type="text" class="form-control" data-bv-field="Placa" required="required" />
 													</div>
@@ -374,7 +370,7 @@
 
 					<span class="widget-icon"> <i class="fa fa-table"></i>
 					</span>
-					<h2>Permisos</h2>
+					<h2>Contratistas</h2>
 
 					<span class="jarviswidget-loader"><i
 						class="fa fa-refresh fa-spin"></i></span>
@@ -727,14 +723,6 @@
 										}
 									},
 									fechaVenCursoLey : {
-										group : '.col-md-4',
-										validators : {
-											notEmpty : {
-												message : 'Campo requierido'
-											}
-										}
-									},
-									idPersonaResponsable : {
 										group : '.col-md-6',
 										validators : {
 											notEmpty : {
@@ -742,8 +730,8 @@
 											}
 										}
 									},
-									codigo_antecedente : {
-										group : '.col-md-3',
+									codigo_trabajador : {
+										group : '.col-md-6',
 										validators : {
 											notEmpty : {
 												message : 'Campo requierido'
@@ -807,7 +795,7 @@
 										}
 									},
 									observaciones : {
-										group : '.col-md-8',
+										group : '.col-md-12',
 										validators : {
 											notEmpty : {
 												message : 'Campo requierido'
@@ -1011,7 +999,7 @@
 			var fvcl = document.getElementById('fecha_ven_curso_ley').value;
 			
 			//var idPersonaResponsable = document.getElementById('idPersonaResponsable');
-			x = document.getElementById('id_persona_responsable').selectedIndex;
+			x = document.getElementById('codigo_trabajador').selectedIndex;
 			var ipr = document.getElementsByTagName("option")[x].value
 			
 			
@@ -1022,7 +1010,6 @@
 			var alrv = document.getElementById('alr_vence').value;
 			var inv = document.getElementById('inventario').value;
 			var sinv = document.getElementById('scan_inventario').value;
-			var an = document.getElementById('codigo_antecedente').value;
 			var o = document.getElementById('observaciones').value;
 			alert(ipr);
 			$.ajax({
@@ -1043,7 +1030,7 @@
 					empresa: em,
 					nit_empresa: nem,
 					fecha_ven_curso_ley: fvcl,
-					id_persona_responsable: ipr,
+					codigo_trabajador: ipr,
 					placa: pl,
 					eps: epese,
 					eps_vence: epv,
@@ -1051,7 +1038,6 @@
 					alr_vence : alrv,
 					inventario : inv,
 					scan_inventario : sinv,
-					codigo_antecedente: an,
 					observaciones:	o
 				},
 				success : function(data) {			

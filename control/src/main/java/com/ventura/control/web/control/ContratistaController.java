@@ -58,7 +58,7 @@ public class ContratistaController {
 			@RequestParam String empresa,
 			@RequestParam String nit_empresa,
 			@RequestParam String fecha_ven_curso_ley,
-			@RequestParam String id_persona_responsable,
+			@RequestParam String codigo_trabajador,
 			@RequestParam String placa,
 			@RequestParam String eps,
 			@RequestParam String eps_vence,
@@ -72,7 +72,7 @@ public class ContratistaController {
 		java.text.SimpleDateFormat formatter = new java.text.SimpleDateFormat("yyyy-MM-dd");
 		Contratista obj=null;
 		try {
-			obj = new Contratista(documento, nombre_completo, apellido, new TipoPersona(tipo_persona_id), new Dependencia(dependencia_id), coreo_e, telefono, scan_foto, scan_cedula, scan_huella, empresa, nit_empresa, formatter.parse(fecha_ven_curso_ley), id_persona_responsable, placa, eps, formatter.parse(eps_vence), alr, formatter.parse(alr_vence), inventario, scan_inventario, observaciones,"1");
+			obj = new Contratista(documento, nombre_completo, apellido, new TipoPersona(tipo_persona_id), new Dependencia(dependencia_id), coreo_e, telefono, scan_foto, scan_cedula, scan_huella, empresa, nit_empresa, formatter.parse(fecha_ven_curso_ley), codigo_trabajador, placa, eps, formatter.parse(eps_vence), alr, formatter.parse(alr_vence), inventario, scan_inventario, observaciones,"1");
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}

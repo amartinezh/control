@@ -620,20 +620,26 @@ CREATE TABLE control.minuta(
   CONSTRAINT fk6d68w0818ff9b56 FOREIGN KEY (actividad_id) REFERENCES admin.actividad (actividad_id) ON UPDATE NO ACTION ON DELETE NO ACTION
 )WITH ( OIDS=FALSE); ALTER TABLE control.minuta OWNER TO postgres;
 
-CREATE TABLE control.caja_menor(
+CREATE TABLE control.caja_menor
+(
   id serial NOT NULL,
-  tipo_transaccion_id serial NOT NULL,
+  tipo_transaccion_id integer,
   fecha date,
   nombre_completo character varying(128),
   apellido character varying(128),
   dependencia_id integer,
   valor bigint,
-  hora_registro time,
+  hora_registro time without time zone,
   observaciones text,
   estado character varying(1),
-  CONSTRAINT caja_menor_pk PRIMARY KEY (id ),
-  CONSTRAINT fk6e68w0816fg3b56 FOREIGN KEY (dependencia_id) REFERENCES admin.dependencia (dependencia_id) ON UPDATE NO ACTION ON DELETE NO ACTION 
-)WITH ( OIDS=FALSE); ALTER TABLE control.caja_menor OWNER TO postgres;
+  CONSTRAINT caja_menor_pk PRIMARY KEY (id),
+  CONSTRAINT caja_menor_tipo_transaccion_id_fkey FOREIGN KEY (tipo_transaccion_id)
+      REFERENCES admin.tipo_transaccion (tipo_transaccion_id) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE NO ACTION,
+  CONSTRAINT fk6e68w0816fg3b56 FOREIGN KEY (dependencia_id)
+      REFERENCES admin.dependencia (dependencia_id) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE NO ACTION
+)WITH (OIDS=FALSE); ALTER TABLE control.caja_menor OWNER TO postgres;
 
 CREATE TABLE control.devolucion(
   id serial NOT NULL,

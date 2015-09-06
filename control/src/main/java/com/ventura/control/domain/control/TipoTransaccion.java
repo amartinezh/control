@@ -1,10 +1,13 @@
 package com.ventura.control.domain.control;
 
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -28,6 +31,8 @@ public class TipoTransaccion implements java.io.Serializable {
 	private String descripcion;
 	@Column(name = "estado")
 	private String estado;
+	@OneToMany(mappedBy = "tipoTransaccionId")
+    private Set<CajaMenor> cajaMenorSet;
 
 	public TipoTransaccion() {
 		// TODO Auto-generated constructor stub
@@ -75,5 +80,14 @@ public class TipoTransaccion implements java.io.Serializable {
 
 	public void setEstado(String estado) {
 		this.estado = estado;
+	}	
+	
+	public Set<CajaMenor> getCajaMenorSet() {
+		return cajaMenorSet;
 	}
+	
+	public void setCajaMenorSet(Set<CajaMenor> cajaMenorSet) {
+		this.cajaMenorSet = cajaMenorSet;
+	}
+	
 }

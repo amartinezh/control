@@ -48,6 +48,17 @@ public class Dependencia implements Serializable{
 	@OneToMany(mappedBy = "dependenciaId")
     private Set<PrestaLlave> prestaLlaveSet;
 	
+	@OneToMany(mappedBy = "dependenciaId")
+    private Set<CajaMenor> cajaMenorSet;
+	
+	public Set<CajaMenor> getCajaMenorSet() {
+		return cajaMenorSet;
+	}
+
+	public void setCajaMenorSet(Set<CajaMenor> cajaMenorSet) {
+		this.cajaMenorSet = cajaMenorSet;
+	}
+
 	public Dependencia() {
 		// TODO Auto-generated constructor stub
 	}

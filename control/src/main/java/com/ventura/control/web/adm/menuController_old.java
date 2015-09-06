@@ -114,12 +114,6 @@ public class menuController_old {
 		return "minuta/minuta_add";
 	}
 	
-	@RequestMapping(value = "/cajamenor_registrar",method = RequestMethod.GET)
-	public String cajamenor_add(Map<String, Object> model) {
-		model.put("user", new User());
-		return "cajamenor/cajamenor_add";
-	}
-	
 	@RequestMapping(value = "/devolucion_registrar",method = RequestMethod.GET)
 	public String devolucion_add(Map<String, Object> model) {
 		model.put("user", new User());

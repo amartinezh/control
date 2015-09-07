@@ -221,15 +221,15 @@
 												<div class="row">
 													<div class="col-md-4">
 														<label class="control-label">Archivo Foto</label> 
-														<form:input path="scan_foto" type="file"	class="form-control" data-bv-field="Foto" required="required" />
+														<input type="text" id="scan_foto2" name="scan_foto2" readonly/><form:input path="scan_foto" type="file"	class="form-control" data-bv-field="Foto" required="required" />
 													</div>
 													<div class="col-md-4">
 														<label class="control-label input-file">Archivo Cédula</label>
-														<form:input path="scan_cedula" type="file"	class="form-control" data-bv-field="Cédula" required="required" />
+														<input type="text" id="scan_cedula2" name="scan_cedula2" readonly/><form:input path="scan_cedula" type="file"	class="form-control" data-bv-field="Cédula" required="required" />
 													</div>
 													<div class="col-md-4">
 														<label class="control-label">Archivo Huella</label>
-														<form:input path="scan_huella" type="file"	class="form-control" data-bv-field="Huella" required="required" />
+														<input type="text" id="scan_huella2" name="scan_huella2" readonly/><form:input path="scan_huella" type="file"	class="form-control" data-bv-field="Huella" required="required" />
 													</div>
 												</div>
 											</div>
@@ -303,7 +303,7 @@
 													</div>
 													<div class="col-md-4">
 														<label class="control-label">Imagen Inventario</label>
-														<form:input path="scan_inventario" type="file"	class="form-control" data-bv-field="Huella" required="required" />
+														<input type="text" id="scan_inventario2" name="scan_inventario2" readonly/><form:input path="scan_inventario" type="file"	class="form-control" data-bv-field="Huella" required="required" />
 													</div>
 												</div>
 											</div>
@@ -416,11 +416,10 @@
 										<tr role="row" class="odd">
 											<td class="sorting_1"><span class="responsiveExpander"></span>
 												<a class="btn btn-success btn-circle btn-sx"
-												onclick="con('<c:out value="${obj.documento}"></c:out>','<c:out value="${obj.documento}"></c:out>',$(this))"><i
-													class="fa fa-edit"></i></a> <a
-												class="btn btn-danger btn-circle"
-												onclick="borrar(<c:out value="${obj.documento}"></c:out>, $(this))"><i
-													class="fa fa-trash-o"></i></a></td>
+												onclick="con('<c:out value="${obj.documento}"></c:out>','<c:out value="${obj.nombre_completo}"></c:out>','<c:out value="${obj.apellido}"></c:out>','<c:out value="${obj.tipo_persona_id.tipo_persona_id}"></c:out>','<c:out value="${obj.dependencia_id}"></c:out>','<c:out value="${obj.coreo_e}"></c:out>','<c:out value="${obj.telefono}"></c:out>','<c:out value="${obj.scan_foto}"></c:out>','<c:out value="${obj.scan_cedula}"></c:out>','<c:out value="${obj.scan_huella}"></c:out>','<c:out value="${obj.empresa}"></c:out>','<c:out value="${obj.nit_empresa}"></c:out>','<c:out value="${obj.fecha_ven_curso_ley}"></c:out>','<c:out value="${obj.codigo_trabajador}"></c:out>','<c:out value="${obj.placa}"></c:out>','<c:out value="${obj.eps}"></c:out>','<c:out value="${obj.eps_vence}"></c:out>','<c:out value="${obj.alr}"></c:out>','<c:out value="${obj.alr_vence}"></c:out>','<c:out value="${obj.inventario}"></c:out>','<c:out value="${obj.scan_inventario}"></c:out>','<c:out value="${obj.observaciones}"></c:out>','<c:out value="${obj.estado}"></c:out>',$(this))">
+												<i class="fa fa-edit"></i></a> <a class="btn btn-danger btn-circle"
+												onclick="borrar(<c:out value="${obj.documento}"></c:out>, $(this))">
+												<i class="fa fa-trash-o"></i></a></td>
 											<td class="sorting_1"><span class="responsiveExpander"></span>
 												<c:out value="${obj.nombre_completo}"></c:out></td>
 										</tr>
@@ -1011,7 +1010,6 @@
 			var inv = document.getElementById('inventario').value;
 			var sinv = document.getElementById('scan_inventario').value;
 			var o = document.getElementById('observaciones').value;
-			alert(ipr);
 			$.ajax({
 				type : "POST",
 				url : "contratista_add/agregar",
@@ -1040,21 +1038,43 @@
 					scan_inventario : sinv,
 					observaciones:	o
 				},
-				success : function(data) {			
-					 document.getElementById('apellido').value = "";
-					 document.getElementById('documento').value = "0";
-					 var res = data.split(":::");
-					 $('#datatable_fixed_column').dataTable().fnAddData( [res[0],res[1]] );
-					 $.smallBox({
-							title : "La información se registró adecuadamente",
-							content : "Para ingresar un nuevo registro ingrese la información y presione el botón Actualizar",
-							color : "#5384AF",
-							timeout: 8000,
+				success : function(data) {		
+					 //document.getElementById('apellido').value = "";
+					 //document.getElementById('documento').value = "0";
+					 if (data=="registroyaseencuentraenlabasededatos"){
+						 $.smallBox({
+							title : "El registró ya se encuentra en la base de datos, NO fue guardado!!!",
+							content : "Por favor verifique<p class='text-align-right'><a href='javascript:void(0);' class='btn btn-danger btn-sm'>Ok</a></p>",
+							color : "#296191",
+							//timeout: 8000,
 							icon : "fa fa-bell swing animated"
-					 });
-					 $('#cance').hide();
+						}); 
+					 }
+					 else{
+						 if (data=="error"){
+							 $.smallBox({
+									title : "ATENCIÓN: El registró no fue guardado!, es posible que falte información",
+									content : "Por favor verifique<p class='text-align-right'><a href='javascript:void(0);' class='btn btn-danger btn-sm'>Ok</a></p>",
+									color : "#296191",
+									//timeout: 8000,
+									icon : "fa fa-bell swing animated"
+								}); 
+						 }
+						 else{
+							 var res = data.split(":::");
+							 $('#datatable_fixed_column').dataTable().fnAddData( [res[0],res[1]] );
+							 $.smallBox({
+									title : "La información se registró adecuadamente",
+									content : "Para ingresar un nuevo registro ingrese la información y presione el botón Actualizar",
+									color : "#5384AF",
+									timeout: 8000,
+									icon : "fa fa-bell swing animated"
+							 });
+							 $('#cance').hide();
+						 }
+					 }
 				},
-				error : function(data) {					
+				error : function(data) {			
 					$.smallBox({
 						title : "El registró no fue guardado!",
 						content : "Por favor verifique<p class='text-align-right'><a href='javascript:void(0);' class='btn btn-danger btn-sm'>Ok</a></p>",
@@ -1151,10 +1171,31 @@
 			});
 		}
 		
-		function con(acti_id, descripcion, thi) {
-			document.getElementById('area_id').value=acti_id;
-			document.getElementById('descripcion').value=descripcion;
-			document.getElementById('estado').value=descripcion;
+		function con(documento, nombre_completo, apellido, tipo_persona_id, dependencia_id, coreo_e, telefono, scan_foto, scan_cedula, scan_huella, empresa, nit_empresa, fecha_ven_curso_ley, codigo_trabajador, placa, eps, eps_vence, alr, alr_vence, inventario, scan_inventario, observaciones, estado, thi) {
+			alert(eps_vence);
+			document.getElementById('documento').value=documento;
+			document.getElementById('nombre_completo').value=nombre_completo;
+			document.getElementById('apellido').value=apellido;
+			document.getElementById('tipo_persona_id.tipo_persona_id').selectedIndex=tipo_persona_id;
+			document.getElementById('dependencia_id.dependencia_id').selectedIndex=dependencia_id;
+			document.getElementById('coreo_e').value=coreo_e;
+			document.getElementById('telefono').value=telefono;
+			document.getElementById('scan_foto2').value=scan_foto;
+			document.getElementById('scan_cedula2').value=scan_cedula;
+			document.getElementById('scan_huella2').value=scan_huella;
+			document.getElementById('empresa').value=empresa;
+			document.getElementById('nit_empresa').value=nit_empresa;
+			document.getElementById('fecha_ven_curso_ley').value=fecha_ven_curso_ley;
+			document.getElementById('codigo_trabajador').value=codigo_trabajador;
+			document.getElementById('placa').value=placa;
+			document.getElementById('eps').value=eps;
+			document.getElementById('eps_vence').value=eps_vence;
+			document.getElementById('alr').value=alr;
+			document.getElementById('alr_vence').value=alr_vence;
+			document.getElementById('inventario').value=inventario;
+			document.getElementById('scan_inventario2').value=scan_inventario;
+			document.getElementById('observaciones').value=observaciones;
+			document.getElementById('estado').value=estado;
 			$('#cance').show();
 			document.getElementById('elboton').innerHTML='Actualizar';
 			nRow=$(thi).closest("tr").index();

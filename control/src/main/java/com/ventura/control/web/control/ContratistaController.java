@@ -74,10 +74,15 @@ public class ContratistaController {
 		try {
 			obj = new Contratista(documento, nombre_completo, apellido, new TipoPersona(tipo_persona_id), new Dependencia(dependencia_id), coreo_e, telefono, scan_foto, scan_cedula, scan_huella, empresa, nit_empresa, formatter.parse(fecha_ven_curso_ley), codigo_trabajador, placa, eps, formatter.parse(eps_vence), alr, formatter.parse(alr_vence), inventario, scan_inventario, observaciones,"1");
 		} catch (ParseException e) {
-			e.printStackTrace();
+			return "error";
 		}
-		System.out.println(obj.toString());
-		contratista.agregarContratista(false, obj);
+		//System.out.println(obj.toString());
+		if (contratista.validarContratista(obj)){
+			return "registroyaseencuentraenlabasededatos";
+		}
+		else{
+			contratista.agregarContratista(false, obj);
+		}
 		return "<span class='responsiveExpander'></span><a class='btn btn-success btn-circle btn-sx'"
 				+ " onclick=\"con('"
 				+ obj.getDocumento()

@@ -8,5 +8,6 @@ public interface ContratistaService {
 
 	public void agregarContratista(boolean existe, Contratista contratista);
 	public void borrarContratista(Contratista contratista);
+	public boolean validarContratista(Contratista contratista);
 	public List<Contratista> listarContratistas();
 }

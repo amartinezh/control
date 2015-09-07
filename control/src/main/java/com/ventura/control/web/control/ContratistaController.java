@@ -67,21 +67,28 @@ public class ContratistaController {
 			@RequestParam String inventario,
 			@RequestParam String scan_inventario,
 			@RequestParam String observaciones,
-			
+			@RequestParam String estado,
+			@RequestParam String opcion,
 			Map<String, Object> model) {
 		java.text.SimpleDateFormat formatter = new java.text.SimpleDateFormat("yyyy-MM-dd");
 		Contratista obj=null;
 		try {
-			obj = new Contratista(documento, nombre_completo, apellido, new TipoPersona(tipo_persona_id), new Dependencia(dependencia_id), coreo_e, telefono, scan_foto, scan_cedula, scan_huella, empresa, nit_empresa, formatter.parse(fecha_ven_curso_ley), codigo_trabajador, placa, eps, formatter.parse(eps_vence), alr, formatter.parse(alr_vence), inventario, scan_inventario, observaciones,"1");
+			obj = new Contratista(documento, nombre_completo, apellido, new TipoPersona(tipo_persona_id), new Dependencia(dependencia_id), coreo_e, telefono, scan_foto, scan_cedula, scan_huella, empresa, nit_empresa, formatter.parse(fecha_ven_curso_ley), codigo_trabajador, placa, eps, formatter.parse(eps_vence), alr, formatter.parse(alr_vence), inventario, scan_inventario, observaciones,estado);
 		} catch (ParseException e) {
 			return "error";
 		}
-		//System.out.println(obj.toString());
+		System.out.println(opcion.toString());
 		if (contratista.validarContratista(obj)){
-			return "registroyaseencuentraenlabasededatos";
+			if (opcion.equals("Actualizar")){
+				contratista.agregarContratista(true, obj); // True: merge
+				return "semodifico";
+			}
+			else{
+				return "yaestaperonosemodifico";
+			}
 		}
 		else{
-			contratista.agregarContratista(false, obj);
+				contratista.agregarContratista(false, obj);
 		}
 		return "<span class='responsiveExpander'></span><a class='btn btn-success btn-circle btn-sx'"
 				+ " onclick=\"con('"

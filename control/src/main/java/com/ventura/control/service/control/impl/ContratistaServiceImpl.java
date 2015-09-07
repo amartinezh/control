@@ -25,12 +25,13 @@ public class ContratistaServiceImpl implements ContratistaService {
 
 	@Transactional	
 	public void agregarContratista(boolean existe, Contratista contratista) {
-		if (existe){
-			contratistaDao.agregar(contratista);
+		if (existe == true){
+			//Contratista obj = (Contratista) contratistaDao.getElemento(contratista, contratista.getDocumento());
+			//if (obj!=null)
+			contratistaDao.actualizar(contratista);
 		}
 		else {
-			Contratista obj = (Contratista) contratistaDao.getElemento(contratista, contratista.getDocumento());
-			contratistaDao.actualizar(contratista);
+			contratistaDao.agregar(contratista);
 		}
 	}
 

@@ -259,10 +259,10 @@
 														<label class="control-label">Persona Responsable</label>
 														<select
 															class="form-control" name="codigo_trabajador" id="codigo_trabajador">
-															<option value="">Seleccione</option>
-															<option value="action">Juan</option>
-															<option value="comedy">Pablo</option>
-															<option value="horror">Pedro</option>
+															<option value="-1">Seleccione</option>
+															<option value="1">Empleado 1</option>
+															<option value="2">Empleado 2</option>
+															<option value="2">Empleado 3</option>
 														</select>
 													</div>
 													<div class="col-sm-4 col-md-6">
@@ -410,13 +410,13 @@
 											style="width: 540px;">Descripción</th>
 									</tr>
 								</thead>
-								<tbody>
+								<tbody> 
 									<c:forEach items="${contratistaList}" var="obj"
 										varStatus="loopCounter">
-										<tr role="row" class="odd">
+										<tr role="row" class="odd"> 
 											<td class="sorting_1"><span class="responsiveExpander"></span>
 												<a class="btn btn-success btn-circle btn-sx"
-												onclick="con('<c:out value="${obj.documento}"></c:out>','<c:out value="${obj.nombre_completo}"></c:out>','<c:out value="${obj.apellido}"></c:out>','<c:out value="${obj.tipo_persona_id.tipo_persona_id}"></c:out>','<c:out value="${obj.dependencia_id}"></c:out>','<c:out value="${obj.coreo_e}"></c:out>','<c:out value="${obj.telefono}"></c:out>','<c:out value="${obj.scan_foto}"></c:out>','<c:out value="${obj.scan_cedula}"></c:out>','<c:out value="${obj.scan_huella}"></c:out>','<c:out value="${obj.empresa}"></c:out>','<c:out value="${obj.nit_empresa}"></c:out>','<c:out value="${obj.fecha_ven_curso_ley}"></c:out>','<c:out value="${obj.codigo_trabajador}"></c:out>','<c:out value="${obj.placa}"></c:out>','<c:out value="${obj.eps}"></c:out>','<c:out value="${obj.eps_vence}"></c:out>','<c:out value="${obj.alr}"></c:out>','<c:out value="${obj.alr_vence}"></c:out>','<c:out value="${obj.inventario}"></c:out>','<c:out value="${obj.scan_inventario}"></c:out>','<c:out value="${obj.observaciones}"></c:out>','<c:out value="${obj.estado}"></c:out>',$(this))">
+												onclick="con('<c:out value="${obj.documento}"></c:out>','<c:out value="${obj.nombre_completo}"></c:out>','<c:out value="${obj.apellido}"></c:out>','<c:out value="${obj.tipo_persona_id.tipo_persona_id}"></c:out>','<c:out value="${obj.dependencia_id}"></c:out>','<c:out value="${obj.coreo_e}"></c:out>','<c:out value="${obj.telefono}"></c:out>','<c:out value="${obj.scan_foto}"></c:out>','<c:out value="${obj.scan_cedula}"></c:out>','<c:out value="${obj.scan_huella}"></c:out>','<c:out value="${obj.empresa}"></c:out>','<c:out value="${obj.nit_empresa}"></c:out>','<fmt:formatDate type="both" dateStyle="short" timeStyle="short" value="${obj.fecha_ven_curso_ley}" pattern="yyyy-MM-dd"/>','<c:out value="${obj.codigo_trabajador}"></c:out>','<c:out value="${obj.placa}"></c:out>','<c:out value="${obj.eps}"></c:out>','<fmt:formatDate type="both" dateStyle="short" timeStyle="short" value="${obj.eps_vence}" pattern="yyyy-MM-dd"/>','<c:out value="${obj.alr}"></c:out>','<fmt:formatDate type="both" dateStyle="short" timeStyle="short" value="${obj.alr_vence}" pattern="yyyy-MM-dd"/>','<c:out value="${obj.inventario}"></c:out>','<c:out value="${obj.scan_inventario}"></c:out>','<c:out value="${obj.observaciones}"></c:out>','<c:out value="${obj.estado}"></c:out>',$(this))">
 												<i class="fa fa-edit"></i></a> <a class="btn btn-danger btn-circle"
 												onclick="borrar(<c:out value="${obj.documento}"></c:out>, $(this))">
 												<i class="fa fa-trash-o"></i></a></td>
@@ -1010,6 +1010,8 @@
 			var inv = document.getElementById('inventario').value;
 			var sinv = document.getElementById('scan_inventario').value;
 			var o = document.getElementById('observaciones').value;
+			var est = document.getElementById('estado').value;
+			var opc=document.getElementById('elboton').innerHTML;
 			$.ajax({
 				type : "POST",
 				url : "contratista_add/agregar",
@@ -1036,16 +1038,18 @@
 					alr_vence : alrv,
 					inventario : inv,
 					scan_inventario : sinv,
-					observaciones:	o
+					observaciones:	o,
+					estado:	est,
+					opcion: opc
 				},
 				success : function(data) {		
 					 //document.getElementById('apellido').value = "";
 					 //document.getElementById('documento').value = "0";
-					 if (data=="registroyaseencuentraenlabasededatos"){
+					 if (data=="semodifico"){
 						 $.smallBox({
-							title : "El registró ya se encuentra en la base de datos, NO fue guardado!!!",
+							title : "Fue modificado con éxito!!!",
 							content : "Por favor verifique<p class='text-align-right'><a href='javascript:void(0);' class='btn btn-danger btn-sm'>Ok</a></p>",
-							color : "#296191",
+							color : "#468D47",
 							//timeout: 8000,
 							icon : "fa fa-bell swing animated"
 						}); 
@@ -1172,7 +1176,7 @@
 		}
 		
 		function con(documento, nombre_completo, apellido, tipo_persona_id, dependencia_id, coreo_e, telefono, scan_foto, scan_cedula, scan_huella, empresa, nit_empresa, fecha_ven_curso_ley, codigo_trabajador, placa, eps, eps_vence, alr, alr_vence, inventario, scan_inventario, observaciones, estado, thi) {
-			alert(eps_vence);
+			//alert(eps_vence);
 			document.getElementById('documento').value=documento;
 			document.getElementById('nombre_completo').value=nombre_completo;
 			document.getElementById('apellido').value=apellido;

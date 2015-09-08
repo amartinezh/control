@@ -21,14 +21,6 @@ public class menuController_old {
 
 	@Autowired
 	private UserManager userManager;
-
-	
-	
-	@RequestMapping(value = "/visitante_add",method = RequestMethod.GET)
-	public String visitante_add(Map<String, Object> model) {
-		model.put("user", new User());
-		return "visitante/visitante_add";
-	}
 	
 	@RequestMapping(value = "/visitante_hab_ingre",method = RequestMethod.GET)
 	public String visitante_ingreso(Map<String, Object> model) {
@@ -52,12 +44,6 @@ public class menuController_old {
 	public String visitante_horario(Map<String, Object> model) {
 		model.put("user", new User());
 		return "visitante/visitante_horario";
-	}
-	
-	@RequestMapping(value = "/conductor_add",method = RequestMethod.GET)
-	public String conductor_add(Map<String, Object> model) {
-		model.put("user", new User());
-		return "conductor/conductor_add";
 	}
 	
 	@RequestMapping(value = "/conductor_ent",method = RequestMethod.GET)

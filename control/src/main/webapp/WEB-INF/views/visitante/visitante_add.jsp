@@ -155,16 +155,15 @@
 
 								<!-- widget content -->
 								<div class="widget-body">
-									<form:form id="frm" method="post" class="bv-form"
-										ModelAttribute="Visitante" commandName="Visitante">
-										<button type="submit" class="bv-hidden-submit"
-											style="display: none; width: 0px; height: 0px;"></button>
+									<form:form id="frm" method="post" class="bv-form" ModelAttribute="visitante" commandName="visitante">
+										<button type="submit" class="bv-hidden-submit" style="display: none; width: 0px; height: 0px;"></button>
 										<fieldset>
 											<div class="form-group">
 												<div class="row">
 													<legend>  Visitantes </legend>
-													<!-- <form:input type="hidden" path="documento" value="0" /> -->
-														<form:input type="hidden" path="estado" />
+													<form:input path="estado" type="text"
+															class="form-control" data-bv-field="Documento"
+															required="required" /> 
 													<div class="col-md-4">
 														<label class="control-label">Documento</label> 
 														<form:input path="documento" type="text"
@@ -397,12 +396,12 @@
 									</tr>
 								</thead>
 								<tbody> 
-									<c:forEach items="${VisitanteList}" var="obj"
+									<c:forEach items="${visitanteList}" var="obj"
 										varStatus="loopCounter">
 										<tr role="row" class="odd"> 
 											<td class="sorting_1"><span class="responsiveExpander"></span>
 												<a class="btn btn-success btn-circle btn-sx"
-												onclick="con('<c:out value="${obj.documento}"></c:out>','<c:out value="${obj.nombre_completo}"></c:out>','<c:out value="${obj.apellido}"></c:out>','<c:out value="${obj.tipo_persona_id.tipo_persona_id}"></c:out>','<c:out value="${obj.dependencia_id}"></c:out>','<c:out value="${obj.coreo_e}"></c:out>','<c:out value="${obj.telefono}"></c:out>','<c:out value="${obj.scan_foto}"></c:out>','<c:out value="${obj.scan_cedula}"></c:out>','<c:out value="${obj.scan_huella}"></c:out>','<c:out value="${obj.empresa}"></c:out>','<c:out value="${obj.nit_empresa}"></c:out>','<fmt:formatDate type="both" dateStyle="short" timeStyle="short" value="${obj.fecha_ven_curso_ley}" pattern="yyyy-MM-dd"/>','<c:out value="${obj.codigo_trabajador}"></c:out>','<c:out value="${obj.placa}"></c:out>','<c:out value="${obj.eps}"></c:out>','<fmt:formatDate type="both" dateStyle="short" timeStyle="short" value="${obj.eps_vence}" pattern="yyyy-MM-dd"/>','<c:out value="${obj.alr}"></c:out>','<fmt:formatDate type="both" dateStyle="short" timeStyle="short" value="${obj.alr_vence}" pattern="yyyy-MM-dd"/>','<c:out value="${obj.inventario}"></c:out>','<c:out value="${obj.scan_inventario}"></c:out>','<c:out value="${obj.observaciones}"></c:out>','<c:out value="${obj.estado}"></c:out>',$(this))">
+												onclick="con('<c:out value="${obj.documento}"></c:out>','<c:out value="${obj.nombre_completo}"></c:out>','<c:out value="${obj.apellido}"></c:out>','<c:out value="${obj.tipo_persona_id.tipo_persona_id}"></c:out>','<c:out value="${obj.dependencia_id}"></c:out>','<c:out value="${obj.coreo_e}"></c:out>','<c:out value="${obj.telefono}"></c:out>','<c:out value="${obj.scan_foto}"></c:out>','<c:out value="${obj.scan_cedula}"></c:out>','<c:out value="${obj.scan_huella}"></c:out>','<c:out value="${obj.empresa}"></c:out>','<c:out value="${obj.nit_empresa}"></c:out>','<c:out value="${obj.placa}"></c:out>','<c:out value="${obj.eps}"></c:out>','<fmt:formatDate type="both" dateStyle="short" timeStyle="short" value="${obj.eps_vence}" pattern="yyyy-MM-dd"/>','<c:out value="${obj.alr}"></c:out>','<fmt:formatDate type="both" dateStyle="short" timeStyle="short" value="${obj.alr_vence}" pattern="yyyy-MM-dd"/>','<c:out value="${obj.inventario}"></c:out>','<c:out value="${obj.scan_inventario}"></c:out>','<c:out value="${obj.observaciones}"></c:out>','<c:out value="${obj.estado}"></c:out>',$(this))">
 												<i class="fa fa-edit"></i></a> <a class="btn btn-danger btn-circle"
 												onclick="borrar(<c:out value="${obj.documento}"></c:out>, $(this))">
 												<i class="fa fa-trash-o"></i></a></td>
@@ -978,7 +977,7 @@
 			var opc=document.getElementById('elboton').innerHTML;
 			$.ajax({
 				type : "POST",
-				url : "Visitante_add/agregar",
+				url : "visitante_add/agregar",
 				processData: true,
 				data : {
 					documento: doc,
@@ -1055,7 +1054,7 @@
 		function del(dato, thi) {
 			$.ajax({
 				type : "POST",
-				url : "area/borrar",
+				url : "visitante/borrar",
 				data : {
 					area_id : dato
 				},
@@ -1111,7 +1110,7 @@
 			$('#elboton').text('Nuevo');
 			$.ajax({
 				type : "POST",
-				url : "area/cancelar",
+				url : "visitante/cancelar",
 				data : {
 					area_id: obj_id,
 					descripcion : des

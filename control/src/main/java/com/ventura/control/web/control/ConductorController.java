@@ -1,6 +1,5 @@
 package com.ventura.control.web.control;
 
-import java.text.ParseException;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,20 +10,20 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
-import com.ventura.control.domain.control.Visitante;
+import com.ventura.control.domain.control.Conductor;
 import com.ventura.control.domain.control.Dependencia;
 import com.ventura.control.domain.control.TipoPersona;
-import com.ventura.control.service.control.VisitanteService;
+import com.ventura.control.service.control.ConductorService;
 import com.ventura.control.service.control.DependeciaService;
 import com.ventura.control.service.control.TipoPersonaService;
  
 @Controller
-@RequestMapping("/visitante_add")
+@RequestMapping("/conductor_add")
 @SessionAttributes({ "user_inicio" })
-public class VisitanteController {
+public class ConductorController {
 
 	@Autowired
-	private VisitanteService visitante;
+	private ConductorService conductor;
 	
 	@Autowired
 	private DependeciaService dep;
@@ -34,11 +33,11 @@ public class VisitanteController {
 	
 	@RequestMapping(method = RequestMethod.GET)
 	public String panel(Map<String, Object> model) {
-		model.put("visitante", new Visitante());
+		model.put("conductor", new Conductor());
 		model.put("tipopersonaList", tip.cmbTipoPersona());
 		model.put("dependenciaList", dep.cmbDependencias());
-		model.put("visitanteList", visitante.listarVisitante());
-		return "Visitante/visitante_add";
+		model.put("ConductorList", conductor.listarConductor());
+		return "conductor/conductor_add";
 	}
 	
 	@RequestMapping(value = "agregar", method = RequestMethod.POST)
@@ -53,30 +52,17 @@ public class VisitanteController {
 			@RequestParam String scan_foto,
 			@RequestParam String scan_cedula,
 			@RequestParam String scan_huella,
-			@RequestParam String empresa,
-			@RequestParam String nit_empresa,
-			@RequestParam String placa,
-			@RequestParam String eps,
-			@RequestParam String eps_vence,
-			@RequestParam String alr,
-			@RequestParam String alr_vence,
-			@RequestParam String inventario,
-			@RequestParam String scan_inventario,
 			@RequestParam String observaciones,
 			@RequestParam String estado,
 			@RequestParam String opcion,
 			Map<String, Object> model) {
 		java.text.SimpleDateFormat formatter = new java.text.SimpleDateFormat("yyyy-MM-dd");
-		Visitante obj=null;
-		try {
-			obj = new Visitante(documento, nombre_completo, apellido, new TipoPersona(tipo_persona_id), new Dependencia(dependencia_id), coreo_e, telefono, scan_foto, scan_cedula, scan_huella, empresa, nit_empresa, placa, eps, formatter.parse(eps_vence), alr, formatter.parse(alr_vence), inventario, scan_inventario, observaciones,estado);
-		} catch (ParseException e) {
-			return "error";
-		}
+		Conductor obj=null;
+		obj = new Conductor(documento, nombre_completo, apellido, new TipoPersona(tipo_persona_id), new Dependencia(dependencia_id), coreo_e, telefono, scan_foto, scan_cedula, scan_huella, observaciones,estado);
 		System.out.println(opcion.toString());
-		if (visitante.validarVisitante(obj)){
+		if (conductor.validarConductor(obj)){
 			if (opcion.equals("Actualizar")){
-				visitante.agregarVisitante(true, obj); // True: merge
+				conductor.agregarConductor(true, obj); // True: merge
 				return "semodifico";
 			}
 			else{
@@ -84,7 +70,7 @@ public class VisitanteController {
 			}
 		}
 		else{
-				visitante.agregarVisitante(false, obj);
+				conductor.agregarConductor(false, obj);
 		}
 		return "<span class='responsiveExpander'></span><a class='btn btn-success btn-circle btn-sx'"
 				+ " onclick=\"con('"
@@ -99,22 +85,22 @@ public class VisitanteController {
 	}
 
 	@RequestMapping(value = "cancelar", method = RequestMethod.POST)
-	public @ResponseBody String cancelar(@RequestParam int area_id,
-			@RequestParam String descripcion, Map<String, Object> model) {
-		if (area_id > 0) {
+	public @ResponseBody String cancelar(@RequestParam int documento,
+			@RequestParam String nombre_completo, Map<String, Object> model) {
+		if (documento > 0) {
 			String cad = "";
 			return "<span class='responsiveExpander'></span><a class='btn btn-success btn-circle btn-sx'"
 					+ " onclick=\"con('"
-					+ area_id
+					+ documento
 					+ "', '"
-					+ descripcion
+					+ nombre_completo
 					+ "', $(this)"
 					+ ")\"><i class='fa fa-edit'></i></a>"
 					+ " <a class='btn btn-danger btn-circle' onclick='borrar("
-					+ area_id
+					+ documento
 					+ ", $(this))'><i class='fa fa-trash-o'></i></a>"
 					+ "<span class='responsiveExpander'></span>:::"
-					+ descripcion + "";
+					+ nombre_completo + "";
 		} else {
 			try {
 				Integer.parseInt("a");
@@ -128,7 +114,7 @@ public class VisitanteController {
 	@RequestMapping(value = "borrar", method = RequestMethod.POST)
 	public @ResponseBody String borrar(@RequestParam int area_id,
 			Map<String, Object> model) {
-		visitante.borrarVisitante(new Visitante());
+		conductor.borrarConductor(new Conductor());
 		return "";
 	}
 

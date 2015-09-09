@@ -606,18 +606,18 @@ CREATE TABLE control.control_taxi(
 )WITH ( OIDS=FALSE); ALTER TABLE control.control_taxi OWNER TO postgres;
 
 CREATE TABLE control.minuta(
-  id serial NOT NULL,
+  minuta_id serial NOT NULL,
   placa character varying(16),
   dependencia_id integer,
+  area_id integer,	
+  actividad_id integer,
   hora_sistema date,
   hora_inicio date,
   hora_terminacion date,
-  id_persona character varying(128),
-  area_id integer,	
-  actividad_id integer,
+  codigo_trabajador character varying(128),
   observaciones text,
   estado character varying(1),
-  CONSTRAINT minuta_pk PRIMARY KEY (id ),
+  CONSTRAINT minuta_pk PRIMARY KEY (minuta_id),
   CONSTRAINT fk6e68w0816ff3b56 FOREIGN KEY (dependencia_id) REFERENCES admin.dependencia (dependencia_id) ON UPDATE NO ACTION ON DELETE NO ACTION,
   CONSTRAINT fk6d68w0817ff9b56 FOREIGN KEY (area_id) REFERENCES admin.area (area_id) ON UPDATE NO ACTION ON DELETE NO ACTION,
   CONSTRAINT fk6d68w0818ff9b56 FOREIGN KEY (actividad_id) REFERENCES admin.actividad (actividad_id) ON UPDATE NO ACTION ON DELETE NO ACTION

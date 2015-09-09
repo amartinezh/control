@@ -446,7 +446,7 @@
 								Estadisticas</a></li>
 						</ul>
 					</li>
-					<li>
+					<!--  <li>
 						<a href="#"><i class="fa fa-lg fa-fw fa-male"></i>
 						<span class="menu-item-parent">Control Actividades</span></a>
 						<ul>
@@ -457,7 +457,7 @@
 							<li><a target="des" href="<c:url value="/visitante_add"/>"><i class="fa fa-signal"></i>
 								Estadisticas</a></li>
 						</ul>
-					</li>
+					</li>  -->
 					<li>
 						<a href="#"><i class="fa fa-lg fa-fw fa-random"></i>
 						<span class="menu-item-parent">Devoluciones</span></a>

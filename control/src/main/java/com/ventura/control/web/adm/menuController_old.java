@@ -70,22 +70,10 @@ public class menuController_old {
 		return "permiso/permiso_ret";
 	}
 	
-	@RequestMapping(value = "/transporte_agregar_bus",method = RequestMethod.GET)
-	public String transporte_bus_add(Map<String, Object> model) {
-		model.put("user", new User());
-		return "transporte/transporte_bus_add";
-	}
-	
 	@RequestMapping(value = "/transporte_consultar_bus",method = RequestMethod.GET)
 	public String transporte_bus_con(Map<String, Object> model) {
 		model.put("user", new User());
 		return "transporte/transporte_bus_con";
-	}
-
-	@RequestMapping(value = "/transporte_agregar_taxi",method = RequestMethod.GET)
-	public String transporte_taxi_add(Map<String, Object> model) {
-		model.put("user", new User());
-		return "transporte/transporte_taxi_add";
 	}
 	
 	@RequestMapping(value = "/transporte_consultar_taxi",method = RequestMethod.GET)

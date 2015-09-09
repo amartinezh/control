@@ -133,21 +133,8 @@
 	<!-- END NAVIGATION -->
 
 	<!-- MAIN PANEL -->
-	<div>
-
-		<div id="content">
-			<div class="alert alert-block alert-success">
-				<a class="close" data-dismiss="alert" href="#">×</a>
-				<h4 class="alert-heading">
-					<i class="fa fa-check-square-o"></i> Atención!
-				</h4>
-				<p>Especio para sacar los letreros de todo tipo</p>
-			</div>
-		</div>
-	</div>
+	
 	<!-- END MAIN CONTENT -->
-
-	</div>
 
 	<!-- widget grid -->
 	<section id="widget-grid" class="">
@@ -179,7 +166,8 @@
 
 						<!-- widget content -->
 						<div class="widget-body">
-							<form id="frm" method="post">
+							<form:form id="frm" method="post" class="bv-form"
+								ModelAttribute="controlBus" commandName="controlBus">
 								<fieldset>
 									<div class="form-group">
 										<div class="row">
@@ -203,8 +191,8 @@
 												</select>
 											</div>
 											<div class="col-sm-12 col-md-2">
-												<label class="control-label">Hora</label> <input
-													type="text" class="form-control" name="hora" />
+												<label class="control-label">Hora</label> <form:input
+													type="datetime-local" class="form-control" path="hora" />
 											</div>
 											<div class="col-sm-12 col-md-2">
 												<label class="control-label">Nro Personas</label> <input
@@ -217,8 +205,8 @@
 									<div class="form-group">
 										<div class="row">
 											<div class="col-sm-12 col-md-10">
-												<label class="control-label">Observaciones</label> <textarea
-													 class="form-control" name="observaciones" ></textarea>
+												<label class="control-label">Observaciones</label> <form:textarea
+													 class="form-control" path="observaciones" ></form:textarea>
 											</div>
 										</div>
 									</div>
@@ -233,7 +221,7 @@
 									</div>
 								</div>
 
-							</form>
+							</form:form>
 
 						</div>
 						<!-- end widget content -->

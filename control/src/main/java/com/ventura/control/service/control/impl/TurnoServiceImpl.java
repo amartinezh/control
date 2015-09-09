@@ -1,7 +1,9 @@
 package com.ventura.control.service.control.impl;
 
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -46,6 +48,20 @@ public class TurnoServiceImpl implements TurnoService {
 			}
 		}
 		return listTurno;
+	}
+	
+	@Transactional
+	public Map<Integer, String> cmbTurnos() {
+		Map<Integer, String> turnos = new HashMap<Integer, String>();
+		String sql = "Select t.turno_id as turno_id, t.descripcion as descripcion FROM Turno as t";
+		List<Object[]> data = turnoDao.listar(sql);
+		turnos.put(0, "Seleccione");
+		if (data != null) {
+			for (Object[] d : data) {
+				turnos.put(Integer.parseInt(d[0].toString()), d[1].toString());
+			}
+		}
+		return turnos;
 	}
 
 }

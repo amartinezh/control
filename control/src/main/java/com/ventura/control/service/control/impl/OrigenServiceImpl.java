@@ -1,7 +1,9 @@
 package com.ventura.control.service.control.impl;
 
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -47,6 +49,19 @@ public class OrigenServiceImpl implements OrigenService {
 			}
 		}
 		return listOrigen;
+	}
+	
+	public Map<Integer, String> cmbOrigenes() {
+		Map<Integer, String> origenes = new HashMap<Integer, String>();
+		String sql = "Select o.origen_id as origen_id, o.descripcion as descripcion FROM Origen as o";
+		List<Object[]> data = origenDao.listar(sql);
+		origenes.put(0, "Seleccione");
+		if (data != null) {
+			for (Object[] d : data) {
+				origenes.put(Integer.parseInt(d[0].toString()), d[1].toString());
+			}
+		}
+		return origenes;
 	}
 
 }

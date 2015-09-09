@@ -36,7 +36,7 @@ public class ConductorController {
 		model.put("conductor", new Conductor());
 		model.put("tipopersonaList", tip.cmbTipoPersona());
 		model.put("dependenciaList", dep.cmbDependencias());
-		model.put("ConductorList", conductor.listarConductor());
+		model.put("conductorList", conductor.listarConductor());
 		return "conductor/conductor_add";
 	}
 	
@@ -58,7 +58,7 @@ public class ConductorController {
 			Map<String, Object> model) {
 		java.text.SimpleDateFormat formatter = new java.text.SimpleDateFormat("yyyy-MM-dd");
 		Conductor obj=null;
-		obj = new Conductor(documento, nombre_completo, apellido, new TipoPersona(tipo_persona_id), new Dependencia(dependencia_id), coreo_e, telefono, scan_foto, scan_cedula, scan_huella, observaciones,estado);
+		obj = new Conductor(documento, nombre_completo, apellido, new TipoPersona(tipo_persona_id), new Dependencia(dependencia_id), coreo_e, telefono, scan_foto, scan_cedula, scan_huella, observaciones,"1");
 		System.out.println(opcion.toString());
 		if (conductor.validarConductor(obj)){
 			if (opcion.equals("Actualizar")){

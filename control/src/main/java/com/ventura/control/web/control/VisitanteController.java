@@ -38,7 +38,7 @@ public class VisitanteController {
 		model.put("tipopersonaList", tip.cmbTipoPersona());
 		model.put("dependenciaList", dep.cmbDependencias());
 		model.put("visitanteList", visitante.listarVisitante());
-		return "Visitante/visitante_add";
+		return "visitante/visitante_add";
 	}
 	
 	@RequestMapping(value = "agregar", method = RequestMethod.POST)

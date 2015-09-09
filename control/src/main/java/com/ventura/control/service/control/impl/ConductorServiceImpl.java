@@ -52,7 +52,7 @@ public class ConductorServiceImpl implements ConductorService {
 			for (Object[] d : data) {
 					try {
 						// codigo_trabajador d[13].toString()
-						listConductor.add(new Conductor(d[0].toString(), d[1].toString(), d[2].toString(), (TipoPersona) d[3], (Dependencia) d[4], d[5].toString(), d[6].toString(), d[7].toString(), d[8].toString(), d[9].toString(), d[10].toString(),"1"));
+						listConductor.add(new Conductor(d[0].toString(), d[1].toString(), d[2].toString(), (TipoPersona) d[3], (Dependencia) d[4], d[5].toString(), d[6].toString(), d[7].toString(), d[8].toString(), d[9].toString(), d[10].toString(), "1"));
 					} catch (NumberFormatException e) {
 						e.printStackTrace();
 					}

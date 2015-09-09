@@ -57,7 +57,7 @@ public class Visitante implements Serializable{
     private String empresa;
     
     @Column(name = "nit_empresa")
-    private String nitEmpresa;
+    private String nit_empresa;
     
     @Column(name = "placa")
     private String placa;
@@ -72,7 +72,7 @@ public class Visitante implements Serializable{
     private String alr;
     
     @Column(name = "alr_vence")
-    private Date alrVence;
+    private Date alr_vence;
     
     @Column(name = "inventario")
     private String inventario;
@@ -97,8 +97,8 @@ public class Visitante implements Serializable{
 			TipoPersona tipo_persona_id, Dependencia dependencia_id,
 			String coreo_e, String telefono, String scan_foto,
 			String scan_cedula, String scan_huella, String empresa,
-			String nitEmpresa, String placa, String eps, Date eps_vence,
-			String alr, Date alrVence, String inventario,
+			String nit_empresa, String placa, String eps, Date eps_vence,
+			String alr, Date alr_vence, String inventario,
 			String scan_inventario, String observaciones, String estado) {
 		super();
 		this.documento = documento;
@@ -112,12 +112,12 @@ public class Visitante implements Serializable{
 		this.scan_cedula = scan_cedula;
 		this.scan_huella = scan_huella;
 		this.empresa = empresa;
-		this.nitEmpresa = nitEmpresa;
+		this.nit_empresa = nit_empresa;
 		this.placa = placa;
 		this.eps = eps;
 		this.eps_vence = eps_vence;
 		this.alr = alr;
-		this.alrVence = alrVence;
+		this.alr_vence = alr_vence;
 		this.inventario = inventario;
 		this.scan_inventario = scan_inventario;
 		this.observaciones = observaciones;
@@ -212,12 +212,12 @@ public class Visitante implements Serializable{
 		this.empresa = empresa;
 	}
 
-	public String getNitEmpresa() {
-		return nitEmpresa;
+	public String getNit_empresa() {
+		return nit_empresa;
 	}
 
-	public void setNitEmpresa(String nitEmpresa) {
-		this.nitEmpresa = nitEmpresa;
+	public void setNit_empresa(String nit_empresa) {
+		this.nit_empresa = nit_empresa;
 	}
 
 	public String getPlaca() {
@@ -252,12 +252,12 @@ public class Visitante implements Serializable{
 		this.alr = alr;
 	}
 
-	public Date getAlrVence() {
-		return alrVence;
+	public Date getAlr_vence() {
+		return alr_vence;
 	}
 
-	public void setAlrVence(Date alrVence) {
-		this.alrVence = alrVence;
+	public void setAlr_vence(Date alr_vence) {
+		this.alr_vence = alr_vence;
 	}
 
 	public String getInventario() {
@@ -266,6 +266,21 @@ public class Visitante implements Serializable{
 
 	public void setInventario(String inventario) {
 		this.inventario = inventario;
+	}
+
+	@Override
+	public String toString() {
+		return "Visitante [documento=" + documento + ", nombre_completo="
+				+ nombre_completo + ", apellido=" + apellido
+				+ ", tipo_persona_id=" + tipo_persona_id + ", dependencia_id="
+				+ dependencia_id + ", coreo_e=" + coreo_e + ", telefono="
+				+ telefono + ", scan_foto=" + scan_foto + ", scan_cedula="
+				+ scan_cedula + ", scan_huella=" + scan_huella + ", empresa="
+				+ empresa + ", nit_empresa=" + nit_empresa + ", placa=" + placa
+				+ ", eps=" + eps + ", eps_vence=" + eps_vence + ", alr=" + alr
+				+ ", alr_vence=" + alr_vence + ", inventario=" + inventario
+				+ ", scan_inventario=" + scan_inventario + ", observaciones="
+				+ observaciones + ", estado=" + estado + "]";
 	}
 
 	public String getScan_inventario() {
@@ -290,21 +305,6 @@ public class Visitante implements Serializable{
 
 	public void setEstado(String estado) {
 		this.estado = estado;
-	}
-
-	@Override
-	public String toString() {
-		return "Visitante [documento=" + documento + ", nombre_completo="
-				+ nombre_completo + ", apellido=" + apellido
-				+ ", tipo_persona_id=" + tipo_persona_id + ", dependencia_id="
-				+ dependencia_id + ", coreo_e=" + coreo_e + ", telefono="
-				+ telefono + ", scan_foto=" + scan_foto + ", scan_cedula="
-				+ scan_cedula + ", scan_huella=" + scan_huella + ", empresa="
-				+ empresa + ", nitEmpresa=" + nitEmpresa + ", placa=" + placa
-				+ ", eps=" + eps + ", eps_vence=" + eps_vence + ", alr=" + alr
-				+ ", alrVence=" + alrVence + ", inventario=" + inventario
-				+ ", scan_inventario=" + scan_inventario + ", observaciones="
-				+ observaciones + ", estado=" + estado + "]";
 	}
     
     

@@ -161,9 +161,7 @@
 											<div class="form-group">
 												<div class="row">
 													<legend>  Visitantes </legend>
-													<form:input path="estado" type="text"
-															class="form-control" data-bv-field="Documento"
-															required="required" /> 
+													<form:input path="estado" type="hidden"/> 
 													<div class="col-md-4">
 														<label class="control-label">Documento</label> 
 														<form:input path="documento" type="text"
@@ -244,13 +242,7 @@
 														<label class="control-label">NIT Empresa</label>
 														<form:input path="nit_empresa" type="text"	class="form-control" data-bv-field="NIT Empresa" required="required" />
 													</div>
-												</div>
-											</div>
-										</fieldset>
-										<fieldset>
-											<div class="form-group">
-												<div class="row">
-													<div class="col-sm-4 col-md-6">
+													<div class="col-sm-4">
 														<label class="control-label">Placa Vehiculo</label>
 														<form:input path="placa" type="text"	class="form-control" data-bv-field="Empresa" required="required" />
 													</div>
@@ -1136,8 +1128,8 @@
 			});
 		}
 		
-		function con(documento, nombre_completo, apellido, tipo_persona_id, dependencia_id, coreo_e, telefono, scan_foto, scan_cedula, scan_huella, empresa, nit_empresa, fecha_ven_curso_ley, codigo_trabajador, placa, eps, eps_vence, alr, alr_vence, inventario, scan_inventario, observaciones, estado, thi) {
-			//alert(eps_vence);
+		function con(documento, nombre_completo, apellido, tipo_persona_id, dependencia_id, coreo_e, telefono, scan_foto, scan_cedula, scan_huella, empresa, nit_empresa, placa, eps, eps_vence, alr, alr_vence, inventario, scan_inventario, observaciones, estado, thi) {
+			//alert(placa);
 			document.getElementById('documento').value=documento;
 			document.getElementById('nombre_completo').value=nombre_completo;
 			document.getElementById('apellido').value=apellido;

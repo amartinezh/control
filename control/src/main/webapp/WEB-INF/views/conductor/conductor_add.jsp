@@ -296,7 +296,7 @@
 
 					<span class="widget-icon"> <i class="fa fa-table"></i>
 					</span>
-					<h2>conductors</h2>
+					<h2>Conductores</h2>
 
 					<span class="jarviswidget-loader"><i
 						class="fa fa-refresh fa-spin"></i></span>
@@ -342,7 +342,7 @@
 										<tr role="row" class="odd"> 
 											<td class="sorting_1"><span class="responsiveExpander"></span>
 												<a class="btn btn-success btn-circle btn-sx"
-												onclick="con('<c:out value="${obj.documento}"></c:out>','<c:out value="${obj.nombre_completo}"></c:out>','<c:out value="${obj.apellido}"></c:out>','<c:out value="${obj.tipo_persona_id.tipo_persona_id}"></c:out>','<c:out value="${obj.dependencia_id}"></c:out>','<c:out value="${obj.coreo_e}"></c:out>','<c:out value="${obj.telefono}"></c:out>','<c:out value="${obj.scan_foto}"></c:out>','<c:out value="${obj.scan_cedula}"></c:out>','<c:out value="${obj.scan_huella}"></c:out>','<c:out value="${obj.empresa}"></c:out>','<c:out value="${obj.nit_empresa}"></c:out>','<fmt:formatDate type="both" dateStyle="short" timeStyle="short" value="${obj.fecha_ven_curso_ley}" pattern="yyyy-MM-dd"/>','<c:out value="${obj.codigo_trabajador}"></c:out>','<c:out value="${obj.placa}"></c:out>','<c:out value="${obj.eps}"></c:out>','<fmt:formatDate type="both" dateStyle="short" timeStyle="short" value="${obj.eps_vence}" pattern="yyyy-MM-dd"/>','<c:out value="${obj.alr}"></c:out>','<fmt:formatDate type="both" dateStyle="short" timeStyle="short" value="${obj.alr_vence}" pattern="yyyy-MM-dd"/>','<c:out value="${obj.inventario}"></c:out>','<c:out value="${obj.scan_inventario}"></c:out>','<c:out value="${obj.observaciones}"></c:out>','<c:out value="${obj.estado}"></c:out>',$(this))">
+												onclick="con('<c:out value="${obj.documento}"></c:out>','<c:out value="${obj.nombre_completo}"></c:out>','<c:out value="${obj.apellido}"></c:out>','<c:out value="${obj.tipo_persona_id.tipo_persona_id}"></c:out>','<c:out value="${obj.dependencia_id.dependencia_id}"></c:out>','<c:out value="${obj.coreo_e}"></c:out>','<c:out value="${obj.telefono}"></c:out>','<c:out value="${obj.scan_foto}"></c:out>','<c:out value="${obj.scan_cedula}"></c:out>','<c:out value="${obj.scan_huella}"></c:out>','<c:out value="${obj.observaciones}"></c:out>','<c:out value="${obj.estado}"></c:out>',$(this))">
 												<i class="fa fa-edit"></i></a> <a class="btn btn-danger btn-circle"
 												onclick="borrar(<c:out value="${obj.documento}"></c:out>, $(this))">
 												<i class="fa fa-trash-o"></i></a></td>
@@ -985,8 +985,8 @@
 			});
 		}
 		
-		function con(documento, nombre_completo, apellido, tipo_persona_id, dependencia_id, coreo_e, telefono, scan_foto, scan_cedula, scan_huella, empresa, nit_empresa, fecha_ven_curso_ley, codigo_trabajador, placa, eps, eps_vence, alr, alr_vence, inventario, scan_inventario, observaciones, estado, thi) {
-			//alert(eps_vence);
+		function con(documento, nombre_completo, apellido, tipo_persona_id, dependencia_id, coreo_e, telefono, scan_foto, scan_cedula, scan_huella, observaciones, estado, thi) {
+			//alert(tipo_persona_id);
 			document.getElementById('documento').value=documento;
 			document.getElementById('nombre_completo').value=nombre_completo;
 			document.getElementById('apellido').value=apellido;

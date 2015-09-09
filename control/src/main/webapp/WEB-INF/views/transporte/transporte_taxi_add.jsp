@@ -171,18 +171,21 @@
 								<fieldset>
 									<div class="form-group">
 										<div class="row">
-											<div class="col-sm-12 col-md-2">
-												<label class="control-label">Código del Trabajador</label> 
-												<form:input
-													type="text" class="form-control" path="codigoTrabajador" />
+											<div class="col-sm-12 col-md-4">
+												<label class="control-label">Código del Trabajador</label>
+												<form:input type="hidden" path="controlTaxiId" value="0" />
+												<form:input type="text" class="form-control"
+													path="codigoTrabajador" />
 											</div>
-											<div class="col-sm-12 col-md-2">
-												<label class="control-label">Entrada</label> <form:input
-													type="datetime-local" class="form-control" path="horaEntrada" />
+											<div class="col-sm-12 col-md-4">
+												<label class="control-label">Entrada</label>
+												<form:input type="datetime-local" class="form-control"
+													path="horaEntrada" />
 											</div>
-											<div class="col-sm-12 col-md-2">
-												<label class="control-label">Salida</label> <form:input type="datetime-local"
-													class="form-control" path="horaSalida" />
+											<div class="col-sm-12 col-md-4">
+												<label class="control-label">Salida</label>
+												<form:input type="datetime-local" class="form-control"
+													path="horaSalida" />
 											</div>
 
 										</div>
@@ -191,13 +194,15 @@
 								<fieldset>
 									<div class="form-group">
 										<div class="row">
-											<div class="col-sm-12 col-md-2">
-												<label class="control-label">Nombre Conductor</label> <form:input
-													type="text" class="form-control" path="nombreConductor"/>
+											<div class="col-sm-12 col-md-4">
+												<label class="control-label">Nombre Conductor</label>
+												<form:input type="text" class="form-control"
+													path="nombreConductor" />
 											</div>
-											<div class="col-sm-12 col-md-2">
-												<label class="control-label">Observaciones</label> <form:input
-													type="text" class="form-control" path="observaciones" />
+											<div class="col-sm-12 col-md-8">
+												<label class="control-label">Observaciones</label>
+												<form:input type="text" class="form-control"
+													path="observaciones" />
 											</div>
 										</div>
 									</div>
@@ -205,9 +210,10 @@
 								<div class="form-actions">
 									<div class="row">
 										<div class="col-md-12">
-											<button class="btn btn-success" type="submit">
-												<i class="fa fa-eye"></i> Actualizar
-											</button>
+											<button id="cance" class="btn btn-danger" type="button"
+												onclick="cancelar()">Cancelar</button>
+											<button id="elboton" class="btn btn-success" type="button"
+												onclick="actualizar()">Nuevo</button>
 										</div>
 									</div>
 								</div>
@@ -555,6 +561,8 @@
 									update : countTasks
 								}).disableSelection();
 							});
+
+							$('#cance').hide();
 
 							// check and uncheck
 							$('.todo .checkbox > input[type="checkbox"]')
@@ -1259,6 +1267,59 @@
 							}, 500);
 
 						});
+
+		function actualizar() {
+			$("#frm").submit();
+			var id = document.getElementById('controlTaxiId').value;
+			var tra = document.getElementById('codigoTrabajador').value;
+			var ent = document.getElementById('horaEntrada').value;
+			var sal = document.getElementById('horaSalida').value;
+			var con = document.getElementById('nombreConductor').value;
+			var obs = document.getElementById('observaciones').value;
+			$
+					.ajax({
+						type : "POST",
+						url : "transporte_agregar_taxi/agregar",
+						data : {
+							id : id,
+							codigoTrabajador : tra,
+							horaEntrada : ent,
+							horaSalida : sal,
+							nombreConductor : con,
+							observaciones : obs
+						},
+						success : function(data) {
+							document.getElementById('controlTaxiId').value = "0";
+							document.getElementById('codigoTrabajador').value = "";
+							document.getElementById('horaEntrada').value = "";
+							document.getElementById('horaSalida').value = "";
+							document.getElementById('nombreConductor').value = "";
+							document.getElementById('observaciones').value = "";
+							var res = data.split(":::");
+							$('#datatable_fixed_column').dataTable().fnAddData(
+									[ res[0], res[1] ]);
+							$
+									.smallBox({
+										title : "La información se registró adecuadamente",
+										content : "Para ingresar un nuevo registro ingrese la información y presione el botón Actualizar",
+										color : "#5384AF",
+										timeout : 8000,
+										icon : "fa fa-bell swing animated"
+									});
+							$('#cance').hide();
+						},
+						error : function(data) {
+							$
+									.smallBox({
+										title : "El registró no fue guardado!",
+										content : "Por favor verifique<p class='text-align-right'><a href='javascript:void(0);' class='btn btn-danger btn-sm'>Ok</a></p>",
+										color : "#296191",
+										//timeout: 8000,
+										icon : "fa fa-bell swing animated"
+									});
+						}
+					});
+		}
 
 		$('#frm').bootstrapValidator({
 			feedbackIcons : {

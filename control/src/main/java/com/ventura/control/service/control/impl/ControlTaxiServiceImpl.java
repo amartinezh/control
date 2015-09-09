@@ -14,7 +14,7 @@ public class ControlTaxiServiceImpl implements ControlTaxiService {
 	private RepositorioDao controlTaxiDao;
 	
 	public void agregarControlTaxi(ControlTaxi controlTaxi) {
-		if(controlTaxi.getId() == 0) {
+		if(controlTaxi.getControlTaxiId() == 0) {
 			controlTaxiDao.agregar(controlTaxi);
 		}
 		

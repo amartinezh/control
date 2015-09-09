@@ -18,77 +18,108 @@ public class ControlTaxi implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = -4932858482298019612L;
-	
+
 	@Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Basic(optional = false)
-    @Column(name = "id")
-    private int id;
-    @Column(name = "codigo_trabajador")
-    private String codigoTrabajador;
-    @Column(name = "hora_sistema")
-    private String horaSistema;
-    @Column(name = "hora_entrada")
-    private String horaEntrada;
-    @Column(name = "hora_salida")
-    private String horaSalida;
-    @Column(name = "nombre_conductor")
-    private String nombreConductor;
-    @Column(name = "observaciones")
-    private String observaciones;
-    @Column(name = "estado")
-    private String estado;
-     
-    
-	public int getId() {
-		return id;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Basic(optional = false)
+	@Column(name = "control_taxi_id")
+	private int controlTaxiId;
+	@Column(name = "codigo_trabajador")
+	private String codigoTrabajador;
+	@Column(name = "hora_sistema")
+	private String horaSistema;
+	@Column(name = "hora_entrada")
+	private String horaEntrada;
+	@Column(name = "hora_salida")
+	private String horaSalida;
+	@Column(name = "nombre_conductor")
+	private String nombreConductor;
+	@Column(name = "observaciones")
+	private String observaciones;
+	@Column(name = "estado")
+	private String estado;
+
+	public ControlTaxi() {
+		// TODO Auto-generated constructor stub
 	}
+
+	public ControlTaxi(int controlTaxiId, String codigoTrabajador, String horaSistema,
+			String horaEntrada, String horaSalida, String nombreConductor,
+			String observaciones) {
+		this.controlTaxiId = controlTaxiId;
+		this.codigoTrabajador = codigoTrabajador;
+		this.horaSistema = horaSistema;
+		this.horaEntrada = horaEntrada;
+		this.horaSalida = horaSalida;
+		this.nombreConductor = nombreConductor;
+		this.observaciones = observaciones;
+		this.estado = "1";
+	}
+
+	public int getControlTaxiId() {
+		return controlTaxiId;
+	}
+
 	public String getCodigoTrabajador() {
 		return codigoTrabajador;
 	}
+
 	public String getHoraSistema() {
 		return horaSistema;
 	}
+
 	public String getHoraEntrada() {
 		return horaEntrada;
 	}
+
 	public String getHoraSalida() {
 		return horaSalida;
 	}
+
 	public String getNombreConductor() {
 		return nombreConductor;
 	}
+
 	public String getObservaciones() {
 		return observaciones;
 	}
+
 	public String getEstado() {
 		return estado;
 	}
-	public void setId(int id) {
-		this.id = id;
+
+	public void setControlTaxiId(int controlTaxiId) {
+		this.controlTaxiId = controlTaxiId;
 	}
+
 	public void setCodigoTrabajador(String codigoTrabajador) {
 		this.codigoTrabajador = codigoTrabajador;
 	}
+
 	public void setHoraSistema(String horaSistema) {
 		this.horaSistema = horaSistema;
 	}
+
 	public void setHoraEntrada(String horaEntrada) {
 		this.horaEntrada = horaEntrada;
 	}
+
 	public void setHoraSalida(String horaSalida) {
 		this.horaSalida = horaSalida;
 	}
+
 	public void setNombreConductor(String nombreConductor) {
 		this.nombreConductor = nombreConductor;
 	}
+
 	public void setObservaciones(String observaciones) {
 		this.observaciones = observaciones;
 	}
+
 	public void setEstado(String estado) {
 		this.estado = estado;
 	}
-	
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -100,7 +131,7 @@ public class ControlTaxi implements Serializable {
 				+ ((horaSalida == null) ? 0 : horaSalida.hashCode());
 		result = prime * result
 				+ ((horaSistema == null) ? 0 : horaSistema.hashCode());
-		result = prime * result + id;
+		result = prime * result + controlTaxiId;
 		result = prime * result
 				+ ((nombreConductor == null) ? 0 : nombreConductor.hashCode());
 		result = prime
@@ -110,6 +141,7 @@ public class ControlTaxi implements Serializable {
 				+ ((observaciones == null) ? 0 : observaciones.hashCode());
 		return result;
 	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -139,7 +171,7 @@ public class ControlTaxi implements Serializable {
 				return false;
 		} else if (!horaSistema.equals(other.horaSistema))
 			return false;
-		if (id != other.id)
+		if (controlTaxiId != other.controlTaxiId)
 			return false;
 		if (nombreConductor == null) {
 			if (other.nombreConductor != null)
@@ -158,7 +190,5 @@ public class ControlTaxi implements Serializable {
 			return false;
 		return true;
 	}
-    
-	
 
 }

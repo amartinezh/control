@@ -48,7 +48,7 @@ public class MinutaController {
 	
 	@RequestMapping(value = "agregar", method = RequestMethod.POST)
 	public @ResponseBody String agregar(
-			@RequestParam String minuta_id,
+			@RequestParam int minuta_id,
 			@RequestParam String placa,
 			@RequestParam int dependencia_id,
 			@RequestParam int area_id,
@@ -61,7 +61,7 @@ public class MinutaController {
 			@RequestParam String estado,
 			@RequestParam String opcion,
 			Map<String, Object> model) {
-		java.text.SimpleDateFormat formatter = new java.text.SimpleDateFormat("yyyy-MM-dd");
+		//java.text.SimpleDateFormat formatter = new java.text.SimpleDateFormat("yyyy-MM-dd");
 		Minuta obj=null;
 		obj = new Minuta(minuta_id, placa, new Dependencia(dependencia_id), new Area(area_id), new Actividad(actividad_id), hora_sistema, hora_inicio, hora_terminacion, codigo_trabajador, observaciones,"1");
 		System.out.println(opcion.toString());

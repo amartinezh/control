@@ -5,10 +5,13 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
@@ -22,7 +25,9 @@ public class Minuta implements Serializable{
 	
 	@Id
     @Column(name = "minuta_id")
-    private String minuta_id;
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator="control.minuta_minuta_id_seq")
+	@SequenceGenerator(name="control.minuta_minuta_id_seq", sequenceName="control.minuta_minuta_id_seq", allocationSize=1)
+	private int minuta_id;
 	
     @Column(name = "placa")
     private String placa;
@@ -60,11 +65,11 @@ public class Minuta implements Serializable{
     public Minuta() {
     }
 
-    public Minuta(String minuta_id) {
+    public Minuta(int minuta_id) {
         this.minuta_id = minuta_id;
     }
 
-	public Minuta(String minuta_id, String placa, Dependencia dependencia_id,
+	public Minuta(int minuta_id, String placa, Dependencia dependencia_id,
 			Area area_id, Actividad actividad_id, String hora_sistema,
 			String hora_inicio, String hora_terminacion,
 			String codigo_trabajador, String observaciones, String estado) {
@@ -82,11 +87,11 @@ public class Minuta implements Serializable{
 		this.estado = estado;
 	}
 
-	public String getMinuta_id() {
+	public int getMinuta_id() {
 		return minuta_id;
 	}
 
-	public void setMinuta_id(String minuta_id) {
+	public void setMinuta_id(int minuta_id) {
 		this.minuta_id = minuta_id;
 	}
 
@@ -183,4 +188,5 @@ public class Minuta implements Serializable{
 	}
     
     
+
 }

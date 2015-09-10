@@ -813,6 +813,7 @@
 			var hora_sistema = document.getElementById('hora_sistema').value;
 			var hora_inicio = document.getElementById('hora_inicio').value;
 			var hora_terminacion = document.getElementById('hora_terminacion').value;
+			var codigo_trabajador = document.getElementById('codigo_trabajador').value;
 			
 			var observaciones = document.getElementById('observaciones').value;
 			var estado = document.getElementById('estado').value;
@@ -830,6 +831,7 @@
 					hora_sistema: hora_sistema,
 					hora_inicio: hora_inicio,
 					hora_terminacion: hora_terminacion,
+					codigo_trabajador: codigo_trabajador,
 					observaciones:	observaciones,
 					estado:	estado,
 					opcion: opc

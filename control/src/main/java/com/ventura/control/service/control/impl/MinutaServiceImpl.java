@@ -53,7 +53,7 @@ public class MinutaServiceImpl implements MinutaService {
 		if (data != null) {
 			for (Object[] d : data) {
 					try {
-						listMinuta.add(new Minuta(d[0].toString(), d[1].toString(), (Dependencia) d[2], (Area) d[3], (Actividad) d[4], d[5].toString(), d[6].toString(), d[7].toString(), d[8].toString(), d[9].toString(), "1"));
+						listMinuta.add(new Minuta(0, d[1].toString(), (Dependencia) d[2], (Area) d[3], (Actividad) d[4], d[5].toString(), d[6].toString(), d[7].toString(), d[8].toString(), d[9].toString(), "1"));
 					} catch (NumberFormatException e) {
 						e.printStackTrace();
 					}

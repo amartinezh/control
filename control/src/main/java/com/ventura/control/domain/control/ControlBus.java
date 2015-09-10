@@ -28,6 +28,8 @@ public class ControlBus implements Serializable {
     private int control_bus_id;
 	@Column(name = "hora")
     private String hora;
+	@Column(name = "nro_pasajeros")
+	private int nroPasajeros;
     @Column(name = "observaciones")
     private String observaciones;
     @Column(name = "estado")
@@ -39,11 +41,28 @@ public class ControlBus implements Serializable {
     @ManyToOne
     private Origen origenId;
     
+    public ControlBus() {
+		// TODO Auto-generated constructor stub
+	}
+    
+    public ControlBus(int control_bus_id, String hora, int nroPasajeros, String observaciones, Turno turnoId, Origen origenId) {
+		this.control_bus_id = control_bus_id;
+		this.hora = hora;
+		this.nroPasajeros = nroPasajeros;
+		this.observaciones = observaciones; 
+		this.turnoId = turnoId;
+		this.origenId = origenId;
+		this.estado = "1";
+	}
+    
 	public int getControl_bus_id() {
 		return control_bus_id;
 	}
 	public String getHora() {
 		return hora;
+	}
+	public int getNroPasajeros() {
+		return nroPasajeros;
 	}
 	public String getObservaciones() {
 		return observaciones;
@@ -63,6 +82,9 @@ public class ControlBus implements Serializable {
 	}
 	public void setHora(String hora) {
 		this.hora = hora;
+	}
+	public void setNroPasajeros(int nroPasajeros) {
+		this.nroPasajeros = nroPasajeros;
 	}
 	public void setObservaciones(String observaciones) {
 		this.observaciones = observaciones;

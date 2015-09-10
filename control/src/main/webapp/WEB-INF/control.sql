@@ -581,6 +581,7 @@ CREATE TABLE control.control_bus(
   control_bus_id serial NOT NULL,
   turno_id integer NOT NULL,
   origen_id integer NOT NULL,
+  nro_pasajeros integer,
   hora character varying(20),
   observaciones text,
   estado character varying(1),

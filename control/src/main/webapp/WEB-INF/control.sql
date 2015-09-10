@@ -646,8 +646,8 @@ CREATE TABLE control.caja_menor
 )WITH (OIDS=FALSE); ALTER TABLE control.caja_menor OWNER TO postgres;
 
 CREATE TABLE control.devolucion(
-  id serial NOT NULL,
-  fecha date,
+  devolucion_id serial NOT NULL,
+  fecha character varying(20),
   placa character varying(16),
   conductor character varying(128),
   motivo_devolucion_id integer,
@@ -656,10 +656,10 @@ CREATE TABLE control.devolucion(
   cajas character varying(128),
   unidad character varying(128),
   pacas character varying(128),
-  elemnto character varying(128),
+  elemento character varying(128),
   observaciones text,
   estado character varying(1),
-  CONSTRAINT devolucion_pk PRIMARY KEY (id ),
+  CONSTRAINT devolucion_pk PRIMARY KEY (devolucion_id),
   CONSTRAINT fk6e68w0116fg3b56 FOREIGN KEY (motivo_devolucion_id) REFERENCES admin.motivo_devolucion (motivo_devolucion_id) ON UPDATE NO ACTION ON DELETE NO ACTION
 )WITH ( OIDS=FALSE); ALTER TABLE control.devolucion OWNER TO postgres;
 

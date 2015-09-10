@@ -133,21 +133,8 @@
 	<!-- END NAVIGATION -->
 
 	<!-- MAIN PANEL -->
-	<div>
 
-		<div id="content">
-			<div class="alert alert-block alert-success">
-				<a class="close" data-dismiss="alert" href="#">×</a>
-				<h4 class="alert-heading">
-					<i class="fa fa-check-square-o"></i> Atención!
-				</h4>
-				<p>Especio para sacar los letreros de todo tipo</p>
-			</div>
-		</div>
-	</div>
 	<!-- END MAIN CONTENT -->
-
-	</div>
 
 	<!-- widget grid -->
 	<section id="widget-grid" class="">
@@ -179,21 +166,22 @@
 
 						<!-- widget content -->
 						<div class="widget-body">
-							<form id="frm" method="post">
+							<form:form id="frm" method="post" class="bv-form"
+								ModelAttribute="devolucion" commandName="devolucion">
 								<fieldset>
 									<div class="form-group">
 										<div class="row">
 											<div class="col-sm-12 col-md-4">
-												<label class="control-label">Fecha</label> <input
-													type="text" class="form-control" name="id_persona" placeholder="Documento de Identificación"/>
+												<label class="control-label">Fecha</label> <form:input
+													type="datetime-local" class="form-control" path="fecha" />
 											</div>
 											<div class="col-sm-12 col-md-4">
-												<label class="control-label">Placa</label> <input
-													type="text" class="form-control" name="nombre_completo" />
+												<label class="control-label">Placa</label> <form:input
+													type="text" class="form-control" path="placa" />
 											</div>
 											<div class="col-sm-12 col-md-4">
-												<label class="control-label">Conductor</label> <input
-													type="text" class="form-control" name="apellido" />
+												<label class="control-label">Conductor</label> <form:input
+													type="text" class="form-control" path="conductor" />
 											</div>
 										</div>
 									</div>
@@ -202,26 +190,18 @@
 									<div class="form-group">
 										<div class="row">
 											<div class="col-md-3 selectContainer">
-												<label class="control-label">Motivo Devolución</label> <select
-													class="form-control" name="id_tipo_persona">
-													<option value="">Seleccione</option>
-													<option value="Contratista">Traslado Planta</option>
-													<option value="comedy">Averia</option>
-												</select>
+												<label class="control-label">Motivo Devolución</label> <form:select
+													class="form-control" path="motivoDevolucionId.motivo_devolucion_id" items="listMotivos"/>
 											</div>
-
-											<div class="col-sm-12 col-md-3">
-												<label class="control-label">Empresa Transporte</label> <input
-													type="text" class="form-control" name="correo_e" />
+											<div class="col-sm-12 col-md-5">
+												<label class="control-label">Empresa Transporte</label> <form:input
+													type="text" class="form-control" path="empresaTransporte" />
 											</div>
-											<div class="col-sm-12 col-md-3">
-												<label class="control-label">Ciudad</label> <input
-													type="text" class="form-control" name="telefono" />
+											<div class="col-sm-12 col-md-4">
+												<label class="control-label">Ciudad</label> <form:input
+													type="text" class="form-control" path="ciudad" />
 											</div>
-											<div class="col-sm-12 col-md-3">
-												<label class="control-label">Cajas</label> <input
-													type="text" class="form-control" name="telefono" />
-											</div>
+											
 										</div>
 									</div>
 								</fieldset>
@@ -229,20 +209,20 @@
 									<div class="form-group">
 										<div class="row">
 											<div class="col-sm-12 col-md-3">
-												<label class="control-label">Unidad</label> <input
-													type="text" class="form-control" name="correo_e" />
+												<label class="control-label">Cajas</label> <form:input
+													type="text" class="form-control" path="cajas" />
 											</div>
 											<div class="col-sm-12 col-md-3">
-												<label class="control-label">Pacas</label> <input
-													type="text" class="form-control" name="telefono" />
+												<label class="control-label">Unidad</label> <form:input
+													type="text" class="form-control" path="unidad" />
 											</div>
 											<div class="col-sm-12 col-md-3">
-												<label class="control-label">Pacas</label> <input
-													type="text" class="form-control" name="telefono" />
+												<label class="control-label">Pacas</label> <form:input
+													type="text" class="form-control" path="pacas" />
 											</div>
 											<div class="col-sm-12 col-md-3">
-												<label class="control-label">Elemento</label> <input
-													type="text" class="form-control" name="telefono" />
+												<label class="control-label">Elemento</label> <form:input
+													type="text" class="form-control" path="elemento" />
 											</div>
 										</div>
 									</div>
@@ -250,9 +230,9 @@
 								<fieldset>
 									<div class="form-group">
 										<div class="row">
-											<div class="col-sm-12 col-md-8">
-												<label class="control-label">Observaciones</label> <textarea
-													 class="form-control" name="observaciones" ></textarea>
+											<div class="col-sm-12 col-md-12">
+												<label class="control-label">Observaciones</label> <form:textarea
+													 class="form-control" path="observaciones" />
 											</div>
 										</div>
 									</div>
@@ -267,7 +247,7 @@
 									</div>
 								</div>
 
-							</form>
+							</form:form>
 
 						</div>
 						<!-- end widget content -->

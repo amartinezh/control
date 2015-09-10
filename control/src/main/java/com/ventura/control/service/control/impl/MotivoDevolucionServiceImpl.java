@@ -1,7 +1,9 @@
 package com.ventura.control.service.control.impl;
 
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -50,4 +52,18 @@ public class MotivoDevolucionServiceImpl implements MotivoDevolucionService {
 		return listMotDev;
 	}
 
+	@Transactional
+	public Map<Integer, String> cmbMotivoDevolucion() {
+		Map<Integer, String> motivos = new HashMap<Integer, String>();
+		String sql = "Select m.motivo_devolucion_id as motivo_devolucion_id, m.descripcion as descripcion FROM MotivoDevolucion as m";
+		List<Object[]> data = motivoDevolucionDao.listar(sql);
+		motivos.put(0, "Seleccione");
+		if (data != null) {
+			for (Object[] d : data) {
+				motivos.put(Integer.parseInt(d[0].toString()), d[1].toString());
+			}
+		}
+		return motivos;
+	}
+	
 }

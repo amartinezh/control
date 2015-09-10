@@ -172,27 +172,25 @@
 															class="form-control" data-bv-field="Nombre Completo"
 															required="required" />
 													</div>
+													<div class="col-md-8 selectContainer">
+														<label class="control-label">Dependencia</label> 
+													 	<form:select class="form-control" path="dependencia_id.dependencia_id" items="${dependenciaList}">
+														</form:select>
+													</div>
 												</div>
 											</div>
 										</fieldset>
 										<fieldset>
 											<div class="form-group">
 												<div class="row">
-													<div class="col-md-6 selectContainer">
-														<label class="control-label">Dependencia</label> 
-													 	<form:select class="form-control" path="dependencia_id.dependencia_id" items="${dependenciaList}">
-														</form:select>
-													</div>
-													
 													<div class="col-md-6 selectContainer">
 														<label class="control-label">Area</label> 
 													 	<form:select class="form-control" path="area_id.area_id" items="${areaList}">
 														</form:select>
 													</div>
-		
 													<div class="col-md-6 selectContainer">
 														<label class="control-label">Actividad</label> 
-													 	<form:select class="form-control" path="dependencia_id.dependencia_id" items="${dependenciaList}">
+													 	<form:select class="form-control" path="actividad_id.actividad_id" items="${actividadList}">
 														</form:select>
 													</div>
 												</div>
@@ -201,38 +199,29 @@
 										<fieldset>
 											<div class="form-group">
 												<div class="row">
-													<div class="col-md-6">
-														<label class="control-label">Correo  Electrónico</label>
-														<form:input path="coreo_e" type="text"	class="form-control" data-bv-field="Coreo Electrónico" required="required" />
+													<div class="col-md-4">
+														<label class="control-label">Hora Sistema</label>
+														<form:input path="hora_sistema" type="text"	class="form-control" data-bv-field="Hora Sistema" required="required" />
 													</div>
-													<div class="col-md-6">
-														<label class="control-label">Teléfonos</label>
-														<form:input path="telefono" type="text"	class="form-control" data-bv-field="Teléfono" required="required" />
+													<div class="col-md-4">
+														<label class="control-label">Hora Inicio</label>
+														<form:input path="hora_inicio" type="text"	class="form-control" data-bv-field="Hora Inicio" required="required" />
+													</div>
+													<div class="col-md-4">
+														<label class="control-label">Hora Terminación</label>
+														<form:input path="hora_terminacion" type="text"	class="form-control" data-bv-field="Hora Terminacion" required="required" />
 													</div>
 												</div>
 											</div>
 										</fieldset>
+										
 										<fieldset>
 											<div class="form-group">
 												<div class="row">
 													<div class="col-md-4">
-														<label class="control-label">Archivo Foto</label> 
-														<input type="text" id="scan_foto2" name="scan_foto2" readonly/><form:input path="scan_foto" type="file"	class="form-control" data-bv-field="Foto" required="required" />
+														<label class="control-label">Codigo Trabajador</label>
+														<form:input path="codigo_trabajador" type="text"	class="form-control" data-bv-field="Codigo Trabajador" required="required" />
 													</div>
-													<div class="col-md-4">
-														<label class="control-label input-file">Archivo Cédula</label>
-														<input type="text" id="scan_cedula2" name="scan_cedula2" readonly/><form:input path="scan_cedula" type="file"	class="form-control" data-bv-field="Cédula" required="required" />
-													</div>
-													<div class="col-md-4">
-														<label class="control-label">Archivo Huella</label>
-														<input type="text" id="scan_huella2" name="scan_huella2" readonly/><form:input path="scan_huella" type="file"	class="form-control" data-bv-field="Huella" required="required" />
-													</div>
-												</div>
-											</div>
-										</fieldset>
-										<fieldset>
-											<div class="form-group">
-												<div class="row">
 													<div class="col-md-12">
 														<label class="control-label">Observaciones</label> 
 														<form:textarea path="observaciones" type="text" class="form-control" data-bv-field="Placa" required="required" />
@@ -559,7 +548,7 @@
 									validating : 'glyphicon glyphicon-refresh'
 								},
 								fields : {
-									documento : {
+									minuta_id : {
 										group : '.col-md-4',
 										validators : {
 											notEmpty : {
@@ -571,7 +560,7 @@
 											}
 										}
 									},
-									nombreCompleto : {
+									placa : {
 										group : '.col-md-4',
 										validators : {
 											notEmpty : {
@@ -579,7 +568,7 @@
 											}
 										}
 									},
-									apellido : {
+									dependencia_id : {
 										group : '.col-md-4',
 										validators : {
 											notEmpty : {
@@ -587,7 +576,7 @@
 											}
 										}
 									},
-									coreoE : {
+									area_id : {
 										group : '.col-md-6',
 										validators : {
 											notEmpty : {
@@ -595,7 +584,7 @@
 											}
 										}
 									},
-									telefono : {
+									actividad_id : {
 										group : '.col-md-6',
 										validators : {
 											notEmpty : {
@@ -603,7 +592,7 @@
 											}
 										}
 									},
-									scanFoto : {
+									hora_sistema : {
 										group : '.col-md-4',
 										validators : {
 											notEmpty : {
@@ -611,7 +600,7 @@
 											}
 										}
 									},
-									scanCedula : {
+									hora_inicio : {
 										group : '.col-md-4',
 										validators : {
 											notEmpty : {
@@ -619,7 +608,7 @@
 											}
 										}
 									},
-									scanHuella : {
+									hora_terminacion : {
 										group : '.col-md-4',
 										validators : {
 											notEmpty : {
@@ -809,45 +798,40 @@
 
 		function actualizar() {
 			$( "#frm" ).submit();
-			var doc = document.getElementById('documento').value;
-			var nc = document.getElementById('nombre_completo').value;
-			var ap = document.getElementById('apellido').value;
+			var minuta_id = document.getElementById('minuta_id').value;
+			var placa = document.getElementById('placa').value;
 			
-			//var tipoPersonaId = document.getElementById('tipoPersonaId.tipo_persona_id').value;
-			var x = document.getElementById('tipo_persona_id.tipo_persona_id').selectedIndex;
-			var tpi = document.getElementsByTagName("option")[x].value
-			
-			
-			//var dependencia_id = document.getElementById('dependencia_id.dependencia_id').value;
 			x = document.getElementById('dependencia_id.dependencia_id').selectedIndex;
-			var di = document.getElementsByTagName("option")[x].value
+			var dependencia_id = document.getElementsByTagName("option")[x].value
 			
-			var ce = document.getElementById('coreo_e').value;
-			var te = document.getElementById('telefono').value;
-			var sf = document.getElementById('scan_foto').value;
-			var sc = document.getElementById('scan_cedula').value;
-			var sh = document.getElementById('scan_huella').value;
+			var x = document.getElementById('area_id.area_id').selectedIndex;
+			var area_id = document.getElementsByTagName("option")[x].value
 			
-			var o = document.getElementById('observaciones').value;
-			var est = document.getElementById('estado').value;
+			var x = document.getElementById('actividad_id.actividad_id').selectedIndex;
+			var actividad_id = document.getElementsByTagName("option")[x].value
+			
+			var hora_sistema = document.getElementById('hora_sistema').value;
+			var hora_inicio = document.getElementById('hora_inicio').value;
+			var hora_terminacion = document.getElementById('hora_terminacion').value;
+			
+			var observaciones = document.getElementById('observaciones').value;
+			var estado = document.getElementById('estado').value;
 			var opc=document.getElementById('elboton').innerHTML;
 			$.ajax({
 				type : "POST",
-				url : "Minuta_add/agregar",
+				url : "minuta_add/agregar",
 				processData: true,
 				data : {
-					documento: doc,
-					nombre_completo: nc,
-					apellido: ap,
-					tipo_persona_id: tpi,
-					dependencia_id: di,
-					coreo_e: ce,
-					telefono: te,
-					scan_foto: sf,
-					scan_cedula: sc,
-					scan_huella: sh,
-					observaciones:	o,
-					estado:	est,
+					minuta_id: minuta_id,
+					placa: placa,
+					dependencia_id: dependencia_id,
+					area_id: area_id,
+					actividad_id: actividad_id,
+					hora_sistema: hora_sistema,
+					hora_inicio: hora_inicio,
+					hora_terminacion: hora_terminacion,
+					observaciones:	observaciones,
+					estado:	estado,
 					opcion: opc
 				},
 				success : function(data) {		
@@ -899,7 +883,7 @@
 		function del(dato, thi) {
 			$.ajax({
 				type : "POST",
-				url : "Minuta_add/borrar",
+				url : "minuta_add/borrar",
 				data : {
 					area_id : dato
 				},
@@ -955,7 +939,7 @@
 			$('#elboton').text('Nuevo');
 			$.ajax({
 				type : "POST",
-				url : "Minuta_add/cancelar",
+				url : "minuta_add/cancelar",
 				data : {
 					area_id: obj_id,
 					descripcion : des

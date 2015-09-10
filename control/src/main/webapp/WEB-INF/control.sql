@@ -730,6 +730,8 @@ CREATE TABLE control.correspondencia(
   INSERT INTO nomina.tipo_permiso(descripcion, estado) VALUES ('Diligencia Bancaria', '1');
   INSERT INTO admin.tipo_persona(descripcion, estado) VALUES ('Contratista administracion', '1');
   INSERT INTO admin.tipo_persona(descripcion, estado) VALUES ('Contratista planta', '1');
+  INSERT INTO admin.area(descripcion, estado) VALUES ('Area', '1');
+  INSERT INTO admin.actividad(descripcion, estado) VALUES ('Actividad', '1');
 
 
   

@@ -56,6 +56,7 @@ public class ActividadServiceImpl implements ActividadService {
 		LinkedHashMap<Integer, String> listActividad = new LinkedHashMap<Integer, String>();
 		String sql = "Select a.actividad_id as actividad_id, a.descripcion as descripcion FROM Actividad as a";
 		List<Object[]> data = actividadDao.listar(sql);
+		listActividad.put(0, "Seleccione");
 		if (data != null) {
 			for (Object[] d : data) {
 				listActividad.put(Integer.parseInt(d[0].toString()), d[1].toString());

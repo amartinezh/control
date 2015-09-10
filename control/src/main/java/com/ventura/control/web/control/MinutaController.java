@@ -14,10 +14,10 @@ import com.ventura.control.domain.control.Actividad;
 import com.ventura.control.domain.control.Area;
 import com.ventura.control.domain.control.Minuta;
 import com.ventura.control.domain.control.Dependencia;
-import com.ventura.control.domain.control.TipoPersona;
+import com.ventura.control.service.control.ActividadService;
+import com.ventura.control.service.control.AreaService;
 import com.ventura.control.service.control.MinutaService;
 import com.ventura.control.service.control.DependeciaService;
-import com.ventura.control.service.control.TipoPersonaService;
  
 @Controller
 @RequestMapping("/minuta_add")
@@ -31,13 +31,17 @@ public class MinutaController {
 	private DependeciaService dep;
 	
 	@Autowired
-	private TipoPersonaService tip;
+	private AreaService area;
+	
+	@Autowired
+	private ActividadService actividad;
 	
 	@RequestMapping(method = RequestMethod.GET)
 	public String panel(Map<String, Object> model) {
 		model.put("minuta", new Minuta());
-		model.put("tipopersonaList", tip.cmbTipoPersona());
 		model.put("dependenciaList", dep.cmbDependencias());
+		model.put("areaList", area.cmbAreas());
+		model.put("actividadList", actividad.cmbActividades());
 		model.put("minutaList", minuta.listarMinuta());
 		return "minuta/minuta_add";
 	}

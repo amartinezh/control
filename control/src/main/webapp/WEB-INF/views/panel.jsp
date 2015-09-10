@@ -428,7 +428,7 @@
 						<a href="#"><i class="fa fa-lg fa-fw fa-puzzle-piece"></i>
 						<span class="menu-item-parent">Minutas Digitales</span></a>
 						<ul>
-							<li><a target="des" href="<c:url value="/minuta_registrar"/>"><i class="fa fa-save"></i>
+							<li><a target="des" href="<c:url value="/minuta_add"/>"><i class="fa fa-save"></i>
 								Registrar</a></li>
 							<li><a target="des" href="<c:url value="/minuta_estadistica"/>"><i class="fa fa-signal"></i>
 								Estadisticas</a></li>

@@ -182,7 +182,7 @@
 												<form:select class="form-control" path="origenId.origen_id"
 													items="${listOrigenes }" />
 											</div>
-											<div class="col-sm-12 col-md-4">
+											<div class="col-sm-12 col-md-3">
 												<label class="control-label">Hora</label>
 												<form:input type="datetime-local" class="form-control"
 													path="hora" />
@@ -198,7 +198,7 @@
 								<fieldset>
 									<div class="form-group">
 										<div class="row">
-											<div class="col-sm-12 col-md-12">
+											<div class="col-sm-12 col-md-11">
 												<label class="control-label">Observaciones</label>
 												<form:textarea class="form-control" path="observaciones" />
 											</div>

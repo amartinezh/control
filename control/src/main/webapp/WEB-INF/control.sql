@@ -664,7 +664,7 @@ CREATE TABLE control.devolucion(
 )WITH ( OIDS=FALSE); ALTER TABLE control.devolucion OWNER TO postgres;
 
 CREATE TABLE control.exportacion(
-  id serial NOT NULL,
+  exportacion_id serial NOT NULL,
   fecha date,
   tipo_producto_id integer,
   cliente character varying(128),
@@ -691,7 +691,7 @@ CREATE TABLE control.exportacion(
   vigilante_proteccion character varying(128),
   observaciones text,
   estado character varying(1),
-  CONSTRAINT exportacion_pk PRIMARY KEY (id),
+  CONSTRAINT exportacion_pk PRIMARY KEY (exportacion_id),
   CONSTRAINT fk6e68w0116fg3r56 FOREIGN KEY (tipo_producto_id) REFERENCES admin.tipo_producto (tipo_producto_id)ON UPDATE NO ACTION ON DELETE NO ACTION 
 )WITH (OIDS=FALSE); ALTER TABLE control.exportacion OWNER TO postgres;
 

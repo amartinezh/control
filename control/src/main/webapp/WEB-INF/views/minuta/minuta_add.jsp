@@ -164,7 +164,7 @@
 												<div class="row">
 													<legend>  Minutas </legend>
 													<form:input type="hidden" path="estado" />
-													<form:input type="hidden" path="minuta_id" />
+													<form:input type="hidden" path="minuta_id" value="0"/>
 													
 													<div class="col-md-4">
 														<label class="control-label">Placa</label>
@@ -322,17 +322,17 @@
 									</tr>
 								</thead>
 								<tbody> 
-									<c:forEach items="${MinutaList}" var="obj"
+									<c:forEach items="${minutaList}" var="obj"
 										varStatus="loopCounter">
 										<tr role="row" class="odd"> 
 											<td class="sorting_1"><span class="responsiveExpander"></span>
 												<a class="btn btn-success btn-circle btn-sx"
-												onclick="con('<c:out value="${obj.documento}"></c:out>','<c:out value="${obj.nombre_completo}"></c:out>','<c:out value="${obj.apellido}"></c:out>','<c:out value="${obj.tipo_persona_id.tipo_persona_id}"></c:out>','<c:out value="${obj.dependencia_id.dependencia_id}"></c:out>','<c:out value="${obj.coreo_e}"></c:out>','<c:out value="${obj.telefono}"></c:out>','<c:out value="${obj.scan_foto}"></c:out>','<c:out value="${obj.scan_cedula}"></c:out>','<c:out value="${obj.scan_huella}"></c:out>','<c:out value="${obj.observaciones}"></c:out>','<c:out value="${obj.estado}"></c:out>',$(this))">
+												onclick="con('<c:out value="${obj.minuta_id}"></c:out>','<c:out value="${obj.placa}"></c:out>','<c:out value="${obj.dependencia_id.dependencia_id}"></c:out>','<c:out value="${obj.area_id.area_id}"></c:out>','<c:out value="${obj.actividad_id.actividad_id}"></c:out>','<c:out value="${obj.hora_sistema}"></c:out>','<c:out value="${obj.hora_inicio}"></c:out>','<c:out value="${obj.hora_terminacion}"></c:out>','<c:out value="${obj.codigo_trabajador}"></c:out>','<c:out value="${obj.observaciones}"></c:out>','<c:out value="${obj.estado}"></c:out>',$(this))">
 												<i class="fa fa-edit"></i></a> <a class="btn btn-danger btn-circle"
-												onclick="borrar(<c:out value="${obj.documento}"></c:out>, $(this))">
+												onclick="borrar(<c:out value="${obj.minuta_id}"></c:out>, $(this))">
 												<i class="fa fa-trash-o"></i></a></td>
 											<td class="sorting_1"><span class="responsiveExpander"></span>
-												<c:out value="${obj.nombre_completo}"></c:out></td>
+												<c:out value="${obj.placa}"></c:out></td>
 										</tr>
 									</c:forEach>
 								</tbody>
@@ -967,18 +967,17 @@
 			});
 		}
 		
-		function con(documento, nombre_completo, apellido, tipo_persona_id, dependencia_id, coreo_e, telefono, scan_foto, scan_cedula, scan_huella, observaciones, estado, thi) {
+		function con(minuta_id, placa, dependencia_id, area_id, actividad_id, hora_sistema, hora_inicio, hora_terminacion, codigo_trabajador, observaciones, estado, thi) {
 			//alert(tipo_persona_id);
-			document.getElementById('documento').value=documento;
-			document.getElementById('nombre_completo').value=nombre_completo;
-			document.getElementById('apellido').value=apellido;
-			document.getElementById('tipo_persona_id.tipo_persona_id').selectedIndex=tipo_persona_id;
-			document.getElementById('dependencia_id.dependencia_id').selectedIndex=dependencia_id;
-			document.getElementById('coreo_e').value=coreo_e;
-			document.getElementById('telefono').value=telefono;
-			document.getElementById('scan_foto2').value=scan_foto;
-			document.getElementById('scan_cedula2').value=scan_cedula;
-			document.getElementById('scan_huella2').value=scan_huella;
+			document.getElementById('minuta_id').value=0;
+			document.getElementById('placa').value=placa;
+			document.getElementById('dependencia_id.dependencia_id').value=dependencia_id;
+			document.getElementById('area_id.area_id').selectedIndex=area_id;
+			document.getElementById('actividad_id.actividad_id').selectedIndex=actividad_id;
+			document.getElementById('hora_sistema').value=hora_sistema;
+			document.getElementById('hora_inicio').value=hora_inicio;
+			document.getElementById('hora_terminacion').value=hora_terminacion;
+			document.getElementById('codigo_trabajador').value=codigo_trabajador;
 			document.getElementById('observaciones').value=observaciones;
 			document.getElementById('estado').value=estado;
 			$('#cance').show();

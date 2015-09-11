@@ -63,10 +63,12 @@ public class MinutaController {
 			Map<String, Object> model) {
 		//java.text.SimpleDateFormat formatter = new java.text.SimpleDateFormat("yyyy-MM-dd");
 		Minuta obj=null;
-		obj = new Minuta(minuta_id, placa, new Dependencia(dependencia_id), new Area(area_id), new Actividad(actividad_id), hora_sistema, hora_inicio, hora_terminacion, codigo_trabajador, observaciones,"1");
-		System.out.println(opcion.toString());
-		if (minuta.validarMinuta(obj)){
+		obj = new Minuta(0, placa, new Dependencia(dependencia_id), new Area(area_id), new Actividad(actividad_id), hora_sistema, hora_inicio, hora_terminacion, codigo_trabajador, observaciones,"1");
+		
+		if (minuta_id == 0){
 			if (opcion.equals("Actualizar")){
+				System.out.println(opcion.toString());
+				System.out.println(minuta_id);
 				minuta.agregarMinuta(true, obj); // True: merge
 				return "semodifico";
 			}

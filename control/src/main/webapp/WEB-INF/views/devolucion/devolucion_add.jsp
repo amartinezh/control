@@ -172,6 +172,7 @@
 									<div class="form-group">
 										<div class="row">
 											<div class="col-sm-12 col-md-4">
+												<form:input type="hidden" path="devolucionId" value="0" />
 												<label class="control-label">Fecha</label> <form:input
 													type="datetime-local" class="form-control" path="fecha" />
 											</div>
@@ -189,9 +190,9 @@
 								<fieldset>
 									<div class="form-group">
 										<div class="row">
-											<div class="col-md-3 selectContainer">
+											<div class="col-md-3 selectContainer">												
 												<label class="control-label">Motivo Devolución</label> <form:select
-													class="form-control" path="motivoDevolucionId.motivo_devolucion_id" items="listMotivos"/>
+													class="form-control" path="motivoDevolucionId.motivo_devolucion_id" items="${listMotivos}"/>
 											</div>
 											<div class="col-sm-12 col-md-5">
 												<label class="control-label">Empresa Transporte</label> <form:input
@@ -240,9 +241,10 @@
 								<div class="form-actions">
 									<div class="row">
 										<div class="col-md-12">
-											<button class="btn btn-success" type="submit">
-												<i class="fa fa-eye"></i> Actualizar
-											</button>
+											<button id="cance" class="btn btn-danger" type="button"
+												onclick="cancelar()">Cancelar</button>
+											<button id="elboton" class="btn btn-success" type="button"
+												onclick="actualizar()">Nuevo</button>
 										</div>
 									</div>
 								</div>
@@ -558,6 +560,8 @@
 
 							// DO NOT REMOVE : GLOBAL FUNCTIONS!
 							pageSetUp();
+						
+							$('#cance').hide();
 
 							/*
 							 * PAGE RELATED SCRIPTS
@@ -1298,6 +1302,68 @@
 							}, 500);
 
 						});
+		
+		function actualizar() {
+			$("#frm").submit();
+			var did = document.getElementById('devolucionId').value;
+			var fe = document.getElementById('fecha').value;
+			var placa = document.getElementById('placa').value;
+			var cond = document.getElementById('conductor').value;
+			var emp = document.getElementById('empresaTransporte').value;
+			var ciu = document.getElementById('ciudad').value;
+			var caj = document.getElementById('cajas').value;
+			var uni = document.getElementById('unidad').value;
+			var pac = document.getElementById('pacas').value;
+			var ele = document.getElementById('elemento').value;
+			var obs = document.getElementById('observaciones').value;
+			var mot = document.getElementById('motivoDevolucionId.motivo_devolucion_id').value;
+			$
+					.ajax({
+						type : "POST",
+						url : "llave_devolucion/agregar",
+						data : {
+							devolucion_id : did,
+							fecha: fe,
+							placa: placa,
+							conductor: cond,
+							motivo_id: mot,
+							empresaTransporte: emp,
+							ciudad: ciu,
+							cajas: caj,
+							unidad: uni,
+							pacas: pac,
+							elemento: ele,
+							observaciones : obs						
+						},
+						success : function(data) {
+							//	document.getElementById('codigo_trabajador').value = "";
+							//document.getElementById('permiso_id').value = "0";
+							var res = data.split(":::");
+							$('#datatable_fixed_column').dataTable().fnAddData(
+									[ res[0], res[1] ]);
+							$
+									.smallBox({
+										title : "La información se registró adecuadamente",
+										content : "Para ingresar un nuevo registro ingrese la información y presione el botón Actualizar",
+										color : "#5384AF",
+										timeout : 8000,
+										icon : "fa fa-bell swing animated"
+									});
+							$('#cance').hide();
+						},
+						error : function(data) {
+							$
+									.smallBox({
+										title : "El registró no fue guardado!",
+										content : "Por favor verifique<p class='text-align-right'><a href='javascript:void(0);' class='btn btn-danger btn-sm'>Ok</a></p>",
+										color : "#296191",
+										//timeout: 8000,
+										icon : "fa fa-bell swing animated"
+									});
+						}
+					});
+		}
+		
 
 		$('#frm')
 				.bootstrapValidator(

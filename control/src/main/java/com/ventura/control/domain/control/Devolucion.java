@@ -13,123 +13,167 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="devolucion", schema="control")
+@Table(name = "devolucion", schema = "control")
 public class Devolucion implements Serializable {
-	
+
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = -2024196576848386112L;
 	@Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Basic(optional = false)
-    @Column(name = "devolucion_id")
-    private int devolucionId;
-    @Column(name = "fecha")
-    private String fecha;
-    @Column(name = "placa")
-    private String placa;
-    @Column(name = "conductor")
-    private String conductor;
-    @Column(name = "empresa_transporte")
-    private String empresaTransporte;
-    @Column(name = "ciudad")
-    private String ciudad;
-    @Column(name = "cajas")
-    private String cajas;
-    @Column(name = "unidad")
-    private String unidad;
-    @Column(name = "pacas")
-    private String pacas;
-    @Column(name = "elemento")
-    private String elemento;
-    @Column(name = "observaciones")
-    private String observaciones;
-    @Column(name = "estado")
-    private String estado;
-    @JoinColumn(name = "motivo_devolucion_id", referencedColumnName = "motivo_devolucion_id")
-    @ManyToOne
-    private MotivoDevolucion motivoDevolucionId;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Basic(optional = false)
+	@Column(name = "devolucion_id")
+	private int devolucionId;
+	@Column(name = "fecha")
+	private String fecha;
+	@Column(name = "placa")
+	private String placa;
+	@Column(name = "conductor")
+	private String conductor;
+	@Column(name = "empresa_transporte")
+	private String empresaTransporte;
+	@Column(name = "ciudad")
+	private String ciudad;
+	@Column(name = "cajas")
+	private String cajas;
+	@Column(name = "unidad")
+	private String unidad;
+	@Column(name = "pacas")
+	private String pacas;
+	@Column(name = "elemento")
+	private String elemento;
+	@Column(name = "observaciones")
+	private String observaciones;
+	@Column(name = "estado")
+	private String estado;
+	@JoinColumn(name = "motivo_devolucion_id", referencedColumnName = "motivo_devolucion_id")
+	@ManyToOne
+	private MotivoDevolucion motivoDevolucionId;
 
-    public Devolucion() {
+	public Devolucion() {
 		// TODO Auto-generated constructor stub
+	}
+
+	public Devolucion(int devolucionId, String fecha, String placa,
+			String conductor, MotivoDevolucion motivoDevolucion,
+			String empresaTransporte, String ciudad, String cajas,
+			String unidad, String pacas, String elemento, String observaciones) {
+		this.devolucionId = devolucionId;
+		this.fecha = fecha;
+		this.placa = placa;
+		this.conductor = conductor;
+		this.motivoDevolucionId = motivoDevolucion;
+		this.empresaTransporte = empresaTransporte;
+		this.ciudad = ciudad;
+		this.cajas = cajas;
+		this.unidad = unidad;
+		this.pacas = pacas;
+		this.elemento = elemento;
+		this.observaciones = observaciones;
+		this.estado = "1";
 	}
 
 	public int getDevolucionId() {
 		return devolucionId;
 	}
+
 	public String getFecha() {
 		return fecha;
 	}
+
 	public String getPlaca() {
 		return placa;
 	}
+
 	public String getConductor() {
 		return conductor;
 	}
+
 	public String getEmpresaTransporte() {
 		return empresaTransporte;
 	}
+
 	public String getCiudad() {
 		return ciudad;
 	}
+
 	public String getCajas() {
 		return cajas;
 	}
+
 	public String getUnidad() {
 		return unidad;
 	}
+
 	public String getPacas() {
 		return pacas;
 	}
+
 	public String getElemento() {
 		return elemento;
 	}
+
 	public String getObservaciones() {
 		return observaciones;
 	}
+
 	public String getEstado() {
 		return estado;
 	}
+
 	public MotivoDevolucion getMotivoDevolucionId() {
 		return motivoDevolucionId;
 	}
+
 	public void setDevolucionId(int devolucionId) {
 		this.devolucionId = devolucionId;
 	}
+
 	public void setFecha(String fecha) {
 		this.fecha = fecha;
 	}
+
 	public void setPlaca(String placa) {
 		this.placa = placa;
 	}
+
 	public void setConductor(String conductor) {
 		this.conductor = conductor;
 	}
+
 	public void setEmpresaTransporte(String empresaTransporte) {
 		this.empresaTransporte = empresaTransporte;
 	}
+
 	public void setCiudad(String ciudad) {
 		this.ciudad = ciudad;
 	}
+
 	public void setCajas(String cajas) {
 		this.cajas = cajas;
 	}
+
 	public void setUnidad(String unidad) {
 		this.unidad = unidad;
 	}
+
 	public void setPacas(String pacas) {
 		this.pacas = pacas;
 	}
+
 	public void setElemento(String elemento) {
 		this.elemento = elemento;
 	}
+
 	public void setObservaciones(String observaciones) {
 		this.observaciones = observaciones;
 	}
+
 	public void setEstado(String estado) {
 		this.estado = estado;
 	}
+
 	public void setMotivoDevolucionId(MotivoDevolucion motivoDevolucionId) {
 		this.motivoDevolucionId = motivoDevolucionId;
 	}
@@ -143,7 +187,8 @@ public class Devolucion implements Serializable {
 		result = prime * result
 				+ ((conductor == null) ? 0 : conductor.hashCode());
 		result = prime * result + devolucionId;
-		result = prime * result + ((elemento == null) ? 0 : elemento.hashCode());
+		result = prime * result
+				+ ((elemento == null) ? 0 : elemento.hashCode());
 		result = prime
 				* result
 				+ ((empresaTransporte == null) ? 0 : empresaTransporte
@@ -234,6 +279,6 @@ public class Devolucion implements Serializable {
 		} else if (!unidad.equals(other.unidad))
 			return false;
 		return true;
-	}	
-	
+	}
+
 }

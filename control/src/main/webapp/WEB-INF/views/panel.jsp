@@ -472,7 +472,7 @@
 						<a href="#"><i class="fa fa-lg fa-fw fa-paper-plane"></i>
 						<span class="menu-item-parent">Exportaciones</span></a>
 						<ul>
-							<li><a target="des" href="<c:url value="/exportacion_registrar"/>"><i class="fa fa-file-text-o"></i>
+							<li><a target="des" href="<c:url value="/exportacion_add"/>"><i class="fa fa-file-text-o"></i>
 								Registro</a></li>
 							<li><a target="des" href="<c:url value="/exportacion_estadistica"/>"><i class="fa fa-signal"></i>
 								Estadisticas</a></li>
@@ -492,9 +492,9 @@
 						<a href="#"><i class="fa fa-lg fa-fw fa-spotify"></i>
 						<span class="menu-item-parent">Gestion Antecedentes</span></a>
 						<ul>
-							<li><a target="des" href="<c:url value="/visitante_add"/>"><i class="fa fa-file-text-o"></i>
+							<li><a target="des" href="<c:url value="/antecedente_add"/>"><i class="fa fa-file-text-o"></i>
 								Gestion</a></li>
-							<li><a target="des" href="<c:url value="/visitante_add"/>"><i class="fa fa-signal"></i>
+							<li><a target="des" href="<c:url value="/antecedente_est"/>"><i class="fa fa-signal"></i>
 								Estadisticas</a></li>
 						</ul>
 					</li>

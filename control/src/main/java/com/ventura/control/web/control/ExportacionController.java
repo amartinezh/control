@@ -36,7 +36,7 @@ public class ExportacionController {
 	
 	@RequestMapping(method = RequestMethod.GET)
 	public String panel(Map<String, Object> model) {
-		model.put("Exportacion", new Exportacion());
+		model.put("exportacion", new Exportacion());
 		model.put("listTipProd", tip.cmbTipoProducto());
 		return "exportacion/exportacion_add";
 	}
@@ -93,7 +93,7 @@ public class ExportacionController {
 				+ " onclick=\"con('"
 				+ obj.getExportacion_id()
 				+ "', '"
-				+ obj.getCliente()
+				+ obj.getCliente() 
 				+ "', $(this)"
 				+ ")\"><i class='fa fa-edit'></i></a> <a class='btn btn-danger btn-circle' onclick='borrar("
 				+ obj.getExportacion_id()

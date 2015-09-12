@@ -156,109 +156,27 @@
 								<!-- widget content -->
 								<div class="widget-body">
 									<form:form id="frm" method="post" class="bv-form"
-										ModelAttribute="exportacion" commandName="exportacion">
+										ModelAttribute="conductor" commandName="conductor">
 										<button type="submit" class="bv-hidden-submit"
 											style="display: none; width: 0px; height: 0px;"></button>
 										<fieldset>
 											<div class="form-group">
 												<div class="row">
-													<legend>  Exportaciones </legend>
+													<legend>  Antecedentes </legend>
+													    <form:input type="hidden" path="antecedente_id" value="0" />
 														<form:input type="hidden" path="estado" />
-														<form:input type="hidden" path="exportacion_id" />
-													<div class="col-md-3">
-														<label class="control-label">Fecha</label> 
-														<form:input path="fecha" type="date"
+													<div class="col-md-4">
+														<label class="control-label">Contratista Documento</label> 
+														<form:input path="contratista_documento" type="text"
 															class="form-control" data-bv-field="Documento"
 															required="required" /> 
 													
 													</div>
-													<div class="col-md-3">
-														<label class="control-label">Tipo Persona</label> 
-														<form:select class="form-control" path="tipo_producto_id.tipo_producto_id" items="${listTipProd}">
-														</form:select>
-													</div>
-													<div class="col-md-3">
-														<label class="control-label">Cliente</label>
-														<form:input path="cliente" type="text"	class="form-control" data-bv-field="Cliente" required="required" />
-													</div>
-													<div class="col-md-3">
-														<label class="control-label">Transportadora</label>
-														<form:input path="transportadora" type="text"	class="form-control" data-bv-field="Transportadora" required="required" />
-													</div>
-												</div>
-											</div>
-										</fieldset>
-										<fieldset>
-											<div class="form-group">
-												<div class="row">
-													<div class="col-md-3">
-														<label class="control-label">Inicio Operación</label>
-														<form:input path="inicio_operacion" type="date"	class="form-control" data-bv-field="Inicio Operación" required="required" />
-													</div>
-													<div class="col-md-3">
-														<label class="control-label">Puerto Llegada</label>
-														<form:input path="puerto_llegada" type="text"	class="form-control" data-bv-field="Puerto Llegada" required="required" />
-													</div>
-													<div class="col-md-2">
-														<label class="control-label">Placa Vehiculo</label>
-														<form:input path="placa_vehiculo" type="text"	class="form-control" data-bv-field="Placa Vehiculo" required="required" />
-													</div>
-													<div class="col-md-2">
-														<label class="control-label">Número Contenedor</label>
-														<form:input path="numero_contenedor" type="text"	class="form-control" data-bv-field="Número Contenedor" required="required" />
-													</div>
-													<div class="col-md-2">
-														<label class="control-label">Número Trailer</label>
-														<form:input path="numero_trailer" type="text"	class="form-control" data-bv-field="Número Trailer" required="required" />
-													</div>
-												</div>
-											</div>
-										</fieldset>
-										<fieldset>
-											<div class="form-group">
-												<div class="row">
-													<div class="col-md-3">
-														<label class="control-label">Inicio Inspección</label>
-														<form:input path="inicio_inspeccion" type="date"	class="form-control" data-bv-field="Inicio Inspección" required="required" />
-													</div>
-													<div class="col-md-3">
-														<label class="control-label">Inicio Cargue</label>
-														<form:input path="inicio_cargue" type="date"	class="form-control" data-bv-field="Inicio Cargue" required="required" />
-													</div>
-													<div class="col-md-3">
-														<label class="control-label">Fin Cargue</label>
-														<form:input path="fin_cargue" type="date"	class="form-control" data-bv-field="Fin Cargue" required="required" />
-													</div>
-													<div class="col-md-3">
-														<label class="control-label">Fin Operación</label>
-														<form:input path="fin_operacion" type="date"	class="form-control" data-bv-field="Fin Operación" required="required" />
-													</div>
-													
-												</div>
-											</div>
-										</fieldset>
-										<fieldset>
-											<div class="form-group">
-												<div class="row">
-													<div class="col-md-2">
-														<label class="control-label">Peso PT</label>
-														<form:input path="peso_pt_kg" type="text"	class="form-control" data-bv-field="Peso PT" required="required" />
-													</div>
-													<div class="col-md-2">
-														<label class="control-label">Peso Boina</label>
-														<form:input path="peso_boina" type="text"	class="form-control" data-bv-field="Peso Boina" required="required" />
-													</div>
-													<div class="col-md-2">
-														<label class="control-label">Número Pedido</label>
-														<form:input path="numero_pedido" type="text"	class="form-control" data-bv-field="Número Pedido" required="required" />
-													</div>
-													<div class="col-md-2">
-														<label class="control-label">Pacas</label>
-														<form:input path="pacas" type="text"	class="form-control" data-bv-field="Pacas" required="required" />
-													</div>
 													<div class="col-md-4">
-														<label class="control-label">Pais Destino</label>
-														<form:input path="pais_destino" type="text"	class="form-control" data-bv-field="Pais Destino" required="required" />
+														<label class="control-label">Fecha</label>
+														 <form:input path="fecha" type="text"
+															class="form-control" data-bv-field="Fecha"
+															required="required" />
 													</div>
 												</div>
 											</div>
@@ -266,25 +184,17 @@
 										<fieldset>
 											<div class="form-group">
 												<div class="row">
-													<div class="col-md-2">
-														<label class="control-label">Número Bobinas</label>
-														<form:input path="numero_bobinas" type="text"	class="form-control" data-bv-field="Número Bobinas" required="required" />
+													<div class="col-md-6">
+														<label class="control-label">Responsabilidad</label>
+														 <form:input path="scan_responsabilidad" type="text"
+															class="form-control" data-bv-field="Fecha"
+															required="required" />
 													</div>
-													<div class="col-md-2">
-														<label class="control-label">Número Cajas</label>
-														<form:input path="numero_cajas" type="text"	class="form-control" data-bv-field="Número Cajas" required="required" />
-													</div>
-													<div class="col-md-4">
-														<label class="control-label">Acta Antinarcótico</label>
-														<form:input path="acta_antinarcotico" type="text"	class="form-control" data-bv-field="Acta Antinarcótico" required="required" />
-													</div>
-													<div class="col-md-2">
-														<label class="control-label">Número Precinto</label>
-														<form:input path="numero_precinto" type="text"	class="form-control" data-bv-field="Número Precinto" required="required" />
-													</div>
-													<div class="col-md-2">
-														<label class="control-label">Sello Aleatorio</label>
-														<form:input path="sello_aleatorio" type="text"	class="form-control" data-bv-field="Sello Aleatorio" required="required" />
+													<div class="col-md-6">
+														<label class="control-label">Produraduria</label>
+														 <form:input path="scan_produraduria" type="text"
+															class="form-control" data-bv-field="Fecha"
+															required="required" />
 													</div>
 												</div>
 											</div>
@@ -292,13 +202,27 @@
 										<fieldset>
 											<div class="form-group">
 												<div class="row">
-													<div class="col-md-4">
-														<label class="control-label">Vigilante Protección</label> 
-														<form:textarea path="vigilante_proteccion" type="text" class="form-control" data-bv-field="Vigilante Protección" required="required" />
+													<div class="col-md-6">
+														<label class="control-label">Policia</label>
+														 <form:input path="scan_policia" type="text"
+															class="form-control" data-bv-field="Fecha"
+															required="required" />
 													</div>
-													<div class="col-md-8">
+													<div class="col-md-6">
+														<label class="control-label">Fiscalia</label>
+														 <form:input path="scan_fiscalia" type="text"
+															class="form-control" data-bv-field="Fecha"
+															required="required" />
+													</div>
+												</div>
+											</div>
+										</fieldset>
+										<fieldset>
+											<div class="form-group">
+												<div class="row">
+													<div class="col-md-12">
 														<label class="control-label">Observaciones</label> 
-														<form:textarea path="observaciones" type="text" class="form-control" data-bv-field="Observaciones" required="required" />
+														<form:textarea path="observaciones" type="text" class="form-control" data-bv-field="Placa" required="required" />
 													</div>
 												</div>
 											</div>
@@ -355,7 +279,7 @@
 
 					<span class="widget-icon"> <i class="fa fa-table"></i>
 					</span>
-					<h2>exportaciones</h2>
+					<h2>Conductores</h2>
 
 					<span class="jarviswidget-loader"><i
 						class="fa fa-refresh fa-spin"></i></span>
@@ -396,7 +320,7 @@
 									</tr>
 								</thead>
 								<tbody> 
-									<c:forEach items="${exportacionList}" var="obj"
+									<c:forEach items="${conductorList}" var="obj"
 										varStatus="loopCounter">
 										<tr role="row" class="odd"> 
 											<td class="sorting_1"><span class="responsiveExpander"></span>
@@ -622,8 +546,8 @@
 									validating : 'glyphicon glyphicon-refresh'
 								},
 								fields : {
-									fecha : {
-										group : '.col-md-3',
+									contratista_documento : {
+										group : '.col-md-6',
 										validators : {
 											notEmpty : {
 												message : 'Campo requierido'
@@ -634,184 +558,40 @@
 											}
 										}
 									},
-									tipo_producto_id.tipo_producto_id : {
-										group : '.col-md-3',
+									fecha : {
+										group : '.col-md-6',
 										validators : {
 											notEmpty : {
 												message : 'Campo requierido'
 											}
 										}
 									},
-									cliente : {
-										group : '.col-md-3',
+									scan_responsabilidad : {
+										group : '.col-md-6',
 										validators : {
 											notEmpty : {
 												message : 'Campo requierido'
 											}
 										}
 									},
-									transportadora : {
-										group : '.col-md-3',
+									scan_produraduria : {
+										group : '.col-md-6',
 										validators : {
 											notEmpty : {
 												message : 'Campo requierido'
 											}
 										}
 									},
-									inicio_operacion : {
-										group : '.col-md-3',
+									scan_policia : {
+										group : '.col-md-6',
 										validators : {
 											notEmpty : {
 												message : 'Campo requierido'
 											}
 										}
 									},
-									puerto_llegada : {
-										group : '.col-md-4',
-										validators : {
-											notEmpty : {
-												message : 'Campo requierido'
-											}
-										}
-									},
-									placa_vehiculo : {
-										group : '.col-md-2',
-										validators : {
-											notEmpty : {
-												message : 'Campo requierido'
-											}
-										}
-									},
-									numero_contenedor : {
-										group : '.col-md-2',
-										validators : {
-											notEmpty : {
-												message : 'Campo requierido'
-											}
-										}
-									},
-									numero_trailer : {
-										group : '.col-md-2',
-										validators : {
-											notEmpty : {
-												message : 'Campo requierido'
-											}
-										}
-									},
-									inicio_inspeccion : {
-										group : '.col-md-3',
-										validators : {
-											notEmpty : {
-												message : 'Campo requierido'
-											}
-										}
-									},
-									inicio_cargue : {
-										group : '.col-md-3',
-										validators : {
-											notEmpty : {
-												message : 'Campo requierido'
-											}
-										}
-									},
-									fin_cargue : {
-										group : '.col-md-3',
-										validators : {
-											notEmpty : {
-												message : 'Campo requierido'
-											}
-										}
-									},
-									fin_operacion : {
-										group : '.col-md-3',
-										validators : {
-											notEmpty : {
-												message : 'Campo requierido'
-											}
-										}
-									},
-									peso_pt_kg : {
-										group : '.col-md-2',
-										validators : {
-											notEmpty : {
-												message : 'Campo requierido'
-											}
-										}
-									},
-									peso_boina : {
-										group : '.col-md-2',
-										validators : {
-											notEmpty : {
-												message : 'Campo requierido'
-											}
-										}
-									},
-									numero_pedido : {
-										group : '.col-md-2',
-										validators : {
-											notEmpty : {
-												message : 'Campo requierido'
-											}
-										}
-									},
-									pacas : {
-										group : '.col-md-2',
-										validators : {
-											notEmpty : {
-												message : 'Campo requierido'
-											}
-										}
-									},
-									pais_destino : {
-										group : '.col-md-4',
-										validators : {
-											notEmpty : {
-												message : 'Campo requierido'
-											}
-										}
-									},
-									numero_bobinas : {
-										group : '.col-md-2',
-										validators : {
-											notEmpty : {
-												message : 'Campo requierido'
-											}
-										}
-									},
-									numero_cajas : {
-										group : '.col-md-2',
-										validators : {
-											notEmpty : {
-												message : 'Campo requierido'
-											}
-										}
-									},
-									acta_antinarcotico : {
-										group : '.col-md-4',
-										validators : {
-											notEmpty : {
-												message : 'Campo requierido'
-											}
-										}
-									},
-									numero_precinto : {
-										group : '.col-md-2',
-										validators : {
-											notEmpty : {
-												message : 'Campo requierido'
-											}
-										}
-									},
-									sello_aleatorio : {
-										group : '.col-md-2',
-										validators : {
-											notEmpty : {
-												message : 'Campo requierido'
-											}
-										}
-									},
-									vigilante_proteccion : {
-										group : '.col-md-4',
+									scan_fiscalia : {
+										group : '.col-md-6',
 										validators : {
 											notEmpty : {
 												message : 'Campo requierido'
@@ -819,7 +599,7 @@
 										}
 									},
 									observaciones : {
-										group : '.col-md-8',
+										group : '.col-md-12',
 										validators : {
 											notEmpty : {
 												message : 'Campo requierido'
@@ -1000,46 +780,18 @@
 
 		function actualizar() {
 			$( "#frm" ).submit();
-			var exportacion_id = document.getElementById('exportacion_id').value;
+			var doc = document.getElementById('documento').value;
 			var nc = document.getElementById('nombre_completo').value;
 			var ap = document.getElementById('apellido').value;
 			
-			//var tipoPersonaId = document.getElementById('tipoPersonaId.tipo_persona_id').value;
-			var x = document.getElementById('tipo_persona_id.tipo_persona_id').selectedIndex;
-			var tpi = document.getElementsByTagName("option")[x].value
-			
-			
-			//var dependencia_id = document.getElementById('dependencia_id.dependencia_id').value;
-			x = document.getElementById('dependencia_id.dependencia_id').selectedIndex;
-			var di = document.getElementsByTagName("option")[x].value
-			
-			var ce = document.getElementById('coreo_e').value;
-			var te = document.getElementById('telefono').value;
-			var sf = document.getElementById('scan_foto').value;
-			var sc = document.getElementById('scan_cedula').value;
-			var sh = document.getElementById('scan_huella').value;
-			
-			var o = document.getElementById('observaciones').value;
-			var est = document.getElementById('estado').value;
-			var opc=document.getElementById('elboton').innerHTML;
 			$.ajax({
 				type : "POST",
-				url : "exportacion_add/agregar",
+				url : "conductor_add/agregar",
 				processData: true,
 				data : {
 					documento: doc,
 					nombre_completo: nc,
-					apellido: ap,
-					tipo_persona_id: tpi,
-					dependencia_id: di,
-					coreo_e: ce,
-					telefono: te,
-					scan_foto: sf,
-					scan_cedula: sc,
-					scan_huella: sh,
-					observaciones:	o,
-					estado:	est,
-					opcion: opc
+					apellido: ap
 				},
 				success : function(data) {		
 					 if (data=="semodifico"){
@@ -1090,7 +842,7 @@
 		function del(dato, thi) {
 			$.ajax({
 				type : "POST",
-				url : "exportacion_add/borrar",
+				url : "conductor_add/borrar",
 				data : {
 					area_id : dato
 				},
@@ -1146,7 +898,7 @@
 			$('#elboton').text('Nuevo');
 			$.ajax({
 				type : "POST",
-				url : "exportacion_add/cancelar",
+				url : "conductor_add/cancelar",
 				data : {
 					area_id: obj_id,
 					descripcion : des

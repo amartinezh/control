@@ -1,6 +1,6 @@
 package com.ventura.control.domain.control;
 
-import java.sql.Date;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,8 +11,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
-
-import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
 @Table(name="exportacion", schema="control")
@@ -112,7 +110,7 @@ public class Exportacion implements java.io.Serializable {
 	}
 
 	public Exportacion(int exportacion_id, 
-			Date fecha,
+			java.util.Date fecha,
 			TipoProducto tipo_producto_id, 
 			String cliente, 
 			String pais_destino,

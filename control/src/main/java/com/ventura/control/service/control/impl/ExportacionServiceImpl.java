@@ -1,15 +1,16 @@
 package com.ventura.control.service.control.impl;
 
+import java.text.ParseException;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.ventura.control.domain.control.Exportacion;
-import com.ventura.control.domain.control.Dependencia;
-import com.ventura.control.domain.control.TipoPersona;
 import com.ventura.control.domain.control.TipoProducto;
 import com.ventura.control.repository.control.RepositorioDao;
 import com.ventura.control.service.control.ExportacionService;
@@ -38,7 +39,7 @@ public class ExportacionServiceImpl implements ExportacionService {
 	
 	@Transactional
 	public boolean validarExportacion(Exportacion exportacion) {
-		Exportacion cont = (Exportacion) exportacionDao.getElemento( , exportacion.getExportacion_id());
+		Exportacion cont = (Exportacion) exportacionDao.getElemento(exportacion , exportacion.getExportacion_id());
 		if (cont == null)
 			return false;
 		return true;
@@ -54,33 +55,13 @@ public class ExportacionServiceImpl implements ExportacionService {
 			for (Object[] d : data) {
 					try {
 						// codigo_trabajador d[13].toString()
-						listExportacion.add(new Exportacion(Integer.parseInt(d[0].toString()), 
-																	formatter.parse(d[1].toString()), 
-																	(TipoProducto) d[2], 
-																	d[3].toString(), 
-																	d[4].toString(), 
-																	d[5].toString(), 
-																	d[6].toString(), 
-																	d[7].toString(), 
-																	d[8].toString(), 
-																	d[9].toString(), 
-																	formatter.parse(d[10].toString()), 
-																	formatter.parse(d[11].toString()), 
-																	formatter.parse(d[12].toString()), 
-																	formatter.parse(d[13].toString()), 
-																	formatter.parse(d[14].toString()), 
-																	Integer.parseInt(d[15].toString()), 
-																	Integer.parseInt(d[16].toString()), 
-																	d[17].toString(), 
-																	d[18].toString(), 
-																	Integer.parseInt(d[19].toString()), 
-																	Integer.parseInt(d[20].toString()), 
-																	d[21].toString(), 
-																	d[22].toString(), 
-																	d[23].toString(),
-																	d[24].toString(),
-																	d[25].toString(),
-																	"1"));
+						try {
+							listExportacion.add(new Exportacion(Integer.parseInt(d[0].toString()), formatter.parse(d[1].toString()), (TipoProducto) d[2], d[3].toString(), d[4].toString(), d[5].toString(), d[6].toString(), d[7].toString(), d[8].toString(), d[9].toString(), formatter.parse(d[10].toString()), formatter.parse(d[11].toString()), formatter.parse(d[12].toString()), formatter.parse(d[13].toString()), formatter.parse(d[14].toString()), Integer.parseInt(d[15].toString()), Integer.parseInt(d[16].toString()), d[17].toString(), d[18].toString(), Integer.parseInt(d[19].toString()), Integer.parseInt(d[20].toString()), d[21].toString(), d[22].toString(), d[23].toString(), d[24].toString(), d[25].toString(), d[26].toString()));
+						} catch (ParseException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+						
 					} catch (NumberFormatException e) {
 						e.printStackTrace();
 					}

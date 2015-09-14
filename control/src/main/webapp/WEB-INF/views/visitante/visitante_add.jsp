@@ -288,7 +288,7 @@
 										<fieldset>
 											<div class="form-group">
 												<div class="row">
-													<div class="col-md-12">
+													<div class="col-md-11">
 														<label class="control-label">Observaciones</label> 
 														<form:textarea path="observaciones" type="text" class="form-control" data-bv-field="Placa" required="required" />
 													</div>
@@ -626,7 +626,7 @@
 											}
 										}
 									},
-									nombreCompleto : {
+									nombre_completo : {
 										group : '.col-md-4',
 										validators : {
 											notEmpty : {
@@ -642,7 +642,23 @@
 											}
 										}
 									},
-									coreoE : {
+									tipo_persona_id : {
+										group : '.col-md-6',
+										validators : {
+											notEmpty : {
+												message : 'Campo requierido'
+											}
+										}
+									},
+									dependencia_id : {
+										group : '.col-md-6',
+										validators : {
+											notEmpty : {
+												message : 'Campo requierido'
+											}
+										}
+									},
+									coreo_e : {
 										group : '.col-md-6',
 										validators : {
 											notEmpty : {
@@ -658,7 +674,7 @@
 											}
 										}
 									},
-									scanFoto : {
+									scan_foto : {
 										group : '.col-md-4',
 										validators : {
 											notEmpty : {
@@ -666,7 +682,7 @@
 											}
 										}
 									},
-									scanCedula : {
+									scan_cedula : {
 										group : '.col-md-4',
 										validators : {
 											notEmpty : {
@@ -674,7 +690,7 @@
 											}
 										}
 									},
-									scanHuella : {
+									scan_huella : {
 										group : '.col-md-4',
 										validators : {
 											notEmpty : {
@@ -690,7 +706,7 @@
 											}
 										}
 									},
-									nitEmpresa : {
+									nit_empresa : {
 										group : '.col-md-4',
 										validators : {
 											notEmpty : {
@@ -714,7 +730,7 @@
 											}
 										}
 									},
-									epsVence : {
+									eps_vence : {
 										group : '.col-md-3',
 										validators : {
 											notEmpty : {
@@ -730,7 +746,7 @@
 											}
 										}
 									},
-									alrVence : {
+									alr_vence : {
 										group : '.col-md-3',
 										validators : {
 											notEmpty : {
@@ -746,7 +762,7 @@
 											}
 										}
 									},
-									scanInventario : {
+									scan_inventario : {
 										group : '.col-md-4',
 										validators : {
 											notEmpty : {
@@ -755,7 +771,7 @@
 										}
 									},
 									observaciones : {
-										group : '.col-md-12',
+										group : '.col-md-11',
 										validators : {
 											notEmpty : {
 												message : 'Campo requierido'
@@ -1010,12 +1026,12 @@
 					 else{
 						 if (data=="error"){
 							 $.smallBox({
-									title : "ATENCIÓN: El registró no fue guardado!, es posible que falte información",
-									content : "Por favor verifique<p class='text-align-right'><a href='javascript:void(0);' class='btn btn-danger btn-sm'>Ok</a></p>",
-									color : "#296191",
-									//timeout: 8000,
-									icon : "fa fa-bell swing animated"
-								}); 
+									title : "ATENCIÓN: El registró no fue guardado!",
+									content : "<i class='fa fa-clock-o'></i> <i>Es posible que falte información, Por favor verifique que<br> todos los campos estén ingresados</i>",
+									color : "#C46A69",
+									iconSmall : "fa fa-times fa-2x fadeInRight animated",
+									timeout : 8000
+							 });
 						 }
 						 else{
 							 var res = data.split(":::");
@@ -1033,12 +1049,12 @@
 				},
 				error : function(data) {			
 					$.smallBox({
-						title : "El registró no fue guardado!",
-						content : "Por favor verifique<p class='text-align-right'><a href='javascript:void(0);' class='btn btn-danger btn-sm'>Ok</a></p>",
-						color : "#296191",
-						//timeout: 8000,
-						icon : "fa fa-bell swing animated"
-					});
+						title : "ATENCIÓN: El registró no fue guardado!",
+						content : "<i class='fa fa-clock-o'></i> <i>Es posible que falte información, Por favor verifique que<br> todos los campos estén ingresados</i>",
+						color : "#C46A69",
+						iconSmall : "fa fa-times fa-2x fadeInRight animated",
+						timeout : 8000
+				 	});
 				}
 			});
 		}
@@ -1046,9 +1062,9 @@
 		function del(dato, thi) {
 			$.ajax({
 				type : "POST",
-				url : "visitante/borrar",
+				url : "visitante_add/borrar",
 				data : {
-					area_id : dato
+					documento : dato
 				},
 				success : function(data) {
 					nRow=$(thi).closest("tr").index();
@@ -1063,12 +1079,12 @@
 				},
 				error : function(data) {
 					$.smallBox({
-						title : "Eliminación de Información",
-						content : "No se eliminó correctamente, verifique por favor",
-						color : rgb(50, 118, 177), //"#5384AF",
-						timeout: 8000,
-						icon : "fa fa-bell"
-				    });
+						title : "ATENCIÓN: El registró no fue eliminado!",
+						content : "<i class='fa fa-clock-o'></i> <i>Por favor verifique</i>",
+						color : "#C46A69",
+						iconSmall : "fa fa-times fa-2x fadeInRight animated",
+						timeout : 8000
+				 	});
 				}
 			});
 		}
@@ -1097,19 +1113,60 @@
 		}
 		
 		function cancelar() {
-			var obj_id = document.getElementById('area_id').value;
-			var des = document.getElementById('estado').value;
+			var doc = document.getElementById('documento').value;
+			var nc = document.getElementById('nombre_completo').value;
+			var ap = document.getElementById('apellido').value;
+			var x = document.getElementById('tipo_persona_id.tipo_persona_id').selectedIndex;
+			var tpi = document.getElementsByTagName("option")[x].value
+			x = document.getElementById('dependencia_id.dependencia_id').selectedIndex;
+			var di = document.getElementsByTagName("option")[x].value
+			var ce = document.getElementById('coreo_e').value;
+			var te = document.getElementById('telefono').value;
+			var sf = document.getElementById('scan_foto').value;
+			var sc = document.getElementById('scan_cedula').value;
+			var sh = document.getElementById('scan_huella').value;
+			var em = document.getElementById('empresa').value;
+			var nem = document.getElementById('nit_empresa').value;
+			var ipr = document.getElementsByTagName("option")[x].value
+			var pl = document.getElementById('placa').value;
+			var epese = document.getElementById('eps').value;
+			var epv = document.getElementById('eps_vence').value;
+			var aeler = document.getElementById('alr').value;
+			var alrv = document.getElementById('alr_vence').value;
+			var inv = document.getElementById('inventario').value;
+			var sinv = document.getElementById('scan_inventario').value;
+			var o = document.getElementById('observaciones').value;
+			var est = document.getElementById('estado').value;
+			var opc=document.getElementById('elboton').innerHTML;
 			$('#elboton').text('Nuevo');
 			$.ajax({
 				type : "POST",
-				url : "visitante/cancelar",
+				url : "visitante_add/cancelar",
 				data : {
-					area_id: obj_id,
-					descripcion : des
+					documento: doc,
+					nombre_completo: nc,
+					apellido: ap,
+					tipo_persona_id: tpi,
+					dependencia_id: di,
+					coreo_e: ce,
+					telefono: te,
+					scan_foto: sf,
+					scan_cedula: sc,
+					scan_huella: sh,
+					empresa: em,
+					nit_empresa: nem,
+					placa: pl,
+					eps: epese,
+					eps_vence: epv,
+					alr: aeler,
+					alr_vence : alrv,
+					inventario : inv,
+					scan_inventario : sinv,
+					observaciones:	o,
+					estado:	est,
+					opcion: opc
 				},
 				success : function(data) {					
-					document.getElementById('descripcion').value = "";
-					document.getElementById('area_id').value = "0";
 					 var res = data.split(":::");
 					 $('#datatable_fixed_column').dataTable().fnAddData( [res[0],res[1]] );
 					 $.smallBox({
@@ -1122,8 +1179,13 @@
 					 $('#cance').hide();
 				},
 				error : function(data) {
-					document.getElementById('descripcion').value = "";
-					document.getElementById('area_id').value = "0";					
+					$.smallBox({
+						title : "No se Canceló",
+						content : "<i class='fa fa-clock-o'></i> <i>Por favor, verifique</i>",
+						color : "#C46A69",
+						iconSmall : "fa fa-times fa-2x fadeInRight animated",
+						timeout : 4000
+				 });				
 				}
 			});
 		}

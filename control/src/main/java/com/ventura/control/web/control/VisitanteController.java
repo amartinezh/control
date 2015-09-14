@@ -99,22 +99,59 @@ public class VisitanteController {
 	}
 
 	@RequestMapping(value = "cancelar", method = RequestMethod.POST)
-	public @ResponseBody String cancelar(@RequestParam int area_id,
-			@RequestParam String descripcion, Map<String, Object> model) {
-		if (area_id > 0) {
+	public @ResponseBody String cancelar(
+			@RequestParam String documento,
+			@RequestParam String nombre_completo,
+			@RequestParam String apellido,
+			@RequestParam int tipo_persona_id,
+			@RequestParam int dependencia_id,
+			@RequestParam String coreo_e,
+			@RequestParam String telefono,
+			@RequestParam String scan_foto,
+			@RequestParam String scan_cedula,
+			@RequestParam String scan_huella,
+			@RequestParam String empresa,
+			@RequestParam String nit_empresa,
+			@RequestParam String placa,
+			@RequestParam String eps,
+			@RequestParam String eps_vence,
+			@RequestParam String alr,
+			@RequestParam String alr_vence,
+			@RequestParam String inventario,
+			@RequestParam String scan_inventario,
+			@RequestParam String observaciones,
+			@RequestParam String estado,
+			@RequestParam String opcion, 
+			Map<String, Object> model) {
+		if (Integer.parseInt(documento) > 0) {
 			String cad = "";
 			return "<span class='responsiveExpander'></span><a class='btn btn-success btn-circle btn-sx'"
 					+ " onclick=\"con('"
-					+ area_id
-					+ "', '"
-					+ descripcion
+					+ documento + "', '"
+					+ nombre_completo + "', '"
+					+ apellido + "', '"
+					+ tipo_persona_id + "', '"
+					+ dependencia_id + "', '"
+					+ coreo_e + "', '"
+					+ telefono + "', '"
+					+ scan_foto + "', '"
+					+ scan_cedula + "', '"
+					+ scan_huella + "', '"
+					+ empresa + "', '"
+					+ nit_empresa + "', '"
+					+ placa + "', '"
+					+ eps + "', '"
+					+ eps_vence + "', '"
+					+ alr + "', '"
+					+ alr_vence + "', '"
+					+ inventario + "', '"
+					+ scan_inventario + "', '"
+					+ observaciones + "', '"
 					+ "', $(this)"
-					+ ")\"><i class='fa fa-edit'></i></a>"
-					+ " <a class='btn btn-danger btn-circle' onclick='borrar("
-					+ area_id
-					+ ", $(this))'><i class='fa fa-trash-o'></i></a>"
-					+ "<span class='responsiveExpander'></span>:::"
-					+ descripcion + "";
+					+ ")\"><i class='fa fa-edit'></i></a> <a class='btn btn-danger btn-circle' onclick='borrar("
+					+ documento
+					+ ", $(this))'><i class='fa fa-trash-o'></i></a><span class='responsiveExpander'></span>:::"
+					+ nombre_completo;
 		} else {
 			try {
 				Integer.parseInt("a");
@@ -126,9 +163,9 @@ public class VisitanteController {
 	}
 
 	@RequestMapping(value = "borrar", method = RequestMethod.POST)
-	public @ResponseBody String borrar(@RequestParam int area_id,
+	public @ResponseBody String borrar(@RequestParam String documento,
 			Map<String, Object> model) {
-		visitante.borrarVisitante(new Visitante());
+		visitante.borrarVisitante(new Visitante(documento));
 		return "";
 	}
 

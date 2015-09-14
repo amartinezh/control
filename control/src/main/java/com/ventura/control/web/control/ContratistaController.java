@@ -204,6 +204,7 @@ public class ContratistaController {
 					+ alr_vence + "', '"
 					+ inventario + "', '"
 					+ scan_inventario + "', '"
+					+ observaciones + "', '"
 					+ "', $(this)"
 					+ ")\"><i class='fa fa-edit'></i></a> <a class='btn btn-danger btn-circle' onclick='borrar("
 					+ documento

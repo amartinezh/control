@@ -1107,12 +1107,12 @@
 				},
 				error : function(data) {			
 					$.smallBox({
-						title : "El registró no fue guardado!",
-						content : "Por favor verifique<p class='text-align-right'><a href='javascript:void(0);' class='btn btn-danger btn-sm'>Ok</a></p>",
-						color : "#296191",
-						//timeout: 8000,
-						icon : "fa fa-bell swing animated"
-					});
+						title : "ATENCIÓN: El registró no fue guardado!",
+						content : "<i class='fa fa-clock-o'></i> <i>Es posible que falte información, Por favor verifique que<br> todos los campos estén ingresados</i>",
+						color : "#C46A69",
+						iconSmall : "fa fa-times fa-2x fadeInRight animated",
+						timeout : 8000
+				 });
 				}
 			});
 		}
@@ -1243,8 +1243,8 @@
 					 $('#cance').hide();
 				},
 				error : function(data) {
-					document.getElementById('descripcion').value = "";
-					document.getElementById('area_id').value = "0";					
+					/* document.getElementById('descripcion').value = "";
+					document.getElementById('area_id').value = "0"; */					
 				}
 			});
 		}

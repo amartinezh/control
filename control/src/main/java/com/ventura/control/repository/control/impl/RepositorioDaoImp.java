@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Propagation;
@@ -46,6 +47,12 @@ public class RepositorioDaoImp implements RepositorioDao {
 	public List<Object[]> listar(String sql) {
 		return em.createQuery(sql).getResultList();
 	}
+	
+	@SuppressWarnings("unchecked")
+	public Query listarObjeto(String sql) {
+		return em.createQuery(sql);
+	}
+	
 	
 	@Transactional(propagation = Propagation.REQUIRED)
 	public Object getElemento(Object obj, int id) {

@@ -41,6 +41,7 @@ public class CajaMenorController {
 		model.put("cajaMenor", new CajaMenor());
 		model.put("dependenciaList", dep.cmbDependencias());
 		model.put("tipoList", tip.cmbTipoTransaccionales());
+		model.put("listCajaMenor", caj.listarCajaMenor());
 		return "cajamenor/cajamenor_add";
 	}
 

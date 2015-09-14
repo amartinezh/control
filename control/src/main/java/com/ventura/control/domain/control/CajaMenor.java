@@ -31,7 +31,6 @@ public class CajaMenor implements Serializable {
 	@Basic(optional = false)
 	@Column(name = "id")
 	private int id;
-
 	@Column(name = "fecha")
 	@Temporal(TemporalType.DATE)
 	private Date fecha;

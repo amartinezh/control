@@ -133,18 +133,7 @@
 	<!-- END NAVIGATION -->
 
 	<!-- MAIN PANEL -->
-	<div>
-
-		<div id="content">
-			<div class="alert alert-block alert-success">
-				<a class="close" data-dismiss="alert" href="#">×</a>
-				<h4 class="alert-heading">
-					<i class="fa fa-check-square-o"></i> Atención!
-				</h4>
-				<p>Especio para sacar los letreros de todo tipo</p>
-			</div>
-		</div>
-	</div>
+	
 	<!-- END MAIN CONTENT -->
 
 	</div>

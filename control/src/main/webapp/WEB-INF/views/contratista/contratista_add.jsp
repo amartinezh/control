@@ -221,15 +221,18 @@
 												<div class="row">
 													<div class="col-md-4">
 														<label class="control-label">Archivo Foto</label> 
-														<input type="text" id="scan_foto2" name="scan_foto2" readonly/><form:input path="scan_foto" type="file"	class="form-control" data-bv-field="Foto" required="required" />
+														<input type="text" id="scan_foto2" name="scan_foto2" readonly/>
+														<form:input path="scan_foto" type="file" class="form-control" data-bv-field="Foto" required="required" />
 													</div>
 													<div class="col-md-4">
 														<label class="control-label input-file">Archivo Cédula</label>
-														<input type="text" id="scan_cedula2" name="scan_cedula2" readonly/><form:input path="scan_cedula" type="file"	class="form-control" data-bv-field="Cédula" required="required" />
+														<input type="text" id="scan_cedula2" name="scan_cedula2" readonly/>
+														<form:input path="scan_cedula" type="file"	class="form-control" data-bv-field="Cédula" required="required" />
 													</div>
 													<div class="col-md-4">
 														<label class="control-label">Archivo Huella</label>
-														<input type="text" id="scan_huella2" name="scan_huella2" readonly/><form:input path="scan_huella" type="file"	class="form-control" data-bv-field="Huella" required="required" />
+														<input type="text" id="scan_huella2" name="scan_huella2" readonly/>
+														<form:input path="scan_huella" type="file"	class="form-control" data-bv-field="Huella" required="required" />
 													</div>
 												</div>
 											</div>
@@ -267,7 +270,7 @@
 													</div>
 													<div class="col-sm-4 col-md-6">
 														<label class="control-label">Placa Vehiculo</label>
-														<form:input path="placa" type="text"	class="form-control" data-bv-field="Empresa" required="required" />
+														<form:input path="placa" type="text" class="form-control" data-bv-field="Empresa" required="required" />
 													</div>
 												</div>
 											</div>
@@ -289,7 +292,7 @@
 													</div>
 													<div class="col-md-3">
 														<label class="control-label">Fecha Vencimiento ARL</label>
-														<form:input path="alr_vence" type="date"	class="form-control" data-bv-field="Fecha Vencimiento ARL" required="required" />
+														<form:input path="alr_vence" type="date" class="form-control" data-bv-field="Fecha Vencimiento ARL" required="required" />
 													</div>
 												</div>
 											</div>
@@ -311,7 +314,7 @@
 										<fieldset>
 											<div class="form-group">
 												<div class="row">
-													<div class="col-md-12">
+													<div class="col-md-10">
 														<label class="control-label">Observaciones</label> 
 														<form:textarea path="observaciones" type="text" class="form-control" data-bv-field="Placa" required="required" />
 													</div>
@@ -649,7 +652,7 @@
 											}
 										}
 									},
-									nombreCompleto : {
+									nombre_completo : {
 										group : '.col-md-4',
 										validators : {
 											notEmpty : {
@@ -665,7 +668,23 @@
 											}
 										}
 									},
-									coreoE : {
+									tipo_persona_id : {
+										group : '.col-md-6',
+										validators : {
+											notEmpty : {
+												message : 'Campo requierido'
+											}
+										}
+									},
+									dependencia_id : {
+										group : '.col-md-6',
+										validators : {
+											notEmpty : {
+												message : 'Campo requierido'
+											}
+										}
+									},
+									coreo_e : {
 										group : '.col-md-6',
 										validators : {
 											notEmpty : {
@@ -681,7 +700,7 @@
 											}
 										}
 									},
-									scanFoto : {
+									scan_foto : {
 										group : '.col-md-4',
 										validators : {
 											notEmpty : {
@@ -689,7 +708,7 @@
 											}
 										}
 									},
-									scanCedula : {
+									scan_cedula : {
 										group : '.col-md-4',
 										validators : {
 											notEmpty : {
@@ -697,7 +716,7 @@
 											}
 										}
 									},
-									scanHuella : {
+									scan_huella : {
 										group : '.col-md-4',
 										validators : {
 											notEmpty : {
@@ -713,7 +732,7 @@
 											}
 										}
 									},
-									nitEmpresa : {
+									nit_empresa : {
 										group : '.col-md-4',
 										validators : {
 											notEmpty : {
@@ -721,8 +740,8 @@
 											}
 										}
 									},
-									fechaVenCursoLey : {
-										group : '.col-md-6',
+									fecha_ven_curso_ley : {
+										group : '.col-md-4',
 										validators : {
 											notEmpty : {
 												message : 'Campo requierido'
@@ -738,7 +757,7 @@
 										}
 									},
 									placa : {
-										group : '.col-md-3',
+										group : '.col-md-6',
 										validators : {
 											notEmpty : {
 												message : 'Campo requierido'
@@ -753,7 +772,7 @@
 											}
 										}
 									},
-									epsVence : {
+									eps_vence : {
 										group : '.col-md-3',
 										validators : {
 											notEmpty : {
@@ -769,7 +788,7 @@
 											}
 										}
 									},
-									alrVence : {
+									alr_vence : {
 										group : '.col-md-3',
 										validators : {
 											notEmpty : {
@@ -785,22 +804,23 @@
 											}
 										}
 									},
-									scanInventario : {
-										group : '.col-md-4',
+									observaciones : {
+										group : '.col-md-10',
 										validators : {
 											notEmpty : {
 												message : 'Campo requierido'
 											}
 										}
 									},
-									observaciones : {
-										group : '.col-md-12',
+									scan_inventario : {
+										group : '.col-md-4',
 										validators : {
 											notEmpty : {
 												message : 'Campo requierido'
 											}
 										}
 									}
+									
 								}
 							});
 							
@@ -1056,13 +1076,20 @@
 					 }
 					 else{
 						 if (data=="error"){
-							 $.smallBox({
+							 /* $.smallBox({
 									title : "ATENCIÓN: El registró no fue guardado!, es posible que falte información",
 									content : "Por favor verifique<p class='text-align-right'><a href='javascript:void(0);' class='btn btn-danger btn-sm'>Ok</a></p>",
 									color : "#296191",
 									//timeout: 8000,
 									icon : "fa fa-bell swing animated"
-								}); 
+								}); */
+							 $.smallBox({
+									title : "ATENCIÓN: El registró no fue guardado!",
+									content : "<i class='fa fa-clock-o'></i> <i>Es posible que falte información, Por favor verifique que todos los campos estén ingresados</i>",
+									color : "#C46A69",
+									iconSmall : "fa fa-times fa-2x fadeInRight animated",
+									timeout : 8000
+							 });
 						 }
 						 else{
 							 var res = data.split(":::");
@@ -1093,9 +1120,9 @@
 		function del(dato, thi) {
 			$.ajax({
 				type : "POST",
-				url : "area/borrar",
+				url : "contratista_add/borrar",
 				data : {
-					area_id : dato
+					documento : dato
 				},
 				success : function(data) {
 					nRow=$(thi).closest("tr").index();
@@ -1110,12 +1137,12 @@
 				},
 				error : function(data) {
 					$.smallBox({
-						title : "Eliminación de Información",
-						content : "No se eliminó correctamente, verifique por favor",
-						color : rgb(50, 118, 177), //"#5384AF",
-						timeout: 8000,
-						icon : "fa fa-bell"
-				    });
+						title : "ATENCIÓN: No se eliminó!",
+						content : "<i class='fa fa-clock-o'></i> <i>El registro no se eliminó correctamente</i>",
+						color : "#C46A69",
+						iconSmall : "fa fa-times fa-2x fadeInRight animated",
+						timeout : 8000
+				 });
 				}
 			});
 		}
@@ -1144,19 +1171,66 @@
 		}
 		
 		function cancelar() {
-			var obj_id = document.getElementById('area_id').value;
-			var des = document.getElementById('estado').value;
+			var doc = document.getElementById('documento').value;
+			var nc = document.getElementById('nombre_completo').value;
+			var ap = document.getElementById('apellido').value;
+			var x = document.getElementById('tipo_persona_id.tipo_persona_id').selectedIndex;
+			var tpi = document.getElementsByTagName("option")[x].value
+			x = document.getElementById('dependencia_id.dependencia_id').selectedIndex;
+			var di = document.getElementsByTagName("option")[x].value
+			var ce = document.getElementById('coreo_e').value;
+			var te = document.getElementById('telefono').value;
+			var sf = document.getElementById('scan_foto').value;
+			var sc = document.getElementById('scan_cedula').value;
+			var sh = document.getElementById('scan_huella').value;
+			var em = document.getElementById('empresa').value;
+			var nem = document.getElementById('nit_empresa').value;
+			var fvcl = document.getElementById('fecha_ven_curso_ley').value;
+			x = document.getElementById('codigo_trabajador').selectedIndex;
+			var ipr = document.getElementsByTagName("option")[x].value
+			var pl = document.getElementById('placa').value;
+			var epese = document.getElementById('eps').value;
+			var epv = document.getElementById('eps_vence').value;
+			var aeler = document.getElementById('alr').value;
+			var alrv = document.getElementById('alr_vence').value;
+			var inv = document.getElementById('inventario').value;
+			var sinv = document.getElementById('scan_inventario').value;
+			var o = document.getElementById('observaciones').value;
+			var est = document.getElementById('estado').value;
+			var opc=document.getElementById('elboton').innerHTML;
 			$('#elboton').text('Nuevo');
 			$.ajax({
 				type : "POST",
-				url : "area/cancelar",
+				url : "contratista_add/cancelar",
 				data : {
-					area_id: obj_id,
-					descripcion : des
+					documento: doc,
+					nombre_completo: nc,
+					apellido: ap,
+					tipo_persona_id: tpi,
+					dependencia_id: di,
+					coreo_e: ce,
+					telefono: te,
+					scan_foto: sf,
+					scan_cedula: sc,
+					scan_huella: sh,
+					empresa: em,
+					nit_empresa: nem,
+					fecha_ven_curso_ley: fvcl,
+					codigo_trabajador: ipr,
+					placa: pl,
+					eps: epese,
+					eps_vence: epv,
+					alr: aeler,
+					alr_vence : alrv,
+					inventario : inv,
+					scan_inventario : sinv,
+					observaciones:	o,
+					estado:	est,
+					opcion: opc
 				},
 				success : function(data) {					
-					document.getElementById('descripcion').value = "";
-					document.getElementById('area_id').value = "0";
+					//document.getElementById('descripcion').value = "";
+					//document.getElementById('area_id').value = "0";
 					 var res = data.split(":::");
 					 $('#datatable_fixed_column').dataTable().fnAddData( [res[0],res[1]] );
 					 $.smallBox({

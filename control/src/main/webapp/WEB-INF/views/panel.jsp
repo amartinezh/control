@@ -294,16 +294,10 @@
 						<ul>
 							<li><a target="des" href="<c:url value="/contratista_add"/>"><i class="fa fa-mail-forward"></i>
 								Dar de alta</a></li>
-							<li><a target="des" href="<c:url value="/contratista_hab_ingre"/>"><i class="fa fa-mail-reply"></i>
-								Habilitar ingreso</a></li>
-							<li><a target="des" href="<c:url value="/contratista_hab_sal"/>"><i class="fa fa-mail-reply"></i>
+							<li><a target="des" href="<c:url value="/contratista_add/hi"/>"><i class="fa fa-mail-reply"></i>
 								Habilitar salida</a></li>
-							<li><a target="des" href="<c:url value="/contratista_conmov"/>"><i class="fa fa-exchange"></i>
-								Consulta Movimiento</a></li>
-							<li><a target="des" href="<c:url value="/contratista_geshor"/>"><i class="fa fa-calendar"></i>
-								Gestionar Horarios</a></li>
-							<li><a target="des" href="<c:url value="/contratista_nov"/>"><i class="fa fa-share-alt"></i>
-								Gestionar Novedades</a></li>
+							<li><a target="des" href="<c:url value="/contratista_add/hs"/>"><i class="fa fa-mail-reply"></i>
+								Habilitar salida</a></li>
 						</ul>
 					</li>
 					

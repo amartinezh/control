@@ -90,35 +90,125 @@ public class ContratistaController {
 		else{
 				contratista.agregarContratista(false, obj);
 		}
-		return "<span class='responsiveExpander'></span><a class='btn btn-success btn-circle btn-sx'"
-				+ " onclick=\"con('"
-				+ obj.getDocumento()
-				+ "', '"
-				+ obj.getNombre_completo()
-				+ "', $(this)"
-				+ ")\"><i class='fa fa-edit'></i></a> <a class='btn btn-danger btn-circle' onclick='borrar("
-				+ documento
-				+ ", $(this))'><i class='fa fa-trash-o'></i></a><span class='responsiveExpander'></span>:::"
-				+ obj.getNombre_completo();
+		try {
+			return "<span class='responsiveExpander'></span><a class='btn btn-success btn-circle btn-sx'"
+					+ " onclick=\"con('"
+					+ obj.getDocumento() + "', '"
+					+ obj.getNombre_completo() + "', '"
+					+ obj.getApellido() + "', '"
+					+ obj.getTipo_persona_id() + "', '"
+					+ obj.getDependencia_id() + "', '"
+					+ obj.getCoreo_e() + "', '"
+					+ obj.getTelefono() + "', '"
+					+ obj.getScan_foto() + "', '"
+					+ obj.getScan_cedula() + "', '"
+					+ obj.getScan_huella() + "', '"
+					+ obj.getEmpresa() + "', '"
+					+ obj.getNit_empresa() + "', '"
+					+ formatter.parse(obj.getFecha_ven_curso_ley().toString()) + "', '"
+					+ obj.getCodigo_trabajador() + "', '"
+					+ obj.getPlaca() + "', '"
+					+ obj.getEps() + "', '"
+					+ formatter.parse(obj.getEps_vence().toString()) + "', '"
+					+ obj.getAlr() + "', '"
+					+ formatter.parse(obj.getAlr_vence().toString()) + "', '"
+					+ obj.getInventario() + "', '"
+					+ obj.getScan_inventario() + "', '"
+					+ "', $(this)"
+					+ ")\"><i class='fa fa-edit'></i></a> <a class='btn btn-danger btn-circle' onclick='borrar("
+					+ documento
+					+ ", $(this))'><i class='fa fa-trash-o'></i></a><span class='responsiveExpander'></span>:::"
+					+ obj.getNombre_completo();
+		} catch (ParseException e) {
+			
+			e.printStackTrace();
+			return "<span class='responsiveExpander'></span><a class='btn btn-success btn-circle btn-sx'"
+			+ " onclick=\"con('"
+			+ obj.getDocumento() + "', '"
+			+ obj.getNombre_completo() + "', '"
+			+ obj.getApellido() + "', '"
+			+ obj.getTipo_persona_id() + "', '"
+			+ obj.getDependencia_id() + "', '"
+			+ obj.getCoreo_e() + "', '"
+			+ obj.getTelefono() + "', '"
+			+ obj.getScan_foto() + "', '"
+			+ obj.getScan_cedula() + "', '"
+			+ obj.getEmpresa() + "', '"
+			+ obj.getNit_empresa() + "', '"
+			+ "', '" // Sin fechas
+			+ obj.getCodigo_trabajador() + "', '"
+			+ obj.getPlaca() + "', '"
+			+ obj.getEps() + "', '"
+			+ "', '"
+			+ obj.getAlr() + "', '"
+			+ "', '"
+			+ obj.getInventario() + "', '"
+			+ obj.getScan_inventario() + "', '"
+			+ "', $(this)"
+			+ ")\"><i class='fa fa-edit'></i></a> <a class='btn btn-danger btn-circle' onclick='borrar("
+			+ documento
+			+ ", $(this))'><i class='fa fa-trash-o'></i></a><span class='responsiveExpander'></span>:::"
+			+ obj.getNombre_completo();
+		}
 	}
 
 	@RequestMapping(value = "cancelar", method = RequestMethod.POST)
-	public @ResponseBody String cancelar(@RequestParam int area_id,
-			@RequestParam String descripcion, Map<String, Object> model) {
-		if (area_id > 0) {
+	public @ResponseBody String cancelar(
+			@RequestParam String documento,
+			@RequestParam String nombre_completo,
+			@RequestParam String apellido,
+			@RequestParam int tipo_persona_id,
+			@RequestParam int dependencia_id,
+			@RequestParam String coreo_e,
+			@RequestParam String telefono,
+			@RequestParam String scan_foto,
+			@RequestParam String scan_cedula,
+			@RequestParam String scan_huella,
+			@RequestParam String empresa,
+			@RequestParam String nit_empresa,
+			@RequestParam String fecha_ven_curso_ley,
+			@RequestParam String codigo_trabajador,
+			@RequestParam String placa,
+			@RequestParam String eps,
+			@RequestParam String eps_vence,
+			@RequestParam String alr,
+			@RequestParam String alr_vence,
+			@RequestParam String inventario,
+			@RequestParam String scan_inventario,
+			@RequestParam String observaciones,
+			@RequestParam String estado,
+			@RequestParam String opcion, 
+			Map<String, Object> model) {
+		if (Integer.parseInt(documento) > 0) {
 			String cad = "";
 			return "<span class='responsiveExpander'></span><a class='btn btn-success btn-circle btn-sx'"
 					+ " onclick=\"con('"
-					+ area_id
-					+ "', '"
-					+ descripcion
+					+ documento + "', '"
+					+ nombre_completo + "', '"
+					+ apellido + "', '"
+					+ tipo_persona_id + "', '"
+					+ dependencia_id + "', '"
+					+ coreo_e + "', '"
+					+ telefono + "', '"
+					+ scan_foto + "', '"
+					+ scan_cedula + "', '"
+					+ scan_huella + "', '"
+					+ empresa + "', '"
+					+ nit_empresa + "', '"
+					+ fecha_ven_curso_ley + "', '"
+					+ codigo_trabajador + "', '"
+					+ placa + "', '"
+					+ eps + "', '"
+					+ eps_vence + "', '"
+					+ alr + "', '"
+					+ alr_vence + "', '"
+					+ inventario + "', '"
+					+ scan_inventario + "', '"
 					+ "', $(this)"
-					+ ")\"><i class='fa fa-edit'></i></a>"
-					+ " <a class='btn btn-danger btn-circle' onclick='borrar("
-					+ area_id
-					+ ", $(this))'><i class='fa fa-trash-o'></i></a>"
-					+ "<span class='responsiveExpander'></span>:::"
-					+ descripcion + "";
+					+ ")\"><i class='fa fa-edit'></i></a> <a class='btn btn-danger btn-circle' onclick='borrar("
+					+ documento
+					+ ", $(this))'><i class='fa fa-trash-o'></i></a><span class='responsiveExpander'></span>:::"
+					+ nombre_completo;
 		} else {
 			try {
 				Integer.parseInt("a");
@@ -130,10 +220,24 @@ public class ContratistaController {
 	}
 
 	@RequestMapping(value = "borrar", method = RequestMethod.POST)
-	public @ResponseBody String borrar(@RequestParam int area_id,
-			Map<String, Object> model) {
-		contratista.borrarContratista(new Contratista());
+	public @ResponseBody String borrar(@RequestParam String documento,	Map<String, Object> model) {
+		contratista.borrarContratista(new Contratista(documento));
 		return "";
+	}
+
+	@RequestMapping(value = "hi", method = RequestMethod.GET)
+	public String proceo_hi(Map<String, Object> model) {
+		model.put("contratista", new Contratista());
+		model.put("tipopersonaList", tip.cmbTipoPersona());
+		model.put("dependenciaList", dep.cmbDependencias());
+		model.put("contratistaList", contratista.listarContratistas());
+		return "contratista/contratista_hab_ingre";
+	}
+	
+	@RequestMapping(value = "hs", method = RequestMethod.GET)
+	public String proceo_hs(Map<String, Object> model) {
+		model.put("contratista", new Contratista());
+		return "contratista/contratista_hab_sal";
 	}
 
 }

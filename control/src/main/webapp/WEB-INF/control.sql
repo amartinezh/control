@@ -733,7 +733,8 @@ CREATE TABLE control.correspondencia(
   INSERT INTO admin.tipo_persona(descripcion, estado) VALUES ('Contratista planta', '1');
   INSERT INTO admin.area(descripcion, estado) VALUES ('Area', '1');
   INSERT INTO admin.actividad(descripcion, estado) VALUES ('Actividad', '1');
-
+  INSERT INTO admin.tipo_producto(descripcion, estado) VALUES ('Materia Prima', '1');
+  INSERT INTO admin.tipo_producto(descripcion, estado) VALUES ('Producto Terminado', '1');
 
   
   

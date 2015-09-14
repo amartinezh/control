@@ -164,7 +164,7 @@
 												<div class="row">
 													<legend>  Exportaciones </legend>
 														<form:input type="hidden" path="estado" />
-														<form:input type="hidden" path="exportacion_id" />
+														<form:input type="hidden" path="exportacion_id" value="0"/>
 													<div class="col-md-3">
 														<label class="control-label">Fecha</label> 
 														<form:input path="fecha" type="date"
@@ -634,7 +634,7 @@
 											}
 										}
 									},
-									tipo_producto_id.tipo_producto_id : {
+									tipo_producto_id : {
 										group : '.col-md-3',
 										validators : {
 											notEmpty : {
@@ -667,7 +667,7 @@
 										}
 									},
 									puerto_llegada : {
-										group : '.col-md-4',
+										group : '.col-md-3',
 										validators : {
 											notEmpty : {
 												message : 'Campo requierido'
@@ -1001,44 +1001,69 @@
 		function actualizar() {
 			$( "#frm" ).submit();
 			var exportacion_id = document.getElementById('exportacion_id').value;
-			var nc = document.getElementById('nombre_completo').value;
-			var ap = document.getElementById('apellido').value;
+			var fecha = document.getElementById('fecha').value;
+
+			var x = document.getElementById('tipo_producto_id.tipo_producto_id').selectedIndex;
+			var tipo_producto_id = document.getElementsByTagName("option")[x].value
 			
-			//var tipoPersonaId = document.getElementById('tipoPersonaId.tipo_persona_id').value;
-			var x = document.getElementById('tipo_persona_id.tipo_persona_id').selectedIndex;
-			var tpi = document.getElementsByTagName("option")[x].value
-			
-			
-			//var dependencia_id = document.getElementById('dependencia_id.dependencia_id').value;
-			x = document.getElementById('dependencia_id.dependencia_id').selectedIndex;
-			var di = document.getElementsByTagName("option")[x].value
-			
-			var ce = document.getElementById('coreo_e').value;
-			var te = document.getElementById('telefono').value;
-			var sf = document.getElementById('scan_foto').value;
-			var sc = document.getElementById('scan_cedula').value;
-			var sh = document.getElementById('scan_huella').value;
-			
-			var o = document.getElementById('observaciones').value;
-			var est = document.getElementById('estado').value;
+			var cliente = document.getElementById('cliente').value;
+			var pais_destino = document.getElementById('pais_destino').value;
+			var puerto_llegada = document.getElementById('puerto_llegada').value;
+			var placa_vehiculo = document.getElementById('placa_vehiculo').value;
+			var numero_contenedor = document.getElementById('numero_contenedor').value;
+			var numero_trailer = document.getElementById('numero_trailer').value;
+			var transportadora = document.getElementById('transportadora').value;
+			var inicio_operacion = document.getElementById('inicio_operacion').value;
+			var inicio_inspeccion = document.getElementById('inicio_inspeccion').value;
+			var inicio_cargue = document.getElementById('inicio_cargue').value;
+			var fin_cargue = document.getElementById('fin_cargue').value;
+			var fin_operacion = document.getElementById('fin_operacion').value;
+			var peso_pt_kg = document.getElementById('peso_pt_kg').value;
+			var peso_boina = document.getElementById('peso_boina').value;
+			var numero_pedido = document.getElementById('numero_pedido').value;
+			var pacas = document.getElementById('pacas').value;
+			var numero_bobinas = document.getElementById('numero_bobinas').value;
+			var numero_cajas = document.getElementById('numero_cajas').value;
+			var acta_antinarcotico = document.getElementById('acta_antinarcotico').value;
+			var numero_precinto = document.getElementById('numero_precinto').value;
+			var sello_aleatorio = document.getElementById('sello_aleatorio').value;
+			var vigilante_proteccion = document.getElementById('vigilante_proteccion').value;
+			var observaciones = document.getElementById('observaciones').value;
+			//var estado = document.getElementById('estado').value;
+			var estado = "";
 			var opc=document.getElementById('elboton').innerHTML;
 			$.ajax({
 				type : "POST",
 				url : "exportacion_add/agregar",
 				processData: true,
 				data : {
-					documento: doc,
-					nombre_completo: nc,
-					apellido: ap,
-					tipo_persona_id: tpi,
-					dependencia_id: di,
-					coreo_e: ce,
-					telefono: te,
-					scan_foto: sf,
-					scan_cedula: sc,
-					scan_huella: sh,
-					observaciones:	o,
-					estado:	est,
+					exportacion_id: exportacion_id,
+					fecha: fecha,
+					tipo_producto_id: tipo_producto_id,
+					cliente: cliente,
+					pais_destino: pais_destino,
+					puerto_llegada: puerto_llegada,
+					placa_vehiculo: placa_vehiculo,
+					numero_contenedor: numero_contenedor,
+					numero_trailer: numero_trailer,
+					transportadora: transportadora,
+					inicio_operacion: inicio_operacion,
+					inicio_inspeccion: inicio_inspeccion,
+					inicio_cargue: inicio_cargue,
+					fin_cargue: fin_cargue,
+					fin_operacion: fin_operacion,
+					peso_pt_kg: peso_pt_kg,
+					peso_boina: peso_boina,
+					numero_pedido: numero_pedido,
+					pacas: pacas,
+					numero_bobinas: numero_bobinas,
+					numero_cajas: numero_cajas,
+					acta_antinarcotico: acta_antinarcotico,
+					numero_precinto: numero_precinto,
+					sello_aleatorio: sello_aleatorio,
+					vigilante_proteccion: vigilante_proteccion,
+					observaciones:	observaciones,
+					estado:	estado,
 					opcion: opc
 				},
 				success : function(data) {		

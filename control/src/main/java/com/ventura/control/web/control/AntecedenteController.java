@@ -1,5 +1,6 @@
 package com.ventura.control.web.control;
 
+import java.util.Date;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,10 +11,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
-import com.ventura.control.domain.control.Conductor;
+import com.ventura.control.domain.control.Antecedente;
 import com.ventura.control.domain.control.Dependencia;
 import com.ventura.control.domain.control.TipoPersona;
-import com.ventura.control.service.control.ConductorService;
+import com.ventura.control.service.control.AntecedenteService;
 import com.ventura.control.service.control.DependeciaService;
 import com.ventura.control.service.control.TipoPersonaService;
  
@@ -23,7 +24,7 @@ import com.ventura.control.service.control.TipoPersonaService;
 public class AntecedenteController {
 
 	@Autowired
-	private ConductorService conductor;
+	private AntecedenteService antecedente;
 	
 	@Autowired
 	private DependeciaService dep;
@@ -33,36 +34,31 @@ public class AntecedenteController {
 	
 	@RequestMapping(method = RequestMethod.GET)
 	public String panel(Map<String, Object> model) {
-		model.put("conductor", new Conductor());
-		model.put("tipopersonaList", tip.cmbTipoPersona());
-		model.put("dependenciaList", dep.cmbDependencias());
-		model.put("conductorList", conductor.listarConductor());
-		return "antecedente/antecedente";
+		model.put("antecedente", new Antecedente());
+		model.put("antecedenteList", antecedente.listarAntecedentes());
+		return "antecedente/antecedente_add";
 	}
 	
 	@RequestMapping(value = "agregar", method = RequestMethod.POST)
 	public @ResponseBody String agregar(
-			@RequestParam String documento,
-			@RequestParam String nombre_completo,
-			@RequestParam String apellido,
-			@RequestParam int tipo_persona_id,
-			@RequestParam int dependencia_id,
-			@RequestParam String coreo_e,
-			@RequestParam String telefono,
-			@RequestParam String scan_foto,
-			@RequestParam String scan_cedula,
-			@RequestParam String scan_huella,
+			@RequestParam int antecedente_id,
+			@RequestParam String contratista_documento,
+			@RequestParam Date fecha,
+			@RequestParam byte[] scan_responsabilidad,
+			@RequestParam byte[] scan_produraduria,
+			@RequestParam byte[] scan_policia,
+			@RequestParam byte[] scan_fiscalia,
 			@RequestParam String observaciones,
 			@RequestParam String estado,
 			@RequestParam String opcion,
 			Map<String, Object> model) {
 		java.text.SimpleDateFormat formatter = new java.text.SimpleDateFormat("yyyy-MM-dd");
-		Conductor obj=null;
-		obj = new Conductor(documento, nombre_completo, apellido, new TipoPersona(tipo_persona_id), new Dependencia(dependencia_id), coreo_e, telefono, scan_foto, scan_cedula, scan_huella, observaciones,"1");
+		Antecedente obj=null;
+		obj = new Antecedente(antecedente_id, contratista_documento, fecha, scan_responsabilidad, scan_produraduria, scan_policia, scan_fiscalia, observaciones, estado);
 		System.out.println(opcion.toString());
-		if (conductor.validarConductor(obj)){
+		if (antecedente.validarAntecedente(obj)){
 			if (opcion.equals("Actualizar")){
-				conductor.agregarConductor(true, obj); // True: merge
+				antecedente.agregarAntecedente(true, obj); // True: merge
 				return "semodifico";
 			}
 			else{
@@ -70,18 +66,18 @@ public class AntecedenteController {
 			}
 		}
 		else{
-				conductor.agregarConductor(false, obj);
+				antecedente.agregarAntecedente(false, obj);
 		}
 		return "<span class='responsiveExpander'></span><a class='btn btn-success btn-circle btn-sx'"
 				+ " onclick=\"con('"
-				+ obj.getDocumento()
+				+ obj.getAntecedente_id()
 				+ "', '"
-				+ obj.getNombre_completo()
+				+ obj.getContratista_documento()
 				+ "', $(this)"
 				+ ")\"><i class='fa fa-edit'></i></a> <a class='btn btn-danger btn-circle' onclick='borrar("
-				+ documento
+				+ obj.getAntecedente_id()
 				+ ", $(this))'><i class='fa fa-trash-o'></i></a><span class='responsiveExpander'></span>:::"
-				+ obj.getNombre_completo();
+				+ obj.getContratista_documento();
 	}
 
 	@RequestMapping(value = "cancelar", method = RequestMethod.POST)
@@ -114,8 +110,7 @@ public class AntecedenteController {
 	@RequestMapping(value = "borrar", method = RequestMethod.POST)
 	public @ResponseBody String borrar(@RequestParam int area_id,
 			Map<String, Object> model) {
-		conductor.borrarConductor(new Conductor());
+		antecedente.borrarAntecedente(new Antecedente());
 		return "";
 	}
-
 }

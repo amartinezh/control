@@ -43,10 +43,9 @@ public class ExportacionController {
 	
 	@RequestMapping(value = "agregar", method = RequestMethod.POST)
 	public @ResponseBody String agregar(
-			@RequestParam String documento,
 			@RequestParam int exportacion_id, 
-			@RequestParam java.util.Date fecha,
-			@RequestParam TipoProducto tipo_producto_id, 
+			@RequestParam String fecha,
+			@RequestParam int tipo_producto_id, 
 			@RequestParam String cliente, 
 			@RequestParam String pais_destino,
 			@RequestParam String puerto_llegada,
@@ -54,11 +53,11 @@ public class ExportacionController {
 			@RequestParam String numero_contenedor,
 			@RequestParam String numero_trailer,
 			@RequestParam String transportadora, 
-			@RequestParam Date inicio_operacion,
-			@RequestParam Date inicio_inspeccion, 
-			@RequestParam Date inicio_cargue,
-			@RequestParam Date fin_cargue,
-			@RequestParam Date fin_operacion, 
+			@RequestParam String inicio_operacion,
+			@RequestParam String inicio_inspeccion, 
+			@RequestParam String inicio_cargue,
+			@RequestParam String fin_cargue,
+			@RequestParam String fin_operacion, 
 			@RequestParam int peso_pt_kg, 
 			@RequestParam int peso_boina,
 			@RequestParam String numero_pedido, 
@@ -75,16 +74,17 @@ public class ExportacionController {
 			Map<String, Object> model) {
 		java.text.SimpleDateFormat formatter = new java.text.SimpleDateFormat("yyyy-MM-dd");
 		Exportacion obj=null;
-		obj = new Exportacion(exportacion_id, fecha, tipo_producto_id, cliente, pais_destino, puerto_llegada, placa_vehiculo, numero_contenedor, numero_trailer, transportadora, inicio_operacion, inicio_inspeccion, inicio_cargue, fin_cargue, fin_operacion, peso_pt_kg, peso_boina, numero_pedido, pacas, numero_bobinas, numero_cajas, acta_antinarcotico, numero_precinto, sello_aleatorio, vigilante_proteccion, observaciones, estado);
+		try {
+			obj = new Exportacion(exportacion_id, formatter.parse(fecha), new TipoProducto(tipo_producto_id), cliente, pais_destino, puerto_llegada, placa_vehiculo, numero_contenedor, numero_trailer, transportadora, formatter.parse(inicio_operacion), formatter.parse(inicio_inspeccion), formatter.parse(inicio_cargue), formatter.parse(fin_cargue), formatter.parse(fin_operacion), peso_pt_kg, peso_boina, numero_pedido, pacas, numero_bobinas, numero_cajas, acta_antinarcotico, numero_precinto, sello_aleatorio, vigilante_proteccion, observaciones, estado);
+		} catch (ParseException e) {
+			System.out.println("Inconveniente: "+e.toString());
+			e.printStackTrace();
+		}
 		System.out.println(opcion.toString());
-		if (exportacion.validarExportacion(obj)){
-			if (opcion.equals("Actualizar")){
-				exportacion.agregarExportacion(true, obj); // True: merge
-				return "semodifico";
-			}
-			else{
-				return "yaestaperonosemodifico";
-			}
+		//if (exportacion.validarExportacion(obj)){
+		if (opcion.equals("Actualizar")){
+			exportacion.agregarExportacion(true, obj); // True: merge
+			return "semodifico";
 		}
 		else{
 				exportacion.agregarExportacion(false, obj);

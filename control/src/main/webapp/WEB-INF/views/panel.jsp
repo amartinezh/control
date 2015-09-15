@@ -300,24 +300,24 @@
 								Habilitar salida</a></li>
 						</ul>
 					</li>
-					
 					<li>
 						<a href="#"><i class="fa fa-lg fa-fw fa-coffee"></i>
 						<span class="menu-item-parent">Visitantes</span></a>
 						<ul>
 							<li><a target="des" href="<c:url value="/visitante_add"/>"><i class="fa fa-mail-forward"></i>
 								Registrar Visitante</a></li>
-							<li><a target="des" href="<c:url value="/visitante_hab_ingre"/>"><i class="fa fa-mail-forward"></i>
+							<li><a target="des" href="<c:url value="/visitante_add/hi"/>"><i class="fa fa-mail-forward"></i>
 								Habilitar Ingreso</a></li>
-							<li><a target="des" href="<c:url value="/visitante_hab_sal"/>"><i class="fa fa-mail-reply"></i>
+							<li><a target="des" href="<c:url value="/visitante_add/hs"/>"><i class="fa fa-mail-reply"></i>
 								Habilitar Salida</a></li>
-							<li><a target="des" href="<c:url value="/visitante_conmov"/>"><i class="fa fa-exchange"></i>
+							<!--  <li><a target="des" href="<c:url value="/visitante_conmov"/>"><i class="fa fa-exchange"></i>
 								Consulta Movimiento</a></li>
 							<li><a target="des" href="<c:url value="/visitante_horario"/>"><i class="fa fa-calendar"></i>
 								Gestionar Horarios Habiles</a></li>
 							<li><a target="des" href="<c:url value="/visitante_nov"/>"><i class="fa fa-share-alt"></i>
 								Gestionar Novedades</a></li>
 							<li><a target="des" href="<c:url value="/visitante_nov"/>"><i class="fa fa-share-alt"></i>
+							-->
 								Tipo Visita</a></li>
 								<li>
 								<a href="#"><i class="fa fa-signal"></i>Reportes</a>
@@ -348,9 +348,9 @@
 						<ul>
 							<li><a target="des" href="<c:url value="/conductor_add"/>"><i class="fa fa-mail-forward"></i>
 								Registrar Conductor</a></li>
-							<li><a target="des" href="<c:url value="/conductor_ent"/>"><i class="fa fa-mail-forward"></i>
+							<li><a target="des" href="<c:url value="/conductor_add/re"/>"><i class="fa fa-mail-forward"></i>
 								Registrar Entrada</a></li>
-							<li><a target="des" href="<c:url value="/conductor_sal"/>"><i class="fa fa-mail-reply"></i>
+							<li><a target="des" href="<c:url value="/conductor_add/rs"/>"><i class="fa fa-mail-reply"></i>
 								Registrar Salida</a></li>
 						</ul>
 					</li>

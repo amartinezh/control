@@ -59,6 +59,10 @@ public class Conductor implements Serializable {
 	public Conductor(){
 		
 	}
+	
+	public Conductor(String documento){
+		this.documento=documento;
+	}
 
 	public Conductor(String documento, String nombre_completo, String apellido,
 			TipoPersona tipo_persona_id, Dependencia dependencia_id,

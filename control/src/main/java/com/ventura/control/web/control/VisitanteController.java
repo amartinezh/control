@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
+import com.ventura.control.domain.control.Contratista;
 import com.ventura.control.domain.control.Visitante;
 import com.ventura.control.domain.control.Dependencia;
 import com.ventura.control.domain.control.TipoPersona;
@@ -168,5 +169,18 @@ public class VisitanteController {
 		visitante.borrarVisitante(new Visitante(documento));
 		return "";
 	}
+	
+	@RequestMapping(value = "hi", method = RequestMethod.GET)
+	public String proceo_hi(Map<String, Object> model) {
+		model.put("contratista", new Contratista());
+		return "visitante/visitante_hab_ingre";
+	}
+	
+	@RequestMapping(value = "hs", method = RequestMethod.GET)
+	public String proceo_hs(Map<String, Object> model) {
+		model.put("contratista", new Contratista());
+		return "visitante/visitante_hab_sal";
+	}
+
 
 }

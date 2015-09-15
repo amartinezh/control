@@ -162,7 +162,7 @@
 										<fieldset>
 											<div class="form-group">
 												<div class="row">
-													<legend>  conductors </legend>
+													<legend> Conductores</legend>
 													<!-- <form:input type="hidden" path="documento" value="0" /> -->
 														<form:input type="hidden" path="estado" />
 													<div class="col-md-4">
@@ -237,7 +237,7 @@
 										<fieldset>
 											<div class="form-group">
 												<div class="row">
-													<div class="col-md-12">
+													<div class="col-md-11">
 														<label class="control-label">Observaciones</label> 
 														<form:textarea path="observaciones" type="text" class="form-control" data-bv-field="Placa" required="required" />
 													</div>
@@ -575,7 +575,7 @@
 											}
 										}
 									},
-									nombreCompleto : {
+									nombre_completo : {
 										group : '.col-md-4',
 										validators : {
 											notEmpty : {
@@ -591,7 +591,7 @@
 											}
 										}
 									},
-									coreoE : {
+									coreo_e : {
 										group : '.col-md-6',
 										validators : {
 											notEmpty : {
@@ -607,7 +607,7 @@
 											}
 										}
 									},
-									scanFoto : {
+									scan_foto : {
 										group : '.col-md-4',
 										validators : {
 											notEmpty : {
@@ -615,7 +615,7 @@
 											}
 										}
 									},
-									scanCedula : {
+									scan_cedula : {
 										group : '.col-md-4',
 										validators : {
 											notEmpty : {
@@ -623,7 +623,7 @@
 											}
 										}
 									},
-									scanHuella : {
+									scan_huella : {
 										group : '.col-md-4',
 										validators : {
 											notEmpty : {
@@ -632,7 +632,7 @@
 										}
 									},
 									observaciones : {
-										group : '.col-md-12',
+										group : '.col-md-11',
 										validators : {
 											notEmpty : {
 												message : 'Campo requierido'
@@ -905,7 +905,7 @@
 				type : "POST",
 				url : "conductor_add/borrar",
 				data : {
-					area_id : dato
+					documento : dato
 				},
 				success : function(data) {
 					nRow=$(thi).closest("tr").index();
@@ -954,20 +954,49 @@
 		}
 		
 		function cancelar() {
-			var obj_id = document.getElementById('area_id').value;
-			var des = document.getElementById('estado').value;
+			var doc = document.getElementById('documento').value;
+			var nc = document.getElementById('nombre_completo').value;
+			var ap = document.getElementById('apellido').value;
+			
+			//var tipoPersonaId = document.getElementById('tipoPersonaId.tipo_persona_id').value;
+			var x = document.getElementById('tipo_persona_id.tipo_persona_id').selectedIndex;
+			var tpi = document.getElementsByTagName("option")[x].value
+			
+			
+			//var dependencia_id = document.getElementById('dependencia_id.dependencia_id').value;
+			x = document.getElementById('dependencia_id.dependencia_id').selectedIndex;
+			var di = document.getElementsByTagName("option")[x].value
+			
+			var ce = document.getElementById('coreo_e').value;
+			var te = document.getElementById('telefono').value;
+			var sf = document.getElementById('scan_foto').value;
+			var sc = document.getElementById('scan_cedula').value;
+			var sh = document.getElementById('scan_huella').value;
+			
+			var o = document.getElementById('observaciones').value;
+			var est = document.getElementById('estado').value;
+			var opc=document.getElementById('elboton').innerHTML;
 			$('#elboton').text('Nuevo');
 			$.ajax({
 				type : "POST",
 				url : "conductor_add/cancelar",
 				data : {
-					area_id: obj_id,
-					descripcion : des
+					documento: doc,
+					nombre_completo: nc,
+					apellido: ap,
+					tipo_persona_id: tpi,
+					dependencia_id: di,
+					coreo_e: ce,
+					telefono: te,
+					scan_foto: sf,
+					scan_cedula: sc,
+					scan_huella: sh,
+					observaciones:	o,
+					estado:	est,
+					opcion: opc
 				},
 				success : function(data) {					
-					document.getElementById('descripcion').value = "";
-					document.getElementById('area_id').value = "0";
-					 var res = data.split(":::");
+						 var res = data.split(":::");
 					 $('#datatable_fixed_column').dataTable().fnAddData( [res[0],res[1]] );
 					 $.smallBox({
 							title : "Operación Cancelada",
@@ -979,8 +1008,13 @@
 					 $('#cance').hide();
 				},
 				error : function(data) {
-					document.getElementById('descripcion').value = "";
-					document.getElementById('area_id').value = "0";					
+					 $.smallBox({
+							title : "Error Cancelando",
+							content : "<i class='fa fa-clock-o'></i> <i>No fue posible cancelar</i>",
+							color : "#C46A69",
+							iconSmall : "fa fa-times fa-2x fadeInRight animated",
+							timeout : 4000
+					 });					
 				}
 			});
 		}

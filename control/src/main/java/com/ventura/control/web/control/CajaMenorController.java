@@ -3,7 +3,6 @@ package com.ventura.control.web.control;
 import java.math.BigInteger;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +15,6 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.ventura.control.domain.control.CajaMenor;
 import com.ventura.control.domain.control.Dependencia;
-import com.ventura.control.domain.control.Nivel;
 import com.ventura.control.domain.control.TipoTransaccion;
 import com.ventura.control.service.control.CajaMenorService;
 import com.ventura.control.service.control.DependeciaService;

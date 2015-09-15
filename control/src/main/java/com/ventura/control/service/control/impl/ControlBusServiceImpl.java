@@ -1,5 +1,8 @@
 package com.ventura.control.service.control.impl;
 
+import java.util.LinkedList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,6 +27,17 @@ public class ControlBusServiceImpl implements ControlBusService{
 			cBus.setObservaciones(controlBus.getObservaciones());
 			controlBusDao.actualizar(cBus);
 		}			
+	}
+	
+	public List<ControlBus> listarControlBus() {
+		String sql = "Select c FROM ControlBus as c";
+		@SuppressWarnings("unchecked")
+		List<ControlBus> data = controlBusDao.listarObjeto(sql).getResultList();
+		if (data != null) {
+			return data;
+		} else {
+			return new LinkedList<ControlBus>();
+		}
 	}
 
 }

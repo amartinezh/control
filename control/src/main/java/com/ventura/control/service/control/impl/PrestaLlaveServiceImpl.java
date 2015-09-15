@@ -1,5 +1,8 @@
 package com.ventura.control.service.control.impl;
 
+import java.util.LinkedList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -29,5 +32,16 @@ public class PrestaLlaveServiceImpl implements PrestaLlaveService {
 	public void borrarPrestaLlave(PrestaLlave presta) {
 		PrestaLlave prest = (PrestaLlave) prestaLlaveDao.getElemento(presta, presta.getId());
 		prestaLlaveDao.borrar(prest);
+	}
+	
+	public List<PrestaLlave> listarPrestaLlave() {
+		String sql = "Select p FROM PrestaLlave as p";
+		@SuppressWarnings("unchecked")
+		List<PrestaLlave> data = prestaLlaveDao.listarObjeto(sql).getResultList();
+		if (data != null) {
+			return data;
+		} else {
+			return new LinkedList<PrestaLlave>();
+		}
 	}
 }

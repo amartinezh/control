@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.ventura.control.domain.control.CajaMenor;
-import com.ventura.control.domain.control.Nivel;
 import com.ventura.control.repository.control.RepositorioDao;
 import com.ventura.control.service.control.CajaMenorService;
 

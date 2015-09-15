@@ -136,21 +136,8 @@
 	<!-- END NAVIGATION -->
 
 	<!-- MAIN PANEL -->
-	<div>
 
-		<div id="content">
-			<div class="alert alert-block alert-success">
-				<a class="close" data-dismiss="alert" href="#">×</a>
-				<h4 class="alert-heading">
-					<i class="fa fa-check-square-o"></i> Atención!
-				</h4>
-				<p>Especio para sacar los letreros de todo tipo</p>
-			</div>
-		</div>
-	</div>
 	<!-- END MAIN CONTENT -->
-
-	</div>
 
 	<!-- widget grid -->
 	<section id="widget-grid" class="">
@@ -304,7 +291,7 @@
 
 			<span class="widget-icon"> <i class="fa fa-table"></i>
 			</span>
-			<h2>Herramientas</h2>
+			<h2>Prestamo de llaves</h2>
 
 			<span class="jarviswidget-loader"><i
 				class="fa fa-refresh fa-spin"></i></span>
@@ -345,60 +332,59 @@
 									aria-controls="dt_basic" aria-sort="ascending"
 									aria-label="ID: activate to sort column ascending"
 									style="width: 15px;"></th>
-
 								<th data-class="expand" class="sorting_asc" tabindex="1"
 									aria-controls="dt_basic" colspan="1" aria-sort="ascending"
 									aria-label="Name: activate to sort column ascending"
-									style="width: 540px;">Descripción</th>
+									style="width: 540px;">Fecha</th>
+								<th data-class="expand" class="sorting_asc" tabindex="1"
+									aria-controls="dt_basic" colspan="1" aria-sort="ascending"
+									aria-label="Name: activate to sort column ascending"
+									style="width: 540px;">Hora</th>
+								<th data-class="expand" class="sorting_asc" tabindex="1"
+									aria-controls="dt_basic" colspan="1" aria-sort="ascending"
+									aria-label="Name: activate to sort column ascending"
+									style="width: 540px;">Nombre Completo</th>
+								<th data-class="expand" class="sorting_asc" tabindex="1"
+									aria-controls="dt_basic" colspan="1" aria-sort="ascending"
+									aria-label="Name: activate to sort column ascending"
+									style="width: 540px;">Apellido</th>
+								<th data-class="expand" class="sorting_asc" tabindex="1"
+									aria-controls="dt_basic" colspan="1" aria-sort="ascending"
+									aria-label="Name: activate to sort column ascending"
+									style="width: 540px;">Cantidad Llaves</th>
+								<th data-class="expand" class="sorting_asc" tabindex="1"
+									aria-controls="dt_basic" colspan="1" aria-sort="ascending"
+									aria-label="Name: activate to sort column ascending"
+									style="width: 540px;">Quien Entrega</th>
+								<th data-class="expand" class="sorting_asc" tabindex="1"
+									aria-controls="dt_basic" colspan="1" aria-sort="ascending"
+									aria-label="Name: activate to sort column ascending"
+									style="width: 540px;">Quien Recibe</th>
+								<th data-class="expand" class="sorting_asc" tabindex="1"
+									aria-controls="dt_basic" colspan="1" aria-sort="ascending"
+									aria-label="Name: activate to sort column ascending"
+									style="width: 540px;">Observaciones</th>
 							</tr>
 						</thead>
 
 						<tbody>
-
-							<tr role="row" class="odd">
-								<td class="sorting_1"><span class="responsiveExpander"></span>
-									<a class="btn btn-success btn-circle btn-sx"
-									href="javascript:void(0);"><i class="fa fa-edit"></i></a> <a
-									class="btn btn-danger btn-circle" href="javascript:void(0);"><i
-										class="fa fa-trash-o"></i></a></td>
-								<td class="sorting_1"><span class="responsiveExpander"></span>A</td>
-
-							</tr>
-							<tr role="row" class="even">
-								<td class="sorting_1"><span class="responsiveExpander"></span>
-									<a class="btn btn-success btn-circle btn-sx"
-									href="javascript:void(0);"><i class="fa fa-edit"></i></a> <a
-									class="btn btn-danger btn-circle" href="javascript:void(0);"><i
-										class="fa fa-trash-o"></i></a></td>
-								<td class="sorting_1"><span class="responsiveExpander"></span>B</td>
-
-							</tr>
-							<tr role="row" class="odd">
-								<td class="sorting_1"><span class="responsiveExpander"></span>
-									<a class="btn btn-success btn-circle btn-sx"
-									href="javascript:void(0);"><i class="fa fa-edit"></i></a> <a
-									class="btn btn-danger btn-circle" href="javascript:void(0);"><i
-										class="fa fa-trash-o"></i></a></td>
-								<td class="sorting_1"><span class="responsiveExpander"></span>C</td>
-							</tr>
-
-							<tr role="row" class="even">
-								<td class="sorting_1"><span class="responsiveExpander"></span>
-									<a class="btn btn-success btn-circle btn-sx"
-									href="javascript:void(0);"><i class="fa fa-edit"></i></a> <a
-									class="btn btn-danger btn-circle" href="javascript:void(0);"><i
-										class="fa fa-trash-o"></i></a></td>
-								<td class="sorting_1"><span class="responsiveExpander"></span>D</td>
-							</tr>
-							<tr role="row" class="odd">
-								<td class="sorting_1"><span class="responsiveExpander"></span>
-									<a class="btn btn-success btn-circle btn-sx"
-									href="javascript:void(0);"><i class="fa fa-edit"></i></a> <a
-									class="btn btn-danger btn-circle" href="javascript:void(0);"><i
-										class="fa fa-trash-o"></i></a></td>
-								<td class="sorting_1"><span class="responsiveExpander"></span>E</td>
-							</tr>
-
+							<c:forEach var="prest" items="${ listPrestamo }">
+								<tr role="row" class="odd">
+									<td class="sorting_1"><span class="responsiveExpander"></span>
+										<a class="btn btn-success btn-circle btn-sx"
+										href="javascript:void(0);"><i class="fa fa-edit"></i></a> <a
+										class="btn btn-danger btn-circle" href="javascript:void(0);"><i
+											class="fa fa-trash-o"></i></a></td>
+									<td class="sorting_1"><span class="responsiveExpander"></span><c:out value="${ prest.fecha }"/></td>
+									<td class="sorting_1"><span class="responsiveExpander"></span><c:out value="${ prest.hora }"/></td>
+									<td class="sorting_1"><span class="responsiveExpander"></span><c:out value="${ prest.nombreCompleto }"/></td>
+									<td class="sorting_1"><span class="responsiveExpander"></span><c:out value="${ prest.apellido }"/></td>
+									<td class="sorting_1"><span class="responsiveExpander"></span><c:out value="${ prest.cantidadLlave}"/></td>
+									<td class="sorting_1"><span class="responsiveExpander"></span><c:out value="${ prest.quienEntrega}"/></td>
+									<td class="sorting_1"><span class="responsiveExpander"></span><c:out value="${ prest.quienRecibe}"/></td>
+									<td class="sorting_1"><span class="responsiveExpander"></span><c:out value="${ prest.observaciones}"/></td>
+								</tr>
+							</c:forEach>
 						</tbody>
 
 					</table>
@@ -1521,14 +1507,14 @@
 						type : "POST",
 						url : "llave_prestamo/agregar",
 						data : {
-							fecha: fech,
-							nombreCompleto: nom,
-							apellido: ape,
-							cantidadLlave: cant,
-							dependencia: dep,
-							quienEntrego: ent,
-							quienRecibio: rec,
-							observaciones: obs
+							fecha : fech,
+							nombreCompleto : nom,
+							apellido : ape,
+							cantidadLlave : cant,
+							dependencia : dep,
+							quienEntrego : ent,
+							quienRecibio : rec,
+							observaciones : obs
 						},
 						success : function(data) {
 							//document.getElementById('descripcion').value = "";

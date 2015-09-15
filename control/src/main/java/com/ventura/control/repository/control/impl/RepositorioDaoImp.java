@@ -10,8 +10,6 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.ventura.control.domain.adm.TypeUser;
-import com.ventura.control.domain.control.Dependencia;
 import com.ventura.control.repository.control.RepositorioDao;
 
 @Repository
@@ -48,7 +46,6 @@ public class RepositorioDaoImp implements RepositorioDao {
 		return em.createQuery(sql).getResultList();
 	}
 	
-	@SuppressWarnings("unchecked")
 	public Query listarObjeto(String sql) {
 		return em.createQuery(sql);
 	}

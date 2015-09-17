@@ -283,7 +283,7 @@
 
 			<span class="widget-icon"> <i class="fa fa-table"></i>
 			</span>
-			<h2>Herramientas</h2>
+			<h2>Caja Menor</h2>
 
 			<span class="jarviswidget-loader"><i
 				class="fa fa-refresh fa-spin"></i></span>
@@ -324,59 +324,59 @@
 									aria-controls="dt_basic" aria-sort="ascending"
 									aria-label="ID: activate to sort column ascending"
 									style="width: 15px;"></th>
-
+								<th data-hide="cmd" class="sorting_asc" tabindex="0"
+									aria-controls="dt_basic" aria-sort="ascending"
+									aria-label="ID: activate to sort column ascending"
+									style="width: 15px;">Fecha</th>
 								<th data-class="expand" class="sorting_asc" tabindex="1"
 									aria-controls="dt_basic" colspan="1" aria-sort="ascending"
 									aria-label="Name: activate to sort column ascending"
-									style="width: 540px;">Descripción</th>
+									style="width: 540px;">Nombre Completo</th>
+								<th data-class="expand" class="sorting_asc" tabindex="1"
+									aria-controls="dt_basic" colspan="1" aria-sort="ascending"
+									aria-label="Name: activate to sort column ascending"
+									style="width: 540px;">Apellido</th>
+								<th data-class="expand" class="sorting_asc" tabindex="1"
+									aria-controls="dt_basic" colspan="1" aria-sort="ascending"
+									aria-label="Name: activate to sort column ascending"
+									style="width: 540px;">Dependencia</th>
+									<th data-class="expand" class="sorting_asc" tabindex="1"
+									aria-controls="dt_basic" colspan="1" aria-sort="ascending"
+									aria-label="Name: activate to sort column ascending"
+									style="width: 540px;">Transacción</th>
+								<th data-class="expand" class="sorting_asc" tabindex="1"
+									aria-controls="dt_basic" colspan="1" aria-sort="ascending"
+									aria-label="Name: activate to sort column ascending"
+									style="width: 540px;">Valor</th>
+								<th data-class="expand" class="sorting_asc" tabindex="1"
+									aria-controls="dt_basic" colspan="1" aria-sort="ascending"
+									aria-label="Name: activate to sort column ascending"
+									style="width: 540px;">Hora</th>
+									<th data-class="expand" class="sorting_asc" tabindex="1"
+									aria-controls="dt_basic" colspan="1" aria-sort="ascending"
+									aria-label="Name: activate to sort column ascending"
+									style="width: 540px;">Observaciones</th>
 							</tr>
 						</thead>
 
 						<tbody>
-
-							<tr role="row" class="odd">
-								<td class="sorting_1"><span class="responsiveExpander"></span>
-									<a class="btn btn-success btn-circle btn-sx"
-									href="javascript:void(0);"><i class="fa fa-edit"></i></a> <a
-									class="btn btn-danger btn-circle" href="javascript:void(0);"><i
-										class="fa fa-trash-o"></i></a></td>
-								<td class="sorting_1"><span class="responsiveExpander"></span>A</td>
-
-							</tr>
-							<tr role="row" class="even">
-								<td class="sorting_1"><span class="responsiveExpander"></span>
-									<a class="btn btn-success btn-circle btn-sx"
-									href="javascript:void(0);"><i class="fa fa-edit"></i></a> <a
-									class="btn btn-danger btn-circle" href="javascript:void(0);"><i
-										class="fa fa-trash-o"></i></a></td>
-								<td class="sorting_1"><span class="responsiveExpander"></span>B</td>
-
-							</tr>
-							<tr role="row" class="odd">
-								<td class="sorting_1"><span class="responsiveExpander"></span>
-									<a class="btn btn-success btn-circle btn-sx"
-									href="javascript:void(0);"><i class="fa fa-edit"></i></a> <a
-									class="btn btn-danger btn-circle" href="javascript:void(0);"><i
-										class="fa fa-trash-o"></i></a></td>
-								<td class="sorting_1"><span class="responsiveExpander"></span>C</td>
-							</tr>
-
-							<tr role="row" class="even">
-								<td class="sorting_1"><span class="responsiveExpander"></span>
-									<a class="btn btn-success btn-circle btn-sx"
-									href="javascript:void(0);"><i class="fa fa-edit"></i></a> <a
-									class="btn btn-danger btn-circle" href="javascript:void(0);"><i
-										class="fa fa-trash-o"></i></a></td>
-								<td class="sorting_1"><span class="responsiveExpander"></span>D</td>
-							</tr>
-							<tr role="row" class="odd">
-								<td class="sorting_1"><span class="responsiveExpander"></span>
-									<a class="btn btn-success btn-circle btn-sx"
-									href="javascript:void(0);"><i class="fa fa-edit"></i></a> <a
-									class="btn btn-danger btn-circle" href="javascript:void(0);"><i
-										class="fa fa-trash-o"></i></a></td>
-								<td class="sorting_1"><span class="responsiveExpander"></span>E</td>
-							</tr>
+							<c:forEach var="cajaMenor" items="${ listCajaMenor }">
+								<tr role="row" class="odd">
+									<td class="sorting_1"><span class="responsiveExpander"></span>
+										<a class="btn btn-success btn-circle btn-sx"
+										href="javascript:void(0);"><i class="fa fa-edit"></i></a> <a
+										class="btn btn-danger btn-circle" href="javascript:void(0);"><i
+											class="fa fa-trash-o"></i></a></td>
+									<td class="sorting_1"><span class="responsiveExpander"></span><c:out value="${ cajaMenor.fecha }"/></td>
+									<td class="sorting_1"><span class="responsiveExpander"></span><c:out value="${ cajaMenor.nombreCompleto }"/></td>
+									<td class="sorting_1"><span class="responsiveExpander"></span><c:out value="${ cajaMenor.apellido }"/></td>
+									<td class="sorting_1"><span class="responsiveExpander"></span><c:out value="${ cajaMenor.dependenciaId.descripcion }"/></td>
+									<td class="sorting_1"><span class="responsiveExpander"></span><c:out value="${ cajaMenor.tipoTransaccionId.descripcion }"/></td>
+									<td class="sorting_1"><span class="responsiveExpander"></span>$<c:out value="${ cajaMenor.valor }"/></td>
+									<td class="sorting_1"><span class="responsiveExpander"></span><c:out value="${ cajaMenor.horaRegistro }"/></td>
+									<td class="sorting_1"><span class="responsiveExpander"></span><c:out value="${ cajaMenor.observaciones }"/></td>
+								</tr>
+							</c:forEach>				
 
 						</tbody>
 

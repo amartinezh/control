@@ -29,10 +29,8 @@ public class PrestamoController {
 	@RequestMapping(method = RequestMethod.GET)
 	public String panel(Map<String, Object> model) {
 		model.put("prestamo", new PrestaLlave());
-		// model.put("listArea", area.listarAreas());
-		// model.put("user", new User());
-		// model.put("contratista", new Contratista());
 		model.put("dependenciaList", dep.cmbDependencias());
+		model.put("listPrestamo", presta.listarPrestaLlave());
 		return "llave/llave_pre";
 	}
 

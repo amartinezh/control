@@ -532,6 +532,26 @@ CREATE TABLE control.conductor(
   CONSTRAINT fk6b68k0814ff7b46 FOREIGN KEY (dependencia_id) REFERENCES admin.dependencia (dependencia_id) ON UPDATE NO ACTION ON DELETE NO ACTION
 )WITH ( OIDS=FALSE); ALTER TABLE control.conductor OWNER TO postgres;
 
+CREATE TABLE control.registro_conductor(
+  documento character varying(64) NOT NULL,
+  empresa_de_transporte character varying,
+  placa character varying,
+  trailer character varying,
+  eps character varying(64),
+  eps_vence date,
+  alr character varying(64),
+  alr_vence date,
+  patiero character varying(1),
+  documento_patiero character varying,
+  scan_orden_cargue character varying,
+  scan_tarjeta_propiedad character varying,
+  scan_alr character varying,
+  observaciones text,
+  estado character varying(1),
+  CONSTRAINT registro_conductor_pk PRIMARY KEY (documento),
+  CONSTRAINT fk2a68h0814ff7b51 FOREIGN KEY (documento) REFERENCES control.conductor (documento) ON UPDATE NO ACTION ON DELETE NO ACTION
+)WITH ( OIDS=FALSE); ALTER TABLE control.conductor OWNER TO postgres;
+
 CREATE TABLE control.presta_llave(
   id serial NOT NULL,
   fecha date,

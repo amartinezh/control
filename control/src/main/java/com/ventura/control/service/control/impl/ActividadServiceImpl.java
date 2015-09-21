@@ -21,8 +21,9 @@ public class ActividadServiceImpl implements ActividadService {
 
 	@Transactional
 	public void agregarActividad(Actividad actividad) {
-		if (actividad.getActividad_id() == 0)
-			actividadDao.agregar(actividad);
+		if (actividad.getActividad_id() == 0){
+			actividad = (Actividad) actividadDao.agregar_get(actividad);
+		}
 		else {
 			Actividad dep = (Actividad) actividadDao.getElemento(actividad, actividad.getActividad_id());
 			dep.setDescripcion(actividad.getDescripcion());

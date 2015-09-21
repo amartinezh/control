@@ -20,7 +20,7 @@ public class TipoEncomiendaServiceImpl implements TipoEncomiendaService {
 	@Transactional
 	public void agregarTipoEncomienda(TipoEncomienda tipoEncomienda) {
 		if (tipoEncomienda.getTipo_encomienda_id() == 0)
-			tipoEncomiendaDao.agregar(tipoEncomienda);
+			tipoEncomienda=(TipoEncomienda) tipoEncomiendaDao.agregar_get(tipoEncomienda);
 		else {
 			TipoEncomienda obj = (TipoEncomienda) tipoEncomiendaDao.getElemento(tipoEncomienda, tipoEncomienda.getTipo_encomienda_id());
 			obj.setDescripcion(tipoEncomienda.getDescripcion());

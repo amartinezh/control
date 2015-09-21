@@ -40,7 +40,7 @@ public class AreaController {
 				+ obj.getDescripcion()
 				+ "', $(this)"
 				+ ")\"><i class='fa fa-edit'></i></a> <a class='btn btn-danger btn-circle' onclick='borrar("
-				+ area_id
+				+ obj.getArea_id()
 				+ ", $(this))'><i class='fa fa-trash-o'></i></a><span class='responsiveExpander'></span>:::"
 				+ descripcion;
 	}

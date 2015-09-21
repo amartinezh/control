@@ -40,7 +40,7 @@ public class TipoPersonaController {
 				+ obj.getDescripcion()
 				+ "', $(this)"
 				+ ")\"><i class='fa fa-edit'></i></a> <a class='btn btn-danger btn-circle' onclick='borrar("
-				+ tipo_persona_id
+				+ obj.getTipo_persona_id()
 				+ ", $(this))'><i class='fa fa-trash-o'></i></a><span class='responsiveExpander'></span>:::"
 				+ descripcion;
 	}

@@ -20,7 +20,7 @@ public class CentroCostoServiceImpl implements CentroCostoService {
 	@Transactional
 	public void agregarCentro(CentroCosto centro) {
 		if (centro.getCentro_costo_id() == 0)
-			centroDao.agregar(centro);
+		centro=(CentroCosto) centroDao.agregar_get(centro);
 		else {
 			CentroCosto obj = (CentroCosto) centroDao.getElemento(centro, centro.getCentro_costo_id());
 			obj.setDescripcion(centro.getDescripcion());

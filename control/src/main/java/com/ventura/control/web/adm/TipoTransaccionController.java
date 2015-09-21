@@ -40,7 +40,7 @@ public class TipoTransaccionController {
 				+ obj.getDescripcion()
 				+ "', $(this)"
 				+ ")\"><i class='fa fa-edit'></i></a> <a class='btn btn-danger btn-circle' onclick='borrar("
-				+ tipo_transaccion_id
+				+ obj.getTipo_transaccion_id()
 				+ ", $(this))'><i class='fa fa-trash-o'></i></a><span class='responsiveExpander'></span>:::"
 				+ descripcion;
 	}

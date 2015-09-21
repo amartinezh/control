@@ -40,7 +40,7 @@ public class SitioController {
 				+ obj.getDescripcion()
 				+ "', $(this)"
 				+ ")\"><i class='fa fa-edit'></i></a> <a class='btn btn-danger btn-circle' onclick='borrar("
-				+ sitio_id
+				+ obj.getSitio_id()
 				+ ", $(this))'><i class='fa fa-trash-o'></i></a><span class='responsiveExpander'></span>:::"
 				+ descripcion;
 	}

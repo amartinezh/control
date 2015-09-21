@@ -752,9 +752,9 @@
 				},
 				error : function(data) {
 					$.smallBox({
-						title : "Eliminación de Información",
-						content : "No se eliminó correctamente, verifique por favor",
-						color : rgb(50, 118, 177), //"#5384AF",
+						title : "No se eliminó",
+						content : "Se presentó un inconveniente",
+						color : "#5384AF",
 						timeout: 8000,
 						icon : "fa fa-bell"
 				    });

@@ -29,6 +29,15 @@ public class RepositorioDaoImp implements RepositorioDao {
 	@Transactional(propagation = Propagation.REQUIRED)
 	public void agregar(Object obj) {
 		em.persist(obj);
+		
+	}
+	
+	@Transactional(propagation = Propagation.REQUIRED)
+	public Object agregar_get(Object obj) {
+		em.persist(obj);
+		em.flush();
+		return obj;
+		
 	}
 	
 	@Transactional(propagation = Propagation.REQUIRED)

@@ -40,7 +40,7 @@ public class TipoProductoController {
 				+ obj.getDescripcion()
 				+ "', $(this)"
 				+ ")\"><i class='fa fa-edit'></i></a> <a class='btn btn-danger btn-circle' onclick='borrar("
-				+ tipo_producto_id
+				+ obj.getTipo_producto_id()
 				+ ", $(this))'><i class='fa fa-trash-o'></i></a><span class='responsiveExpander'></span>:::"
 				+ descripcion;
 	}

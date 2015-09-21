@@ -36,13 +36,13 @@ public class ActividadController {
 		actividad.agregarActividad(obj);
 		return "<span class='responsiveExpander'></span><a class='btn btn-success btn-circle btn-sx'"
 				+ " onclick=\"con('"
-				+ obj.getActividad_id()
+				+ actividad_id
 				+ "', '"
 				+ obj.getDescripcion()
 				+ "', $(this)"
-				+ ")\"><i class='fa fa-edit'></i></a> <a class='btn btn-danger btn-circle' onclick='borrar("
-				+ actividad_id
-				+ ", $(this))'><i class='fa fa-trash-o'></i></a><span class='responsiveExpander'></span>:::"
+				+ ")\"><i class='fa fa-edit'></i></a> <a class='btn btn-danger btn-circle' onclick=\"borrar("
+				+ obj.getActividad_id()
+				+ ", $(this))\"><i class='fa fa-trash-o'></i></a><span class='responsiveExpander'></span>:::"
 				+ descripcion;
 	}
 

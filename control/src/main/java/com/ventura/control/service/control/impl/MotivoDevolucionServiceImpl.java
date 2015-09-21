@@ -22,7 +22,7 @@ public class MotivoDevolucionServiceImpl implements MotivoDevolucionService {
 	@Transactional
 	public void agregarMotivoDevolucion(MotivoDevolucion motivoDevolucion) {
 		if (motivoDevolucion.getMotivo_devolucion_id() == 0)
-			motivoDevolucionDao.agregar(motivoDevolucion);
+			motivoDevolucion=(MotivoDevolucion) motivoDevolucionDao.agregar_get(motivoDevolucion);
 		else {
 			MotivoDevolucion obj = (MotivoDevolucion) motivoDevolucionDao.getElemento(motivoDevolucion, motivoDevolucion.getMotivo_devolucion_id());
 			obj.setDescripcion(motivoDevolucion.getDescripcion());

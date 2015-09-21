@@ -22,7 +22,7 @@ public class TipoPersonaServiceImpl implements TipoPersonaService {
 	@Transactional
 	public void agregarTipoPersona(TipoPersona tipoPersona) {
 		if (tipoPersona.getTipo_persona_id() == 0)
-			tipoPersonaDao.agregar(tipoPersona);
+			tipoPersona=(TipoPersona) tipoPersonaDao.agregar_get(tipoPersona);
 		else {
 			TipoPersona obj = (TipoPersona) tipoPersonaDao.getElemento(tipoPersona, tipoPersona.getTipo_persona_id());
 			obj.setDescripcion(tipoPersona.getDescripcion());

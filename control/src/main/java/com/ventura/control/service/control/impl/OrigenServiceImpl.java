@@ -22,7 +22,7 @@ public class OrigenServiceImpl implements OrigenService {
 	@Transactional
 	public void agregarOrigen(Origen origen) {
 		if (origen.getOrigen_id() == 0)
-			origenDao.agregar(origen);
+			origen=(Origen) origenDao.agregar_get(origen);
 		else {
 			Origen obj = (Origen) origenDao.getElemento(origen, origen.getOrigen_id());
 			obj.setDescripcion(origen.getDescripcion());

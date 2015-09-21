@@ -20,7 +20,7 @@ public class MonedaServiceImpl implements MonedaService {
 	@Transactional
 	public void agregarMoneda(Moneda moneda) {
 		if (moneda.getMoneda_id() == 0)
-			monedaDao.agregar(moneda);
+			moneda=(Moneda) monedaDao.agregar_get(moneda);
 		else {
 			Moneda obj = (Moneda) monedaDao.getElemento(moneda, moneda.getMoneda_id());
 			obj.setDescripcion(moneda.getDescripcion());

@@ -21,7 +21,7 @@ public class CompaniaServiceImpl implements CompaniaService {
 	@Transactional
 	public void agregarCompania(Compania compania) {
 		if (compania.getCompania_id() == 0)
-			companiaDao.agregar(compania);
+			compania=(Compania) companiaDao.agregar_get(compania);
 		else {
 			Compania obj = (Compania) companiaDao.getElemento(compania, compania.getCompania_id());
 			obj.setDescripcion(compania.getDescripcion());

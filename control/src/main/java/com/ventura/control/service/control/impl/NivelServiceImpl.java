@@ -20,7 +20,7 @@ public class NivelServiceImpl implements NivelService {
 	@Transactional
 	public void agregarNivel(Nivel nivel) {
 		if (nivel.getNivel_id() == 0)
-			nivelDao.agregar(nivel);
+			nivel=(Nivel) nivelDao.agregar_get(nivel);
 		else {
 			Nivel obj = (Nivel) nivelDao.getElemento(nivel, nivel.getNivel_id());
 			obj.setDescripcion(nivel.getDescripcion());

@@ -59,7 +59,7 @@ public class ContratistaServiceImpl implements ContratistaService {
 			for (Object[] d : data) {
 					try {
 						// codigo_trabajador d[13].toString()
-						listContratista.add(new Contratista(d[0].toString(), d[1].toString(), d[2].toString(), (TipoPersona) d[3], (Dependencia) d[4], d[5].toString(), d[6].toString(), d[7].toString(), d[8].toString(), d[9].toString(), d[10].toString(), d[11].toString(), formatter.parse(d[12].toString()), d[13].toString(), d[14].toString(), d[15].toString(), formatter.parse(d[16].toString()), d[17].toString(), formatter.parse(d[18].toString()), d[19].toString(), d[20].toString(), d[21].toString(),"1"));
+						listContratista.add(new Contratista(d[0].toString(), d[1].toString(), d[2].toString(), (TipoPersona) d[3], (Dependencia) d[4], d[5].toString(), d[6].toString(), ((byte[]) d[7]), d[8].toString(), d[9].toString(), d[10].toString(), d[11].toString(), formatter.parse(d[12].toString()), d[13].toString(), d[14].toString(), d[15].toString(), formatter.parse(d[16].toString()), d[17].toString(), formatter.parse(d[18].toString()), d[19].toString(), d[20].toString(), d[21].toString(),"1"));
 					} catch (NumberFormatException e) {
 						e.printStackTrace();
 					} catch (ParseException e) {

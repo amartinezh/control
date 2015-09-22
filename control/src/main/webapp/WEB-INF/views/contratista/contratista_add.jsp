@@ -108,7 +108,7 @@
 				<div class="row">
 					<div id="men"></div>
 					<!-- NEW WIDGET START -->
-					<article class="col-sm-12 col-md-12 col-lg-6">
+					<article class="col-sm-12 col-xs-12 col-lg-6">
 
 						<div class="jarviswidget" id="wid-id-0"
 							data-widget-colorbutton="false" data-widget-editbutton="false"
@@ -165,22 +165,50 @@
 													<legend>  Contratistas </legend>
 													<!-- <form:input type="hidden" path="documento" value="0" /> -->
 														<form:input type="hidden" path="estado" />
-													<div class="col-md-4">
+														
+													<div class="col-xs-3">
 														<label class="control-label">Documento</label> 
 														<form:input path="documento" type="text"
 															class="form-control" data-bv-field="Documento"
 															required="required" /> 
 													
 													</div>
-													<div class="col-md-4">
+													<div class="col-xs-3">
 														<label class="control-label">Nombre Completo</label>
 														 <form:input path="nombre_completo" type="text"
 															class="form-control" data-bv-field="Nombre Completo"
 															required="required" />
 													</div>
-													<div class="col-md-4">
+													<div class="col-xs-3">
 														<label class="control-label">Apellidos</label>
 														<form:input path="apellido" type="text"	class="form-control" data-bv-field="Apellido" required="required" />
+													</div>
+													
+												</div>
+											</div>
+										</fieldset>
+										<fieldset>
+											<div class="form-group">
+												<div class="row">
+													<div class="col-xs-6 selectContainer">
+														<div class="col-xs-3">
+																<div id="dialog-message" title="Dialog Simple Title">
+																	<div id='botonera'>
+																		<input id='botonIniciar' class='btn' type='button'
+																			value='Iniciar'></input> <input id='botonDetener'
+																			type='button' value='Detener'></input> <input
+																			id='botonFoto' type='button' value='Foto'></input>
+																	</div>
+																	<div class="contenedor" style="position: realitve; top:5px">
+																		<div class="titulo">Cámara</div>
+																		<video id="camara" autoplay controls style="height: 200px; width: 240px"></video>
+																	</div>
+																</div>
+																<div class="contenedor">
+																		<div class="titulo"><a href="#" id="modal_link"> Tomar	Foto </a></div>
+																		<canvas id="scan_foto" style="height: 120px; width: 150px; border: 1px solid grey;"></canvas>
+																</div>
+															</div>
 													</div>
 												</div>
 											</div>
@@ -188,13 +216,13 @@
 										<fieldset>
 											<div class="form-group">
 												<div class="row">
-													<div class="col-md-6 selectContainer">
+													<div class="col-xs-6 selectContainer">
 														<label class="control-label">Tipo Persona</label> 
 														<form:select class="form-control" path="tipo_persona_id.tipo_persona_id" items="${tipopersonaList}">
 														</form:select>
 													</div>
 		
-													<div class="col-md-6 selectContainer">
+													<div class="col-xs-6 selectContainer">
 														<label class="control-label">Dependencia</label> 
 													 	<form:select class="form-control" path="dependencia_id.dependencia_id" items="${dependenciaList}">
 														</form:select>
@@ -205,11 +233,11 @@
 										<fieldset>
 											<div class="form-group">
 												<div class="row">
-													<div class="col-md-6">
+													<div class="col-xs-6">
 														<label class="control-label">Correo  Electrónico</label>
 														<form:input path="coreo_e" type="text"	class="form-control" data-bv-field="Coreo Electrónico" required="required" />
 													</div>
-													<div class="col-md-6">
+													<div class="col-xs-6">
 														<label class="control-label">Teléfonos</label>
 														<form:input path="telefono" type="text"	class="form-control" data-bv-field="Teléfono" required="required" />
 													</div>
@@ -219,17 +247,17 @@
 										<fieldset>
 											<div class="form-group">
 												<div class="row">
-													<div class="col-md-4">
+													<div class="col-xs-4">
 														<label class="control-label">Archivo Foto</label> 
-														<input type="text" id="scan_foto2" name="scan_foto2" readonly/>
-														<form:input path="scan_foto" type="file" class="form-control" data-bv-field="Foto" required="required" />
+														<input type="text" id="scan_foto2_" name="scan_foto2" readonly/>
+														
 													</div>
-													<div class="col-md-4">
+													<div class="col-xs-4">
 														<label class="control-label input-file">Archivo Cédula</label>
 														<input type="text" id="scan_cedula2" name="scan_cedula2" readonly/>
 														<form:input path="scan_cedula" type="file"	class="form-control" data-bv-field="Cédula" required="required" />
 													</div>
-													<div class="col-md-4">
+													<div class="col-xs-4">
 														<label class="control-label">Archivo Huella</label>
 														<input type="text" id="scan_huella2" name="scan_huella2" readonly/>
 														<form:input path="scan_huella" type="file"	class="form-control" data-bv-field="Huella" required="required" />
@@ -240,15 +268,15 @@
 										<fieldset>
 											<div class="form-group">
 												<div class="row">
-													<div class="col-md-4">
+													<div class="col-xs-4">
 														<label class="control-label">Empresa</label>
 														<form:input path="empresa" type="text"	class="form-control" data-bv-field="Empresa" required="required" />
 													</div>
-													<div class="col-md-4">
+													<div class="col-xs-4">
 														<label class="control-label">NIT Empresa</label>
 														<form:input path="nit_empresa" type="text"	class="form-control" data-bv-field="NIT Empresa" required="required" />
 													</div>
-													<div class="col-md-4">
+													<div class="col-xs-4">
 														<label class="control-label">Fecha Vencimiento Ley Industrial</label>
 														<form:input path="fecha_ven_curso_ley" type="date"	class="form-control" data-bv-field="Fecha Vencimiento" required="required" />
 													</div>
@@ -258,7 +286,7 @@
 										<fieldset>
 											<div class="form-group">
 												<div class="row">
-													<div class="col-md-6 selectContainer">
+													<div class="col-xs-6 selectContainer">
 														<label class="control-label">Persona Responsable</label>
 														<select
 															class="form-control" name="codigo_trabajador" id="codigo_trabajador">
@@ -268,7 +296,7 @@
 															<option value="2">Empleado 3</option>
 														</select>
 													</div>
-													<div class="col-sm-4 col-md-6">
+													<div class="col-sm-4 col-xs-6">
 														<label class="control-label">Placa Vehiculo</label>
 														<form:input path="placa" type="text" class="form-control" data-bv-field="Empresa" required="required" />
 													</div>
@@ -278,19 +306,19 @@
 										<fieldset>
 											<div class="form-group">
 												<div class="row">
-													<div class="col-md-3">
+													<div class="col-xs-3">
 														<label class="control-label">EPS</label>
 														<form:input path="eps" type="text"	class="form-control" data-bv-field="EPS" required="required" />
 													</div>
-													<div class="col-md-3">
+													<div class="col-xs-3">
 														<label class="control-label">Fecha Vencimiento EPS</label>
 														<form:input path="eps_vence" type="date"	class="form-control" data-bv-field="Fecha Vencimiento EPS" required="required" />
 													</div>
-													<div class="col-md-3">
+													<div class="col-xs-3">
 														<label class="control-label">ARL</label>
 														<form:input path="alr" type="text"	class="form-control" data-bv-field="ARL" required="required" />
 													</div>
-													<div class="col-md-3">
+													<div class="col-xs-3">
 														<label class="control-label">Fecha Vencimiento ARL</label>
 														<form:input path="alr_vence" type="date" class="form-control" data-bv-field="Fecha Vencimiento ARL" required="required" />
 													</div>
@@ -300,11 +328,11 @@
 										<fieldset>
 											<div class="form-group">
 												<div class="row">
-													<div class="col-md-8">
+													<div class="col-xs-8">
 														<label class="control-label">Inventario</label>
 														<form:textarea path="inventario" type="text" class="form-control" data-bv-field="Placa" required="required" />
 													</div>
-													<div class="col-md-4">
+													<div class="col-xs-4">
 														<label class="control-label">Imagen Inventario</label>
 														<input type="text" id="scan_inventario2" name="scan_inventario2" readonly/><form:input path="scan_inventario" type="file"	class="form-control" data-bv-field="Huella" required="required" />
 													</div>
@@ -314,7 +342,7 @@
 										<fieldset>
 											<div class="form-group">
 												<div class="row">
-													<div class="col-md-10">
+													<div class="col-xs-10">
 														<label class="control-label">Observaciones</label> 
 														<form:textarea path="observaciones" type="text" class="form-control" data-bv-field="Placa" required="required" />
 													</div>
@@ -323,7 +351,7 @@
 										</fieldset>
 										<div class="form-actions">
 											<div class="row">
-												<div class="col-md-12">
+												<div class="col-xs-12">
 													<button id="cance" class="btn btn-danger" type="button"
 														onclick="cancelar()">Cancelar</button>
 													<button id="elboton" class="btn btn-success" type="button"
@@ -641,7 +669,7 @@
 								},
 								fields : {
 									documento : {
-										group : '.col-md-4',
+										group : '.col-xs-3',
 										validators : {
 											notEmpty : {
 												message : 'Campo requierido'
@@ -653,7 +681,7 @@
 										}
 									},
 									nombre_completo : {
-										group : '.col-md-4',
+										group : '.col-xs-3',
 										validators : {
 											notEmpty : {
 												message : 'Campo requierido'
@@ -661,7 +689,7 @@
 										}
 									},
 									apellido : {
-										group : '.col-md-4',
+										group : '.col-xs-3',
 										validators : {
 											notEmpty : {
 												message : 'Campo requierido'
@@ -669,7 +697,7 @@
 										}
 									},
 									tipo_persona_id : {
-										group : '.col-md-6',
+										group : '.col-xs-6',
 										validators : {
 											notEmpty : {
 												message : 'Campo requierido'
@@ -677,7 +705,7 @@
 										}
 									},
 									dependencia_id : {
-										group : '.col-md-6',
+										group : '.col-xs-6',
 										validators : {
 											notEmpty : {
 												message : 'Campo requierido'
@@ -685,7 +713,7 @@
 										}
 									},
 									coreo_e : {
-										group : '.col-md-6',
+										group : '.col-xs-6',
 										validators : {
 											notEmpty : {
 												message : 'Campo requierido'
@@ -693,23 +721,23 @@
 										}
 									},
 									telefono : {
-										group : '.col-md-6',
+										group : '.col-xs-6',
 										validators : {
 											notEmpty : {
 												message : 'Campo requierido'
 											}
 										}
 									},
-									scan_foto : {
-										group : '.col-md-4',
+									/* scan_foto : {
+										group : '.col-xs-4',
 										validators : {
 											notEmpty : {
 												message : 'Campo requierido'
 											}
 										}
-									},
+									},*/ 
 									scan_cedula : {
-										group : '.col-md-4',
+										group : '.col-xs-4',
 										validators : {
 											notEmpty : {
 												message : 'Campo requierido'
@@ -717,7 +745,7 @@
 										}
 									},
 									scan_huella : {
-										group : '.col-md-4',
+										group : '.col-xs-4',
 										validators : {
 											notEmpty : {
 												message : 'Campo requierido'
@@ -725,7 +753,7 @@
 										}
 									},
 									empresa : {
-										group : '.col-md-4',
+										group : '.col-xs-4',
 										validators : {
 											notEmpty : {
 												message : 'Campo requierido'
@@ -733,7 +761,7 @@
 										}
 									},
 									nit_empresa : {
-										group : '.col-md-4',
+										group : '.col-xs-4',
 										validators : {
 											notEmpty : {
 												message : 'Campo requierido'
@@ -741,7 +769,7 @@
 										}
 									},
 									fecha_ven_curso_ley : {
-										group : '.col-md-4',
+										group : '.col-xs-4',
 										validators : {
 											notEmpty : {
 												message : 'Campo requierido'
@@ -749,7 +777,7 @@
 										}
 									},
 									codigo_trabajador : {
-										group : '.col-md-6',
+										group : '.col-xs-6',
 										validators : {
 											notEmpty : {
 												message : 'Campo requierido'
@@ -757,7 +785,7 @@
 										}
 									},
 									placa : {
-										group : '.col-md-6',
+										group : '.col-xs-6',
 										validators : {
 											notEmpty : {
 												message : 'Campo requierido'
@@ -765,7 +793,7 @@
 										}
 									},
 									eps : {
-										group : '.col-md-3',
+										group : '.col-xs-3',
 										validators : {
 											notEmpty : {
 												message : 'Campo requierido'
@@ -773,7 +801,7 @@
 										}
 									},
 									eps_vence : {
-										group : '.col-md-3',
+										group : '.col-xs-3',
 										validators : {
 											notEmpty : {
 												message : 'Campo requierido'
@@ -781,7 +809,7 @@
 										}
 									},
 									alr : {
-										group : '.col-md-3',
+										group : '.col-xs-3',
 										validators : {
 											notEmpty : {
 												message : 'Campo requierido'
@@ -789,7 +817,7 @@
 										}
 									},
 									alr_vence : {
-										group : '.col-md-3',
+										group : '.col-xs-3',
 										validators : {
 											notEmpty : {
 												message : 'Campo requierido'
@@ -797,7 +825,7 @@
 										}
 									},
 									inventario : {
-										group : '.col-md-8',
+										group : '.col-xs-8',
 										validators : {
 											notEmpty : {
 												message : 'Campo requierido'
@@ -805,7 +833,7 @@
 										}
 									},
 									observaciones : {
-										group : '.col-md-10',
+										group : '.col-xs-10',
 										validators : {
 											notEmpty : {
 												message : 'Campo requierido'
@@ -813,7 +841,7 @@
 										}
 									},
 									scan_inventario : {
-										group : '.col-md-4',
+										group : '.col-xs-4',
 										validators : {
 											notEmpty : {
 												message : 'Campo requierido'
@@ -1010,7 +1038,16 @@
 			
 			var ce = document.getElementById('coreo_e').value;
 			var te = document.getElementById('telefono').value;
-			var sf = document.getElementById('scan_foto').value;
+			
+			//var sf = document.getElementById('scan_foto').getImageData;
+			var canvas = document.getElementById('scan_foto');
+			var canvasWidth  = canvas.width;
+			var canvasHeight = canvas.height;
+			var ctx = canvas.getContext('2d');
+			var imageData = ctx.getImageData(0, 0, canvasWidth, canvasHeight);
+			var sf = canvas.toDataURL();
+			alert(sf);
+			
 			var sc = document.getElementById('scan_cedula').value;
 			var sh = document.getElementById('scan_huella').value;
 			var em = document.getElementById('empresa').value;
@@ -1258,7 +1295,28 @@
 			document.getElementById('dependencia_id.dependencia_id').selectedIndex=dependencia_id;
 			document.getElementById('coreo_e').value=coreo_e;
 			document.getElementById('telefono').value=telefono;
-			document.getElementById('scan_foto2').value=scan_foto;
+			
+			
+			alert(scan_foto);
+			//document.getElementById('scan_foto2').value=scan_foto;
+			
+			var canvas = document.getElementById('scan_foto');
+			var ctx = canvas.getContext('2d');
+			var image = new Image();
+			image.src = scan_foto;
+			image.onload = function(){
+			   ctx.drawImage(image);
+			}
+			
+			/* var canvasWidth  = canvas.width;
+			var canvasHeight = canvas.height;
+			var ctx = canvas.getContext('2d');
+			var imageData = ctx.getImageData(0, 0, canvasWidth, canvasHeight);
+			var sf = canvas.toDataURL();
+			alert(canvas.toDataURL());
+			document.getElementById('scan_foto').src=scan_foto; */
+			
+			
 			document.getElementById('scan_cedula2').value=scan_cedula;
 			document.getElementById('scan_huella2').value=scan_huella;
 			document.getElementById('empresa').value=empresa;
@@ -1286,9 +1344,94 @@
 				icon : "fa fa-bell"
 		    });
 		}
+	
+	</script>
+	<script type="text/javascript">
+			//Nos aseguramos que estén definidas
+			//algunas funciones básicas
+			window.URL = window.URL || window.webkitURL;
+			navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia ||
+			function() {
+			    alert('Su navegador no soporta navigator.getUserMedia().');
+			};
+		
+			//Este objeto guardará algunos datos sobre la cámara
+			window.datosVideo = {
+			    'StreamVideo': null,
+			    'url': null
+			}
+		
+			jQuery('#botonIniciar').on('click', function(e) {
+		
+			    //Pedimos al navegador que nos da acceso a 
+			    //algún dispositivo de video (la webcam)
+			    navigator.getUserMedia({
+			        'audio': false,
+			        'video': true
+			    }, function(streamVideo) {
+			        datosVideo.StreamVideo = streamVideo;
+			        datosVideo.url = window.URL.createObjectURL(streamVideo);
+			        jQuery('#camara').attr('src', datosVideo.url);
+		
+			    }, function() {
+			        alert('No fue posible obtener acceso a la cámara.');
+			    });
+		
+			});
+		
+			jQuery('#botonDetener').on('click', function(e) {
+		
+			    if (datosVideo.StreamVideo) {
+			        datosVideo.StreamVideo.stop();
+			        window.URL.revokeObjectURL(datosVideo.url);
+			    }
+		
+			});
+		
+			jQuery('#botonFoto').on('click', function(e) {
+			    var oCamara, oFoto, oContexto, w, h;
+		
+			    oCamara = jQuery('#camara');
+			    oFoto = jQuery('#scan_foto');
+			    w = oCamara.width();
+			    h = oCamara.height();
+			    oFoto.attr({
+			        'width': w,
+			        'height': h
+			    });
+			    oContexto = oFoto[0].getContext('2d');
+			    oContexto.drawImage(oCamara[0], 0, 0, w, h);
+		
+			});
+			
+			// Modal Link
+			$('#modal_link').click(function() {
+				$('#dialog-message').dialog('open');
+				return false;
+			});
+		
+			$("#dialog-message").dialog({
+				autoOpen : false,
+				modal : true,
+				title : "Gestión de Fotos",
+				buttons : [{
+					html : "Cancel",
+					"class" : "btn btn-default",
+					click : function() {
+						$(this).dialog("close");
+					}
+				}, {
+					html : "<i class='fa fa-check'></i>&nbsp; OK",
+					"class" : "btn btn-primary",
+					click : function() {
+						$(this).dialog("close");
+					}
+				}]
+		
+			});
 	</script>
 
-	<!-- Your GOOGLE ANALYTICS CODE Below -->
+		<!-- Your GOOGLE ANALYTICS CODE Below -->
 	<script type="text/javascript">
 		var _gaq = _gaq || [];
 		_gaq.push([ '_setAccount', 'UA-XXXXXXXX-X' ]);

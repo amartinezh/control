@@ -148,7 +148,7 @@ CREATE TABLE control.contratista
   dependencia_id integer,
   coreo_e character varying(128),
   telefono character varying(64),
-  scan_foto character varying,
+  scan_foto bytea,
   scan_cedula character varying,
   scan_huella character varying,
   empresa character varying(128),

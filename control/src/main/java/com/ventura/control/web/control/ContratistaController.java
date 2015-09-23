@@ -52,7 +52,7 @@ public class ContratistaController {
 			@RequestParam int dependencia_id,
 			@RequestParam String coreo_e,
 			@RequestParam String telefono,
-			@RequestParam byte[] scan_foto,
+			@RequestParam String scan_foto,
 			@RequestParam String scan_cedula,
 			@RequestParam String scan_huella,
 			@RequestParam String empresa,

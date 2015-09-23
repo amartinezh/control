@@ -183,15 +183,7 @@
 														<label class="control-label">Apellidos</label>
 														<form:input path="apellido" type="text"	class="form-control" data-bv-field="Apellido" required="required" />
 													</div>
-													
-												</div>
-											</div>
-										</fieldset>
-										<fieldset>
-											<div class="form-group">
-												<div class="row">
-													<div class="col-xs-6 selectContainer">
-														<div class="col-xs-3">
+													<div class="col-xs-3">
 																<div id="dialog-message" title="Dialog Simple Title">
 																	<div id='botonera'>
 																		<input id='botonIniciar' class='btn' type='button'
@@ -208,7 +200,15 @@
 																		<div class="titulo"><a href="#" id="modal_link"> Tomar	Foto </a></div>
 																		<canvas id="scan_foto" style="height: 120px; width: 150px; border: 1px solid grey;"></canvas>
 																</div>
-															</div>
+													</div>
+												</div>
+											</div>
+										</fieldset>
+										<fieldset>
+											<div class="form-group">
+												<div class="row">
+													<div class="col-xs-6 selectContainer">
+														
 													</div>
 												</div>
 											</div>
@@ -1305,16 +1305,18 @@
 			var image = new Image();
 			image.src = scan_foto;
 			image.onload = function(){
-			   ctx.drawImage(image);
-			}
-			
-			/* var canvasWidth  = canvas.width;
+			   ctx.drawImage(image, 0, 0);
+			} 
+			/* 
+			var canvas = document.getElementById('scan_foto');
+			var canvasWidth  = canvas.width;
 			var canvasHeight = canvas.height;
 			var ctx = canvas.getContext('2d');
 			var imageData = ctx.getImageData(0, 0, canvasWidth, canvasHeight);
 			var sf = canvas.toDataURL();
 			alert(canvas.toDataURL());
-			document.getElementById('scan_foto').src=scan_foto; */
+			*/
+			//document.getElementById('scan_foto').src=scan_foto;
 			
 			
 			document.getElementById('scan_cedula2').value=scan_cedula;

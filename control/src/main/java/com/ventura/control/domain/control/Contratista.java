@@ -46,8 +46,7 @@ public class Contratista implements Serializable {
 	private String telefono;
 	
 	@Column(name = "scan_foto")
-	@Type(type="org.hibernate.type.BinaryType") 
-	private byte[] scan_foto;
+	private String scan_foto;
 	
 	@Column(name = "scan_cedula")
 	private String scan_cedula;
@@ -104,7 +103,7 @@ public class Contratista implements Serializable {
 	public Contratista(String documento, String nombre_completo,
 			String apellido, TipoPersona tipo_persona_id,
 			Dependencia dependencia_id, String coreo_e, String telefono,
-			byte[] scan_foto, String scan_cedula, String scan_huella,
+			String scan_foto, String scan_cedula, String scan_huella,
 			String empresa, String nit_empresa, Date fecha_ven_curso_ley,
 			String codigo_trabajador, String placa, String eps, Date eps_vence,
 			String alr, Date alr_vence, String inventario,
@@ -191,11 +190,11 @@ public class Contratista implements Serializable {
 		this.telefono = telefono;
 	}
 
-	public byte[] getScan_foto() {
+	public String getScan_foto() {
 		return scan_foto;
 	}
 
-	public void setScan_foto(byte[] scan_foto) {
+	public void setScan_foto(String scan_foto) {
 		this.scan_foto = scan_foto;
 	}
 

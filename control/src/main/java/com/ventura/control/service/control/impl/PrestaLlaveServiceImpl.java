@@ -34,7 +34,7 @@ public class PrestaLlaveServiceImpl implements PrestaLlaveService {
 		prestaLlaveDao.borrar(prest);
 	}
 	
-	public List<PrestaLlave> listarPrestaLlave() {
+	public List<PrestaLlave> listarPrestaLlave(String valor) {
 		String sql = "Select p FROM PrestaLlave as p";
 		@SuppressWarnings("unchecked")
 		List<PrestaLlave> data = prestaLlaveDao.listarObjeto(sql).getResultList();

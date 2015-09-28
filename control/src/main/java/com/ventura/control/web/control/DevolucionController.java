@@ -19,7 +19,7 @@ import com.ventura.control.service.control.DevolucionService;
 import com.ventura.control.service.control.MotivoDevolucionService;
 
 @Controller
-@RequestMapping("/llave_devolucion")
+@RequestMapping("/devolucion_registrar")
 @SessionAttributes({ "user_inicio" })
 public class DevolucionController {
 

@@ -30,7 +30,8 @@ public class PrestamoController {
 	public String panel(Map<String, Object> model) {
 		model.put("prestamo", new PrestaLlave());
 		model.put("dependenciaList", dep.cmbDependencias());
-		model.put("listPrestamo", presta.listarPrestaLlave());
+		model.put("nombreLlave", "Prestamo llave");
+		model.put("listPrestamo", presta.listarPrestaLlave("1"));
 		return "llave/llave_pre";
 	}
 
@@ -60,25 +61,18 @@ public class PrestamoController {
 	 */
 
 	@RequestMapping(value = "agregar", method = RequestMethod.POST)
-	public @ResponseBody String agregar(@RequestParam String fecha, @RequestParam String nombreCompleto,
-			@RequestParam String apellido, @RequestParam int cantidadLlave,
-			@RequestParam int dependencia, @RequestParam String quienEntrego,
+	public @ResponseBody String agregar(@RequestParam String fecha,
+			@RequestParam String nombreCompleto, @RequestParam String apellido,
+			@RequestParam int cantidadLlave, @RequestParam int dependencia,
+			@RequestParam String quienEntrego,
 			@RequestParam String quienRecibio,
 			@RequestParam String observaciones, Map<String, Object> model) {
-		// CentroCosto obj = new CentroCosto(centro_costo_id, descripcion);
-		PrestaLlave pr = new PrestaLlave(0, nombreCompleto, apellido, cantidadLlave, quienEntrego, quienRecibio, observaciones);
+		PrestaLlave pr = new PrestaLlave(0, nombreCompleto, apellido,
+				cantidadLlave, quienEntrego, quienRecibio, observaciones, "1");
 		pr.setDependenciaId(new Dependencia(dependencia));
-		presta.agregarPrestaLlave(pr);		
-		// centro.agregarCentro(obj);
-		return "<span class='responsiveExpander'></span><a class='btn btn-success btn-circle btn-sx'"
-				+ " onclick=\"con('"
-				+ apellido
-				+ "', '"
-				+ apellido
-				+ "', $(this)"
-				+ ")\"><i class='fa fa-edit'></i></a> <a class='btn btn-danger btn-circle' onclick='borrar("
-				+ apellido
-				+ ", $(this))'><i class='fa fa-trash-o'></i></a><span class='responsiveExpander'></span>:::"
-				+ apellido;
+		presta.agregarPrestaLlave(pr);
+		return fecha + "::: :::" + nombreCompleto + ":::" + apellido + ":::"
+				+ cantidadLlave + ":::" + dependencia + ":::" + quienEntrego
+				+ ":::" + quienRecibio;
 	}
 }

@@ -154,7 +154,7 @@
 					data-widget-deletebutton="false" data-widget-sortable="false">
 
 					<header>
-						<h2>Contratistas</h2>
+						<h2><c:out value="${ nombreLlave }"/></h2>
 					</header>
 
 					<!-- widget div-->
@@ -291,7 +291,7 @@
 
 			<span class="widget-icon"> <i class="fa fa-table"></i>
 			</span>
-			<h2>Prestamo de llaves</h2>
+			<h2><c:out value="Listado de ${ nombreLlave }"/></h2>
 
 			<span class="jarviswidget-loader"><i
 				class="fa fa-refresh fa-spin"></i></span>
@@ -328,10 +328,7 @@
 									</tr>   -->
 							<tr role="row">
 
-								<th data-hide="cmd" class="sorting_asc" tabindex="0"
-									aria-controls="dt_basic" aria-sort="ascending"
-									aria-label="ID: activate to sort column ascending"
-									style="width: 15px;"></th>
+								
 								<th data-class="expand" class="sorting_asc" tabindex="1"
 									aria-controls="dt_basic" colspan="1" aria-sort="ascending"
 									aria-label="Name: activate to sort column ascending"
@@ -370,11 +367,6 @@
 						<tbody>
 							<c:forEach var="prest" items="${ listPrestamo }">
 								<tr role="row" class="odd">
-									<td class="sorting_1"><span class="responsiveExpander"></span>
-										<a class="btn btn-success btn-circle btn-sx"
-										href="javascript:void(0);"><i class="fa fa-edit"></i></a> <a
-										class="btn btn-danger btn-circle" href="javascript:void(0);"><i
-											class="fa fa-trash-o"></i></a></td>
 									<td class="sorting_1"><span class="responsiveExpander"></span><c:out value="${ prest.fecha }"/></td>
 									<td class="sorting_1"><span class="responsiveExpander"></span><c:out value="${ prest.hora }"/></td>
 									<td class="sorting_1"><span class="responsiveExpander"></span><c:out value="${ prest.nombreCompleto }"/></td>
@@ -1521,7 +1513,7 @@
 							//document.getElementById('centro_costo_id').value = "0";
 							var res = data.split(":::");
 							$('#datatable_fixed_column').dataTable().fnAddData(
-									[ res[0], res[1] ]);
+									[ res[0], res[1], res[2], res[3], res[4], res[5], res[6] ]);
 							$
 									.smallBox({
 										title : "La información se registró adecuadamente",

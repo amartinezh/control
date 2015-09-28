@@ -1320,7 +1320,7 @@
 			$
 					.ajax({
 						type : "POST",
-						url : "llave_devolucion/agregar",
+						url : "devolucion_registrar/agregar",
 						data : {
 							devolucion_id : did,
 							fecha: fe,

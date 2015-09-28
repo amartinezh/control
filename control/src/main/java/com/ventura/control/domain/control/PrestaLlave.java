@@ -62,7 +62,7 @@ public class PrestaLlave implements Serializable {
 
 	public PrestaLlave(int id, String nombreCompleto, String apellido,
 			int cantidadLlave, String quienEntrega, String quienRecibe,
-			String observaciones) {
+			String observaciones, String estado) {
 		this.id = id;
 		this.nombreCompleto = nombreCompleto;
 		this.apellido = apellido;
@@ -70,6 +70,7 @@ public class PrestaLlave implements Serializable {
 		this.quienEntrega = quienEntrega;
 		this.quienRecibe = quienRecibe;
 		this.observaciones = observaciones;
+		this.estado = estado;
 	}
 
 	public int getId() {

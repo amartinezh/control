@@ -12,6 +12,6 @@ public interface PrestaLlaveService {
 	public void agregarPrestaLlave(PrestaLlave presta);
 	@Transactional
 	public void borrarPrestaLlave(PrestaLlave presta);
-	public List<PrestaLlave> listarPrestaLlave();
+	public List<PrestaLlave> listarPrestaLlave(String valor);
 
 }

@@ -184,22 +184,22 @@
 														<form:input path="apellido" type="text"	class="form-control" data-bv-field="Apellido" required="required" />
 													</div>
 													<div class="col-xs-3">
-																<div id="dialog-message" title="Dialog Simple Title">
-																	<div id='botonera'>
-																		<input id='botonIniciar' class='btn' type='button'
-																			value='Iniciar'></input> <input id='botonDetener'
-																			type='button' value='Detener'></input> <input
-																			id='botonFoto' type='button' value='Foto'></input>
-																	</div>
-																	<div class="contenedor" style="position: realitve; top:5px">
-																		<div class="titulo">Cámara</div>
-																		<video id="camara" autoplay controls style="height: 200px; width: 240px"></video>
-																	</div>
-																</div>
-																<div class="contenedor">
-																		<div class="titulo"><a href="#" id="modal_link"> Tomar	Foto </a></div>
-																		<canvas id="scan_foto" style="height: 120px; width: 150px; border: 1px solid grey;"></canvas>
-																</div>
+														<div id="dialog-message" title="Dialog Simple Title">
+															<div id='botonera'>
+																<input id='botonIniciar' class='btn' type='button'
+																	value='Iniciar'></input> <input id='botonDetener'
+																	type='button' value='Detener'></input> <input
+																	id='botonFoto' type='button' value='Foto'></input>
+															</div>
+															<div class="contenedor" style="position: realitve; top:5px">
+																<div class="titulo">Cámara</div>
+																<video id="camara" autoplay controls style="height: 200px; width: 240px"></video>
+															</div>
+														</div>
+														<div class="contenedor">
+																<div class="titulo"><a href="#" id="modal_link"> Tomar	Foto </a></div>
+																<canvas id="scan_foto" style="height: 120px; width: 150px; border: 1px solid grey;"></canvas>
+														</div>
 													</div>
 												</div>
 											</div>
@@ -207,55 +207,35 @@
 										<fieldset>
 											<div class="form-group">
 												<div class="row">
-													<div class="col-xs-6 selectContainer">
-														
-													</div>
-												</div>
-											</div>
-										</fieldset>
-										<fieldset>
-											<div class="form-group">
-												<div class="row">
-													<div class="col-xs-6 selectContainer">
+													<div class="col-xs-4 selectContainer">
 														<label class="control-label">Tipo Persona</label> 
 														<form:select class="form-control" path="tipo_persona_id.tipo_persona_id" items="${tipopersonaList}">
 														</form:select>
 													</div>
 		
-													<div class="col-xs-6 selectContainer">
+													<div class="col-xs-4 selectContainer">
 														<label class="control-label">Dependencia</label> 
 													 	<form:select class="form-control" path="dependencia_id.dependencia_id" items="${dependenciaList}">
 														</form:select>
-													</div>
-												</div>
-											</div>
-										</fieldset>
-										<fieldset>
-											<div class="form-group">
-												<div class="row">
-													<div class="col-xs-6">
-														<label class="control-label">Correo  Electrónico</label>
-														<form:input path="coreo_e" type="text"	class="form-control" data-bv-field="Coreo Electrónico" required="required" />
-													</div>
-													<div class="col-xs-6">
-														<label class="control-label">Teléfonos</label>
-														<form:input path="telefono" type="text"	class="form-control" data-bv-field="Teléfono" required="required" />
-													</div>
-												</div>
-											</div>
-										</fieldset>
-										<fieldset>
-											<div class="form-group">
-												<div class="row">
-													<div class="col-xs-4">
-														<label class="control-label">Archivo Foto</label> 
-														<input type="text" id="scan_foto2_" name="scan_foto2" readonly/>
-														
 													</div>
 													<div class="col-xs-4">
 														<label class="control-label input-file">Archivo Cédula</label>
 														<input type="text" id="scan_cedula2" name="scan_cedula2" readonly/>
 														<form:input path="scan_cedula" type="file"	class="form-control" data-bv-field="Cédula" required="required" />
+													</div>
+												</div>
+											</div>
+										</fieldset>
+										<fieldset>
+											<div class="form-group">
+												<div class="row">
+													<div class="col-xs-4">
+														<label class="control-label">Correo  Electrónico</label>
+														<form:input path="coreo_e" type="text"	class="form-control" data-bv-field="Coreo Electrónico" required="required" />
+													</div>
+													<div class="col-xs-4">
+														<label class="control-label">Teléfonos</label>
+														<form:input path="telefono" type="text"	class="form-control" data-bv-field="Teléfono" required="required" />
 													</div>
 													<div class="col-xs-4">
 														<label class="control-label">Archivo Huella</label>

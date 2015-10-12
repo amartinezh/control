@@ -149,7 +149,7 @@ CREATE TABLE control.contratista
   coreo_e character varying(128),
   telefono character varying(64),
   scan_foto text,
-  scan_cedula character varying,
+  scan_cedula bytea,
   scan_huella character varying,
   empresa character varying(128),
   nit_empresa character varying(128),

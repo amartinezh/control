@@ -49,7 +49,7 @@ public class Contratista implements Serializable {
 	private String scan_foto;
 	
 	@Column(name = "scan_cedula")
-	private String scan_cedula;
+	private byte[] scan_cedula;
 	
 	@Column(name = "scan_huella")
 	private String scan_huella;
@@ -103,7 +103,7 @@ public class Contratista implements Serializable {
 	public Contratista(String documento, String nombre_completo,
 			String apellido, TipoPersona tipo_persona_id,
 			Dependencia dependencia_id, String coreo_e, String telefono,
-			String scan_foto, String scan_cedula, String scan_huella,
+			String scan_foto, byte[] scan_cedula, String scan_huella,
 			String empresa, String nit_empresa, Date fecha_ven_curso_ley,
 			String codigo_trabajador, String placa, String eps, Date eps_vence,
 			String alr, Date alr_vence, String inventario,
@@ -198,11 +198,11 @@ public class Contratista implements Serializable {
 		this.scan_foto = scan_foto;
 	}
 
-	public String getScan_cedula() {
+	public byte[] getScan_cedula() {
 		return scan_cedula;
 	}
 
-	public void setScan_cedula(String scan_cedula) {
+	public void setScan_cedula(byte[] scan_cedula) {
 		this.scan_cedula = scan_cedula;
 	}
 

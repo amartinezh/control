@@ -44,9 +44,10 @@ public class MinutaServiceImpl implements MinutaService {
 		return true;
 	}
 
+	@SuppressWarnings("unchecked")
 	@Transactional
 	public List<Minuta> listarMinuta() {
-		List<Minuta> listMinuta = new LinkedList<Minuta>();
+	/*	List<Minuta> listMinuta = new LinkedList<Minuta>();
 		String sql = "Select a.minuta_id as minuta_id, a.placa as placa, a.dependencia_id as dependencia_id, a.area_id as area_id, a.actividad_id as actividad_id, a.hora_sistema as hora_sistema, a.hora_inicio as hora_inicio, a.hora_terminacion as hora_terminacion, a.codigo_trabajador as codigo_trabajador, a.observaciones as observaciones, a.estado as estado FROM Minuta as a";
 		List<Object[]> data = minutaDao.listar(sql);
 		//java.text.SimpleDateFormat formatter = new java.text.SimpleDateFormat("yyyy-MM-dd");
@@ -59,6 +60,8 @@ public class MinutaServiceImpl implements MinutaService {
 					}
 			}
 		}
-		return listMinuta;
+		return listMinuta;*/
+		String sql = "Select m From Minuta as m";
+		return minutaDao.listarObjeto(sql).getResultList();
 	}
 }

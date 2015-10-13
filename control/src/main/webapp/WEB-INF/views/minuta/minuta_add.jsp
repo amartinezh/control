@@ -162,19 +162,20 @@
 										<fieldset>
 											<div class="form-group">
 												<div class="row">
-													<legend>  Minutas </legend>
+													<legend> Minutas </legend>
 													<form:input type="hidden" path="estado" />
-													<form:input type="hidden" path="minuta_id" value="0"/>
-													
+													<form:input type="hidden" path="minuta_id" value="0" />
+
 													<div class="col-md-4">
 														<label class="control-label">Placa</label>
-														 <form:input path="placa" type="text"
-															class="form-control" data-bv-field="Nombre Completo"
-															required="required" />
+														<form:input path="placa" type="text" class="form-control"
+															data-bv-field="Nombre Completo" required="required" />
 													</div>
 													<div class="col-md-8 selectContainer">
-														<label class="control-label">Dependencia</label> 
-													 	<form:select class="form-control" path="dependencia_id.dependencia_id" items="${dependenciaList}">
+														<label class="control-label">Dependencia</label>
+														<form:select class="form-control"
+															path="dependencia_id.dependencia_id"
+															items="${dependenciaList}">
 														</form:select>
 													</div>
 												</div>
@@ -184,13 +185,15 @@
 											<div class="form-group">
 												<div class="row">
 													<div class="col-md-6 selectContainer">
-														<label class="control-label">Area</label> 
-													 	<form:select class="form-control" path="area_id.area_id" items="${areaList}">
+														<label class="control-label">Area</label>
+														<form:select class="form-control" path="area_id.area_id"
+															items="${areaList}">
 														</form:select>
 													</div>
 													<div class="col-md-6 selectContainer">
-														<label class="control-label">Actividad</label> 
-													 	<form:select class="form-control" path="actividad_id.actividad_id" items="${actividadList}">
+														<label class="control-label">Actividad</label>
+														<form:select class="form-control"
+															path="actividad_id.actividad_id" items="${actividadList}">
 														</form:select>
 													</div>
 												</div>
@@ -201,30 +204,40 @@
 												<div class="row">
 													<div class="col-md-4">
 														<label class="control-label">Hora Sistema</label>
-														<form:input path="hora_sistema" type="text"	class="form-control" data-bv-field="Hora Sistema" required="required" />
+														<form:input path="hora_sistema" type="text"
+															class="form-control" data-bv-field="Hora Sistema"
+															required="required" />
 													</div>
 													<div class="col-md-4">
 														<label class="control-label">Hora Inicio</label>
-														<form:input path="hora_inicio" type="text"	class="form-control" data-bv-field="Hora Inicio" required="required" />
+														<form:input path="hora_inicio" type="text"
+															class="form-control" data-bv-field="Hora Inicio"
+															required="required" />
 													</div>
 													<div class="col-md-4">
 														<label class="control-label">Hora Terminación</label>
-														<form:input path="hora_terminacion" type="text"	class="form-control" data-bv-field="Hora Terminacion" required="required" />
+														<form:input path="hora_terminacion" type="text"
+															class="form-control" data-bv-field="Hora Terminacion"
+															required="required" />
 													</div>
 												</div>
 											</div>
 										</fieldset>
-										
+
 										<fieldset>
 											<div class="form-group">
 												<div class="row">
 													<div class="col-md-4">
 														<label class="control-label">Codigo Trabajador</label>
-														<form:input path="codigo_trabajador" type="text"	class="form-control" data-bv-field="Codigo Trabajador" required="required" />
+														<form:input path="codigo_trabajador" type="text"
+															class="form-control" data-bv-field="Codigo Trabajador"
+															required="required" />
 													</div>
 													<div class="col-md-12">
-														<label class="control-label">Observaciones</label> 
-														<form:textarea path="observaciones" type="text" class="form-control" data-bv-field="Placa" required="required" />
+														<label class="control-label">Observaciones</label>
+														<form:textarea path="observaciones" type="text"
+															class="form-control" data-bv-field="Placa"
+															required="required" />
 													</div>
 												</div>
 											</div>
@@ -310,29 +323,66 @@
 								style="width: 100%;">
 								<thead>
 									<tr role="row">
-										<th data-hide="cmd" class="sorting_asc" tabindex="0"
-											aria-controls="dt_basic" aria-sort="ascending"
-											aria-label="ID: activate to sort column ascending"
-											style="width: 15px;"></th>
-
 										<th data-class="expand" class="sorting_asc" tabindex="1"
 											aria-controls="dt_basic" colspan="1" aria-sort="ascending"
 											aria-label="Name: activate to sort column ascending"
-											style="width: 540px;">Descripción</th>
+											style="width: 540px;">Placa</th>
+										<th data-class="expand" class="sorting_asc" tabindex="1"
+											aria-controls="dt_basic" colspan="1" aria-sort="ascending"
+											aria-label="Name: activate to sort column ascending"
+											style="width: 540px;">Dependencia</th>
+										<th data-class="expand" class="sorting_asc" tabindex="1"
+											aria-controls="dt_basic" colspan="1" aria-sort="ascending"
+											aria-label="Name: activate to sort column ascending"
+											style="width: 540px;">Area</th>
+										<th data-class="expand" class="sorting_asc" tabindex="1"
+											aria-controls="dt_basic" colspan="1" aria-sort="ascending"
+											aria-label="Name: activate to sort column ascending"
+											style="width: 540px;">Actividad</th>
+										<th data-class="expand" class="sorting_asc" tabindex="1"
+											aria-controls="dt_basic" colspan="1" aria-sort="ascending"
+											aria-label="Name: activate to sort column ascending"
+											style="width: 540px;">Hora Sistema</th>
+										<th data-class="expand" class="sorting_asc" tabindex="1"
+											aria-controls="dt_basic" colspan="1" aria-sort="ascending"
+											aria-label="Name: activate to sort column ascending"
+											style="width: 540px;">Hora Inicio</th>
+										<th data-class="expand" class="sorting_asc" tabindex="1"
+											aria-controls="dt_basic" colspan="1" aria-sort="ascending"
+											aria-label="Name: activate to sort column ascending"
+											style="width: 540px;">Hora terminación</th>
+										<th data-class="expand" class="sorting_asc" tabindex="1"
+											aria-controls="dt_basic" colspan="1" aria-sort="ascending"
+											aria-label="Name: activate to sort column ascending"
+											style="width: 540px;">Código trabajador</th>
+										<th data-class="expand" class="sorting_asc" tabindex="1"
+											aria-controls="dt_basic" colspan="1" aria-sort="ascending"
+											aria-label="Name: activate to sort column ascending"
+											style="width: 540px;">Observaciones</th>
 									</tr>
 								</thead>
-								<tbody> 
+								<tbody>
 									<c:forEach items="${minutaList}" var="obj"
 										varStatus="loopCounter">
-										<tr role="row" class="odd"> 
-											<td class="sorting_1"><span class="responsiveExpander"></span>
-												<a class="btn btn-success btn-circle btn-sx"
-												onclick="con('<c:out value="${obj.minuta_id}"></c:out>','<c:out value="${obj.placa}"></c:out>','<c:out value="${obj.dependencia_id.dependencia_id}"></c:out>','<c:out value="${obj.area_id.area_id}"></c:out>','<c:out value="${obj.actividad_id.actividad_id}"></c:out>','<c:out value="${obj.hora_sistema}"></c:out>','<c:out value="${obj.hora_inicio}"></c:out>','<c:out value="${obj.hora_terminacion}"></c:out>','<c:out value="${obj.codigo_trabajador}"></c:out>','<c:out value="${obj.observaciones}"></c:out>','<c:out value="${obj.estado}"></c:out>',$(this))">
-												<i class="fa fa-edit"></i></a> <a class="btn btn-danger btn-circle"
-												onclick="borrar(<c:out value="${obj.minuta_id}"></c:out>, $(this))">
-												<i class="fa fa-trash-o"></i></a></td>
+										<tr role="row" class="odd">
 											<td class="sorting_1"><span class="responsiveExpander"></span>
 												<c:out value="${obj.placa}"></c:out></td>
+											<td class="sorting_1"><span class="responsiveExpander"></span>
+												<c:out value="${obj.dependencia_id.despcripcion}"></c:out></td>
+											<td class="sorting_1"><span class="responsiveExpander"></span>
+												<c:out value="${obj.area_id.despcripcion}"></c:out></td>
+											<td class="sorting_1"><span class="responsiveExpander"></span>
+												<c:out value="${obj.actividad_id.despcripcion}"></c:out></td>
+											<td class="sorting_1"><span class="responsiveExpander"></span>
+												<c:out value="${obj.hora_sistema}"></c:out></td>
+											<td class="sorting_1"><span class="responsiveExpander"></span>
+												<c:out value="${obj.hora_inicio}"></c:out></td>
+											<td class="sorting_1"><span class="responsiveExpander"></span>
+												<c:out value="${obj.hora_terminacion}"></c:out></td>
+											<td class="sorting_1"><span class="responsiveExpander"></span>
+												<c:out value="${obj.codigo_trabajador}"></c:out></td>
+											<td class="sorting_1"><span class="responsiveExpander"></span>
+												<c:out value="${obj.observaciones}"></c:out></td>
 										</tr>
 									</c:forEach>
 								</tbody>
@@ -349,140 +399,140 @@
 
 			</div>
 
-	</div>
-	<!-- END MAIN CONTENT -->
+		</div>
+		<!-- END MAIN CONTENT -->
 
 
-	<!-- END MAIN PANEL -->
+		<!-- END MAIN PANEL -->
 
-	<!-- PAGE FOOTER -->
+		<!-- PAGE FOOTER -->
 
-	<!-- END PAGE FOOTER -->
+		<!-- END PAGE FOOTER -->
 
-	<!-- SHORTCUT AREA : With large tiles (activated via clicking user name tag)
+		<!-- SHORTCUT AREA : With large tiles (activated via clicking user name tag)
 		Note: These tiles are completely responsive,
 		you can add as many as you like
 		-->
 
-	<!-- END SHORTCUT AREA -->
-	<!--================================================== -->
-	<!-- PACE LOADER - turn this on if you want ajax loading to show (caution: uses lots of memory on iDevices)-->
-	<script data-pace-options='{ "restartOnRequestAfter": true }'
-		src="<c:url value="/resources/js/plugin/pace/pace.min.js" />"></script>
+		<!-- END SHORTCUT AREA -->
+		<!--================================================== -->
+		<!-- PACE LOADER - turn this on if you want ajax loading to show (caution: uses lots of memory on iDevices)-->
+		<script data-pace-options='{ "restartOnRequestAfter": true }'
+			src="<c:url value="/resources/js/plugin/pace/pace.min.js" />"></script>
 
-	<!-- Link to Google CDN's jQuery + jQueryUI; fall back to local -->
-	<script
-		src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js">
-		
-	</script>
-	<script>
-		if (!window.jQuery) {
-			document
-					.write('<script src="<c:url value="/resources/js/libs/jquery-2.1.1.min.js" />"><\/script>');
-		}
-	</script>
+		<!-- Link to Google CDN's jQuery + jQueryUI; fall back to local -->
+		<script
+			src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js">
+			
+		</script>
+		<script>
+			if (!window.jQuery) {
+				document
+						.write('<script src="<c:url value="/resources/js/libs/jquery-2.1.1.min.js" />"><\/script>');
+			}
+		</script>
 
-	<script
-		src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
-	<script>
-		if (!window.jQuery.ui) {
-			document
-					.write('<script src="<c:url value="/resources/js/libs/jquery-ui-1.10.3.min.js" />"><\/script>');
-		}
-	</script>
+		<script
+			src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+		<script>
+			if (!window.jQuery.ui) {
+				document
+						.write('<script src="<c:url value="/resources/js/libs/jquery-ui-1.10.3.min.js" />"><\/script>');
+			}
+		</script>
 
-	<!-- IMPORTANT: APP CONFIG -->
-	<script src="<c:url value="/resources/js/app.config.js" />"></script>
+		<!-- IMPORTANT: APP CONFIG -->
+		<script src="<c:url value="/resources/js/app.config.js" />"></script>
 
-	<!-- JS TOUCH : include this plugin for mobile drag / drop touch events-->
-	<script
-		src="<c:url value="/resources/js/plugin/jquery-touch/jquery.ui.touch-punch.min.js" />"></script>
+		<!-- JS TOUCH : include this plugin for mobile drag / drop touch events-->
+		<script
+			src="<c:url value="/resources/js/plugin/jquery-touch/jquery.ui.touch-punch.min.js" />"></script>
 
-	<!-- BOOTSTRAP JS -->
-	<script
-		src="<c:url value="/resources/js/bootstrap/bootstrap.min.js" />"></script>
+		<!-- BOOTSTRAP JS -->
+		<script
+			src="<c:url value="/resources/js/bootstrap/bootstrap.min.js" />"></script>
 
-	<!-- CUSTOM NOTIFICATION -->
-	<script
-		src="<c:url value="/resources/js/notification/SmartNotification.min.js" />"></script>
+		<!-- CUSTOM NOTIFICATION -->
+		<script
+			src="<c:url value="/resources/js/notification/SmartNotification.min.js" />"></script>
 
-	<!-- JARVIS WIDGETS -->
-	<script
-		src="<c:url value="/resources/js/smartwidgets/jarvis.widget.min.js" />"></script>
+		<!-- JARVIS WIDGETS -->
+		<script
+			src="<c:url value="/resources/js/smartwidgets/jarvis.widget.min.js" />"></script>
 
-	<!-- EASY PIE CHARTS 
+		<!-- EASY PIE CHARTS 
 	<script
 		src="<c:url value="/resources/js/plugin/easy-pie-chart/jquery.easy-pie-chart.min.js" />"></script>
 	-->
-	<!-- SPARKLINES -->
-	<script
-		src="<c:url value="/resources/js/plugin/sparkline/jquery.sparkline.min.js" />"></script>
+		<!-- SPARKLINES -->
+		<script
+			src="<c:url value="/resources/js/plugin/sparkline/jquery.sparkline.min.js" />"></script>
 
-	<!-- JQUERY VALIDATE -->
-	<script
-		src="<c:url value="/resources/js/plugin/jquery-validate/jquery.validate.min.js" />"></script>
+		<!-- JQUERY VALIDATE -->
+		<script
+			src="<c:url value="/resources/js/plugin/jquery-validate/jquery.validate.min.js" />"></script>
 
-	<!-- JQUERY MASKED INPUT -->
-	<script
-		src="<c:url value="/resources/js/plugin/masked-input/jquery.maskedinput.min.js" />"></script>
+		<!-- JQUERY MASKED INPUT -->
+		<script
+			src="<c:url value="/resources/js/plugin/masked-input/jquery.maskedinput.min.js" />"></script>
 
-	<!-- JQUERY SELECT2 INPUT -->
-	<script
-		src="<c:url value="/resources/js/plugin/select2/select2.min.js" />"></script>
+		<!-- JQUERY SELECT2 INPUT -->
+		<script
+			src="<c:url value="/resources/js/plugin/select2/select2.min.js" />"></script>
 
-	<!-- JQUERY UI + Bootstrap Slider -->
-	<script
-		src="<c:url value="/resources/js/plugin/bootstrap-slider/bootstrap-slider.min.js" />"></script>
+		<!-- JQUERY UI + Bootstrap Slider -->
+		<script
+			src="<c:url value="/resources/js/plugin/bootstrap-slider/bootstrap-slider.min.js" />"></script>
 
-	<!-- browser msie issue fix -->
-	<script
-		src="<c:url value="/resources/js/plugin/msie-fix/jquery.mb.browser.min.js" />"></script>
+		<!-- browser msie issue fix -->
+		<script
+			src="<c:url value="/resources/js/plugin/msie-fix/jquery.mb.browser.min.js" />"></script>
 
-	<!-- FastClick: For mobile devices -->
-	<script
-		src="<c:url value="/resources/js/plugin/fastclick/fastclick.min.js" />"></script>
+		<!-- FastClick: For mobile devices -->
+		<script
+			src="<c:url value="/resources/js/plugin/fastclick/fastclick.min.js" />"></script>
 
-	<!--[if IE 8]>
+		<!--[if IE 8]>
 
 		<h1>Your browser is out of date, please update your browser by going to www.microsoft.com/download</h1>
 
 		<![endif]-->
 
-	<!-- Demo purpose only -->
-	<script src="<c:url value="/resources/js/demo.min.js" />"></script>
+		<!-- Demo purpose only -->
+		<script src="<c:url value="/resources/js/demo.min.js" />"></script>
 
-	<!-- MAIN APP JS FILE -->
-	<script src="<c:url value="/resources/js/app.min.js" />"></script>
+		<!-- MAIN APP JS FILE -->
+		<script src="<c:url value="/resources/js/app.min.js" />"></script>
 
-	<!-- ENHANCEMENT PLUGINS : NOT A REQUIREMENT -->
-	<!-- Voice command : plugin 
+		<!-- ENHANCEMENT PLUGINS : NOT A REQUIREMENT -->
+		<!-- Voice command : plugin 
 	<script
 		src="<c:url value="/resources/js/speech/voicecommand.min.js" />"></script>
  	-->
-	<!-- SmartChat UI : plugin 
+		<!-- SmartChat UI : plugin 
 	<script
 		src="<c:url value="/resources/js/smart-chat-ui/smart.chat.ui.min.js" />"></script>
 	<script
 		src="<c:url value="/resources/js/smart-chat-ui/smart.chat.manager.min.js" />"></script>
 	-->
-	<!-- PAGE RELATED PLUGIN(S) -->
+		<!-- PAGE RELATED PLUGIN(S) -->
 
-	<script
-		src="<c:url value="/resources/js/plugin/bootstrapvalidator/bootstrapValidator.min.js" />"></script>
-	<script
-		src="<c:url value="/resources/js/plugin/datatables/jquery.dataTables.min.js" />"></script>
-	<script
-		src="<c:url value="/resources/js/plugin/datatables/dataTables.colVis.min.js" />"></script>
-	<script
-		src="<c:url value="/resources/js/plugin/datatables/dataTables.tableTools.min.js" />"></script>
-	<script
-		src="<c:url value="/resources/js/plugin/datatables/dataTables.bootstrap.min.js" />"></script>
-	<script
-		src="<c:url value="/resources/js/plugin/datatable-responsive/datatables.responsive.min.js" />"></script>
+		<script
+			src="<c:url value="/resources/js/plugin/bootstrapvalidator/bootstrapValidator.min.js" />"></script>
+		<script
+			src="<c:url value="/resources/js/plugin/datatables/jquery.dataTables.min.js" />"></script>
+		<script
+			src="<c:url value="/resources/js/plugin/datatables/dataTables.colVis.min.js" />"></script>
+		<script
+			src="<c:url value="/resources/js/plugin/datatables/dataTables.tableTools.min.js" />"></script>
+		<script
+			src="<c:url value="/resources/js/plugin/datatables/dataTables.bootstrap.min.js" />"></script>
+		<script
+			src="<c:url value="/resources/js/plugin/datatable-responsive/datatables.responsive.min.js" />"></script>
 
-	<!-- PAGE RELATED PLUGIN(S) -->
+		<!-- PAGE RELATED PLUGIN(S) -->
 
-	<!-- Flot Chart Plugin: Flot Engine, Flot Resizer, Flot Tooltip 
+		<!-- Flot Chart Plugin: Flot Engine, Flot Resizer, Flot Tooltip 
 	<script
 		src="<c:url value="/resources/js/plugin/flot/jquery.flot.cust.min.js" />"></script>
 	<script
@@ -492,526 +542,552 @@
 	<script
 		src="<c:url value="/resources/js/plugin/flot/jquery.flot.tooltip.min.js" />"></script>
 	-->
-	<!-- Vector Maps Plugin: Vectormap engine, Vectormap language 
+		<!-- Vector Maps Plugin: Vectormap engine, Vectormap language 
 	<script
 		src="<c:url value="/resources/js/plugin/vectormap/jquery-jvectormap-1.2.2.min.js" />"></script>
 	<script
 		src="<c:url value="/resources/js/plugin/vectormap/jquery-jvectormap-world-mill-en.js" />"></script>
 	-->
-	<!-- Full Calendar -->
-	<script
-		src="<c:url value="/resources/js/plugin/moment/moment.min.js" />"></script>
-	<script
-		src="<c:url value="/resources/js/plugin/fullcalendar/jquery.fullcalendar.min.js" />"></script>
+		<!-- Full Calendar -->
+		<script
+			src="<c:url value="/resources/js/plugin/moment/moment.min.js" />"></script>
+		<script
+			src="<c:url value="/resources/js/plugin/fullcalendar/jquery.fullcalendar.min.js" />"></script>
 
-	<script type="text/javascript">
-		// DO NOT REMOVE : GLOBAL FUNCTIONS!
+		<script type="text/javascript">
+			// DO NOT REMOVE : GLOBAL FUNCTIONS!
 
-		$(document)
-				.ready(
-						function() {
+			$(document)
+					.ready(
+							function() {
 
-							pageSetUp();
+								pageSetUp();
 
-							/* // DOM Position key index //
-							
-							l - Length changing (dropdown)
-							f - Filtering input (search)
-							t - The Table! (datatable)
-							i - Information (records)
-							p - Pagination (paging)
-							r - pRocessing 
-							< and > - div elements
-							<"#id" and > - div with an id
-							<"class" and > - div with a class
-							<"#id.class" and > - div with an id and class
-							
-							Also see: http://legacy.datatables.net/usage/features
-							 */
+								/* // DOM Position key index //
+								
+								l - Length changing (dropdown)
+								f - Filtering input (search)
+								t - The Table! (datatable)
+								i - Information (records)
+								p - Pagination (paging)
+								r - pRocessing 
+								< and > - div elements
+								<"#id" and > - div with an id
+								<"class" and > - div with a class
+								<"#id.class" and > - div with an id and class
+								
+								Also see: http://legacy.datatables.net/usage/features
+								 */
 
-							/* BASIC ;*/
-							var responsiveHelper_dt_basic = undefined;
-							var responsiveHelper_datatable_fixed_column = undefined;
-							var responsiveHelper_datatable_col_reorder = undefined;
-							var responsiveHelper_datatable_tabletools = undefined;
+								/* BASIC ;*/
+								var responsiveHelper_dt_basic = undefined;
+								var responsiveHelper_datatable_fixed_column = undefined;
+								var responsiveHelper_datatable_col_reorder = undefined;
+								var responsiveHelper_datatable_tabletools = undefined;
 
-							var breakpointDefinition = {
-								tablet : 1024,
-								phone : 480
-							};
-							$('#cance').hide();
-							
-							$('#frm').bootstrapValidator({
-								feedbackIcons : {
-									valid : 'glyphicon glyphicon-ok',
-									invalid : 'glyphicon glyphicon-remove',
-									validating : 'glyphicon glyphicon-refresh'
-								},
-								fields : {
-									minuta_id : {
-										group : '.col-md-4',
-										validators : {
-											notEmpty : {
-												message : 'Campo requierido'
-											},
-											stringLength : {
-												max : 200,
-												message : 'De ser menor a 200 caracteres'
-											}
-										}
-									},
-									placa : {
-										group : '.col-md-4',
-										validators : {
-											notEmpty : {
-												message : 'Campo requierido'
-											}
-										}
-									},
-									dependencia_id : {
-										group : '.col-md-4',
-										validators : {
-											notEmpty : {
-												message : 'Campo requierido'
-											}
-										}
-									},
-									area_id : {
-										group : '.col-md-6',
-										validators : {
-											notEmpty : {
-												message : 'Campo requierido'
-											}
-										}
-									},
-									actividad_id : {
-										group : '.col-md-6',
-										validators : {
-											notEmpty : {
-												message : 'Campo requierido'
-											}
-										}
-									},
-									hora_sistema : {
-										group : '.col-md-4',
-										validators : {
-											notEmpty : {
-												message : 'Campo requierido'
-											}
-										}
-									},
-									hora_inicio : {
-										group : '.col-md-4',
-										validators : {
-											notEmpty : {
-												message : 'Campo requierido'
-											}
-										}
-									},
-									hora_terminacion : {
-										group : '.col-md-4',
-										validators : {
-											notEmpty : {
-												message : 'Campo requierido'
-											}
-										}
-									},
-									observaciones : {
-										group : '.col-md-12',
-										validators : {
-											notEmpty : {
-												message : 'Campo requierido'
-											}
-										}
+								var breakpointDefinition = {
+									tablet : 1024,
+									phone : 480
+								};
+								$('#cance').hide();
+
+								$('#frm')
+										.bootstrapValidator(
+												{
+													feedbackIcons : {
+														valid : 'glyphicon glyphicon-ok',
+														invalid : 'glyphicon glyphicon-remove',
+														validating : 'glyphicon glyphicon-refresh'
+													},
+													fields : {
+														minuta_id : {
+															group : '.col-md-4',
+															validators : {
+																notEmpty : {
+																	message : 'Campo requierido'
+																},
+																stringLength : {
+																	max : 200,
+																	message : 'De ser menor a 200 caracteres'
+																}
+															}
+														},
+														placa : {
+															group : '.col-md-4',
+															validators : {
+																notEmpty : {
+																	message : 'Campo requierido'
+																}
+															}
+														},
+														dependencia_id : {
+															group : '.col-md-4',
+															validators : {
+																notEmpty : {
+																	message : 'Campo requierido'
+																}
+															}
+														},
+														area_id : {
+															group : '.col-md-6',
+															validators : {
+																notEmpty : {
+																	message : 'Campo requierido'
+																}
+															}
+														},
+														actividad_id : {
+															group : '.col-md-6',
+															validators : {
+																notEmpty : {
+																	message : 'Campo requierido'
+																}
+															}
+														},
+														hora_sistema : {
+															group : '.col-md-4',
+															validators : {
+																notEmpty : {
+																	message : 'Campo requierido'
+																}
+															}
+														},
+														hora_inicio : {
+															group : '.col-md-4',
+															validators : {
+																notEmpty : {
+																	message : 'Campo requierido'
+																}
+															}
+														},
+														hora_terminacion : {
+															group : '.col-md-4',
+															validators : {
+																notEmpty : {
+																	message : 'Campo requierido'
+																}
+															}
+														},
+														observaciones : {
+															group : '.col-md-12',
+															validators : {
+																notEmpty : {
+																	message : 'Campo requierido'
+																}
+															}
+														}
+													}
+												});
+
+								$('#dt_basic')
+										.dataTable(
+												{
+													"sDom" : "<'dt-toolbar'<'col-xs-12 col-sm-6'f><'col-sm-6 col-xs-12 hidden-xs'l>r>"
+															+ "t"
+															+ "<'dt-toolbar-footer'<'col-sm-6 col-xs-12 hidden-xs'i><'col-xs-12 col-sm-6'p>>",
+													"autoWidth" : true,
+													"preDrawCallback" : function() {
+														// Initialize the responsive datatables helper once.
+														if (!responsiveHelper_dt_basic) {
+															responsiveHelper_dt_basic = new ResponsiveDatatablesHelper(
+																	$('#dt_basic'),
+																	breakpointDefinition);
+														}
+													},
+													"rowCallback" : function(
+															nRow) {
+														responsiveHelper_dt_basic
+																.createExpandIcon(nRow);
+													},
+													"drawCallback" : function(
+															oSettings) {
+														responsiveHelper_dt_basic
+																.respond();
+													}
+												});
+
+								/* END BASIC */
+
+								/* COLUMN FILTER  */
+								var otable = $('#datatable_fixed_column')
+										.DataTable(
+												{
+													//"bFilter": false,
+													//"bInfo": false,
+													//"bLengthChange": false
+													//"bAutoWidth": false,
+													//"bPaginate": false,
+													//"bStateSave": true // saves sort state using localStorage
+													"sDom" : "<'dt-toolbar'<'col-xs-12 col-sm-6 hidden-xs'f><'col-sm-6 col-xs-12 hidden-xs'<'toolbar'>>r>"
+															+ "t"
+															+ "<'dt-toolbar-footer'<'col-sm-6 col-xs-12 hidden-xs'i><'col-xs-12 col-sm-6'p>>",
+													"autoWidth" : true,
+													"preDrawCallback" : function() {
+														// Initialize the responsive datatables helper once.
+														if (!responsiveHelper_datatable_fixed_column) {
+															responsiveHelper_datatable_fixed_column = new ResponsiveDatatablesHelper(
+																	$('#datatable_fixed_column'),
+																	breakpointDefinition);
+														}
+													},
+													"rowCallback" : function(
+															nRow) {
+														responsiveHelper_datatable_fixed_column
+																.createExpandIcon(nRow);
+													},
+													"drawCallback" : function(
+															oSettings) {
+														responsiveHelper_datatable_fixed_column
+																.respond();
+													}
+
+												});
+
+								// custom toolbar
+								//$("div.toolbar")
+								//		.html( '<div class="text-right"><img src="img/logo.png" alt="SmartAdmin" style="width: 111px; margin-top: 3px; margin-right: 10px;"></div>');
+
+								// Apply the filter
+								$(
+										"#datatable_fixed_column thead th input[type=text]")
+										.on(
+												'keyup change',
+												function() {
+
+													otable
+															.column(
+																	$(this)
+																			.parent()
+																			.index()
+																			+ ':visible')
+															.search(this.value)
+															.draw();
+
+												});
+								/* END COLUMN FILTER */
+
+								/* COLUMN SHOW - HIDE */
+								$('#datatable_col_reorder')
+										.dataTable(
+												{
+													"sDom" : "<'dt-toolbar'<'col-xs-12 col-sm-6'f><'col-sm-6 col-xs-6 hidden-xs'C>r>"
+															+ "t"
+															+ "<'dt-toolbar-footer'<'col-sm-6 col-xs-12 hidden-xs'i><'col-sm-6 col-xs-12'p>>",
+													"autoWidth" : true,
+													"preDrawCallback" : function() {
+														// Initialize the responsive datatables helper once.
+														if (!responsiveHelper_datatable_col_reorder) {
+															responsiveHelper_datatable_col_reorder = new ResponsiveDatatablesHelper(
+																	$('#datatable_col_reorder'),
+																	breakpointDefinition);
+														}
+													},
+													"rowCallback" : function(
+															nRow) {
+														responsiveHelper_datatable_col_reorder
+																.createExpandIcon(nRow);
+													},
+													"drawCallback" : function(
+															oSettings) {
+														responsiveHelper_datatable_col_reorder
+																.respond();
+													}
+												});
+
+								/* END COLUMN SHOW - HIDE */
+
+								/* TABLETOOLS */
+								$('#datatable_tabletools')
+										.dataTable(
+												{
+
+													// Tabletools options: 
+													//   https://datatables.net/extensions/tabletools/button_options
+													"sDom" : "<'dt-toolbar'<'col-xs-12 col-sm-6'f><'col-sm-6 col-xs-6 hidden-xs'T>r>"
+															+ "t"
+															+ "<'dt-toolbar-footer'<'col-sm-6 col-xs-12 hidden-xs'i><'col-sm-6 col-xs-12'p>>",
+													"oTableTools" : {
+														"aButtons" : [
+																"copy",
+																"csv",
+																"xls",
+																{
+																	"sExtends" : "pdf",
+																	"sTitle" : "SmartAdmin_PDF",
+																	"sPdfMessage" : "SmartAdmin PDF Export",
+																	"sPdfSize" : "letter"
+																},
+																{
+																	"sExtends" : "print",
+																	"sMessage" : "Generated by SmartAdmin <i>(press Esc to close)</i>"
+																} ],
+														"sSwfPath" : "js/plugin/datatables/swf/copy_csv_xls_pdf.swf"
+													},
+													"autoWidth" : true,
+													"preDrawCallback" : function() {
+														// Initialize the responsive datatables helper once.
+														if (!responsiveHelper_datatable_tabletools) {
+															responsiveHelper_datatable_tabletools = new ResponsiveDatatablesHelper(
+																	$('#datatable_tabletools'),
+																	breakpointDefinition);
+														}
+													},
+													"rowCallback" : function(
+															nRow) {
+														responsiveHelper_datatable_tabletools
+																.createExpandIcon(nRow);
+													},
+													"drawCallback" : function(
+															oSettings) {
+														responsiveHelper_datatable_tabletools
+																.respond();
+													}
+												});
+
+								/* END TABLETOOLS */
+
+							});
+
+			function validar() {
+				alert('validando');
+			}
+
+			function actualizar() {
+				$("#frm").submit();
+				var minuta_id = document.getElementById('minuta_id').value;
+				var placa = document.getElementById('placa').value;
+
+				x = document.getElementById('dependencia_id.dependencia_id').selectedIndex;
+				var dependencia_id = document.getElementsByTagName("option")[x].value
+
+				var x = document.getElementById('area_id.area_id').selectedIndex;
+				var area_id = document.getElementsByTagName("option")[x].value
+
+				var x = document.getElementById('actividad_id.actividad_id').selectedIndex;
+				var actividad_id = document.getElementsByTagName("option")[x].value
+
+				var hora_sistema = document.getElementById('hora_sistema').value;
+				var hora_inicio = document.getElementById('hora_inicio').value;
+				var hora_terminacion = document
+						.getElementById('hora_terminacion').value;
+				var codigo_trabajador = document
+						.getElementById('codigo_trabajador').value;
+
+				var observaciones = document.getElementById('observaciones').value;
+				var estado = document.getElementById('estado').value;
+				var opc = document.getElementById('elboton').innerHTML;
+				$
+						.ajax({
+							type : "POST",
+							url : "minuta_add/agregar",
+							processData : true,
+							data : {
+								minuta_id : minuta_id,
+								placa : placa,
+								dependencia_id : dependencia_id,
+								area_id : area_id,
+								actividad_id : actividad_id,
+								hora_sistema : hora_sistema,
+								hora_inicio : hora_inicio,
+								hora_terminacion : hora_terminacion,
+								codigo_trabajador : codigo_trabajador,
+								observaciones : observaciones,
+								estado : estado,
+								opcion : opc
+							},
+							success : function(data) {
+								if (data == "semodifico") {
+									$
+											.smallBox({
+												title : "Fue modificado con éxito!!!",
+												content : "Por favor verifique<p class='text-align-right'><a href='javascript:void(0);' class='btn btn-danger btn-sm'>Ok</a></p>",
+												color : "#468D47",
+												//timeout: 8000,
+												icon : "fa fa-bell swing animated"
+											});
+								} else {
+									if (data == "error") {
+										$
+												.smallBox({
+													title : "ATENCIÓN: El registró no fue guardado!, es posible que falte información",
+													content : "Por favor verifique<p class='text-align-right'><a href='javascript:void(0);' class='btn btn-danger btn-sm'>Ok</a></p>",
+													color : "#296191",
+													//timeout: 8000,
+													icon : "fa fa-bell swing animated"
+												});
+									} else {
+										var res = data.split(":::");
+										$('#datatable_fixed_column')
+												.dataTable().fnAddData(
+														[ res[0], res[1] ]);
+										$
+												.smallBox({
+													title : "La información se registró adecuadamente",
+													content : "Para ingresar un nuevo registro ingrese la información y presione el botón Actualizar",
+													color : "#5384AF",
+													timeout : 8000,
+													icon : "fa fa-bell swing animated"
+												});
+										$('#cance').hide();
 									}
 								}
-							});
-							
-							$('#dt_basic')
-									.dataTable(
-											{
-												"sDom" : "<'dt-toolbar'<'col-xs-12 col-sm-6'f><'col-sm-6 col-xs-12 hidden-xs'l>r>"
-														+ "t"
-														+ "<'dt-toolbar-footer'<'col-sm-6 col-xs-12 hidden-xs'i><'col-xs-12 col-sm-6'p>>",
-												"autoWidth" : true,
-												"preDrawCallback" : function() {
-													// Initialize the responsive datatables helper once.
-													if (!responsiveHelper_dt_basic) {
-														responsiveHelper_dt_basic = new ResponsiveDatatablesHelper(
-																$('#dt_basic'),
-																breakpointDefinition);
-													}
-												},
-												"rowCallback" : function(nRow) {
-													responsiveHelper_dt_basic
-															.createExpandIcon(nRow);
-												},
-												"drawCallback" : function(
-														oSettings) {
-													responsiveHelper_dt_basic
-															.respond();
-												}
-											});
-
-							/* END BASIC */
-
-							/* COLUMN FILTER  */
-							var otable = $('#datatable_fixed_column')
-									.DataTable(
-											{
-												//"bFilter": false,
-												//"bInfo": false,
-												//"bLengthChange": false
-												//"bAutoWidth": false,
-												//"bPaginate": false,
-												//"bStateSave": true // saves sort state using localStorage
-												"sDom" : "<'dt-toolbar'<'col-xs-12 col-sm-6 hidden-xs'f><'col-sm-6 col-xs-12 hidden-xs'<'toolbar'>>r>"
-														+ "t"
-														+ "<'dt-toolbar-footer'<'col-sm-6 col-xs-12 hidden-xs'i><'col-xs-12 col-sm-6'p>>",
-												"autoWidth" : true,
-												"preDrawCallback" : function() {
-													// Initialize the responsive datatables helper once.
-													if (!responsiveHelper_datatable_fixed_column) {
-														responsiveHelper_datatable_fixed_column = new ResponsiveDatatablesHelper(
-																$('#datatable_fixed_column'),
-																breakpointDefinition);
-													}
-												},
-												"rowCallback" : function(nRow) {
-													responsiveHelper_datatable_fixed_column
-															.createExpandIcon(nRow);
-												},
-												"drawCallback" : function(
-														oSettings) {
-													responsiveHelper_datatable_fixed_column
-															.respond();
-												}
-
-											});
-
-							// custom toolbar
-							//$("div.toolbar")
-							//		.html( '<div class="text-right"><img src="img/logo.png" alt="SmartAdmin" style="width: 111px; margin-top: 3px; margin-right: 10px;"></div>');
-
-							// Apply the filter
-							$(
-									"#datatable_fixed_column thead th input[type=text]")
-									.on(
-											'keyup change',
-											function() {
-
-												otable.column(
-														$(this).parent()
-																.index()
-																+ ':visible')
-														.search(this.value)
-														.draw();
-
-											});
-							/* END COLUMN FILTER */
-
-							/* COLUMN SHOW - HIDE */
-							$('#datatable_col_reorder')
-									.dataTable(
-											{
-												"sDom" : "<'dt-toolbar'<'col-xs-12 col-sm-6'f><'col-sm-6 col-xs-6 hidden-xs'C>r>"
-														+ "t"
-														+ "<'dt-toolbar-footer'<'col-sm-6 col-xs-12 hidden-xs'i><'col-sm-6 col-xs-12'p>>",
-												"autoWidth" : true,
-												"preDrawCallback" : function() {
-													// Initialize the responsive datatables helper once.
-													if (!responsiveHelper_datatable_col_reorder) {
-														responsiveHelper_datatable_col_reorder = new ResponsiveDatatablesHelper(
-																$('#datatable_col_reorder'),
-																breakpointDefinition);
-													}
-												},
-												"rowCallback" : function(nRow) {
-													responsiveHelper_datatable_col_reorder
-															.createExpandIcon(nRow);
-												},
-												"drawCallback" : function(
-														oSettings) {
-													responsiveHelper_datatable_col_reorder
-															.respond();
-												}
-											});
-
-							/* END COLUMN SHOW - HIDE */
-
-							/* TABLETOOLS */
-							$('#datatable_tabletools')
-									.dataTable(
-											{
-
-												// Tabletools options: 
-												//   https://datatables.net/extensions/tabletools/button_options
-												"sDom" : "<'dt-toolbar'<'col-xs-12 col-sm-6'f><'col-sm-6 col-xs-6 hidden-xs'T>r>"
-														+ "t"
-														+ "<'dt-toolbar-footer'<'col-sm-6 col-xs-12 hidden-xs'i><'col-sm-6 col-xs-12'p>>",
-												"oTableTools" : {
-													"aButtons" : [
-															"copy",
-															"csv",
-															"xls",
-															{
-																"sExtends" : "pdf",
-																"sTitle" : "SmartAdmin_PDF",
-																"sPdfMessage" : "SmartAdmin PDF Export",
-																"sPdfSize" : "letter"
-															},
-															{
-																"sExtends" : "print",
-																"sMessage" : "Generated by SmartAdmin <i>(press Esc to close)</i>"
-															} ],
-													"sSwfPath" : "js/plugin/datatables/swf/copy_csv_xls_pdf.swf"
-												},
-												"autoWidth" : true,
-												"preDrawCallback" : function() {
-													// Initialize the responsive datatables helper once.
-													if (!responsiveHelper_datatable_tabletools) {
-														responsiveHelper_datatable_tabletools = new ResponsiveDatatablesHelper(
-																$('#datatable_tabletools'),
-																breakpointDefinition);
-													}
-												},
-												"rowCallback" : function(nRow) {
-													responsiveHelper_datatable_tabletools
-															.createExpandIcon(nRow);
-												},
-												"drawCallback" : function(
-														oSettings) {
-													responsiveHelper_datatable_tabletools
-															.respond();
-												}
-											});
-							
-											
-
-							/* END TABLETOOLS */
-
+							},
+							error : function(data) {
+								$
+										.smallBox({
+											title : "El registró no fue guardado!",
+											content : "Por favor verifique<p class='text-align-right'><a href='javascript:void(0);' class='btn btn-danger btn-sm'>Ok</a></p>",
+											color : "#296191",
+											//timeout: 8000,
+											icon : "fa fa-bell swing animated"
+										});
+							}
 						});
+			}
 
-		function validar(){
-			alert('validando');
-		}
+			function del(dato, thi) {
+				$
+						.ajax({
+							type : "POST",
+							url : "minuta_add/borrar",
+							data : {
+								area_id : dato
+							},
+							success : function(data) {
+								nRow = $(thi).closest("tr").index();
+								$('#datatable_fixed_column').dataTable()
+										.fnDeleteRow(nRow);
+								$
+										.smallBox({
+											title : "Eliminación de Información",
+											content : "La información se eliminó adecuadamente",
+											color : "#5384AF",
+											timeout : 8000,
+											icon : "fa fa-bell"
+										});
+							},
+							error : function(data) {
+								$
+										.smallBox({
+											title : "Eliminación de Información",
+											content : "No se eliminó correctamente, verifique por favor",
+											color : rgb(50, 118, 177), //"#5384AF",
+											timeout : 8000,
+											icon : "fa fa-bell"
+										});
+							}
+						});
+			}
 
-		function actualizar() {
-			$( "#frm" ).submit();
-			var minuta_id = document.getElementById('minuta_id').value;
-			var placa = document.getElementById('placa').value;
-			
-			x = document.getElementById('dependencia_id.dependencia_id').selectedIndex;
-			var dependencia_id = document.getElementsByTagName("option")[x].value
-			
-			var x = document.getElementById('area_id.area_id').selectedIndex;
-			var area_id = document.getElementsByTagName("option")[x].value
-			
-			var x = document.getElementById('actividad_id.actividad_id').selectedIndex;
-			var actividad_id = document.getElementsByTagName("option")[x].value
-			
-			var hora_sistema = document.getElementById('hora_sistema').value;
-			var hora_inicio = document.getElementById('hora_inicio').value;
-			var hora_terminacion = document.getElementById('hora_terminacion').value;
-			var codigo_trabajador = document.getElementById('codigo_trabajador').value;
-			
-			var observaciones = document.getElementById('observaciones').value;
-			var estado = document.getElementById('estado').value;
-			var opc=document.getElementById('elboton').innerHTML;
-			$.ajax({
-				type : "POST",
-				url : "minuta_add/agregar",
-				processData: true,
-				data : {
-					minuta_id: minuta_id,
-					placa: placa,
-					dependencia_id: dependencia_id,
-					area_id: area_id,
-					actividad_id: actividad_id,
-					hora_sistema: hora_sistema,
-					hora_inicio: hora_inicio,
-					hora_terminacion: hora_terminacion,
-					codigo_trabajador: codigo_trabajador,
-					observaciones:	observaciones,
-					estado:	estado,
-					opcion: opc
-				},
-				success : function(data) {		
-					 if (data=="semodifico"){
-						 $.smallBox({
-							title : "Fue modificado con éxito!!!",
-							content : "Por favor verifique<p class='text-align-right'><a href='javascript:void(0);' class='btn btn-danger btn-sm'>Ok</a></p>",
-							color : "#468D47",
-							//timeout: 8000,
-							icon : "fa fa-bell swing animated"
-						}); 
-					 }
-					 else{
-						 if (data=="error"){
-							 $.smallBox({
-									title : "ATENCIÓN: El registró no fue guardado!, es posible que falte información",
-									content : "Por favor verifique<p class='text-align-right'><a href='javascript:void(0);' class='btn btn-danger btn-sm'>Ok</a></p>",
-									color : "#296191",
-									//timeout: 8000,
-									icon : "fa fa-bell swing animated"
-								}); 
-						 }
-						 else{
-							 var res = data.split(":::");
-							 $('#datatable_fixed_column').dataTable().fnAddData( [res[0],res[1]] );
-							 $.smallBox({
-									title : "La información se registró adecuadamente",
-									content : "Para ingresar un nuevo registro ingrese la información y presione el botón Actualizar",
-									color : "#5384AF",
-									timeout: 8000,
-									icon : "fa fa-bell swing animated"
-							 });
-							 $('#cance').hide();
-						 }
-					 }
-				},
-				error : function(data) {			
-					$.smallBox({
-						title : "El registró no fue guardado!",
-						content : "Por favor verifique<p class='text-align-right'><a href='javascript:void(0);' class='btn btn-danger btn-sm'>Ok</a></p>",
-						color : "#296191",
-						//timeout: 8000,
-						icon : "fa fa-bell swing animated"
-					});
-				}
-			});
-		}
-		
-		function del(dato, thi) {
-			$.ajax({
-				type : "POST",
-				url : "minuta_add/borrar",
-				data : {
-					area_id : dato
-				},
-				success : function(data) {
-					nRow=$(thi).closest("tr").index();
-					$('#datatable_fixed_column').dataTable().fnDeleteRow(nRow);
-				 	$.smallBox({
-						title : "Eliminación de Información",
-						content : "La información se eliminó adecuadamente",
-						color : "#5384AF",
-						timeout: 8000,
-						icon : "fa fa-bell"
-				    });
-				},
-				error : function(data) {
-					$.smallBox({
-						title : "Eliminación de Información",
-						content : "No se eliminó correctamente, verifique por favor",
-						color : rgb(50, 118, 177), //"#5384AF",
-						timeout: 8000,
-						icon : "fa fa-bell"
-				    });
-				}
-			});
-		}
-		
-		function borrar(dato, thi){
-			$.SmartMessageBox({
-				title : "Eliminación!",
-				content : "Está apunto de eliminar un registro, está de acuerdo?",
-				buttons : '[No][Si]'
-			}, function(ButtonPressed) {
-				if (ButtonPressed === "Si") {
-					del(dato,thi);
-				}
-				if (ButtonPressed === "No") {
-					$.smallBox({
-						title : "Operación Cancelada",
-						content : "<i class='fa fa-clock-o'></i> <i>No se afectó la información</i>",
-						color : "#C46A69",
-						iconSmall : "fa fa-times fa-2x fadeInRight animated",
-						timeout : 2000
-					});
-				}
-	
-			});
-			//e.preventDefault();
-		}
-		
-		function cancelar() {
-			var obj_id = document.getElementById('area_id').value;
-			var des = document.getElementById('estado').value;
-			$('#elboton').text('Nuevo');
-			$.ajax({
-				type : "POST",
-				url : "minuta_add/cancelar",
-				data : {
-					area_id: obj_id,
-					descripcion : des
-				},
-				success : function(data) {					
-					document.getElementById('descripcion').value = "";
-					document.getElementById('area_id').value = "0";
-					 var res = data.split(":::");
-					 $('#datatable_fixed_column').dataTable().fnAddData( [res[0],res[1]] );
-					 $.smallBox({
-							title : "Operación Cancelada",
-							content : "<i class='fa fa-clock-o'></i> <i>Se regresó la información a la tabla sin modificaciones</i>",
-							color : "#C46A69",
-							iconSmall : "fa fa-times fa-2x fadeInRight animated",
-							timeout : 4000
-					 });
-					 $('#cance').hide();
-				},
-				error : function(data) {
-					document.getElementById('descripcion').value = "";
-					document.getElementById('area_id').value = "0";					
-				}
-			});
-		}
-		
-		function con(minuta_id, placa, dependencia_id, area_id, actividad_id, hora_sistema, hora_inicio, hora_terminacion, codigo_trabajador, observaciones, estado, thi) {
-			//alert(tipo_persona_id);
-			document.getElementById('minuta_id').value=0;
-			document.getElementById('placa').value=placa;
-			document.getElementById('dependencia_id.dependencia_id').value=dependencia_id;
-			document.getElementById('area_id.area_id').selectedIndex=area_id;
-			document.getElementById('actividad_id.actividad_id').selectedIndex=actividad_id;
-			document.getElementById('hora_sistema').value=hora_sistema;
-			document.getElementById('hora_inicio').value=hora_inicio;
-			document.getElementById('hora_terminacion').value=hora_terminacion;
-			document.getElementById('codigo_trabajador').value=codigo_trabajador;
-			document.getElementById('observaciones').value=observaciones;
-			document.getElementById('estado').value=estado;
-			$('#cance').show();
-			document.getElementById('elboton').innerHTML='Actualizar';
-			nRow=$(thi).closest("tr").index();
-			$('#datatable_fixed_column').dataTable().fnDeleteRow(nRow);
-			$.smallBox({
-				title : "Inició la modificación del registro",
-				content : "Ya no está en el listado, en caso de no querer precione el botón Cancelar",
-				color : "#5384AF",
-				timeout: 8000,
-				icon : "fa fa-bell"
-		    });
-		}
-	</script>
+			function borrar(dato, thi) {
+				$
+						.SmartMessageBox(
+								{
+									title : "Eliminación!",
+									content : "Está apunto de eliminar un registro, está de acuerdo?",
+									buttons : '[No][Si]'
+								},
+								function(ButtonPressed) {
+									if (ButtonPressed === "Si") {
+										del(dato, thi);
+									}
+									if (ButtonPressed === "No") {
+										$
+												.smallBox({
+													title : "Operación Cancelada",
+													content : "<i class='fa fa-clock-o'></i> <i>No se afectó la información</i>",
+													color : "#C46A69",
+													iconSmall : "fa fa-times fa-2x fadeInRight animated",
+													timeout : 2000
+												});
+									}
 
-	<!-- Your GOOGLE ANALYTICS CODE Below -->
-	<script type="text/javascript">
-		var _gaq = _gaq || [];
-		_gaq.push([ '_setAccount', 'UA-XXXXXXXX-X' ]);
-		_gaq.push([ '_trackPageview' ]);
+								});
+				//e.preventDefault();
+			}
 
-		(function() {
-			var ga = document.createElement('script');
-			ga.type = 'text/javascript';
-			ga.async = true;
-			ga.src = ('https:' == document.location.protocol ? 'https://ssl'
-					: 'http://www')
-					+ '.google-analytics.com/ga.js';
-			var s = document.getElementsByTagName('script')[0];
-			s.parentNode.insertBefore(ga, s);
-		})();
-	</script>
+			function cancelar() {
+				var obj_id = document.getElementById('area_id').value;
+				var des = document.getElementById('estado').value;
+				$('#elboton').text('Nuevo');
+				$
+						.ajax({
+							type : "POST",
+							url : "minuta_add/cancelar",
+							data : {
+								area_id : obj_id,
+								descripcion : des
+							},
+							success : function(data) {
+								document.getElementById('descripcion').value = "";
+								document.getElementById('area_id').value = "0";
+								var res = data.split(":::");
+								$('#datatable_fixed_column').dataTable()
+										.fnAddData([ res[0], res[1] ]);
+								$
+										.smallBox({
+											title : "Operación Cancelada",
+											content : "<i class='fa fa-clock-o'></i> <i>Se regresó la información a la tabla sin modificaciones</i>",
+											color : "#C46A69",
+											iconSmall : "fa fa-times fa-2x fadeInRight animated",
+											timeout : 4000
+										});
+								$('#cance').hide();
+							},
+							error : function(data) {
+								document.getElementById('descripcion').value = "";
+								document.getElementById('area_id').value = "0";
+							}
+						});
+			}
 
+			function con(minuta_id, placa, dependencia_id, area_id,
+					actividad_id, hora_sistema, hora_inicio, hora_terminacion,
+					codigo_trabajador, observaciones, estado, thi) {
+				//alert(tipo_persona_id);
+				document.getElementById('minuta_id').value = 0;
+				document.getElementById('placa').value = placa;
+				document.getElementById('dependencia_id.dependencia_id').value = dependencia_id;
+				document.getElementById('area_id.area_id').selectedIndex = area_id;
+				document.getElementById('actividad_id.actividad_id').selectedIndex = actividad_id;
+				document.getElementById('hora_sistema').value = hora_sistema;
+				document.getElementById('hora_inicio').value = hora_inicio;
+				document.getElementById('hora_terminacion').value = hora_terminacion;
+				document.getElementById('codigo_trabajador').value = codigo_trabajador;
+				document.getElementById('observaciones').value = observaciones;
+				document.getElementById('estado').value = estado;
+				$('#cance').show();
+				document.getElementById('elboton').innerHTML = 'Actualizar';
+				nRow = $(thi).closest("tr").index();
+				$('#datatable_fixed_column').dataTable().fnDeleteRow(nRow);
+				$
+						.smallBox({
+							title : "Inició la modificación del registro",
+							content : "Ya no está en el listado, en caso de no querer precione el botón Cancelar",
+							color : "#5384AF",
+							timeout : 8000,
+							icon : "fa fa-bell"
+						});
+			}
+		</script>
+
+		<!-- Your GOOGLE ANALYTICS CODE Below -->
+		<script type="text/javascript">
+			var _gaq = _gaq || [];
+			_gaq.push([ '_setAccount', 'UA-XXXXXXXX-X' ]);
+			_gaq.push([ '_trackPageview' ]);
+
+			(function() {
+				var ga = document.createElement('script');
+				ga.type = 'text/javascript';
+				ga.async = true;
+				ga.src = ('https:' == document.location.protocol ? 'https://ssl'
+						: 'http://www')
+						+ '.google-analytics.com/ga.js';
+				var s = document.getElementsByTagName('script')[0];
+				s.parentNode.insertBefore(ga, s);
+			})();
+		</script>
 </body>
 
 </html>

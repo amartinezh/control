@@ -53,7 +53,7 @@ public class ContratistaController {
 			@RequestParam String coreo_e,
 			@RequestParam String telefono,
 			@RequestParam String scan_foto,
-			@RequestParam byte[] scan_cedula,
+			@RequestParam String scan_cedula,
 			@RequestParam String scan_huella,
 			@RequestParam String empresa,
 			@RequestParam String nit_empresa,

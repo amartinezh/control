@@ -220,12 +220,11 @@
 													</div>
 													<div class="col-xs-4">
 														<label class="control-label input-file"><a href="#" id="modal_link_cedula"> Archivo Cédula</a></label>
-														<input type="text" id="scan_cedula2" name="scan_cedula2" readonly/>
-														<form:input path="scan_cedula" type="file"	class="form-control" data-bv-field="Cédula" required="required" />
+														<form:input path="scan_cedula" type="file" accept="image/*"	class="form-control" data-bv-field="Cédula" required="required" />
 														
 													
 														<div id="dialog-message2" title="Imagen Cedula">
-															<canvas id="canvas"  width="900" height="300" style="background-color:#ffffff;"></canvas>
+															<canvas id="scan_cedula2"  width="900" height="300" style="background-color:#ffffff;"></canvas>
 														</div>
 													</div>
 												</div>
@@ -244,8 +243,7 @@
 													</div>
 													<div class="col-xs-4">
 														<label class="control-label">Archivo Huella</label>
-														<input type="text" id="scan_huella2" name="scan_huella2" readonly/>
-														<form:input path="scan_huella" type="file"	class="form-control" data-bv-field="Huella" required="required" />
+														<form:input path="scan_huella" type="file" accept="image/*"	class="form-control" data-bv-field="Huella" required="required" />
 													</div>
 												</div>
 											</div>
@@ -319,7 +317,7 @@
 													</div>
 													<div class="col-xs-4">
 														<label class="control-label">Imagen Inventario</label>
-														<input type="text" id="scan_inventario2" name="scan_inventario2" readonly/><form:input path="scan_inventario" type="file"	class="form-control" data-bv-field="Huella" required="required" />
+														<form:input path="scan_inventario" type="file" accept="image/*"	class="form-control" data-bv-field="Huella" required="required" />
 													</div>
 												</div>
 											</div>
@@ -1008,7 +1006,7 @@
 		
 		function el(id){return document.getElementById(id);} // Get elem by ID
 
-		var canvas  = el("canvas");
+		var canvas  = el("scan_cedula2");
 		var context = canvas.getContext("2d");
 
 		function readImage() {
@@ -1047,16 +1045,23 @@
 			var ce = document.getElementById('coreo_e').value;
 			var te = document.getElementById('telefono').value;
 			
-			//var sf = document.getElementById('scan_foto').getImageData;
+			// Para leer la foto que está en el CANVAS
 			var canvas = document.getElementById('scan_foto');
 			var canvasWidth  = canvas.width;
 			var canvasHeight = canvas.height;
 			var ctx = canvas.getContext('2d');
 			var imageData = ctx.getImageData(0, 0, canvasWidth, canvasHeight);
 			var sf = canvas.toDataURL();
-			alert(sf);
 			
-			var sc = document.getElementById('scan_cedula').value;
+			// Para leer la foto que está en el CANVAS
+			canvas = document.getElementById('scan_cedula2');
+			canvasWidth  = canvas.width;
+			canvasHeight = canvas.height;
+			ctx = canvas.getContext('2d');
+			imageData = ctx.getImageData(0, 0, canvasWidth, canvasHeight);
+			var sc = canvas.toDataURL();
+			//var sc = document.getElementById('scan_cedula').value;
+			
 			var sh = document.getElementById('scan_huella').value;
 			var em = document.getElementById('empresa').value;
 			var nem = document.getElementById('nit_empresa').value;
@@ -1305,30 +1310,24 @@
 			document.getElementById('coreo_e').value=coreo_e;
 			document.getElementById('telefono').value=telefono;
 			
-			
-			alert(scan_foto);
-			//document.getElementById('scan_foto2').value=scan_foto;
-			
+			// Lectura CANVAS para foto			
 			var canvas = document.getElementById('scan_foto');
 			var ctx = canvas.getContext('2d');
 			var image = new Image();
 			image.src = scan_foto;
 			image.onload = function(){
-			   ctx.drawImage(image, 0, 0);
-			} 
-			/* 
-			var canvas = document.getElementById('scan_foto');
-			var canvasWidth  = canvas.width;
-			var canvasHeight = canvas.height;
-			var ctx = canvas.getContext('2d');
-			var imageData = ctx.getImageData(0, 0, canvasWidth, canvasHeight);
-			var sf = canvas.toDataURL();
-			alert(canvas.toDataURL());
-			*/
-			//document.getElementById('scan_foto').src=scan_foto;
+			   ctx.drawImage(image, 0, 0,300, 150);
+			}
 			
+			// Lectura CANVAS para cedula
+			var canvas2 = document.getElementById('scan_cedula2');
+			var ctx2 = canvas2.getContext('2d');
+			var image2 = new Image();
+			image2.src = scan_cedula;
+			image2.onload = function(){
+			   ctx2.drawImage(image2, 0, 0);
+			}
 			
-			document.getElementById('scan_cedula2').value=scan_cedula;
 			document.getElementById('scan_huella2').value=scan_huella;
 			document.getElementById('empresa').value=empresa;
 			document.getElementById('nit_empresa').value=nit_empresa;
@@ -1443,8 +1442,9 @@
 					click : function() {
 						$(this).dialog("close");
 					}
-				}]
-		
+				}],
+				position: 'top'
+				
 			});
 			
 			$("#dialog-message2").dialog({
@@ -1452,19 +1452,15 @@
 				modal : true,
 				title : "Imagen Cédula",
 				buttons : [{
-					html : "Cancel",
-					"class" : "btn btn-default",
-					click : function() {
-						$(this).dialog("close");
-					}
-				}, {
 					html : "<i class='fa fa-check'></i>&nbsp; OK",
 					"class" : "btn btn-primary",
 					click : function() {
 						$(this).dialog("close");
 					}
-				}]
-		
+				}],
+				position: 'top',
+				width: "90%",
+			   	maxWidth: "768px"
 			});
 	</script>
 

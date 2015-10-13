@@ -95,7 +95,6 @@ public class MinutaController {
 	public @ResponseBody String cancelar(@RequestParam int minuta_id,
 			@RequestParam String placa, Map<String, Object> model) {
 		if (minuta_id > 0) {
-			String cad = "";
 			return "<span class='responsiveExpander'></span><a class='btn btn-success btn-circle btn-sx'"
 					+ " onclick=\"con('"
 					+ minuta_id

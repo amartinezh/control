@@ -221,7 +221,6 @@
 													<div class="col-xs-4">
 														<label class="control-label input-file"><a href="#" id="modal_link_cedula"> Archivo Cédula</a></label>
 														<form:input path="scan_cedula" type="file" accept="image/*"	class="form-control" data-bv-field="Cédula" required="required" />
-														
 													
 														<div id="dialog-message2" title="Imagen Cedula">
 															<canvas id="scan_cedula2"  width="900" height="300" style="background-color:#ffffff;"></canvas>
@@ -316,8 +315,12 @@
 														<form:textarea path="inventario" type="text" class="form-control" data-bv-field="Placa" required="required" />
 													</div>
 													<div class="col-xs-4">
-														<label class="control-label">Imagen Inventario</label>
+														<label class="control-label input-file"><a href="#" id="modal_link_inventario"> Archivo Inventario</a></label>
 														<form:input path="scan_inventario" type="file" accept="image/*"	class="form-control" data-bv-field="Huella" required="required" />
+														
+														<div id="dialog-message3" title="Imagen Inventario">
+															<canvas id="scan_inventario2"  width="900" height="300" style="background-color:#ffffff;"></canvas>
+														</div>
 													</div>
 												</div>
 											</div>
@@ -1004,6 +1007,7 @@
 			alert('validando');
 		}
 		
+		// Para la imagen de cédula en CANVAS
 		function el(id){return document.getElementById(id);} // Get elem by ID
 
 		var canvas  = el("scan_cedula2");
@@ -1025,6 +1029,26 @@
 		}
 
 		el("scan_cedula").addEventListener("change", readImage, false);
+		
+		var canvas2  = el("scan_inventario2");
+		var context2 = canvas2.getContext("2d");
+
+		function readImage() {
+		    if ( this.files && this.files[0] ) {
+		        var FR= new FileReader();
+		        FR.onload = function(e) {
+		        	
+		           var img2 = new Image();
+		           img2.onload = function() {
+		             context2.drawImage(img2, 0, 0);
+		           };
+		           img2.src = e.target.result;
+		        };
+		        FR.readAsDataURL( this.files[0] );
+		    }
+		}
+
+		el("scan_inventario2").addEventListener("change", readImage, false);
 		
 
 		function actualizar() {

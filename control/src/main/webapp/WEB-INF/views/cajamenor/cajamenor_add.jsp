@@ -319,11 +319,6 @@
 										
 									</tr>   -->
 							<tr role="row">
-
-								<th data-hide="cmd" class="sorting_asc" tabindex="0"
-									aria-controls="dt_basic" aria-sort="ascending"
-									aria-label="ID: activate to sort column ascending"
-									style="width: 15px;"></th>
 								<th data-hide="cmd" class="sorting_asc" tabindex="0"
 									aria-controls="dt_basic" aria-sort="ascending"
 									aria-label="ID: activate to sort column ascending"
@@ -361,12 +356,7 @@
 
 						<tbody>
 							<c:forEach var="cajaMenor" items="${ listCajaMenor }">
-								<tr role="row" class="odd">
-									<td class="sorting_1"><span class="responsiveExpander"></span>
-										<a class="btn btn-success btn-circle btn-sx"
-										href="javascript:void(0);"><i class="fa fa-edit"></i></a> <a
-										class="btn btn-danger btn-circle" href="javascript:void(0);"><i
-											class="fa fa-trash-o"></i></a></td>
+								<tr role="row" class="odd">									
 									<td class="sorting_1"><span class="responsiveExpander"></span><c:out value="${ cajaMenor.fecha }"/></td>
 									<td class="sorting_1"><span class="responsiveExpander"></span><c:out value="${ cajaMenor.nombreCompleto }"/></td>
 									<td class="sorting_1"><span class="responsiveExpander"></span><c:out value="${ cajaMenor.apellido }"/></td>
@@ -1522,7 +1512,7 @@
 							document.getElementById('horaRegistro').value = "";
 							var res = data.split(":::");
 							$('#datatable_fixed_column').dataTable().fnAddData(
-									[ res[0], res[1] ]);
+									[ res[1], res[2], res[3], res[4], res[5], res[6], res[7], res[8] ]);
 							$
 									.smallBox({
 										title : "La información se registró adecuadamente",

@@ -35,7 +35,7 @@ public class PrestaLlaveServiceImpl implements PrestaLlaveService {
 	}
 	
 	public List<PrestaLlave> listarPrestaLlave(String valor) {
-		String sql = "Select p FROM PrestaLlave as p";
+		String sql = "Select p FROM PrestaLlave as p where p.estado = '"+valor+"'";
 		@SuppressWarnings("unchecked")
 		List<PrestaLlave> data = prestaLlaveDao.listarObjeto(sql).getResultList();
 		if (data != null) {

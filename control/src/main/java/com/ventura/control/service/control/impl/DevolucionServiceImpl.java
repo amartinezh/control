@@ -27,9 +27,10 @@ public class DevolucionServiceImpl implements DevolucionService {
 		devolucionDao.borrar(dev);
 	}
 
+	@SuppressWarnings("unchecked")
 	public List<Devolucion> listarDevolucion() {
-		// TODO Auto-generated method stub
-		return null;
+		String sql = "Select d FROM Devolucion as d";
+		return devolucionDao.listarObjeto(sql).getResultList();
 	}	
 
 }

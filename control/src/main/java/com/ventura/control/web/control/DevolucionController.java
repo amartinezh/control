@@ -32,6 +32,7 @@ public class DevolucionController {
 	@RequestMapping(method = RequestMethod.GET)
 	public String devolucion_add(Map<String, Object> model) {
 		model.put("listMotivos", motivoDevolucionService.cmbMotivoDevolucion());
+		model.put("listDevolucion", devolucionService.listarDevolucion());
 		model.put("devolucion", new Devolucion());
 		return "devolucion/devolucion_add";
 	}
@@ -45,7 +46,10 @@ public class DevolucionController {
 			@RequestParam String unidad, @RequestParam String pacas,
 			@RequestParam String elemento, @RequestParam String observaciones,
 			Map<String, Object> model) {
-		devolucionService.agregarDevolucion(new Devolucion(devolucion_id, fecha, placa, conductor, new MotivoDevolucion(motivo_id), empresaTransporte, ciudad, cajas, unidad, pacas, elemento, observaciones));
+		devolucionService.agregarDevolucion(new Devolucion(devolucion_id,
+				fecha, placa, conductor, new MotivoDevolucion(motivo_id),
+				empresaTransporte, ciudad, cajas, unidad, pacas, elemento,
+				observaciones));
 		/*
 		 * controlBusService.agregarControlBus(new ControlBus(control_bus_id,
 		 * hora, nroPasajeros, observaciones, new Turno(turnoId), new
@@ -57,10 +61,21 @@ public class DevolucionController {
 				+ "', '"
 				+ devolucion_id
 				+ "', $(this)"
-				+ ")\"><i class='fa fa-edit'></i></a> <a class='btn btn-danger btn-circle' onclick='borrar("
-				+ devolucion_id
-				+ ", $(this))'><i class='fa fa-trash-o'></i></a><span class='responsiveExpander'></span>:::"
-				+ devolucion_id;
+				+ ")\"><i class='fa fa-edit'></i></a><span class='responsiveExpander'></span>:::"
+				+ fecha
+				+ ":::"
+				+ placa
+				+ ":::"
+				+ conductor
+				+ ":::"
+				+ motivo_id
+				+ ":::"
+				+ empresaTransporte
+				+ ":::"
+				+ ciudad
+				+ ":::"
+				+ cajas
+				+ ":::" + unidad + ":::" + pacas+ ":::"+elemento+ ":::"+observaciones;
 	}
 
 }

@@ -149,7 +149,7 @@
 				<div class="jarviswidget" id="wid-id-0"
 					data-widget-colorbutton="false" data-widget-editbutton="false"
 					data-widget-deletebutton="false" data-widget-sortable="false">
-					
+
 					<header>
 						<h2>Gestión de Devoluciones</h2>
 					</header>
@@ -173,16 +173,18 @@
 										<div class="row">
 											<div class="col-sm-12 col-md-4">
 												<form:input type="hidden" path="devolucionId" value="0" />
-												<label class="control-label">Fecha</label> <form:input
-													type="datetime-local" class="form-control" path="fecha" />
+												<label class="control-label">Fecha</label>
+												<form:input type="datetime-local" class="form-control"
+													path="fecha" />
 											</div>
 											<div class="col-sm-12 col-md-4">
-												<label class="control-label">Placa</label> <form:input
-													type="text" class="form-control" path="placa" />
+												<label class="control-label">Placa</label>
+												<form:input type="text" class="form-control" path="placa" />
 											</div>
 											<div class="col-sm-12 col-md-4">
-												<label class="control-label">Conductor</label> <form:input
-													type="text" class="form-control" path="conductor" />
+												<label class="control-label">Conductor</label>
+												<form:input type="text" class="form-control"
+													path="conductor" />
 											</div>
 										</div>
 									</div>
@@ -190,19 +192,22 @@
 								<fieldset>
 									<div class="form-group">
 										<div class="row">
-											<div class="col-md-3 selectContainer">												
-												<label class="control-label">Motivo Devolución</label> <form:select
-													class="form-control" path="motivoDevolucionId.motivo_devolucion_id" items="${listMotivos}"/>
+											<div class="col-md-3 selectContainer">
+												<label class="control-label">Motivo Devolución</label>
+												<form:select class="form-control"
+													path="motivoDevolucionId.motivo_devolucion_id"
+													items="${listMotivos}" />
 											</div>
 											<div class="col-sm-12 col-md-5">
-												<label class="control-label">Empresa Transporte</label> <form:input
-													type="text" class="form-control" path="empresaTransporte" />
+												<label class="control-label">Empresa Transporte</label>
+												<form:input type="text" class="form-control"
+													path="empresaTransporte" />
 											</div>
 											<div class="col-sm-12 col-md-4">
-												<label class="control-label">Ciudad</label> <form:input
-													type="text" class="form-control" path="ciudad" />
+												<label class="control-label">Ciudad</label>
+												<form:input type="text" class="form-control" path="ciudad" />
 											</div>
-											
+
 										</div>
 									</div>
 								</fieldset>
@@ -210,20 +215,20 @@
 									<div class="form-group">
 										<div class="row">
 											<div class="col-sm-12 col-md-3">
-												<label class="control-label">Cajas</label> <form:input
-													type="text" class="form-control" path="cajas" />
+												<label class="control-label">Cajas</label>
+												<form:input type="text" class="form-control" path="cajas" />
 											</div>
 											<div class="col-sm-12 col-md-3">
-												<label class="control-label">Unidad</label> <form:input
-													type="text" class="form-control" path="unidad" />
+												<label class="control-label">Unidad</label>
+												<form:input type="text" class="form-control" path="unidad" />
 											</div>
 											<div class="col-sm-12 col-md-3">
-												<label class="control-label">Pacas</label> <form:input
-													type="text" class="form-control" path="pacas" />
+												<label class="control-label">Pacas</label>
+												<form:input type="text" class="form-control" path="pacas" />
 											</div>
 											<div class="col-sm-12 col-md-3">
-												<label class="control-label">Elemento</label> <form:input
-													type="text" class="form-control" path="elemento" />
+												<label class="control-label">Elemento</label>
+												<form:input type="text" class="form-control" path="elemento" />
 											</div>
 										</div>
 									</div>
@@ -232,8 +237,8 @@
 									<div class="form-group">
 										<div class="row">
 											<div class="col-sm-12 col-md-12">
-												<label class="control-label">Observaciones</label> <form:textarea
-													 class="form-control" path="observaciones" />
+												<label class="control-label">Observaciones</label>
+												<form:textarea class="form-control" path="observaciones" />
 											</div>
 										</div>
 									</div>
@@ -271,10 +276,11 @@
 	<!-- end widget grid -->
 
 
-<div
-				class="jarviswidget jarviswidget-color-blueDark jarviswidget-sortable"
-				id="wid-id-1" data-widget-editbutton="false" data-widget-editbutton="true" role="widget">
-				<!-- widget options:
+	<div
+		class="jarviswidget jarviswidget-color-blueDark jarviswidget-sortable"
+		id="wid-id-1" data-widget-editbutton="false"
+		data-widget-editbutton="true" role="widget">
+		<!-- widget options:
 								usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
 				
 								data-widget-colorbutton="false"
@@ -287,123 +293,134 @@
 								data-widget-sortable="false"
 				
 								-->
-				<header role="heading">
-			
-					<span class="widget-icon"> <i class="fa fa-table"></i>
-					</span>
-					<h2>Herramientas</h2>
+		<header role="heading">
 
-					<span class="jarviswidget-loader"><i class="fa fa-refresh fa-spin"></i></span></header>
+			<span class="widget-icon"> <i class="fa fa-table"></i>
+			</span>
+			<h2>Listado de devoluciones</h2>
 
-				<!-- widget div-->
-				<div role="content">
+			<span class="jarviswidget-loader"><i
+				class="fa fa-refresh fa-spin"></i></span>
+		</header>
 
-					<!-- widget edit box -->
-					<div class="jarviswidget-editbox">
-						<!-- This area used as dropdown edit box -->
+		<!-- widget div-->
+		<div role="content">
 
-					</div>
-					<!-- end widget edit box -->
+			<!-- widget edit box -->
+			<div class="jarviswidget-editbox">
+				<!-- This area used as dropdown edit box -->
 
-					<!-- widget content -->
-					<div class="widget-body no-padding">
+			</div>
+			<!-- end widget edit box -->
 
-						<div id="datatable_fixed_column_wrapper"
-							class="dataTables_wrapper form-inline no-footer">
+			<!-- widget content -->
+			<div class="widget-body no-padding">
 
-							<table id="datatable_fixed_column"
-								class="table table-striped table-bordered dataTable no-footer"
-								width="100%" role="grid"
-								aria-describedby="datatable_fixed_column_info"
-								style="width: 100%;">
+				<div id="datatable_fixed_column_wrapper"
+					class="dataTables_wrapper form-inline no-footer">
 
-								<thead>
-									<!-- <tr role="row">
+					<table id="datatable_fixed_column"
+						class="table table-striped table-bordered dataTable no-footer"
+						width="100%" role="grid"
+						aria-describedby="datatable_fixed_column_info"
+						style="width: 100%;">
+
+						<thead>
+							<!-- <tr role="row">
 										<th class="hasinput" style="width: 17%" rowspan="1"
 											colspan="1"><input type="text" class="form-control"
 											placeholder="Filtro DescripciÃ³n"></th>
 										
 									</tr>   -->
-									<tr role="row">
+							<tr role="row">
+								<th data-class="expand" class="sorting_asc" tabindex="1"
+									aria-controls="dt_basic" colspan="1" aria-sort="ascending"
+									aria-label="Name: activate to sort column ascending"
+									style="width: 540px;">Fecha - Hora</th>
+								<th data-class="expand" class="sorting_asc" tabindex="1"
+									aria-controls="dt_basic" colspan="1" aria-sort="ascending"
+									aria-label="Name: activate to sort column ascending"
+									style="width: 540px;">Placa</th>
+								<th data-class="expand" class="sorting_asc" tabindex="1"
+									aria-controls="dt_basic" colspan="1" aria-sort="ascending"
+									aria-label="Name: activate to sort column ascending"
+									style="width: 540px;">Conductor</th>
+									<th data-class="expand" class="sorting_asc" tabindex="1"
+									aria-controls="dt_basic" colspan="1" aria-sort="ascending"
+									aria-label="Name: activate to sort column ascending"
+									style="width: 540px;">Motivo</th>
+								<th data-class="expand" class="sorting_asc" tabindex="1"
+									aria-controls="dt_basic" colspan="1" aria-sort="ascending"
+									aria-label="Name: activate to sort column ascending"
+									style="width: 540px;">Empresa Transporte</th>
+								<th data-class="expand" class="sorting_asc" tabindex="1"
+									aria-controls="dt_basic" colspan="1" aria-sort="ascending"
+									aria-label="Name: activate to sort column ascending"
+									style="width: 540px;">Ciudad</th>
+								<th data-class="expand" class="sorting_asc" tabindex="1"
+									aria-controls="dt_basic" colspan="1" aria-sort="ascending"
+									aria-label="Name: activate to sort column ascending"
+									style="width: 540px;">Cajas</th>
+								<th data-class="expand" class="sorting_asc" tabindex="1"
+									aria-controls="dt_basic" colspan="1" aria-sort="ascending"
+									aria-label="Name: activate to sort column ascending"
+									style="width: 540px;">Unidad</th>
+									<th data-class="expand" class="sorting_asc" tabindex="1"
+									aria-controls="dt_basic" colspan="1" aria-sort="ascending"
+									aria-label="Name: activate to sort column ascending"
+									style="width: 540px;">Pacas</th>
+									<th data-class="expand" class="sorting_asc" tabindex="1"
+									aria-controls="dt_basic" colspan="1" aria-sort="ascending"
+									aria-label="Name: activate to sort column ascending"
+									style="width: 540px;">Elemento</th>
+									<th data-class="expand" class="sorting_asc" tabindex="1"
+									aria-controls="dt_basic" colspan="1" aria-sort="ascending"
+									aria-label="Name: activate to sort column ascending"
+									style="width: 540px;">Observaciones</th>
+							</tr>
+						</thead>
 
-										<th data-hide="cmd" class="sorting_asc" tabindex="0"
-											aria-controls="dt_basic" 
-											aria-sort="ascending"
-											aria-label="ID: activate to sort column ascending"
-											style="width: 15px;"></th>
+						<tbody>
+							<c:forEach var="prest" items="${ listDevolucion }">
+								<tr role="row" class="odd">
 
-										<th data-class="expand" class="sorting_asc" tabindex="1"
-											aria-controls="dt_basic" 
-											colspan="1" aria-sort="ascending"
-											aria-label="Name: activate to sort column ascending"
-											style="width: 540px;">Descripción</th>
-									</tr>
-								</thead>
+									<td class="sorting_1"><span class="responsiveExpander"><c:out
+												value="${ prest.fecha }"></c:out></span></td>
+									<td class="sorting_1"><span class="responsiveExpander"><c:out
+												value="${ prest.placa }"></c:out></span></td>
+									<td class="sorting_1"><span class="responsiveExpander"><c:out
+												value="${ prest.conductor }"></c:out></span></td>
+												<td class="sorting_1"><span class="responsiveExpander"><c:out
+												value="${ prest.motivoDevolucionId.descripcion }"></c:out></span></td>
+									<td class="sorting_1"><span class="responsiveExpander"><c:out
+												value="${ prest.empresaTransporte }"></c:out></span></td>
+									<td class="sorting_1"><span class="responsiveExpander"><c:out
+												value="${ prest.ciudad }"></c:out></span></td>
+									<td class="sorting_1"><span class="responsiveExpander"><c:out
+												value="${ prest.cajas }"></c:out></span></td>
+									<td class="sorting_1"><span class="responsiveExpander"><c:out
+												value="${ prest.unidad }"></c:out></span></td>
+									<td class="sorting_1"><span class="responsiveExpander"><c:out
+												value="${ prest.pacas }"></c:out></span></td>
+									<td class="sorting_1"><span class="responsiveExpander"><c:out
+												value="${ prest.elemento }"></c:out></span></td>
+									<td class="sorting_1"><span class="responsiveExpander"><c:out
+												value="${ prest.observaciones }"></c:out></span></td>
+								</tr>
+							</c:forEach>
+						</tbody>
 
-								<tbody>
-
-									<tr role="row" class="odd">
-										<td class="sorting_1"><span class="responsiveExpander"></span> 
-											<a class="btn btn-success btn-circle btn-sx"
-												href="javascript:void(0);"><i class="fa fa-edit"></i></a> 
-											<a class="btn btn-danger btn-circle" 
-												href="javascript:void(0);"><i class="fa fa-trash-o"></i></a>
-									 	</td>
-										<td class="sorting_1"><span class="responsiveExpander"></span>A</td>
-
-									</tr>
-									<tr role="row" class="even">
-										<td class="sorting_1"><span class="responsiveExpander"></span> 
-											<a class="btn btn-success btn-circle btn-sx"
-												href="javascript:void(0);"><i class="fa fa-edit"></i></a> 
-											<a class="btn btn-danger btn-circle" 
-												href="javascript:void(0);"><i class="fa fa-trash-o"></i></a>
-									 	</td>
-										<td class="sorting_1"><span class="responsiveExpander"></span>B</td>
-
-									</tr>
-									<tr role="row" class="odd">
-										<td class="sorting_1"><span class="responsiveExpander"></span> 
-											<a class="btn btn-success btn-circle btn-sx"
-												href="javascript:void(0);"><i class="fa fa-edit"></i></a> 
-											<a class="btn btn-danger btn-circle" 
-												href="javascript:void(0);"><i class="fa fa-trash-o"></i></a>
-									 	</td>
-										<td class="sorting_1"><span class="responsiveExpander"></span>C</td>
-									</tr>
-
-									<tr role="row" class="even">
-										<td class="sorting_1"><span class="responsiveExpander"></span> 
-											<a class="btn btn-success btn-circle btn-sx"
-												href="javascript:void(0);"><i class="fa fa-edit"></i></a> 
-											<a class="btn btn-danger btn-circle" 
-												href="javascript:void(0);"><i class="fa fa-trash-o"></i></a>
-									 	</td>
-										<td class="sorting_1"><span class="responsiveExpander"></span>D</td>
-									</tr>
-									<tr role="row" class="odd">
-										<td class="sorting_1"><span class="responsiveExpander"></span> 
-											<a class="btn btn-success btn-circle btn-sx"
-												href="javascript:void(0);"><i class="fa fa-edit"></i></a> 
-											<a class="btn btn-danger btn-circle" 
-												href="javascript:void(0);"><i class="fa fa-trash-o"></i></a>
-									 	</td>
-										<td class="sorting_1"><span class="responsiveExpander"></span>E</td>
-									</tr>
-
-								</tbody>
-
-							</table>
-
-						</div>
-
-					</div>
-					<!-- end widget content -->
+					</table>
 
 				</div>
-				<!-- end widget div -->
 
 			</div>
+			<!-- end widget content -->
+
+		</div>
+		<!-- end widget div -->
+
+	</div>
 
 	<!-- END MAIN PANEL -->
 
@@ -551,7 +568,7 @@
 		src="<c:url value="/resources/js/plugin/datatables/dataTables.bootstrap.min.js" />"></script>
 	<script
 		src="<c:url value="/resources/js/plugin/datatable-responsive/datatables.responsive.min.js" />"></script>
-	
+
 
 	<script>
 		$(document)
@@ -560,7 +577,7 @@
 
 							// DO NOT REMOVE : GLOBAL FUNCTIONS!
 							pageSetUp();
-						
+
 							$('#cance').hide();
 
 							/*
@@ -1302,7 +1319,7 @@
 							}, 500);
 
 						});
-		
+
 		function actualizar() {
 			$("#frm").submit();
 			var did = document.getElementById('devolucionId').value;
@@ -1316,31 +1333,32 @@
 			var pac = document.getElementById('pacas').value;
 			var ele = document.getElementById('elemento').value;
 			var obs = document.getElementById('observaciones').value;
-			var mot = document.getElementById('motivoDevolucionId.motivo_devolucion_id').value;
+			var mot = document
+					.getElementById('motivoDevolucionId.motivo_devolucion_id').value;
 			$
 					.ajax({
 						type : "POST",
 						url : "devolucion_registrar/agregar",
 						data : {
 							devolucion_id : did,
-							fecha: fe,
-							placa: placa,
-							conductor: cond,
-							motivo_id: mot,
-							empresaTransporte: emp,
-							ciudad: ciu,
-							cajas: caj,
-							unidad: uni,
-							pacas: pac,
-							elemento: ele,
-							observaciones : obs						
+							fecha : fe,
+							placa : placa,
+							conductor : cond,
+							motivo_id : mot,
+							empresaTransporte : emp,
+							ciudad : ciu,
+							cajas : caj,
+							unidad : uni,
+							pacas : pac,
+							elemento : ele,
+							observaciones : obs
 						},
 						success : function(data) {
 							//	document.getElementById('codigo_trabajador').value = "";
 							//document.getElementById('permiso_id').value = "0";
 							var res = data.split(":::");
 							$('#datatable_fixed_column').dataTable().fnAddData(
-									[ res[0], res[1] ]);
+									[ res[1], res[2], res[3], res[4], res[5], res[6], res[7], res[8], res[9], res[10], res[11], res[12] ]);
 							$
 									.smallBox({
 										title : "La información se registró adecuadamente",
@@ -1363,210 +1381,207 @@
 						}
 					});
 		}
-		
 
-		$('#frm')
-				.bootstrapValidator(
-						{
-							feedbackIcons : {
-								valid : 'glyphicon glyphicon-ok',
-								invalid : 'glyphicon glyphicon-remove',
-								validating : 'glyphicon glyphicon-refresh'
-							},
-							fields : {
-								id_persona : {
-									group : '.col-md-4',
-									validators : {
-										notEmpty : {
-											message : 'Campo requierido'
-										},
-										stringLength : {
-											max : 200,
-											message : 'De ser menor a 200 caracteres'
-										}
-									}
-								},
-								nombre_completo : {
-									group : '.col-md-4',
-									validators : {
-										notEmpty : {
-											message : 'Campo requierido'
-										}
-									}
-								},
-								apellido : {
-									group : '.col-md-4',
-									validators : {
-										notEmpty : {
-											message : 'Campo requierido'
-										}
-									}
-								},
-								id_tipo_persona : {
-									group : '.col-md-6',
-									validators : {
-										notEmpty : {
-											message : 'Campo requierido'
-										}
-									}
-								},
-								id_dependencia : {
-									group : '.col-md-6',
-									validators : {
-										notEmpty : {
-											message : 'Campo requierido'
-										}
-									}
-								},
-								correo_e : {
-									group : '.col-md-6',
-									validators : {
-										notEmpty : {
-											message : 'Campo requierido'
-										}
-									}
-								},
-								telefono : {
-									group : '.col-md-6',
-									validators : {
-										notEmpty : {
-											message : 'Campo requierido'
-										}
-									}
-								},
-								empresa : {
-									group : '.col-md-4',
-									validators : {
-										notEmpty : {
-											message : 'Campo requierido'
-										}
-									}
-								},
-								nit_empresa : {
-									group : '.col-md-4',
-									validators : {
-										notEmpty : {
-											message : 'Campo requierido'
-										}
-									}
-								},
-								vencimiento_ley : {
-									group : '.col-md-4',
-									validators : {
-										notEmpty : {
-											message : 'Campo requierido'
-										}
-									}
-								},
-								foto_scan : {
-									group : '.col-md-4',
-									validators : {
-										notEmpty : {
-											message : 'Campo requierido'
-										}
-									}
-								},
-								cedula_scan : {
-									group : '.col-md-4',
-									validators : {
-										notEmpty : {
-											message : 'Campo requierido'
-										}
-									}
-								},
-								huella_scan : {
-									group : '.col-md-4',
-									validators : {
-										notEmpty : {
-											message : 'Campo requierido'
-										}
-									}
-								},
-								id_persona_responsable : {
-									group : '.col-md-6',
-									validators : {
-										notEmpty : {
-											message : 'Campo requierido'
-										}
-									}
-								},
-								codigo_antecedente : {
-									group : '.col-md-3',
-									validators : {
-										notEmpty : {
-											message : 'Campo requierido'
-										}
-									}
-								},
-								placa_vehiculo : {
-									group : '.col-md-3',
-									validators : {
-										notEmpty : {
-											message : 'Campo requierido'
-										}
-									}
-								},
-								eps : {
-									group : '.col-md-3',
-									validators : {
-										notEmpty : {
-											message : 'Campo requierido'
-										}
-									}
-								},
-								eps_vence : {
-									group : '.col-md-3',
-									validators : {
-										notEmpty : {
-											message : 'Campo requierido'
-										}
-									}
-								},
-								arl : {
-									group : '.col-md-3',
-									validators : {
-										notEmpty : {
-											message : 'Campo requierido'
-										}
-									}
-								},
-								alr_vence : {
-									group : '.col-md-3',
-									validators : {
-										notEmpty : {
-											message : 'Campo requierido'
-										}
-									}
-								},
-								inventario : {
-									group : '.col-md-8',
-									validators : {
-										notEmpty : {
-											message : 'Campo requierido'
-										}
-									}
-								},
-								inventario_scan : {
-									group : '.col-md-4',
-									validators : {
-										notEmpty : {
-											message : 'Campo requierido'
-										}
-									}
-								},
-								observaciones : {
-									group : '.col-md-8',
-									validators : {
-										notEmpty : {
-											message : 'Campo requierido'
-										}
-									}
-								}
-							}
-						});
+		$('#frm').bootstrapValidator({
+			feedbackIcons : {
+				valid : 'glyphicon glyphicon-ok',
+				invalid : 'glyphicon glyphicon-remove',
+				validating : 'glyphicon glyphicon-refresh'
+			},
+			fields : {
+				id_persona : {
+					group : '.col-md-4',
+					validators : {
+						notEmpty : {
+							message : 'Campo requierido'
+						},
+						stringLength : {
+							max : 200,
+							message : 'De ser menor a 200 caracteres'
+						}
+					}
+				},
+				nombre_completo : {
+					group : '.col-md-4',
+					validators : {
+						notEmpty : {
+							message : 'Campo requierido'
+						}
+					}
+				},
+				apellido : {
+					group : '.col-md-4',
+					validators : {
+						notEmpty : {
+							message : 'Campo requierido'
+						}
+					}
+				},
+				id_tipo_persona : {
+					group : '.col-md-6',
+					validators : {
+						notEmpty : {
+							message : 'Campo requierido'
+						}
+					}
+				},
+				id_dependencia : {
+					group : '.col-md-6',
+					validators : {
+						notEmpty : {
+							message : 'Campo requierido'
+						}
+					}
+				},
+				correo_e : {
+					group : '.col-md-6',
+					validators : {
+						notEmpty : {
+							message : 'Campo requierido'
+						}
+					}
+				},
+				telefono : {
+					group : '.col-md-6',
+					validators : {
+						notEmpty : {
+							message : 'Campo requierido'
+						}
+					}
+				},
+				empresa : {
+					group : '.col-md-4',
+					validators : {
+						notEmpty : {
+							message : 'Campo requierido'
+						}
+					}
+				},
+				nit_empresa : {
+					group : '.col-md-4',
+					validators : {
+						notEmpty : {
+							message : 'Campo requierido'
+						}
+					}
+				},
+				vencimiento_ley : {
+					group : '.col-md-4',
+					validators : {
+						notEmpty : {
+							message : 'Campo requierido'
+						}
+					}
+				},
+				foto_scan : {
+					group : '.col-md-4',
+					validators : {
+						notEmpty : {
+							message : 'Campo requierido'
+						}
+					}
+				},
+				cedula_scan : {
+					group : '.col-md-4',
+					validators : {
+						notEmpty : {
+							message : 'Campo requierido'
+						}
+					}
+				},
+				huella_scan : {
+					group : '.col-md-4',
+					validators : {
+						notEmpty : {
+							message : 'Campo requierido'
+						}
+					}
+				},
+				id_persona_responsable : {
+					group : '.col-md-6',
+					validators : {
+						notEmpty : {
+							message : 'Campo requierido'
+						}
+					}
+				},
+				codigo_antecedente : {
+					group : '.col-md-3',
+					validators : {
+						notEmpty : {
+							message : 'Campo requierido'
+						}
+					}
+				},
+				placa_vehiculo : {
+					group : '.col-md-3',
+					validators : {
+						notEmpty : {
+							message : 'Campo requierido'
+						}
+					}
+				},
+				eps : {
+					group : '.col-md-3',
+					validators : {
+						notEmpty : {
+							message : 'Campo requierido'
+						}
+					}
+				},
+				eps_vence : {
+					group : '.col-md-3',
+					validators : {
+						notEmpty : {
+							message : 'Campo requierido'
+						}
+					}
+				},
+				arl : {
+					group : '.col-md-3',
+					validators : {
+						notEmpty : {
+							message : 'Campo requierido'
+						}
+					}
+				},
+				alr_vence : {
+					group : '.col-md-3',
+					validators : {
+						notEmpty : {
+							message : 'Campo requierido'
+						}
+					}
+				},
+				inventario : {
+					group : '.col-md-8',
+					validators : {
+						notEmpty : {
+							message : 'Campo requierido'
+						}
+					}
+				},
+				inventario_scan : {
+					group : '.col-md-4',
+					validators : {
+						notEmpty : {
+							message : 'Campo requierido'
+						}
+					}
+				},
+				observaciones : {
+					group : '.col-md-8',
+					validators : {
+						notEmpty : {
+							message : 'Campo requierido'
+						}
+					}
+				}
+			}
+		});
 	</script>
-	
-	
+
+
 	<script type="text/javascript">
 		// DO NOT REMOVE : GLOBAL FUNCTIONS!
 

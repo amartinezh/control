@@ -60,8 +60,8 @@ public class CajaMenorController {
 				+ "', $(this)"
 				+ ")\"><i class='fa fa-edit'></i></a> <a class='btn btn-danger btn-circle' onclick='borrar("
 				+ id
-				+ ", $(this))'><i class='fa fa-trash-o'></i></a><span class='responsiveExpander'></span>:::"
-				+ tipo;
+				+ ", $(this))'><i class='fa fa-trash-o'></i></a><span class='responsiveExpander'></span>:::"+fecha+":::"+nombre+":::"+apellido+":::"+
+				dependencia+":::"+tipo+":::$"+valor+":::"+hora+":::"+observaciones;
 	}
 
 }

@@ -1,6 +1,5 @@
 package com.ventura.control.service.control.impl;
 
-import java.util.LinkedList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,1 +1,1 @@
-/opt/PostgreSQL/9.3/bin/psql -U postgres -p 8888 < control.sql
+/home/amartinez/app/PostgreSQL/9.5/bin/psql -U postgres -p 8888 < control.sql

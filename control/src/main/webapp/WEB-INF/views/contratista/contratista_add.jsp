@@ -201,7 +201,7 @@
 																<canvas id="scan_foto" style="height: 120px; width: 150px; border: 1px solid grey;"></canvas>
 														</div>
 													</div>
-												</div>
+												</dhttp://localhost:8080/controlhttp://localhost:8080/controhttp://localhost:8080/controlhttp://localhost:8080/control/admin/panel;jsessionid=173CA511B29834164066945D1A32A844/admin/panel;jsessionid=173CA511B29834164066945D1A32A844l/admin/panel;jsessionid=173CA511B29834164066945D1A32A844/admin/panel;jsessionid=173CA511B29834164066945D1A32A844iv>
 											</div>
 										</fieldset>
 										<fieldset>
@@ -241,8 +241,12 @@
 														<form:input path="telefono" type="text"	class="form-control" data-bv-field="Teléfono" required="required" />
 													</div>
 													<div class="col-xs-4">
-														<label class="control-label">Archivo Huella</label>
+														<label class="control-label input-file"><a href="#" id="modal_link_huella"> Archivo Huella</a></label>
 														<form:input path="scan_huella" type="file" accept="image/*"	class="form-control" data-bv-field="Huella" required="required" />
+													
+														<div id="dialog-message3" title="Imagen Huella">
+															<canvas id="scan_huella2"  width="900" height="300" style="background-color:#ffffff;"></canvas>
+														</div>
 													</div>
 												</div>
 											</div>
@@ -316,9 +320,9 @@
 													</div>
 													<div class="col-xs-4">
 														<label class="control-label input-file"><a href="#" id="modal_link_inventario"> Archivo Inventario</a></label>
-														<form:input path="scan_inventario" type="file" accept="image/*"	class="form-control" data-bv-field="Huella" required="required" />
-														
-														<div id="dialog-message3" title="Imagen Inventario">
+														<form:input path="scan_inventario" type="file" accept="image/*"	class="form-control" data-bv-field="Inventario" required="required" />
+													
+														<div id="dialog-message4" title="Imagen Huella">
 															<canvas id="scan_inventario2"  width="900" height="300" style="background-color:#ffffff;"></canvas>
 														</div>
 													</div>
@@ -1002,14 +1006,14 @@
 							/* END TABLETOOLS */
 
 						});
-
 		function validar(){
 			alert('validando');
 		}
 		
-		// Para la imagen de cédula en CANVAS
+		
 		function el(id){return document.getElementById(id);} // Get elem by ID
 
+		// Para la imagen de cédula en CANVAS
 		var canvas  = el("scan_cedula2");
 		var context = canvas.getContext("2d");
 
@@ -1027,13 +1031,13 @@
 		        FR.readAsDataURL( this.files[0] );
 		    }
 		}
-
 		el("scan_cedula").addEventListener("change", readImage, false);
 		
-		var canvas2  = el("scan_inventario2");
+		// Para la imagen de huella en CANVAS
+		var canvas2  = el("scan_huella2");
 		var context2 = canvas2.getContext("2d");
 
-		function readImage() {
+		function readImage2() {
 		    if ( this.files && this.files[0] ) {
 		        var FR= new FileReader();
 		        FR.onload = function(e) {
@@ -1047,8 +1051,27 @@
 		        FR.readAsDataURL( this.files[0] );
 		    }
 		}
+		el("scan_huella").addEventListener("change", readImage2, false);
+		
+		// Para la imagen de inventario en CANVAS
+		var canvas3  = el("scan_inventario2");
+		var context3 = canvas3.getContext("2d");
 
-		el("scan_inventario2").addEventListener("change", readImage, false);
+		function readImage3() {
+		    if ( this.files && this.files[0] ) {
+		        var FR= new FileReader();
+		        FR.onload = function(e) {
+		        	
+		           var img3 = new Image();
+		           img3.onload = function() {
+		             context3.drawImage(img3, 0, 0);
+		           };
+		           img3.src = e.target.result;
+		        };
+		        FR.readAsDataURL( this.files[0] );
+		    }
+		}
+		el("scan_inventario").addEventListener("change", readImage3, false);
 		
 
 		function actualizar() {
@@ -1077,16 +1100,34 @@
 			var imageData = ctx.getImageData(0, 0, canvasWidth, canvasHeight);
 			var sf = canvas.toDataURL();
 			
-			// Para leer la foto que está en el CANVAS
+			// Para leer la cedula que está en el CANVAS
 			canvas = document.getElementById('scan_cedula2');
 			canvasWidth  = canvas.width;
 			canvasHeight = canvas.height;
 			ctx = canvas.getContext('2d');
 			imageData = ctx.getImageData(0, 0, canvasWidth, canvasHeight);
 			var sc = canvas.toDataURL();
+			
 			//var sc = document.getElementById('scan_cedula').value;
 			
-			var sh = document.getElementById('scan_huella').value;
+			// Para leer la huella que está en el CANVAS
+			canvas = document.getElementById('scan_huella2');
+			canvasWidth  = canvas.width;
+			canvasHeight = canvas.height;
+			ctx = canvas.getContext('2d');
+			imageData = ctx.getImageData(0, 0, canvasWidth, canvasHeight);
+			var sh = canvas.toDataURL();
+			//var sh = document.getElementById('scan_huella').value;
+			
+			// Para leer la inventario que está en el CANVAS
+			canvas = document.getElementById('scan_inventario2');
+			canvasWidth  = canvas.width;
+			canvasHeight = canvas.height;
+			ctx = canvas.getContext('2d');
+			imageData = ctx.getImageData(0, 0, canvasWidth, canvasHeight);
+			var sinv = canvas.toDataURL();
+			//var sinv = document.getElementById('scan_inventario').value;
+			
 			var em = document.getElementById('empresa').value;
 			var nem = document.getElementById('nit_empresa').value;
 			var fvcl = document.getElementById('fecha_ven_curso_ley').value;
@@ -1094,15 +1135,12 @@
 			//var idPersonaResponsable = document.getElementById('idPersonaResponsable');
 			x = document.getElementById('codigo_trabajador').selectedIndex;
 			var ipr = document.getElementsByTagName("option")[x].value
-			
-			
 			var pl = document.getElementById('placa').value;
 			var epese = document.getElementById('eps').value;
 			var epv = document.getElementById('eps_vence').value;
 			var aeler = document.getElementById('alr').value;
 			var alrv = document.getElementById('alr_vence').value;
 			var inv = document.getElementById('inventario').value;
-			var sinv = document.getElementById('scan_inventario').value;
 			var o = document.getElementById('observaciones').value;
 			var est = document.getElementById('estado').value;
 			var opc=document.getElementById('elboton').innerHTML;
@@ -1249,18 +1287,60 @@
 			var doc = document.getElementById('documento').value;
 			var nc = document.getElementById('nombre_completo').value;
 			var ap = document.getElementById('apellido').value;
+			
+			//var tipoPersonaId = document.getElementById('tipoPersonaId.tipo_persona_id').value;
 			var x = document.getElementById('tipo_persona_id.tipo_persona_id').selectedIndex;
 			var tpi = document.getElementsByTagName("option")[x].value
+			
+			
+			//var dependencia_id = document.getElementById('dependencia_id.dependencia_id').value;
 			x = document.getElementById('dependencia_id.dependencia_id').selectedIndex;
 			var di = document.getElementsByTagName("option")[x].value
+			
 			var ce = document.getElementById('coreo_e').value;
 			var te = document.getElementById('telefono').value;
-			var sf = document.getElementById('scan_foto').value;
-			var sc = document.getElementById('scan_cedula').value;
-			var sh = document.getElementById('scan_huella').value;
+			
+			// Para leer la foto que está en el CANVAS
+			var canvas = document.getElementById('scan_foto');
+			var canvasWidth  = canvas.width;
+			var canvasHeight = canvas.height;
+			var ctx = canvas.getContext('2d');
+			var imageData = ctx.getImageData(0, 0, canvasWidth, canvasHeight);
+			var sf = canvas.toDataURL();
+			
+			// Para leer la cedula que está en el CANVAS
+			canvas = document.getElementById('scan_cedula2');
+			canvasWidth  = canvas.width;
+			canvasHeight = canvas.height;
+			ctx = canvas.getContext('2d');
+			imageData = ctx.getImageData(0, 0, canvasWidth, canvasHeight);
+			var sc = canvas.toDataURL();
+			
+			//var sc = document.getElementById('scan_cedula').value;
+			
+			// Para leer la huella que está en el CANVAS
+			canvas = document.getElementById('scan_huella2');
+			canvasWidth  = canvas.width;
+			canvasHeight = canvas.height;
+			ctx = canvas.getContext('2d');
+			imageData = ctx.getImageData(0, 0, canvasWidth, canvasHeight);
+			var sh = canvas.toDataURL();
+			//var sh = document.getElementById('scan_huella').value;
+			
+			// Para leer la inventario que está en el CANVAS
+			canvas = document.getElementById('scan_inventario2');
+			canvasWidth  = canvas.width;
+			canvasHeight = canvas.height;
+			ctx = canvas.getContext('2d');
+			imageData = ctx.getImageData(0, 0, canvasWidth, canvasHeight);
+			var sinv = canvas.toDataURL();
+			//var sinv = document.getElementById('scan_inventario').value;
+			
 			var em = document.getElementById('empresa').value;
 			var nem = document.getElementById('nit_empresa').value;
 			var fvcl = document.getElementById('fecha_ven_curso_ley').value;
+			
+			//var idPersonaResponsable = document.getElementById('idPersonaResponsable');
 			x = document.getElementById('codigo_trabajador').selectedIndex;
 			var ipr = document.getElementsByTagName("option")[x].value
 			var pl = document.getElementById('placa').value;
@@ -1269,7 +1349,6 @@
 			var aeler = document.getElementById('alr').value;
 			var alrv = document.getElementById('alr_vence').value;
 			var inv = document.getElementById('inventario').value;
-			var sinv = document.getElementById('scan_inventario').value;
 			var o = document.getElementById('observaciones').value;
 			var est = document.getElementById('estado').value;
 			var opc=document.getElementById('elboton').innerHTML;
@@ -1325,8 +1404,8 @@
 		}
 		
 		function con(documento, nombre_completo, apellido, tipo_persona_id, dependencia_id, coreo_e, telefono, scan_foto, scan_cedula, scan_huella, empresa, nit_empresa, fecha_ven_curso_ley, codigo_trabajador, placa, eps, eps_vence, alr, alr_vence, inventario, scan_inventario, observaciones, estado, thi) {
-			//alert(eps_vence);
 			document.getElementById('documento').value=documento;
+			// Lectura CANVAS para foto			
 			document.getElementById('nombre_completo').value=nombre_completo;
 			document.getElementById('apellido').value=apellido;
 			document.getElementById('tipo_persona_id.tipo_persona_id').selectedIndex=tipo_persona_id;
@@ -1352,7 +1431,25 @@
 			   ctx2.drawImage(image2, 0, 0);
 			}
 			
-			document.getElementById('scan_huella2').value=scan_huella;
+			// Lectura CANVAS para huella
+			var canvas3 = document.getElementById('scan_huella2');
+			var ctx3 = canvas3.getContext('2d');
+			var image3 = new Image();
+			image3.src = scan_huella;
+			image3.onload = function(){
+			   ctx3.drawImage(image3, 0, 0);
+			}
+			
+			// Lectura CANVAS para huella
+			var canvas4 = document.getElementById('scan_inventario2');
+			var ctx4 = canvas4.getContext('2d');
+			var image4 = new Image();
+			image4.src = scan_inventario;
+			image4.onload = function(){
+			   ctx4.drawImage(image4, 0, 0);
+			}
+			//document.getElementById('scan_inventario2').value=scan_inventario;
+			
 			document.getElementById('empresa').value=empresa;
 			document.getElementById('nit_empresa').value=nit_empresa;
 			document.getElementById('fecha_ven_curso_ley').value=fecha_ven_curso_ley;
@@ -1363,7 +1460,7 @@
 			document.getElementById('alr').value=alr;
 			document.getElementById('alr_vence').value=alr_vence;
 			document.getElementById('inventario').value=inventario;
-			document.getElementById('scan_inventario2').value=scan_inventario;
+			
 			document.getElementById('observaciones').value=observaciones;
 			document.getElementById('estado').value=estado;
 			$('#cance').show();
@@ -1449,6 +1546,18 @@
 				$('#dialog-message2').dialog('open');
 				return false;
 			});
+			
+			// Modal Link Huella
+			$('#modal_link_huella').click(function() {
+				$('#dialog-message3').dialog('open');
+				return false;
+			});
+			
+			// Modal Link Inventario
+			$('#modal_link_inventario').click(function() {
+				$('#dialog-message4').dialog('open');
+				return false;
+			});
 		
 			$("#dialog-message").dialog({
 				autoOpen : false,
@@ -1475,6 +1584,38 @@
 				autoOpen : false,
 				modal : true,
 				title : "Imagen Cédula",
+				buttons : [{
+					html : "<i class='fa fa-check'></i>&nbsp; OK",
+					"class" : "btn btn-primary",
+					click : function() {
+						$(this).dialog("close");
+					}
+				}],
+				position: 'top',
+				width: "90%",
+			   	maxWidth: "768px"
+			});
+			
+			$("#dialog-message3").dialog({
+				autoOpen : false,
+				modal : true,
+				title : "Imagen Huella",
+				buttons : [{
+					html : "<i class='fa fa-check'></i>&nbsp; OK",
+					"class" : "btn btn-primary",
+					click : function() {
+						$(this).dialog("close");
+					}
+				}],
+				position: 'top',
+				width: "90%",
+			   	maxWidth: "768px"
+			});
+			
+			$("#dialog-message4").dialog({
+				autoOpen : false,
+				modal : true,
+				title : "Imagen Inventario",
 				buttons : [{
 					html : "<i class='fa fa-check'></i>&nbsp; OK",
 					"class" : "btn btn-primary",

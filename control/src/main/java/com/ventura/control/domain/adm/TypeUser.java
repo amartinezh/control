@@ -13,10 +13,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
-import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
-import org.springframework.beans.factory.annotation.Autowired;
-
 import com.ventura.control.domain.login.User;
 
 @Entity

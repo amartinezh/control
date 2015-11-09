@@ -201,7 +201,7 @@
 																<canvas id="scan_foto" style="height: 120px; width: 150px; border: 1px solid grey;"></canvas>
 														</div>
 													</div>
-												</dhttp://localhost:8080/controlhttp://localhost:8080/controhttp://localhost:8080/controlhttp://localhost:8080/control/admin/panel;jsessionid=173CA511B29834164066945D1A32A844/admin/panel;jsessionid=173CA511B29834164066945D1A32A844l/admin/panel;jsessionid=173CA511B29834164066945D1A32A844/admin/panel;jsessionid=173CA511B29834164066945D1A32A844iv>
+												</div>
 											</div>
 										</fieldset>
 										<fieldset>
@@ -346,6 +346,7 @@
 														onclick="cancelar()">Cancelar</button>
 													<button id="elboton" class="btn btn-success" type="button"
 														onclick="actualizar()">Nuevo</button>
+													<button id="reset" class="btn btn-success" type="Reset">Limpiar</button>
 												</div>
 											</div>
 										</div>

@@ -1,5 +1,6 @@
 package com.ventura.control.web.control;
 
+import java.text.ParseException;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,22 +45,37 @@ public class ConductorController {
 	@RequestMapping(value = "agregar", method = RequestMethod.POST)
 	public @ResponseBody String agregar(
 			@RequestParam String documento,
+			@RequestParam String fecha_registro,
 			@RequestParam String nombre_completo,
 			@RequestParam String apellido,
-			@RequestParam int tipo_persona_id,
-			@RequestParam int dependencia_id,
 			@RequestParam String coreo_e,
 			@RequestParam String telefono,
 			@RequestParam String scan_foto,
 			@RequestParam String scan_cedula,
 			@RequestParam String scan_huella,
+			@RequestParam String empresa_de_transporte,
+			@RequestParam String placa,
+			@RequestParam String trailer,
+			@RequestParam String eps,
+			@RequestParam String eps_vence,
+			@RequestParam String alr,
+			@RequestParam String alr_vence,
+			@RequestParam String patiero,
+			@RequestParam String documento_patiero,
+			@RequestParam String scan_orden_cargue,
+			@RequestParam String scan_tarjeta_propiedad,
+			@RequestParam String scan_alr,
 			@RequestParam String observaciones,
 			@RequestParam String estado,
 			@RequestParam String opcion,
 			Map<String, Object> model) {
 		java.text.SimpleDateFormat formatter = new java.text.SimpleDateFormat("yyyy-MM-dd");
 		Conductor obj=null;
-		obj = new Conductor(documento, nombre_completo, apellido, new TipoPersona(tipo_persona_id), new Dependencia(dependencia_id), coreo_e, telefono, scan_foto, scan_cedula, scan_huella, observaciones,"1");
+		try{
+				obj = new Conductor(documento, formatter.parse(fecha_registro), nombre_completo, apellido, coreo_e, telefono, scan_foto, scan_cedula, scan_huella, empresa_de_transporte, placa, trailer, eps, formatter.parse(eps_vence), alr, formatter.parse(alr_vence), patiero, documento_patiero, scan_orden_cargue, scan_tarjeta_propiedad, scan_alr, observaciones,"1");
+		} catch (ParseException e) {
+			return "error";
+		}
 		System.out.println(opcion.toString());
 		if (conductor.validarConductor(obj)){
 			if (opcion.equals("Actualizar")){
@@ -88,15 +104,26 @@ public class ConductorController {
 	@RequestMapping(value = "cancelar", method = RequestMethod.POST)
 	public @ResponseBody String cancelar(
 			@RequestParam String documento,
+			@RequestParam String fecha_registro,
 			@RequestParam String nombre_completo,
 			@RequestParam String apellido,
-			@RequestParam int tipo_persona_id,
-			@RequestParam int dependencia_id,
 			@RequestParam String coreo_e,
 			@RequestParam String telefono,
 			@RequestParam String scan_foto,
 			@RequestParam String scan_cedula,
 			@RequestParam String scan_huella,
+			@RequestParam String empresa_de_transporte,
+			@RequestParam String placa,
+			@RequestParam String trailer,
+			@RequestParam String eps,
+			@RequestParam String eps_vence,
+			@RequestParam String alr,
+			@RequestParam String alr_vence,
+			@RequestParam String patiero,
+			@RequestParam String documento_patiero,
+			@RequestParam String scan_orden_cargue,
+			@RequestParam String scan_tarjeta_propiedad,
+			@RequestParam String scan_alr,
 			@RequestParam String observaciones,
 			@RequestParam String estado,
 			@RequestParam String opcion,
@@ -108,8 +135,7 @@ public class ConductorController {
 					+ documento + "', '"
 					+ nombre_completo + "', '"
 					+ apellido + "', '"
-					+ tipo_persona_id + "', '"
-					+ dependencia_id + "', '"
+					
 					+ coreo_e + "', '"
 					+ telefono + "', '"
 					+ scan_foto + "', '"

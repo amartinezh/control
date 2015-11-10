@@ -516,20 +516,29 @@ CREATE TABLE control.visitante(
 
 CREATE TABLE control.conductor(
   documento character varying(64) NOT NULL,
+  fecha_registro date,
   nombre_completo character varying(128),
   apellido character varying(128),
-  tipo_persona_id integer,
-  dependencia_id integer,
   coreo_e character varying(128),
   telefono character varying(64),
   scan_foto character varying,
   scan_cedula character varying,
   scan_huella character varying,
+  empresa_de_transporte character varying,
+  placa character varying,
+  trailer character varying,
+  eps character varying(64),
+  eps_vence date,
+  alr character varying(64),
+  alr_vence date,
+  patiero character varying(1),
+  documento_patiero character varying,
+  scan_orden_cargue character varying,
+  scan_tarjeta_propiedad character varying,
+  scan_alr character varying,
   observaciones text,
   estado character varying(1),
-  CONSTRAINT conductor_pk PRIMARY KEY (documento ),
-  CONSTRAINT fk2a68h0814ff7b56 FOREIGN KEY (tipo_persona_id) REFERENCES admin.tipo_persona (tipo_persona_id) ON UPDATE NO ACTION ON DELETE NO ACTION,
-  CONSTRAINT fk6b68k0814ff7b46 FOREIGN KEY (dependencia_id) REFERENCES admin.dependencia (dependencia_id) ON UPDATE NO ACTION ON DELETE NO ACTION
+  CONSTRAINT conductor_pk PRIMARY KEY (documento )
 )WITH ( OIDS=FALSE); ALTER TABLE control.conductor OWNER TO postgres;
 
 CREATE TABLE control.registro_conductor(

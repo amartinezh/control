@@ -108,7 +108,7 @@
 				<div class="row">
 					<div id="men"></div>
 					<!-- NEW WIDGET START -->
-					<article class="col-sm-12 col-md-12 col-lg-6">
+					<article class="col-sm-12 col-xs-12 col-lg-6">
 
 						<div class="jarviswidget" id="wid-id-0"
 							data-widget-colorbutton="false" data-widget-editbutton="false"
@@ -162,25 +162,97 @@
 										<fieldset>
 											<div class="form-group">
 												<div class="row">
-													<legend> Conductores</legend>
+													<legend>  Conductores </legend>
 													<!-- <form:input type="hidden" path="documento" value="0" /> -->
 														<form:input type="hidden" path="estado" />
-													<div class="col-md-4">
+														
+													<div class="col-xs-3">
 														<label class="control-label">Documento</label> 
 														<form:input path="documento" type="text"
 															class="form-control" data-bv-field="Documento"
 															required="required" /> 
-													
+														<label class="control-label">Placa</label> 
+															<input type="text" class="form-control" name="placa" />
+															
+														<label class="toggle">
+															<input type="checkbox" name="checkbox-toggle">
+															<i data-swchon-text="ON" data-swchoff-text="OFF"></i>Requiere Patiero?</label>
 													</div>
-													<div class="col-md-4">
+													<div class="col-xs-3">
 														<label class="control-label">Nombre Completo</label>
 														 <form:input path="nombre_completo" type="text"
 															class="form-control" data-bv-field="Nombre Completo"
 															required="required" />
+															<label class="control-label">Empresa  de Transporte</label> <input
+															type="text" class="form-control" name="empresa_transporte" />
+															
+															<label class="control-label">Documento Patiero</label> 
+															<input type="text" class="form-control" name="nit_empresa" />
 													</div>
-													<div class="col-md-4">
+													<div class="col-xs-3">
 														<label class="control-label">Apellidos</label>
 														<form:input path="apellido" type="text"	class="form-control" data-bv-field="Apellido" required="required" />
+														
+														<label class="control-label">Trailer</label> <input
+															type="text" class="form-control" name="trailer" />
+															
+														<label class="control-label">Número Precinto</label> <input
+															type="text" class="form-control" name="Número Precinto" />
+													</div>
+													<div class="col-xs-3">
+														<div id="dialog-message_foto" title="Foto">
+															<div id='botonera'>
+																<input id='botonIniciar' class='btn' type='button'
+																	value='Iniciar'></input> <input id='botonDetener'
+																	type='button' value='Detener'></input> <input
+																	id='botonFoto' type='button' value='Foto'></input>
+															</div>
+															<div class="contenedor" style="position: realitve; top:5px">
+																<div class="titulo">Cámara</div>
+																<video id="camara" autoplay controls style="height: 200px; width: 240px"></video>
+															</div>
+														</div>
+														<div class="contenedor">
+																<div class="titulo"><a href="#" id="modal_link"> Tomar	Foto </a></div>
+																<canvas id="scan_foto" style="height: 120px; width: 150px; border: 1px solid grey;"></canvas>
+														</div>
+													</div>
+												</div>
+											</div>
+										</fieldset>
+										<!-- <fieldset>
+											<div class="form-group">
+												<div class="row">
+													<div class="col-sm-12 col-md-4">
+														
+													</div>
+													<div class="col-sm-12 col-md-4">
+														
+													</div>
+													<div class="col-sm-12 col-md-4">
+														
+													</div>
+												</div>
+											</div>
+										</fieldset>  -->
+										<fieldset>
+											<div class="form-group">
+												<div class="row">
+													<div class="col-sm-12 col-md-3">
+														<label class="control-label">EPS</label> <input
+															type="text" class="form-control" name="eps" />
+													</div>
+													<div class="col-sm-12 col-md-3">
+														<label class="control-label">Fecha Vencimiento EPS</label> <input
+															type="date" class="form-control" name="eps_vence" />
+													</div>
+													<div class="col-sm-12 col-md-3">
+														<label class="control-label">ARL</label> <input
+															type="text" class="form-control" name="arl" />
+													</div>
+													<div class="col-sm-12 col-md-3">
+														<label class="control-label">Fecha Vencimiento ARL</label> <input
+															type="date" class="form-control" name="alr_vence" />
 													</div>
 												</div>
 											</div>
@@ -188,16 +260,56 @@
 										<fieldset>
 											<div class="form-group">
 												<div class="row">
-													<div class="col-md-6 selectContainer">
-														<label class="control-label">Tipo Persona</label> 
-														<form:select class="form-control" path="tipo_persona_id.tipo_persona_id" items="${tipopersonaList}">
-														</form:select>
+													<div class="col-sm-12 col-md-4">
+													
+															
+													</div>
+													<div class="col-sm-12 col-md-4">
+														
+													</div>
+													<div class="col-sm-12 col-md-4">
+														
+													</div>
+												</div>
+											</div>
+										</fieldset>
+										<fieldset>
+											<div class="form-group">
+												<div class="row">
+													
+													<div class="col-xs-3">
+														<label class="control-label input-file"><a href="#" id="modal_link_scan_alr"> Archivo ARL</a></label>
+														<form:input path="scan_alr" type="file" accept="image/*"	class="form-control" data-bv-field="Orden Cargue" required="required" />
+													
+														<div id="dialog-message_alr" title="ALR">
+															<canvas id="scan_alr2"  width="900" height="300" style="background-color:#ffffff;"></canvas>
+														</div>
+													</div>
+													
+													<div class="col-xs-3">
+														<label class="control-label input-file"><a href="#" id="modal_link_scan_tarjeta_propiedad"> Archivo Tarjeta Propiedad</a></label>
+														<form:input path="scan_tarjeta_propiedad" type="file" accept="image/*"	class="form-control" data-bv-field="Tarjeta Propiedad" required="required" />
+													
+														<div id="dialog-message_tarjeta_propiedad" title="Orden Cargue">
+															<canvas id="scan_tarjeta_propiedad2"  width="900" height="300" style="background-color:#ffffff;"></canvas>
+														</div>
 													</div>
 		
-													<div class="col-md-6 selectContainer">
-														<label class="control-label">Dependencia</label> 
-													 	<form:select class="form-control" path="dependencia_id.dependencia_id" items="${dependenciaList}">
-														</form:select>
+													<div class="col-xs-3">
+														<label class="control-label input-file"><a href="#" id="modal_link_scan_orden_cargue"> Archivo Orden Cargue</a></label>
+														<form:input path="scan_orden_cargue" type="file" accept="image/*"	class="form-control" data-bv-field="Orden Cargue" required="required" />
+													
+														<div id="dialog-message_orden_cargue" title="Orden Cargue">
+															<canvas id="scan_orden_cargue2"  width="900" height="300" style="background-color:#ffffff;"></canvas>
+														</div>
+													</div>
+													<div class="col-xs-3">
+														<label class="control-label input-file"><a href="#" id="modal_link_scan_cedula"> Archivo Cédula</a></label>
+														<form:input path="scan_cedula" type="file" accept="image/*"	class="form-control" data-bv-field="Cédula" required="required" />
+													
+														<div id="dialog-message_cedula" title="Imagen Cedula">
+															<canvas id="scan_cedula2"  width="900" height="300" style="background-color:#ffffff;"></canvas>
+														</div>
 													</div>
 												</div>
 											</div>
@@ -205,31 +317,21 @@
 										<fieldset>
 											<div class="form-group">
 												<div class="row">
-													<div class="col-md-6">
+													<div class="col-xs-4">
 														<label class="control-label">Correo  Electrónico</label>
 														<form:input path="coreo_e" type="text"	class="form-control" data-bv-field="Coreo Electrónico" required="required" />
 													</div>
-													<div class="col-md-6">
+													<div class="col-xs-4">
 														<label class="control-label">Teléfonos</label>
 														<form:input path="telefono" type="text"	class="form-control" data-bv-field="Teléfono" required="required" />
 													</div>
-												</div>
-											</div>
-										</fieldset>
-										<fieldset>
-											<div class="form-group">
-												<div class="row">
-													<div class="col-md-4">
-														<label class="control-label">Archivo Foto</label> 
-														<input type="text" id="scan_foto2" name="scan_foto2" readonly/><form:input path="scan_foto" type="file"	class="form-control" data-bv-field="Foto" required="required" />
-													</div>
-													<div class="col-md-4">
-														<label class="control-label input-file">Archivo Cédula</label>
-														<input type="text" id="scan_cedula2" name="scan_cedula2" readonly/><form:input path="scan_cedula" type="file"	class="form-control" data-bv-field="Cédula" required="required" />
-													</div>
-													<div class="col-md-4">
-														<label class="control-label">Archivo Huella</label>
-														<input type="text" id="scan_huella2" name="scan_huella2" readonly/><form:input path="scan_huella" type="file"	class="form-control" data-bv-field="Huella" required="required" />
+													<div class="col-xs-4">
+														<label class="control-label input-file"><a href="#" id="modal_link_huella"> Archivo Huella</a></label>
+														<form:input path="scan_huella" type="file" accept="image/*"	class="form-control" data-bv-field="Huella" required="required" />
+													
+														<div id="dialog-message_huella" title="Imagen Huella">
+															<canvas id="scan_huella2"  width="900" height="300" style="background-color:#ffffff;"></canvas>
+														</div>
 													</div>
 												</div>
 											</div>
@@ -237,7 +339,7 @@
 										<fieldset>
 											<div class="form-group">
 												<div class="row">
-													<div class="col-md-11">
+													<div class="col-xs-10">
 														<label class="control-label">Observaciones</label> 
 														<form:textarea path="observaciones" type="text" class="form-control" data-bv-field="Placa" required="required" />
 													</div>
@@ -246,11 +348,12 @@
 										</fieldset>
 										<div class="form-actions">
 											<div class="row">
-												<div class="col-md-12">
+												<div class="col-xs-12">
 													<button id="cance" class="btn btn-danger" type="button"
 														onclick="cancelar()">Cancelar</button>
 													<button id="elboton" class="btn btn-success" type="button"
 														onclick="actualizar()">Nuevo</button>
+													<button id="reset" class="btn btn-success" type="Reset">Limpiar</button>
 												</div>
 											</div>
 										</div>
@@ -296,7 +399,7 @@
 
 					<span class="widget-icon"> <i class="fa fa-table"></i>
 					</span>
-					<h2>Conductores</h2>
+					<h2>Visitantes</h2>
 
 					<span class="jarviswidget-loader"><i
 						class="fa fa-refresh fa-spin"></i></span>
@@ -351,19 +454,13 @@
 										</tr>
 									</c:forEach>
 								</tbody>
-
 							</table>
-
 						</div>
-
 					</div>
 					<!-- end widget content -->
-
 				</div>
 				<!-- end widget div -->
-
 			</div>
-
 	</div>
 	<!-- END MAIN CONTENT -->
 
@@ -564,7 +661,7 @@
 								},
 								fields : {
 									documento : {
-										group : '.col-md-4',
+										group : '.col-xs-3',
 										validators : {
 											notEmpty : {
 												message : 'Campo requierido'
@@ -576,7 +673,7 @@
 										}
 									},
 									nombre_completo : {
-										group : '.col-md-4',
+										group : '.col-xs-3',
 										validators : {
 											notEmpty : {
 												message : 'Campo requierido'
@@ -584,7 +681,23 @@
 										}
 									},
 									apellido : {
-										group : '.col-md-4',
+										group : '.col-xs-3',
+										validators : {
+											notEmpty : {
+												message : 'Campo requierido'
+											}
+										}
+									},
+									tipo_persona_id : {
+										group : '.col-xs-6',
+										validators : {
+											notEmpty : {
+												message : 'Campo requierido'
+											}
+										}
+									},
+									dependencia_id : {
+										group : '.col-xs-6',
 										validators : {
 											notEmpty : {
 												message : 'Campo requierido'
@@ -592,7 +705,7 @@
 										}
 									},
 									coreo_e : {
-										group : '.col-md-6',
+										group : '.col-xs-6',
 										validators : {
 											notEmpty : {
 												message : 'Campo requierido'
@@ -600,23 +713,23 @@
 										}
 									},
 									telefono : {
-										group : '.col-md-6',
+										group : '.col-xs-6',
 										validators : {
 											notEmpty : {
 												message : 'Campo requierido'
 											}
 										}
 									},
-									scan_foto : {
-										group : '.col-md-4',
+									/* scan_foto : {
+										group : '.col-xs-4',
 										validators : {
 											notEmpty : {
 												message : 'Campo requierido'
 											}
 										}
-									},
+									},*/ 
 									scan_cedula : {
-										group : '.col-md-4',
+										group : '.col-xs-4',
 										validators : {
 											notEmpty : {
 												message : 'Campo requierido'
@@ -624,7 +737,7 @@
 										}
 									},
 									scan_huella : {
-										group : '.col-md-4',
+										group : '.col-xs-4',
 										validators : {
 											notEmpty : {
 												message : 'Campo requierido'
@@ -632,13 +745,14 @@
 										}
 									},
 									observaciones : {
-										group : '.col-md-11',
+										group : '.col-xs-10',
 										validators : {
 											notEmpty : {
 												message : 'Campo requierido'
 											}
 										}
 									}
+									
 								}
 							});
 							
@@ -806,10 +920,112 @@
 							/* END TABLETOOLS */
 
 						});
-
 		function validar(){
 			alert('validando');
 		}
+		
+		
+		function el(id){return document.getElementById(id);} // Get elem by ID
+
+		// Para la imagen
+		var canvas  = el("scan_alr2");
+		var context = canvas.getContext("2d");
+
+		function readImage() {
+		    if ( this.files && this.files[0] ) {
+		        var FR= new FileReader();
+		        FR.onload = function(e) {
+		        	
+		           var img = new Image();
+		           img.onload = function() {
+		             context.drawImage(img, 0, 0);
+		           };
+		           img.src = e.target.result;
+		        };
+		        FR.readAsDataURL( this.files[0] );
+		    }
+		}
+		el("scan_alr").addEventListener("change", readImage, false);
+		
+		// Para la imagen
+		var canvas2  = el("scan_tarjeta_propiedad2");
+		var context2 = canvas2.getContext("2d");
+
+		function readImage2() {
+		    if ( this.files && this.files[0] ) {
+		        var FR= new FileReader();
+		        FR.onload = function(e) {
+		        	
+		           var img2 = new Image();
+		           img2.onload = function() {
+		             context2.drawImage(img2, 0, 0);
+		           };
+		           img2.src = e.target.result;
+		        };
+		        FR.readAsDataURL( this.files[0] );
+		    }
+		}
+		el("scan_tarjeta_propiedad").addEventListener("change", readImage2, false);
+		
+		// Para la imagen
+		var canvas2  = el("scan_orden_cargue2");
+		var context2 = canvas2.getContext("2d");
+
+		function readImage2() {
+		    if ( this.files && this.files[0] ) {
+		        var FR= new FileReader();
+		        FR.onload = function(e) {
+		        	
+		           var img2 = new Image();
+		           img2.onload = function() {
+		             context2.drawImage(img2, 0, 0);
+		           };
+		           img2.src = e.target.result;
+		        };
+		        FR.readAsDataURL( this.files[0] );
+		    }
+		}
+		el("scan_orden_cargue").addEventListener("change", readImage2, false);
+		
+		// Para la imagen
+		var canvas2  = el("scan_cedula2");
+		var context2 = canvas2.getContext("2d");
+
+		function readImage2() {
+		    if ( this.files && this.files[0] ) {
+		        var FR= new FileReader();
+		        FR.onload = function(e) {
+		        	
+		           var img2 = new Image();
+		           img2.onload = function() {
+		             context2.drawImage(img2, 0, 0);
+		           };
+		           img2.src = e.target.result;
+		        };
+		        FR.readAsDataURL( this.files[0] );
+		    }
+		}
+		el("scan_cedula").addEventListener("change", readImage2, false);
+		
+		// Para la imagen
+		var canvas2  = el("scan_huella2");
+		var context2 = canvas2.getContext("2d");
+
+		function readImage2() {
+		    if ( this.files && this.files[0] ) {
+		        var FR= new FileReader();
+		        FR.onload = function(e) {
+		        	
+		           var img2 = new Image();
+		           img2.onload = function() {
+		             context2.drawImage(img2, 0, 0);
+		           };
+		           img2.src = e.target.result;
+		        };
+		        FR.readAsDataURL( this.files[0] );
+		    }
+		}
+		el("scan_huella").addEventListener("change", readImage2, false);
 
 		function actualizar() {
 			$( "#frm" ).submit();
@@ -828,9 +1044,33 @@
 			
 			var ce = document.getElementById('coreo_e').value;
 			var te = document.getElementById('telefono').value;
-			var sf = document.getElementById('scan_foto').value;
-			var sc = document.getElementById('scan_cedula').value;
-			var sh = document.getElementById('scan_huella').value;
+			
+			// Para leer la foto que está en el CANVAS
+			var canvas = document.getElementById('scan_foto');
+			var canvasWidth  = canvas.width;
+			var canvasHeight = canvas.height;
+			var ctx = canvas.getContext('2d');
+			var imageData = ctx.getImageData(0, 0, canvasWidth, canvasHeight);
+			var sf = canvas.toDataURL();
+			
+			// Para leer la cedula que está en el CANVAS
+			canvas = document.getElementById('scan_cedula2');
+			canvasWidth  = canvas.width;
+			canvasHeight = canvas.height;
+			ctx = canvas.getContext('2d');
+			imageData = ctx.getImageData(0, 0, canvasWidth, canvasHeight);
+			var sc = canvas.toDataURL();
+			
+			//var sc = document.getElementById('scan_cedula').value;
+			
+			// Para leer la huella que está en el CANVAS
+			canvas = document.getElementById('scan_huella2');
+			canvasWidth  = canvas.width;
+			canvasHeight = canvas.height;
+			ctx = canvas.getContext('2d');
+			imageData = ctx.getImageData(0, 0, canvasWidth, canvasHeight);
+			var sh = canvas.toDataURL();
+			//var sh = document.getElementById('scan_huella').value;
 			
 			var o = document.getElementById('observaciones').value;
 			var est = document.getElementById('estado').value;
@@ -855,6 +1095,8 @@
 					opcion: opc
 				},
 				success : function(data) {		
+					 //document.getElementById('apellido').value = "";
+					 //document.getElementById('documento').value = "0";
 					 if (data=="semodifico"){
 						 $.smallBox({
 							title : "Fue modificado con éxito!!!",
@@ -862,17 +1104,25 @@
 							color : "#468D47",
 							//timeout: 8000,
 							icon : "fa fa-bell swing animated"
-						}); 
+						});
+						
 					 }
 					 else{
 						 if (data=="error"){
-							 $.smallBox({
+							 /* $.smallBox({
 									title : "ATENCIÓN: El registró no fue guardado!, es posible que falte información",
 									content : "Por favor verifique<p class='text-align-right'><a href='javascript:void(0);' class='btn btn-danger btn-sm'>Ok</a></p>",
 									color : "#296191",
 									//timeout: 8000,
 									icon : "fa fa-bell swing animated"
-								}); 
+								}); */
+							 $.smallBox({
+									title : "ATENCIÓN: El registró no fue guardado!",
+									content : "<i class='fa fa-clock-o'></i> <i>Es posible que falte información, Por favor verifique que todos los campos estén ingresados</i>",
+									color : "#C46A69",
+									iconSmall : "fa fa-times fa-2x fadeInRight animated",
+									timeout : 8000
+							 });
 						 }
 						 else{
 							 var res = data.split(":::");
@@ -890,12 +1140,12 @@
 				},
 				error : function(data) {			
 					$.smallBox({
-						title : "El registró no fue guardado!",
-						content : "Por favor verifique<p class='text-align-right'><a href='javascript:void(0);' class='btn btn-danger btn-sm'>Ok</a></p>",
-						color : "#296191",
-						//timeout: 8000,
-						icon : "fa fa-bell swing animated"
-					});
+						title : "ATENCIÓN: El registró no fue guardado!",
+						content : "<i class='fa fa-clock-o'></i> <i>Es posible que falte información, Por favor verifique que<br> todos los campos estén ingresados</i>",
+						color : "#C46A69",
+						iconSmall : "fa fa-times fa-2x fadeInRight animated",
+						timeout : 8000
+				 });
 				}
 			});
 		}
@@ -920,12 +1170,12 @@
 				},
 				error : function(data) {
 					$.smallBox({
-						title : "Eliminación de Información",
-						content : "No se eliminó correctamente, verifique por favor",
-						color : rgb(50, 118, 177), //"#5384AF",
-						timeout: 8000,
-						icon : "fa fa-bell"
-				    });
+						title : "ATENCIÓN: No se eliminó!",
+						content : "<i class='fa fa-clock-o'></i> <i>El registro no se eliminó correctamente</i>",
+						color : "#C46A69",
+						iconSmall : "fa fa-times fa-2x fadeInRight animated",
+						timeout : 8000
+				 });
 				}
 			});
 		}
@@ -969,9 +1219,42 @@
 			
 			var ce = document.getElementById('coreo_e').value;
 			var te = document.getElementById('telefono').value;
-			var sf = document.getElementById('scan_foto').value;
-			var sc = document.getElementById('scan_cedula').value;
-			var sh = document.getElementById('scan_huella').value;
+			
+			// Para leer la foto que está en el CANVAS
+			var canvas = document.getElementById('scan_foto');
+			var canvasWidth  = canvas.width;
+			var canvasHeight = canvas.height;
+			var ctx = canvas.getContext('2d');
+			var imageData = ctx.getImageData(0, 0, canvasWidth, canvasHeight);
+			var sf = canvas.toDataURL();
+			
+			// Para leer la cedula que está en el CANVAS
+			canvas = document.getElementById('scan_cedula2');
+			canvasWidth  = canvas.width;
+			canvasHeight = canvas.height;
+			ctx = canvas.getContext('2d');
+			imageData = ctx.getImageData(0, 0, canvasWidth, canvasHeight);
+			var sc = canvas.toDataURL();
+			
+			//var sc = document.getElementById('scan_cedula').value;
+			
+			// Para leer la huella que está en el CANVAS
+			canvas = document.getElementById('scan_huella2');
+			canvasWidth  = canvas.width;
+			canvasHeight = canvas.height;
+			ctx = canvas.getContext('2d');
+			imageData = ctx.getImageData(0, 0, canvasWidth, canvasHeight);
+			var sh = canvas.toDataURL();
+			//var sh = document.getElementById('scan_huella').value;
+			
+			// Para leer la inventario que está en el CANVAS
+			canvas = document.getElementById('scan_inventario2');
+			canvasWidth  = canvas.width;
+			canvasHeight = canvas.height;
+			ctx = canvas.getContext('2d');
+			imageData = ctx.getImageData(0, 0, canvasWidth, canvasHeight);
+			var sinv = canvas.toDataURL();
+			//var sinv = document.getElementById('scan_inventario').value;
 			
 			var o = document.getElementById('observaciones').value;
 			var est = document.getElementById('estado').value;
@@ -996,7 +1279,9 @@
 					opcion: opc
 				},
 				success : function(data) {					
-						 var res = data.split(":::");
+					//document.getElementById('descripcion').value = "";
+					//document.getElementById('area_id').value = "0";
+					 var res = data.split(":::");
 					 $('#datatable_fixed_column').dataTable().fnAddData( [res[0],res[1]] );
 					 $.smallBox({
 							title : "Operación Cancelada",
@@ -1008,29 +1293,59 @@
 					 $('#cance').hide();
 				},
 				error : function(data) {
-					 $.smallBox({
-							title : "Error Cancelando",
-							content : "<i class='fa fa-clock-o'></i> <i>No fue posible cancelar</i>",
-							color : "#C46A69",
-							iconSmall : "fa fa-times fa-2x fadeInRight animated",
-							timeout : 4000
-					 });					
+					/* document.getElementById('descripcion').value = "";
+					document.getElementById('area_id').value = "0"; */					
 				}
 			});
 		}
 		
 		function con(documento, nombre_completo, apellido, tipo_persona_id, dependencia_id, coreo_e, telefono, scan_foto, scan_cedula, scan_huella, observaciones, estado, thi) {
-			//alert(tipo_persona_id);
 			document.getElementById('documento').value=documento;
+			// Lectura CANVAS para foto			
 			document.getElementById('nombre_completo').value=nombre_completo;
 			document.getElementById('apellido').value=apellido;
 			document.getElementById('tipo_persona_id.tipo_persona_id').selectedIndex=tipo_persona_id;
 			document.getElementById('dependencia_id.dependencia_id').selectedIndex=dependencia_id;
 			document.getElementById('coreo_e').value=coreo_e;
 			document.getElementById('telefono').value=telefono;
-			document.getElementById('scan_foto2').value=scan_foto;
-			document.getElementById('scan_cedula2').value=scan_cedula;
-			document.getElementById('scan_huella2').value=scan_huella;
+			
+			// Lectura CANVAS para foto			
+			var canvas = document.getElementById('scan_foto');
+			var ctx = canvas.getContext('2d');
+			var image = new Image();
+			image.src = scan_foto;
+			image.onload = function(){
+			   ctx.drawImage(image, 0, 0,300, 150);
+			}
+			
+			// Lectura CANVAS para cedula
+			var canvas2 = document.getElementById('scan_cedula2');
+			var ctx2 = canvas2.getContext('2d');
+			var image2 = new Image();
+			image2.src = scan_cedula;
+			image2.onload = function(){
+			   ctx2.drawImage(image2, 0, 0);
+			}
+			
+			// Lectura CANVAS para huella
+			var canvas3 = document.getElementById('scan_huella2');
+			var ctx3 = canvas3.getContext('2d');
+			var image3 = new Image();
+			image3.src = scan_huella;
+			image3.onload = function(){
+			   ctx3.drawImage(image3, 0, 0);
+			}
+			
+			// Lectura CANVAS para huella
+			var canvas4 = document.getElementById('scan_inventario2');
+			var ctx4 = canvas4.getContext('2d');
+			var image4 = new Image();
+			image4.src = scan_inventario;
+			image4.onload = function(){
+			   ctx4.drawImage(image4, 0, 0);
+			}
+			//document.getElementById('scan_inventario2').value=scan_inventario;
+			
 			document.getElementById('observaciones').value=observaciones;
 			document.getElementById('estado').value=estado;
 			$('#cance').show();
@@ -1045,9 +1360,199 @@
 				icon : "fa fa-bell"
 		    });
 		}
+	
+	</script>
+	<script type="text/javascript">
+			//Nos aseguramos que estén definidas
+			//algunas funciones básicas
+			window.URL = window.URL || window.webkitURL;
+			navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia ||
+			function() {
+			    alert('Su navegador no soporta navigator.getUserMedia().');
+			};
+		
+			//Este objeto guardará algunos datos sobre la cámara
+			window.datosVideo = {
+			    'StreamVideo': null,
+			    'url': null
+			}
+		
+			jQuery('#botonIniciar').on('click', function(e) {
+		
+			    //Pedimos al navegador que nos da acceso a 
+			    //algún dispositivo de video (la webcam)
+			    navigator.getUserMedia({
+			        'audio': false,
+			        'video': true
+			    }, function(streamVideo) {
+			        datosVideo.StreamVideo = streamVideo;
+			        datosVideo.url = window.URL.createObjectURL(streamVideo);
+			        jQuery('#camara').attr('src', datosVideo.url);
+		
+			    }, function() {
+			        alert('No fue posible obtener acceso a la cámara.');
+			    });
+		
+			});
+		
+			jQuery('#botonDetener').on('click', function(e) {
+		
+			    if (datosVideo.StreamVideo) {
+			        datosVideo.StreamVideo.stop();
+			        window.URL.revokeObjectURL(datosVideo.url);
+			    }
+		
+			});
+		
+			jQuery('#botonFoto').on('click', function(e) {
+			    var oCamara, oFoto, oContexto, w, h;
+		
+			    oCamara = jQuery('#camara');
+			    oFoto = jQuery('#scan_foto');
+			    w = oCamara.width();
+			    h = oCamara.height();
+			    oFoto.attr({
+			        'width': w,
+			        'height': h
+			    });
+			    oContexto = oFoto[0].getContext('2d');
+			    oContexto.drawImage(oCamara[0], 0, 0, w, h);
+		
+			});
+			
+			// Modal Link
+			$('#modal_link_scan_alr').click(function() {
+				$('#dialog-message_alr').dialog('open');
+				return false;
+			});
+			
+			// Modal Link 
+			$('#modal_link_scan_tarjeta_propiedad').click(function() {
+				$('#dialog-message_tarjeta_propiedad').dialog('open');
+				return false;
+			});
+			
+			// Modal Link 
+			$('#modal_link_scan_orden_cargue').click(function() {
+				$('#dialog-message_orden_cargue').dialog('open');
+				return false;
+			});
+			
+			// Modal Link 
+			$('#modal_link_scan_cedula').click(function() {
+				$('#dialog-message_cedula').dialog('open');
+				return false;
+			});
+			
+			// Modal Link 
+			$('#modal_link_scan_huella').click(function() {
+				$('#dialog-message_huella').dialog('open');
+				return false;
+			});
+		
+			$("#dialog-message_foto").dialog({
+				autoOpen : false,
+				modal : true,
+				title : "Gestión de Fotos",
+				buttons : [{
+					html : "Cancel",
+					"class" : "btn btn-default",
+					click : function() {
+						$(this).dialog("close");
+					}
+				}, {
+					html : "<i class='fa fa-check'></i>&nbsp; OK",
+					"class" : "btn btn-primary",
+					click : function() {
+						$(this).dialog("close");
+					}
+				}],
+				position: 'top'
+				
+			});
+			
+			$("#dialog-message_alr").dialog({
+				autoOpen : false,
+				modal : true,
+				title : "Imagen Cédula",
+				buttons : [{
+					html : "<i class='fa fa-check'></i>&nbsp; OK",
+					"class" : "btn btn-primary",
+					click : function() {
+						$(this).dialog("close");
+					}
+				}],
+				position: 'top',
+				width: "90%",
+			   	maxWidth: "768px"
+			});
+			
+			$("#dialog-message_tarjeta_propiedad").dialog({
+				autoOpen : false,
+				modal : true,
+				title : "Imagen Tarjeta Propiedad",
+				buttons : [{
+					html : "<i class='fa fa-check'></i>&nbsp; OK",
+					"class" : "btn btn-primary",
+					click : function() {
+						$(this).dialog("close");
+					}
+				}],
+				position: 'top',
+				width: "90%",
+			   	maxWidth: "768px"
+			});
+			
+			$("#dialog-message_orden_cargue").dialog({
+				autoOpen : false,
+				modal : true,
+				title : "Imagen Orden Cargue",
+				buttons : [{
+					html : "<i class='fa fa-check'></i>&nbsp; OK",
+					"class" : "btn btn-primary",
+					click : function() {
+						$(this).dialog("close");
+					}
+				}],
+				position: 'top',
+				width: "90%",
+			   	maxWidth: "768px"
+			});
+			
+			$("#dialog-message_cedula").dialog({
+				autoOpen : false,
+				modal : true,
+				title : "Imagen cedula",
+				buttons : [{
+					html : "<i class='fa fa-check'></i>&nbsp; OK",
+					"class" : "btn btn-primary",
+					click : function() {
+						$(this).dialog("close");
+					}
+				}],
+				position: 'top',
+				width: "90%",
+			   	maxWidth: "768px"
+			});
+			
+			$("#dialog-message_huella").dialog({
+				autoOpen : false,
+				modal : true,
+				title : "Imagen Huella",
+				buttons : [{
+					html : "<i class='fa fa-check'></i>&nbsp; OK",
+					"class" : "btn btn-primary",
+					click : function() {
+						$(this).dialog("close");
+					}
+				}],
+				position: 'top',
+				width: "90%",
+			   	maxWidth: "768px"
+			});
 	</script>
 
-	<!-- Your GOOGLE ANALYTICS CODE Below -->
+		<!-- Your GOOGLE ANALYTICS CODE Below -->
 	<script type="text/javascript">
 		var _gaq = _gaq || [];
 		_gaq.push([ '_setAccount', 'UA-XXXXXXXX-X' ]);

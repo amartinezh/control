@@ -39,8 +39,9 @@ public class Dependencia implements Serializable{
 	@OneToMany(mappedBy = "dependencia_id")
     private Set<Contratista> contratistaSet;
 	
-	@OneToMany(mappedBy = "dependencia_id")
+	/* @OneToMany(mappedBy = "dependencia_id")
     private Set<Conductor> conductorSet;
+    */
 	
 	@OneToMany(mappedBy = "dependencia_id")
     private Set<Visitante> visitanteSet;
@@ -108,13 +109,13 @@ public class Dependencia implements Serializable{
 		this.contratistaSet = contratistaSet;
 	}
 
-	public void setConductorSet(Set<Conductor> conductorSet) {
+	/* public void setConductorSet(Set<Conductor> conductorSet) {
 		this.conductorSet = conductorSet;
 	}
 	
 	public Set<Conductor> getConductorSet() {
 		return conductorSet;
-	}
+	} */
 	
 	public void setVisitanteSet(Set<Visitante> visitanteSet) {
 		this.visitanteSet = visitanteSet;

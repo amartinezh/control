@@ -1,4 +1,8 @@
-<%@ include file="/WEB-INF/views/include.jsp"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html>
 <html lang="en-us">
 <head>
@@ -78,50 +82,6 @@
 
 </head>
 
-<!--
-
-	TABLE OF CONTENTS.
-	
-	Use search to find needed section.
-	
-	===================================================================
-	
-	|  01. #CSS Links                |  all CSS links and file paths  |
-	|  02. #FAVICONS                 |  Favicon links and file paths  |
-	|  03. #GOOGLE FONT              |  Google font link              |
-	|  04. #APP SCREEN / ICONS       |  app icons, screen backdrops   |
-	|  05. #BODY                     |  body tag                      |
-	|  06. #HEADER                   |  header tag                    |
-	|  07. #PROJECTS                 |  project lists                 |
-	|  08. #TOGGLE LAYOUT BUTTONS    |  layout buttons and actions    |
-	|  09. #MOBILE                   |  mobile view dropdown          |
-	|  10. #SEARCH                   |  search field                  |
-	|  11. #NAVIGATION               |  left panel & navigation       |
-	|  12. #RIGHT PANEL              |  right panel userlist          |
-	|  13. #MAIN PANEL               |  main panel                    |
-	|  14. #MAIN CONTENT             |  content holder                |
-	|  15. #PAGE FOOTER              |  page footer                   |
-	|  16. #SHORTCUT AREA            |  dropdown shortcuts area       |
-	|  17. #PLUGINS                  |  all scripts and plugins       |
-	
-	===================================================================
-	
-	-->
-
-<!-- #BODY -->
-<!-- Possible Classes
-
-		* 'smart-style-{SKIN#}'
-		* 'smart-rtl'         - Switch theme mode to RTL
-		* 'menu-on-top'       - Switch to top navigation (no DOM change required)
-		* 'no-menu'			  - Hides the menu completely
-		* 'hidden-menu'       - Hides the main menu but still accessable by hovering over left edge
-		* 'fixed-header'      - Fixes the header
-		* 'fixed-navigation'  - Fixes the main menu
-		* 'fixed-ribbon'      - Fixes breadcrumb
-		* 'fixed-page-footer' - Fixes footer
-		* 'container'         - boxed layout mode (non-responsive: will not work with fixed-navigation & fixed-ribbon)
-	-->
 <body class="">
 
 	<!-- HEADER -->
@@ -135,69 +95,162 @@
 	<!-- MAIN PANEL -->
 	<div>
 
+		<!-- RIBBON -->
+
+		<!-- END RIBBON -->
+
+		<!-- MAIN CONTENT -->
 		<div id="content">
-			<div class="alert alert-block alert-success">
-				<a class="close" data-dismiss="alert" href="#">�</a>
-				<h4 class="alert-heading">
-					<i class="fa fa-check-square-o"></i> Atenci�n!
-				</h4>
-				<p>Especio para sacar los letreros de todo tipo</p>
-			</div>
-		</div>
-	</div>
-	<!-- END MAIN CONTENT -->
 
-	</div>
+			<!-- widget grid -->
+			<section id="widget-grid" class="">
+				<!-- row -->
+				<div class="row">
+					<div id="men"></div>
+					<!-- NEW WIDGET START -->
+					<article class="col-sm-12 col-xs-12 col-lg-6">
 
-	<!-- widget grid -->
-	<section id="widget-grid" class="">
+						<div class="jarviswidget" id="wid-id-0"
+							data-widget-colorbutton="false" data-widget-editbutton="false"
+							data-widget-deletebutton="false" data-widget-sortable="false"
+							role="widget" style="">
+							<!-- widget options:
+									usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
 
-		<!-- row -->
-		<div class="row">
+									data-widget-colorbutton="false"
+									data-widget-editbutton="false"
+									data-widget-togglebutton="false"
+									data-widget-deletebutton="false"
+									data-widget-fullscreenbutton="false"
+									data-widget-custombutton="false"
+									data-widget-collapsed="true"
+									data-widget-sortable="false"
 
-			<!-- NEW WIDGET ROW START -->
-			<div class="col-sm-12">
+									-->
+							<header role="heading">
+								<div class="jarviswidget-ctrls" role="menu">
+									<a href="javascript:void(0);"
+										class="button-icon jarviswidget-toggle-btn" rel="tooltip"
+										title="" data-placement="bottom"
+										data-original-title="Collapse"><i class="fa fa-minus "></i></a>
+									<a href="javascript:void(0);"
+										class="button-icon jarviswidget-fullscreen-btn" rel="tooltip"
+										title="" data-placement="bottom"
+										data-original-title="Fullscreen"><i class="fa fa-expand "></i></a>
+								</div>
+								<h2></h2>
+								<span class="jarviswidget-loader"><i
+									class="fa fa-refresh fa-spin"></i></span>
+							</header>
 
-				<!-- Widget ID (each widget will need unique ID)-->
-				<div class="jarviswidget" id="wid-id-0"
-					data-widget-colorbutton="false" data-widget-editbutton="false"
-					data-widget-deletebutton="false" data-widget-sortable="false">
-					
-					<header>
-						<h2>Registro Ingreso Conductores</h2>
-					</header>
+							<!-- widget div-->
 
-					<!-- widget div-->
+							<div role="content">
+								<!-- widget edit box -->
+								<div class="jarviswidget-editbox">
+									<!-- This area used as dropdown edit box -->
+									<input class="form-control" type="text">
+								</div>
+								<!-- end widget edit box -->
 
-					<div>
-						<!-- widget edit box -->
-						<div class="jarviswidget-editbox">
-							<!-- This area used as dropdown edit box -->
-							<input class="form-control" type="text">
-						</div>
-						<!-- end widget edit box -->
-
-						<!-- widget content -->
-						<div class="widget-body">
-							<form id="frm" method="post">
-								<fieldset>
-									<div class="form-group">
-										<div class="row">
-											<div class="col-sm-12 col-md-4">
-												<label class="control-label">Documento</label> <input
-													type="text" class="form-control" name="id_persona" placeholder="Documento de Identificaci�n"/>
+								<!-- widget content -->
+								<div class="widget-body">
+									<form:form id="frm" method="post" class="bv-form"
+										ModelAttribute="conductor" commandName="conductor">
+										<button type="submit" class="bv-hidden-submit"
+											style="display: none; width: 0px; height: 0px;"></button>
+										<fieldset>
+											<div class="form-group">
+												<div class="row">
+													<legend>  Conductores </legend>
+													<!-- <form:input type="hidden" path="documento" value="0" /> -->
+														<form:input type="hidden" path="estado" />
+														
+													<div class="col-xs-3">
+														<label class="control-label">Documento</label> 
+														<form:input path="documento" type="text"
+															class="form-control" data-bv-field="Documento"
+															required="required" /> 
+													
+													</div>
+													<div class="col-xs-3">
+														<label class="control-label">Nombre Completo</label>
+														 <form:input path="nombre_completo" type="text"
+															class="form-control" data-bv-field="Nombre Completo"
+															required="required" />
+													</div>
+													<div class="col-xs-3">
+														<label class="control-label">Apellidos</label>
+														<form:input path="apellido" type="text"	class="form-control" data-bv-field="Apellido" required="required" />
+													</div>
+													<div class="col-xs-3">
+														<div id="dialog-message" title="Foto">
+															<div id='botonera'>
+																<input id='botonIniciar' class='btn' type='button'
+																	value='Iniciar'></input> <input id='botonDetener'
+																	type='button' value='Detener'></input> <input
+																	id='botonFoto' type='button' value='Foto'></input>
+															</div>
+															<div class="contenedor" style="position: realitve; top:5px">
+																<div class="titulo">Cámara</div>
+																<video id="camara" autoplay controls style="height: 200px; width: 240px"></video>
+															</div>
+														</div>
+														<div class="contenedor">
+																<div class="titulo"><a href="#" id="modal_link"> Tomar	Foto </a></div>
+																<canvas id="scan_foto" style="height: 120px; width: 150px; border: 1px solid grey;"></canvas>
+														</div>
+													</div>
+												</div>
 											</div>
-											<div class="col-sm-12 col-md-4">
-												<label class="control-label">Nombre Completo</label> <input
-													type="text" class="form-control" name="nombre_completo" />
+										</fieldset>
+										<fieldset>
+											<div class="form-group">
+												<div class="row">
+													<div class="col-xs-4 selectContainer">
+														<label class="control-label">Tipo Persona</label> 
+														<form:select class="form-control" path="tipo_persona_id.tipo_persona_id" items="${tipopersonaList}">
+														</form:select>
+													</div>
+		
+													<div class="col-xs-4 selectContainer">
+														<label class="control-label">Dependencia</label> 
+													 	<form:select class="form-control" path="dependencia_id.dependencia_id" items="${dependenciaList}">
+														</form:select>
+													</div>
+													<div class="col-xs-4">
+														<label class="control-label input-file"><a href="#" id="modal_link_cedula"> Archivo Cédula</a></label>
+														<form:input path="scan_cedula" type="file" accept="image/*"	class="form-control" data-bv-field="Cédula" required="required" />
+													
+														<div id="dialog-message2" title="Imagen Cedula">
+															<canvas id="scan_cedula2"  width="900" height="300" style="background-color:#ffffff;"></canvas>
+														</div>
+													</div>
+												</div>
 											</div>
-											<div class="col-sm-12 col-md-4">
-												<label class="control-label">Apellidos</label> <input
-													type="text" class="form-control" name="apellido" />
+										</fieldset>
+										<fieldset>
+											<div class="form-group">
+												<div class="row">
+													<div class="col-xs-4">
+														<label class="control-label">Correo  Electrónico</label>
+														<form:input path="coreo_e" type="text"	class="form-control" data-bv-field="Coreo Electrónico" required="required" />
+													</div>
+													<div class="col-xs-4">
+														<label class="control-label">Teléfonos</label>
+														<form:input path="telefono" type="text"	class="form-control" data-bv-field="Teléfono" required="required" />
+													</div>
+													<div class="col-xs-4">
+														<label class="control-label input-file"><a href="#" id="modal_link_huella"> Archivo Huella</a></label>
+														<form:input path="scan_huella" type="file" accept="image/*"	class="form-control" data-bv-field="Huella" required="required" />
+													
+														<div id="dialog-message3" title="Imagen Huella">
+															<canvas id="scan_huella2"  width="900" height="300" style="background-color:#ffffff;"></canvas>
+														</div>
+													</div>
+												</div>
 											</div>
-										</div>
-									</div>
-								</fieldset>
+										</fieldset>
 								<fieldset>
 									<div class="form-group">
 										<div class="row">
@@ -253,7 +306,7 @@
 													type="text" class="form-control" name="nit_empresa" />
 											</div>
 											<div class="col-sm-12 col-md-4">
-												<label class="control-label">N�mero Precinto</label> <input
+												<label class="control-label">Número Precinto</label> <input
 													type="text" class="form-control" name="vencimiento_ley" />
 											</div>
 										</div>
@@ -267,7 +320,7 @@
 													type="file" class="form-control" name="foto_scan" />
 											</div>
 											<div class="col-md-4">
-												<label class="control-label input-file">Archivo C�dula</label> <input
+												<label class="control-label input-file">Archivo Cédula</label> <input
 													type="file" class="form-control" name="cedula_scan" />
 											</div>
 											<div class="col-md-4">
@@ -295,52 +348,52 @@
 										</div>
 									</div>
 								</fieldset>
-								
-								<fieldset>
-									<div class="form-group">
-										<div class="row">
-											<div class="col-sm-12 col-md-8">
-												<label class="control-label">Observaciones</label> <textarea
-													 class="form-control" name="observaciones" ></textarea>
+										<fieldset>
+											<div class="form-group">
+												<div class="row">
+													<div class="col-xs-10">
+														<label class="control-label">Observaciones</label> 
+														<form:textarea path="observaciones" type="text" class="form-control" data-bv-field="Placa" required="required" />
+													</div>
+												</div>
+											</div>
+										</fieldset>
+										<div class="form-actions">
+											<div class="row">
+												<div class="col-xs-12">
+													<button id="cance" class="btn btn-danger" type="button"
+														onclick="cancelar()">Cancelar</button>
+													<button id="elboton" class="btn btn-success" type="button"
+														onclick="actualizar()">Nuevo</button>
+													<button id="reset" class="btn btn-success" type="Reset">Limpiar</button>
+												</div>
 											</div>
 										</div>
-									</div>
-								</fieldset>
-								<div class="form-actions">
-									<div class="row">
-										<div class="col-md-12">
-											<button class="btn btn-success" type="submit">
-												<i class="fa fa-eye"></i> Actualizar
-											</button>
-										</div>
-									</div>
-								</div>
 
-							</form>
+									</form:form>
+
+								</div>
+								<!-- end widget content -->
+
+							</div>
+							<!-- end widget div -->
 
 						</div>
-						<!-- end widget content -->
 
-					</div>
-					<!-- end widget div -->
+					</article>
+					<!-- WIDGET END -->
 
 				</div>
-				<!-- end widget -->
 
+				<!-- end row -->
 
-			</div>
-			<!-- WIDGET ROW END -->
-		</div>
+			</section>
+			<!-- end widget grid -->
 
-		<!-- end row -->
-
-	</section>
-	<!-- end widget grid -->
-
-
-<div
+			<div
 				class="jarviswidget jarviswidget-color-blueDark jarviswidget-sortable"
-				id="wid-id-1" data-widget-editbutton="false" data-widget-editbutton="true" role="widget">
+				id="wid-id-1" data-widget-editbutton="false"
+				data-widget-editbutton="true" role="widget">
 				<!-- widget options:
 								usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
 				
@@ -355,19 +408,21 @@
 				
 								-->
 				<header role="heading">
-			
+
 					<span class="widget-icon"> <i class="fa fa-table"></i>
 					</span>
-					<h2>Herramientas</h2>
+					<h2>Visitantes</h2>
 
-					<span class="jarviswidget-loader"><i class="fa fa-refresh fa-spin"></i></span></header>
+					<span class="jarviswidget-loader"><i
+						class="fa fa-refresh fa-spin"></i></span>
+				</header>
 
 				<!-- widget div-->
 				<div role="content">
 
 					<!-- widget edit box -->
 					<div class="jarviswidget-editbox">
-						<!-- This area used as dropdown edit box -->
+						<!-- This Permiso used as dropdown edit box -->
 
 					</div>
 					<!-- end widget edit box -->
@@ -378,99 +433,49 @@
 						<div id="datatable_fixed_column_wrapper"
 							class="dataTables_wrapper form-inline no-footer">
 
-							<table id="datatable_fixed_column"
+							<table id="datatable_fixed_column" name="datatable_fixed_column"
 								class="table table-striped table-bordered dataTable no-footer"
 								width="100%" role="grid"
 								aria-describedby="datatable_fixed_column_info"
 								style="width: 100%;">
-
 								<thead>
-									<!-- <tr role="row">
-										<th class="hasinput" style="width: 17%" rowspan="1"
-											colspan="1"><input type="text" class="form-control"
-											placeholder="Filtro Descripción"></th>
-										
-									</tr>   -->
 									<tr role="row">
-
 										<th data-hide="cmd" class="sorting_asc" tabindex="0"
-											aria-controls="dt_basic" 
-											aria-sort="ascending"
+											aria-controls="dt_basic" aria-sort="ascending"
 											aria-label="ID: activate to sort column ascending"
 											style="width: 15px;"></th>
 
 										<th data-class="expand" class="sorting_asc" tabindex="1"
-											aria-controls="dt_basic" 
-											colspan="1" aria-sort="ascending"
+											aria-controls="dt_basic" colspan="1" aria-sort="ascending"
 											aria-label="Name: activate to sort column ascending"
-											style="width: 540px;">Descripci�n</th>
+											style="width: 540px;">Descripción</th>
 									</tr>
 								</thead>
-
-								<tbody>
-
-									<tr role="row" class="odd">
-										<td class="sorting_1"><span class="responsiveExpander"></span> 
-											<a class="btn btn-success btn-circle btn-sx"
-												href="javascript:void(0);"><i class="fa fa-edit"></i></a> 
-											<a class="btn btn-danger btn-circle" 
-												href="javascript:void(0);"><i class="fa fa-trash-o"></i></a>
-									 	</td>
-										<td class="sorting_1"><span class="responsiveExpander"></span>A</td>
-
-									</tr>
-									<tr role="row" class="even">
-										<td class="sorting_1"><span class="responsiveExpander"></span> 
-											<a class="btn btn-success btn-circle btn-sx"
-												href="javascript:void(0);"><i class="fa fa-edit"></i></a> 
-											<a class="btn btn-danger btn-circle" 
-												href="javascript:void(0);"><i class="fa fa-trash-o"></i></a>
-									 	</td>
-										<td class="sorting_1"><span class="responsiveExpander"></span>B</td>
-
-									</tr>
-									<tr role="row" class="odd">
-										<td class="sorting_1"><span class="responsiveExpander"></span> 
-											<a class="btn btn-success btn-circle btn-sx"
-												href="javascript:void(0);"><i class="fa fa-edit"></i></a> 
-											<a class="btn btn-danger btn-circle" 
-												href="javascript:void(0);"><i class="fa fa-trash-o"></i></a>
-									 	</td>
-										<td class="sorting_1"><span class="responsiveExpander"></span>C</td>
-									</tr>
-
-									<tr role="row" class="even">
-										<td class="sorting_1"><span class="responsiveExpander"></span> 
-											<a class="btn btn-success btn-circle btn-sx"
-												href="javascript:void(0);"><i class="fa fa-edit"></i></a> 
-											<a class="btn btn-danger btn-circle" 
-												href="javascript:void(0);"><i class="fa fa-trash-o"></i></a>
-									 	</td>
-										<td class="sorting_1"><span class="responsiveExpander"></span>D</td>
-									</tr>
-									<tr role="row" class="odd">
-										<td class="sorting_1"><span class="responsiveExpander"></span> 
-											<a class="btn btn-success btn-circle btn-sx"
-												href="javascript:void(0);"><i class="fa fa-edit"></i></a> 
-											<a class="btn btn-danger btn-circle" 
-												href="javascript:void(0);"><i class="fa fa-trash-o"></i></a>
-									 	</td>
-										<td class="sorting_1"><span class="responsiveExpander"></span>E</td>
-									</tr>
-
+								<tbody> 
+									<c:forEach items="${conductorList}" var="obj"
+										varStatus="loopCounter">
+										<tr role="row" class="odd"> 
+											<td class="sorting_1"><span class="responsiveExpander"></span>
+												<a class="btn btn-success btn-circle btn-sx"
+												onclick="con('<c:out value="${obj.documento}"></c:out>','<c:out value="${obj.nombre_completo}"></c:out>','<c:out value="${obj.apellido}"></c:out>','<c:out value="${obj.tipo_persona_id.tipo_persona_id}"></c:out>','<c:out value="${obj.dependencia_id.dependencia_id}"></c:out>','<c:out value="${obj.coreo_e}"></c:out>','<c:out value="${obj.telefono}"></c:out>','<c:out value="${obj.scan_foto}"></c:out>','<c:out value="${obj.scan_cedula}"></c:out>','<c:out value="${obj.scan_huella}"></c:out>','<c:out value="${obj.observaciones}"></c:out>','<c:out value="${obj.estado}"></c:out>',$(this))">
+												<i class="fa fa-edit"></i></a> <a class="btn btn-danger btn-circle"
+												onclick="borrar(<c:out value="${obj.documento}"></c:out>, $(this))">
+												<i class="fa fa-trash-o"></i></a></td>
+											<td class="sorting_1"><span class="responsiveExpander"></span>
+												<c:out value="${obj.nombre_completo}"></c:out></td>
+										</tr>
+									</c:forEach>
 								</tbody>
-
 							</table>
-
 						</div>
-
 					</div>
 					<!-- end widget content -->
-
 				</div>
 				<!-- end widget div -->
-
 			</div>
+	</div>
+	<!-- END MAIN CONTENT -->
+
 
 	<!-- END MAIN PANEL -->
 
@@ -478,17 +483,21 @@
 
 	<!-- END PAGE FOOTER -->
 
+	<!-- SHORTCUT AREA : With large tiles (activated via clicking user name tag)
+		Note: These tiles are completely responsive,
+		you can add as many as you like
+		-->
 
+	<!-- END SHORTCUT AREA -->
 	<!--================================================== -->
-
 	<!-- PACE LOADER - turn this on if you want ajax loading to show (caution: uses lots of memory on iDevices)-->
 	<script data-pace-options='{ "restartOnRequestAfter": true }'
 		src="<c:url value="/resources/js/plugin/pace/pace.min.js" />"></script>
 
 	<!-- Link to Google CDN's jQuery + jQueryUI; fall back to local -->
 	<script
-		src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js" />
-	">
+		src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js">
+		
 	</script>
 	<script>
 		if (!window.jQuery) {
@@ -525,10 +534,10 @@
 	<script
 		src="<c:url value="/resources/js/smartwidgets/jarvis.widget.min.js" />"></script>
 
-	<!-- EASY PIE CHARTS -->
+	<!-- EASY PIE CHARTS 
 	<script
 		src="<c:url value="/resources/js/plugin/easy-pie-chart/jquery.easy-pie-chart.min.js" />"></script>
-
+	-->
 	<!-- SPARKLINES -->
 	<script
 		src="<c:url value="/resources/js/plugin/sparkline/jquery.sparkline.min.js" />"></script>
@@ -570,44 +579,20 @@
 	<script src="<c:url value="/resources/js/app.min.js" />"></script>
 
 	<!-- ENHANCEMENT PLUGINS : NOT A REQUIREMENT -->
-	<!-- Voice command : plugin -->
+	<!-- Voice command : plugin 
 	<script
 		src="<c:url value="/resources/js/speech/voicecommand.min.js" />"></script>
-
-	<!-- SmartChat UI : plugin -->
+ 	-->
+	<!-- SmartChat UI : plugin 
 	<script
 		src="<c:url value="/resources/js/smart-chat-ui/smart.chat.ui.min.js" />"></script>
 	<script
 		src="<c:url value="/resources/js/smart-chat-ui/smart.chat.manager.min.js" />"></script>
-
+	-->
 	<!-- PAGE RELATED PLUGIN(S) -->
-
-	<!-- Flot Chart Plugin: Flot Engine, Flot Resizer, Flot Tooltip -->
-	<script
-		src="<c:url value="/resources/js/plugin/flot/jquery.flot.cust.min.js" />"></script>
-	<script
-		src="<c:url value="/resources/js/plugin/flot/jquery.flot.resize.min.js" />"></script>
-	<script
-		src="<c:url value="/resources/js/plugin/flot/jquery.flot.time.min.js" />"></script>
-	<script
-		src="<c:url value="/resources/js/plugin/flot/jquery.flot.tooltip.min.js" />"></script>
-
-	<!-- Vector Maps Plugin: Vectormap engine, Vectormap language -->
-	<script
-		src="<c:url value="/resources/js/plugin/vectormap/jquery-jvectormap-1.2.2.min.js" />"></script>
-	<script
-		src="<c:url value="/resources/js/plugin/vectormap/jquery-jvectormap-world-mill-en.js" />"></script>
-
-	<!-- Full Calendar -->
-	<script
-		src="<c:url value="/resources/js/plugin/moment/moment.min.js" />"></script>
-	<script
-		src="<c:url value="/resources/js/plugin/fullcalendar/jquery.fullcalendar.min.js" />"></script>
 
 	<script
 		src="<c:url value="/resources/js/plugin/bootstrapvalidator/bootstrapValidator.min.js" />"></script>
-
-	<!-- PAGE RELATED PLUGIN(S) -->
 	<script
 		src="<c:url value="/resources/js/plugin/datatables/jquery.dataTables.min.js" />"></script>
 	<script
@@ -618,958 +603,31 @@
 		src="<c:url value="/resources/js/plugin/datatables/dataTables.bootstrap.min.js" />"></script>
 	<script
 		src="<c:url value="/resources/js/plugin/datatable-responsive/datatables.responsive.min.js" />"></script>
-	
 
-	<script>
-		$(document)
-				.ready(
-						function() {
+	<!-- PAGE RELATED PLUGIN(S) -->
+
+	<!-- Flot Chart Plugin: Flot Engine, Flot Resizer, Flot Tooltip 
+	<script
+		src="<c:url value="/resources/js/plugin/flot/jquery.flot.cust.min.js" />"></script>
+	<script
+		src="<c:url value="/resources/js/plugin/flot/jquery.flot.resize.min.js" />"></script>
+	<script
+		src="<c:url value="/resources/js/plugin/flot/jquery.flot.time.min.js" />"></script>
+	<script
+		src="<c:url value="/resources/js/plugin/flot/jquery.flot.tooltip.min.js" />"></script>
+	-->
+	<!-- Vector Maps Plugin: Vectormap engine, Vectormap language 
+	<script
+		src="<c:url value="/resources/js/plugin/vectormap/jquery-jvectormap-1.2.2.min.js" />"></script>
+	<script
+		src="<c:url value="/resources/js/plugin/vectormap/jquery-jvectormap-world-mill-en.js" />"></script>
+	-->
+	<!-- Full Calendar -->
+	<script
+		src="<c:url value="/resources/js/plugin/moment/moment.min.js" />"></script>
+	<script
+		src="<c:url value="/resources/js/plugin/fullcalendar/jquery.fullcalendar.min.js" />"></script>
 
-							// DO NOT REMOVE : GLOBAL FUNCTIONS!
-							pageSetUp();
-
-							/*
-							 * PAGE RELATED SCRIPTS
-							 */
-
-							$(".js-status-update a")
-									.click(
-											function() {
-												var selText = $(this).text();
-												var $this = $(this);
-												$this
-														.parents('.btn-group')
-														.find(
-																'.dropdown-toggle')
-														.html(
-																selText
-																		+ ' <span class="caret"></span>');
-												$this.parents('.dropdown-menu')
-														.find('li')
-														.removeClass('active');
-												$this.parent().addClass(
-														'active');
-											});
-
-							/*
-							 * TODO: add a way to add more todo's to list
-							 */
-
-							// initialize sortable
-							$(function() {
-								$("#sortable1, #sortable2").sortable({
-									handle : '.handle',
-									connectWith : ".todo",
-									update : countTasks
-								}).disableSelection();
-							});
-
-							// check and uncheck
-							$('.todo .checkbox > input[type="checkbox"]')
-									.click(
-											function() {
-												var $this = $(this).parent()
-														.parent().parent();
-
-												if ($(this).prop('checked')) {
-													$this.addClass("complete");
-
-													// remove this if you want to undo a check list once checked
-													//$(this).attr("disabled", true);
-													$(this).parent().hide();
-
-													// once clicked - add class, copy to memory then remove and add to sortable3
-													$this
-															.slideUp(
-																	500,
-																	function() {
-																		$this
-																				.clone()
-																				.prependTo(
-																						"#sortable3")
-																				.effect(
-																						"highlight",
-																						{},
-																						800);
-																		$this
-																				.remove();
-																		countTasks();
-																	});
-												} else {
-													// insert undo code here...
-												}
-
-											})
-							// count tasks
-							function countTasks() {
-
-								$('.todo-group-title').each(
-										function() {
-											var $this = $(this);
-											$this.find(".num-of-tasks").text(
-													$this.next().find("li")
-															.size());
-										});
-
-							}
-
-							/*
-							 * RUN PAGE GRAPHS
-							 */
-
-							/* TAB 1: UPDATING CHART */
-							// For the demo we use generated data, but normally it would be coming from the server
-							var data = [], totalPoints = 200, $UpdatingChartColors = $(
-									"#updating-chart").css('color');
-
-							function getRandomData() {
-								if (data.length > 0)
-									data = data.slice(1);
-
-								// do a random walk
-								while (data.length < totalPoints) {
-									var prev = data.length > 0 ? data[data.length - 1]
-											: 50;
-									var y = prev + Math.random() * 10 - 5;
-									if (y < 0)
-										y = 0;
-									if (y > 100)
-										y = 100;
-									data.push(y);
-								}
-
-								// zip the generated y values with the x values
-								var res = [];
-								for (var i = 0; i < data.length; ++i)
-									res.push([ i, data[i] ])
-								return res;
-							}
-
-							// setup control widget
-							var updateInterval = 1500;
-							$("#updating-chart").val(updateInterval).change(
-									function() {
-
-										var v = $(this).val();
-										if (v && !isNaN(+v)) {
-											updateInterval = +v;
-											$(this).val("" + updateInterval);
-										}
-
-									});
-
-							// setup plot
-							var options = {
-								yaxis : {
-									min : 0,
-									max : 100
-								},
-								xaxis : {
-									min : 0,
-									max : 100
-								},
-								colors : [ $UpdatingChartColors ],
-								series : {
-									lines : {
-										lineWidth : 1,
-										fill : true,
-										fillColor : {
-											colors : [ {
-												opacity : 0.4
-											}, {
-												opacity : 0
-											} ]
-										},
-										steps : false
-
-									}
-								}
-							};
-
-							var plot = $.plot($("#updating-chart"),
-									[ getRandomData() ], options);
-
-							/* live switch */
-							$('input[type="checkbox"]#start_interval').click(
-									function() {
-										if ($(this).prop('checked')) {
-											$on = true;
-											updateInterval = 1500;
-											update();
-										} else {
-											clearInterval(updateInterval);
-											$on = false;
-										}
-									});
-
-							function update() {
-								if ($on == true) {
-									plot.setData([ getRandomData() ]);
-									plot.draw();
-									setTimeout(update, updateInterval);
-
-								} else {
-									clearInterval(updateInterval)
-								}
-
-							}
-
-							var $on = false;
-
-							/*end updating chart*/
-
-							/* TAB 2: Social Network  */
-
-							$(function() {
-								// jQuery Flot Chart
-								var twitter = [ [ 1, 27 ], [ 2, 34 ],
-										[ 3, 51 ], [ 4, 48 ], [ 5, 55 ],
-										[ 6, 65 ], [ 7, 61 ], [ 8, 70 ],
-										[ 9, 65 ], [ 10, 75 ], [ 11, 57 ],
-										[ 12, 59 ], [ 13, 62 ] ], facebook = [
-										[ 1, 25 ], [ 2, 31 ], [ 3, 45 ],
-										[ 4, 37 ], [ 5, 38 ], [ 6, 40 ],
-										[ 7, 47 ], [ 8, 55 ], [ 9, 43 ],
-										[ 10, 50 ], [ 11, 47 ], [ 12, 39 ],
-										[ 13, 47 ] ], data = [ {
-									label : "Twitter",
-									data : twitter,
-									lines : {
-										show : true,
-										lineWidth : 1,
-										fill : true,
-										fillColor : {
-											colors : [ {
-												opacity : 0.1
-											}, {
-												opacity : 0.13
-											} ]
-										}
-									},
-									points : {
-										show : true
-									}
-								}, {
-									label : "Facebook",
-									data : facebook,
-									lines : {
-										show : true,
-										lineWidth : 1,
-										fill : true,
-										fillColor : {
-											colors : [ {
-												opacity : 0.1
-											}, {
-												opacity : 0.13
-											} ]
-										}
-									},
-									points : {
-										show : true
-									}
-								} ];
-
-								var options = {
-									grid : {
-										hoverable : true
-									},
-									colors : [ "#568A89", "#3276B1" ],
-									tooltip : true,
-									tooltipOpts : {
-										//content : "Value <b>$x</b> Value <span>$y</span>",
-										defaultTheme : false
-									},
-									xaxis : {
-										ticks : [ [ 1, "JAN" ], [ 2, "FEB" ],
-												[ 3, "MAR" ], [ 4, "APR" ],
-												[ 5, "MAY" ], [ 6, "JUN" ],
-												[ 7, "JUL" ], [ 8, "AUG" ],
-												[ 9, "SEP" ], [ 10, "OCT" ],
-												[ 11, "NOV" ], [ 12, "DEC" ],
-												[ 13, "JAN+1" ] ]
-									},
-									yaxes : {
-
-									}
-								};
-
-								var plot3 = $.plot($("#statsChart"), data,
-										options);
-							});
-
-							// END TAB 2
-
-							// TAB THREE GRAPH //
-							/* TAB 3: Revenew  */
-
-							$(function() {
-
-								var trgt = [ [ 1354586000000, 153 ],
-										[ 1364587000000, 658 ],
-										[ 1374588000000, 198 ],
-										[ 1384589000000, 663 ],
-										[ 1394590000000, 801 ],
-										[ 1404591000000, 1080 ],
-										[ 1414592000000, 353 ],
-										[ 1424593000000, 749 ],
-										[ 1434594000000, 523 ],
-										[ 1444595000000, 258 ],
-										[ 1454596000000, 688 ],
-										[ 1464597000000, 364 ] ], prft = [
-										[ 1354586000000, 53 ],
-										[ 1364587000000, 65 ],
-										[ 1374588000000, 98 ],
-										[ 1384589000000, 83 ],
-										[ 1394590000000, 980 ],
-										[ 1404591000000, 808 ],
-										[ 1414592000000, 720 ],
-										[ 1424593000000, 674 ],
-										[ 1434594000000, 23 ],
-										[ 1444595000000, 79 ],
-										[ 1454596000000, 88 ],
-										[ 1464597000000, 36 ] ], sgnups = [
-										[ 1354586000000, 647 ],
-										[ 1364587000000, 435 ],
-										[ 1374588000000, 784 ],
-										[ 1384589000000, 346 ],
-										[ 1394590000000, 487 ],
-										[ 1404591000000, 463 ],
-										[ 1414592000000, 479 ],
-										[ 1424593000000, 236 ],
-										[ 1434594000000, 843 ],
-										[ 1444595000000, 657 ],
-										[ 1454596000000, 241 ],
-										[ 1464597000000, 341 ] ], toggles = $("#rev-toggles"), target = $("#flotcontainer");
-
-								var data = [ {
-									label : "Target Profit",
-									data : trgt,
-									bars : {
-										show : true,
-										align : "center",
-										barWidth : 30 * 30 * 60 * 1000 * 80
-									}
-								}, {
-									label : "Actual Profit",
-									data : prft,
-									color : '#3276B1',
-									lines : {
-										show : true,
-										lineWidth : 3
-									},
-									points : {
-										show : true
-									}
-								}, {
-									label : "Actual Signups",
-									data : sgnups,
-									color : '#71843F',
-									lines : {
-										show : true,
-										lineWidth : 1
-									},
-									points : {
-										show : true
-									}
-								} ]
-
-								var options = {
-									grid : {
-										hoverable : true
-									},
-									tooltip : true,
-									tooltipOpts : {
-										//content: '%x - %y',
-										//dateFormat: '%b %y',
-										defaultTheme : false
-									},
-									xaxis : {
-										mode : "time"
-									},
-									yaxes : {
-										tickFormatter : function(val, axis) {
-											return "$" + val;
-										},
-										max : 1200
-									}
-
-								};
-
-								plot2 = null;
-
-								function plotNow() {
-									var d = [];
-									toggles.find(':checkbox').each(
-											function() {
-												if ($(this).is(':checked')) {
-													d.push(data[$(this).attr(
-															"name")
-															.substr(4, 1)]);
-												}
-											});
-									if (d.length > 0) {
-										if (plot2) {
-											plot2.setData(d);
-											plot2.draw();
-										} else {
-											plot2 = $.plot(target, d, options);
-										}
-									}
-
-								}
-								;
-
-								toggles.find(':checkbox').on('change',
-										function() {
-											plotNow();
-										});
-								plotNow()
-
-							});
-
-							/*
-							 * VECTOR MAP
-							 */
-
-							data_array = {
-								"US" : 4977,
-								"AU" : 4873,
-								"IN" : 3671,
-								"BR" : 2476,
-								"TR" : 1476,
-								"CN" : 146,
-								"CA" : 134,
-								"BD" : 100
-							};
-
-							$('#vector-map')
-									.vectorMap(
-											{
-												map : 'world_mill_en',
-												backgroundColor : '#fff',
-												regionStyle : {
-													initial : {
-														fill : '#c4c4c4'
-													},
-													hover : {
-														"fill-opacity" : 1
-													}
-												},
-												series : {
-													regions : [ {
-														values : data_array,
-														scale : [ '#85a8b6',
-																'#4d7686' ],
-														normalizeFunction : 'polynomial'
-													} ]
-												},
-												onRegionLabelShow : function(e,
-														el, code) {
-													if (typeof data_array[code] == 'undefined') {
-														e.preventDefault();
-													} else {
-														var countrylbl = data_array[code];
-														el.html(el.html()
-																+ ': '
-																+ countrylbl
-																+ ' visits');
-													}
-												}
-											});
-
-							/*
-							 * FULL CALENDAR JS
-							 */
-
-							if ($("#calendar").length) {
-								var date = new Date();
-								var d = date.getDate();
-								var m = date.getMonth();
-								var y = date.getFullYear();
-
-								var calendar = $('#calendar')
-										.fullCalendar(
-												{
-
-													editable : true,
-													draggable : true,
-													selectable : false,
-													selectHelper : true,
-													unselectAuto : false,
-													disableResizing : false,
-
-													header : {
-														left : 'title', //,today
-														center : 'prev, next, today',
-														right : 'month, agendaWeek, agenDay' //month, agendaDay,
-													},
-
-													select : function(start,
-															end, allDay) {
-														var title = prompt('Event Title:');
-														if (title) {
-															calendar
-																	.fullCalendar(
-																			'renderEvent',
-																			{
-																				title : title,
-																				start : start,
-																				end : end,
-																				allDay : allDay
-																			},
-																			true // make the event "stick"
-																	);
-														}
-														calendar
-																.fullCalendar('unselect');
-													},
-
-													events : [
-															{
-																title : 'All Day Event',
-																start : new Date(
-																		y, m, 1),
-																description : 'long description',
-																className : [
-																		"event",
-																		"bg-color-greenLight" ],
-																icon : 'fa-check'
-															},
-															{
-																title : 'Long Event',
-																start : new Date(
-																		y, m,
-																		d - 5),
-																end : new Date(
-																		y, m,
-																		d - 2),
-																className : [
-																		"event",
-																		"bg-color-red" ],
-																icon : 'fa-lock'
-															},
-															{
-																id : 999,
-																title : 'Repeating Event',
-																start : new Date(
-																		y, m,
-																		d - 3,
-																		16, 0),
-																allDay : false,
-																className : [
-																		"event",
-																		"bg-color-blue" ],
-																icon : 'fa-clock-o'
-															},
-															{
-																id : 999,
-																title : 'Repeating Event',
-																start : new Date(
-																		y, m,
-																		d + 4,
-																		16, 0),
-																allDay : false,
-																className : [
-																		"event",
-																		"bg-color-blue" ],
-																icon : 'fa-clock-o'
-															},
-															{
-																title : 'Meeting',
-																start : new Date(
-																		y, m,
-																		d, 10,
-																		30),
-																allDay : false,
-																className : [
-																		"event",
-																		"bg-color-darken" ]
-															},
-															{
-																title : 'Lunch',
-																start : new Date(
-																		y, m,
-																		d, 12,
-																		0),
-																end : new Date(
-																		y, m,
-																		d, 14,
-																		0),
-																allDay : false,
-																className : [
-																		"event",
-																		"bg-color-darken" ]
-															},
-															{
-																title : 'Birthday Party',
-																start : new Date(
-																		y, m,
-																		d + 1,
-																		19, 0),
-																end : new Date(
-																		y, m,
-																		d + 1,
-																		22, 30),
-																allDay : false,
-																className : [
-																		"event",
-																		"bg-color-darken" ]
-															},
-															{
-																title : 'Smartadmin Open Day',
-																start : new Date(
-																		y, m,
-																		28),
-																end : new Date(
-																		y, m,
-																		29),
-																className : [
-																		"event",
-																		"bg-color-darken" ]
-															} ],
-
-													eventRender : function(
-															event, element,
-															icon) {
-														if (!event.description == "") {
-															element
-																	.find(
-																			'.fc-event-title')
-																	.append(
-																			"<br/><span class='ultra-light'>"
-																					+ event.description
-																					+ "</span>");
-														}
-														if (!event.icon == "") {
-															element
-																	.find(
-																			'.fc-event-title')
-																	.append(
-																			"<i class='air air-top-right fa " + event.icon + " '></i>");
-														}
-													}
-												});
-
-							}
-							;
-
-							/* hide default buttons */
-							$('.fc-header-right, .fc-header-center').hide();
-
-							// calendar prev
-							$('#calendar-buttons #btn-prev').click(function() {
-								$('.fc-button-prev').click();
-								return false;
-							});
-
-							// calendar next
-							$('#calendar-buttons #btn-next').click(function() {
-								$('.fc-button-next').click();
-								return false;
-							});
-
-							// calendar today
-							$('#calendar-buttons #btn-today').click(function() {
-								$('.fc-button-today').click();
-								return false;
-							});
-
-							// calendar month
-							$('#mt').click(
-									function() {
-										$('#calendar').fullCalendar(
-												'changeView', 'month');
-									});
-
-							// calendar agenda week
-							$('#ag').click(
-									function() {
-										$('#calendar').fullCalendar(
-												'changeView', 'agendaWeek');
-									});
-
-							// calendar agenda day
-							$('#td').click(
-									function() {
-										$('#calendar').fullCalendar(
-												'changeView', 'agendaDay');
-									});
-
-							/*
-							 * CHAT
-							 */
-
-							$.filter_input = $('#filter-chat-list');
-							$.chat_users_container = $('#chat-container > .chat-list-body')
-							$.chat_users = $('#chat-users')
-							$.chat_list_btn = $('#chat-container > .chat-list-open-close');
-							$.chat_body = $('#chat-body');
-
-							/*
-							 * LIST FILTER (CHAT)
-							 */
-
-							// custom css expression for a case-insensitive contains()
-							jQuery.expr[':'].Contains = function(a, i, m) {
-								return (a.textContent || a.innerText || "")
-										.toUpperCase().indexOf(
-												m[3].toUpperCase()) >= 0;
-							};
-
-							function listFilter(list) {// header is any element, list is an unordered list
-								// create and add the filter form to the header
-
-								$.filter_input
-										.change(
-												function() {
-													var filter = $(this).val();
-													if (filter) {
-														// this finds all links in a list that contain the input,
-														// and hide the ones not containing the input while showing the ones that do
-														$.chat_users
-																.find(
-																		"a:not(:Contains("
-																				+ filter
-																				+ "))")
-																.parent()
-																.slideUp();
-														$.chat_users
-																.find(
-																		"a:Contains("
-																				+ filter
-																				+ ")")
-																.parent()
-																.slideDown();
-													} else {
-														$.chat_users.find("li")
-																.slideDown();
-													}
-													return false;
-												}).keyup(function() {
-											// fire the above change event after every letter
-											$(this).change();
-
-										});
-
-							}
-
-							// on dom ready
-							listFilter($.chat_users);
-
-							// open chat list
-							$.chat_list_btn.click(function() {
-								$(this).parent('#chat-container').toggleClass(
-										'open');
-							})
-
-							$.chat_body.animate({
-								scrollTop : $.chat_body[0].scrollHeight
-							}, 500);
-
-						});
-
-		$('#frm')
-				.bootstrapValidator(
-						{
-							feedbackIcons : {
-								valid : 'glyphicon glyphicon-ok',
-								invalid : 'glyphicon glyphicon-remove',
-								validating : 'glyphicon glyphicon-refresh'
-							},
-							fields : {
-								id_persona : {
-									group : '.col-md-4',
-									validators : {
-										notEmpty : {
-											message : 'Campo requierido'
-										},
-										stringLength : {
-											max : 200,
-											message : 'De ser menor a 200 caracteres'
-										}
-									}
-								},
-								nombre_completo : {
-									group : '.col-md-4',
-									validators : {
-										notEmpty : {
-											message : 'Campo requierido'
-										}
-									}
-								},
-								apellido : {
-									group : '.col-md-4',
-									validators : {
-										notEmpty : {
-											message : 'Campo requierido'
-										}
-									}
-								},
-								id_tipo_persona : {
-									group : '.col-md-6',
-									validators : {
-										notEmpty : {
-											message : 'Campo requierido'
-										}
-									}
-								},
-								id_dependencia : {
-									group : '.col-md-6',
-									validators : {
-										notEmpty : {
-											message : 'Campo requierido'
-										}
-									}
-								},
-								correo_e : {
-									group : '.col-md-6',
-									validators : {
-										notEmpty : {
-											message : 'Campo requierido'
-										}
-									}
-								},
-								telefono : {
-									group : '.col-md-6',
-									validators : {
-										notEmpty : {
-											message : 'Campo requierido'
-										}
-									}
-								},
-								empresa : {
-									group : '.col-md-4',
-									validators : {
-										notEmpty : {
-											message : 'Campo requierido'
-										}
-									}
-								},
-								nit_empresa : {
-									group : '.col-md-4',
-									validators : {
-										notEmpty : {
-											message : 'Campo requierido'
-										}
-									}
-								},
-								vencimiento_ley : {
-									group : '.col-md-4',
-									validators : {
-										notEmpty : {
-											message : 'Campo requierido'
-										}
-									}
-								},
-								foto_scan : {
-									group : '.col-md-4',
-									validators : {
-										notEmpty : {
-											message : 'Campo requierido'
-										}
-									}
-								},
-								cedula_scan : {
-									group : '.col-md-4',
-									validators : {
-										notEmpty : {
-											message : 'Campo requierido'
-										}
-									}
-								},
-								huella_scan : {
-									group : '.col-md-4',
-									validators : {
-										notEmpty : {
-											message : 'Campo requierido'
-										}
-									}
-								},
-								id_persona_responsable : {
-									group : '.col-md-6',
-									validators : {
-										notEmpty : {
-											message : 'Campo requierido'
-										}
-									}
-								},
-								codigo_antecedente : {
-									group : '.col-md-3',
-									validators : {
-										notEmpty : {
-											message : 'Campo requierido'
-										}
-									}
-								},
-								placa_vehiculo : {
-									group : '.col-md-3',
-									validators : {
-										notEmpty : {
-											message : 'Campo requierido'
-										}
-									}
-								},
-								eps : {
-									group : '.col-md-3',
-									validators : {
-										notEmpty : {
-											message : 'Campo requierido'
-										}
-									}
-								},
-								eps_vence : {
-									group : '.col-md-3',
-									validators : {
-										notEmpty : {
-											message : 'Campo requierido'
-										}
-									}
-								},
-								arl : {
-									group : '.col-md-3',
-									validators : {
-										notEmpty : {
-											message : 'Campo requierido'
-										}
-									}
-								},
-								alr_vence : {
-									group : '.col-md-3',
-									validators : {
-										notEmpty : {
-											message : 'Campo requierido'
-										}
-									}
-								},
-								inventario : {
-									group : '.col-md-8',
-									validators : {
-										notEmpty : {
-											message : 'Campo requierido'
-										}
-									}
-								},
-								inventario_scan : {
-									group : '.col-md-4',
-									validators : {
-										notEmpty : {
-											message : 'Campo requierido'
-										}
-									}
-								},
-								observaciones : {
-									group : '.col-md-8',
-									validators : {
-										notEmpty : {
-											message : 'Campo requierido'
-										}
-									}
-								}
-							}
-						});
-	</script>
-	
-	
 	<script type="text/javascript">
 		// DO NOT REMOVE : GLOBAL FUNCTIONS!
 
@@ -1605,7 +663,111 @@
 								tablet : 1024,
 								phone : 480
 							};
-
+							$('#cance').hide();
+							
+							$('#frm').bootstrapValidator({
+								feedbackIcons : {
+									valid : 'glyphicon glyphicon-ok',
+									invalid : 'glyphicon glyphicon-remove',
+									validating : 'glyphicon glyphicon-refresh'
+								},
+								fields : {
+									documento : {
+										group : '.col-xs-3',
+										validators : {
+											notEmpty : {
+												message : 'Campo requierido'
+											},
+											stringLength : {
+												max : 200,
+												message : 'De ser menor a 200 caracteres'
+											}
+										}
+									},
+									nombre_completo : {
+										group : '.col-xs-3',
+										validators : {
+											notEmpty : {
+												message : 'Campo requierido'
+											}
+										}
+									},
+									apellido : {
+										group : '.col-xs-3',
+										validators : {
+											notEmpty : {
+												message : 'Campo requierido'
+											}
+										}
+									},
+									tipo_persona_id : {
+										group : '.col-xs-6',
+										validators : {
+											notEmpty : {
+												message : 'Campo requierido'
+											}
+										}
+									},
+									dependencia_id : {
+										group : '.col-xs-6',
+										validators : {
+											notEmpty : {
+												message : 'Campo requierido'
+											}
+										}
+									},
+									coreo_e : {
+										group : '.col-xs-6',
+										validators : {
+											notEmpty : {
+												message : 'Campo requierido'
+											}
+										}
+									},
+									telefono : {
+										group : '.col-xs-6',
+										validators : {
+											notEmpty : {
+												message : 'Campo requierido'
+											}
+										}
+									},
+									/* scan_foto : {
+										group : '.col-xs-4',
+										validators : {
+											notEmpty : {
+												message : 'Campo requierido'
+											}
+										}
+									},*/ 
+									scan_cedula : {
+										group : '.col-xs-4',
+										validators : {
+											notEmpty : {
+												message : 'Campo requierido'
+											}
+										}
+									},
+									scan_huella : {
+										group : '.col-xs-4',
+										validators : {
+											notEmpty : {
+												message : 'Campo requierido'
+											}
+										}
+									},
+									observaciones : {
+										group : '.col-xs-10',
+										validators : {
+											notEmpty : {
+												message : 'Campo requierido'
+											}
+										}
+									}
+									
+								}
+							});
+							
 							$('#dt_basic')
 									.dataTable(
 											{
@@ -1764,13 +926,568 @@
 															.respond();
 												}
 											});
+							
+											
 
 							/* END TABLETOOLS */
 
-						})
+						});
+		function validar(){
+			alert('validando');
+		}
+		
+		
+		function el(id){return document.getElementById(id);} // Get elem by ID
+
+		// Para la imagen de cédula en CANVAS
+		var canvas  = el("scan_cedula2");
+		var context = canvas.getContext("2d");
+
+		function readImage() {
+		    if ( this.files && this.files[0] ) {
+		        var FR= new FileReader();
+		        FR.onload = function(e) {
+		        	
+		           var img = new Image();
+		           img.onload = function() {
+		             context.drawImage(img, 0, 0);
+		           };
+		           img.src = e.target.result;
+		        };
+		        FR.readAsDataURL( this.files[0] );
+		    }
+		}
+		el("scan_cedula").addEventListener("change", readImage, false);
+		
+		// Para la imagen de huella en CANVAS
+		var canvas2  = el("scan_huella2");
+		var context2 = canvas2.getContext("2d");
+
+		function readImage2() {
+		    if ( this.files && this.files[0] ) {
+		        var FR= new FileReader();
+		        FR.onload = function(e) {
+		        	
+		           var img2 = new Image();
+		           img2.onload = function() {
+		             context2.drawImage(img2, 0, 0);
+		           };
+		           img2.src = e.target.result;
+		        };
+		        FR.readAsDataURL( this.files[0] );
+		    }
+		}
+		el("scan_huella").addEventListener("change", readImage2, false);
+		
+		// Para la imagen de inventario en CANVAS
+		var canvas3  = el("scan_inventario2");
+		var context3 = canvas3.getContext("2d");
+
+		function readImage3() {
+		    if ( this.files && this.files[0] ) {
+		        var FR= new FileReader();
+		        FR.onload = function(e) {
+		        	
+		           var img3 = new Image();
+		           img3.onload = function() {
+		             context3.drawImage(img3, 0, 0);
+		           };
+		           img3.src = e.target.result;
+		        };
+		        FR.readAsDataURL( this.files[0] );
+		    }
+		}
+		el("scan_inventario").addEventListener("change", readImage3, false);
+		
+
+		function actualizar() {
+			$( "#frm" ).submit();
+			var doc = document.getElementById('documento').value;
+			var nc = document.getElementById('nombre_completo').value;
+			var ap = document.getElementById('apellido').value;
+			
+			//var tipoPersonaId = document.getElementById('tipoPersonaId.tipo_persona_id').value;
+			var x = document.getElementById('tipo_persona_id.tipo_persona_id').selectedIndex;
+			var tpi = document.getElementsByTagName("option")[x].value
+			
+			
+			//var dependencia_id = document.getElementById('dependencia_id.dependencia_id').value;
+			x = document.getElementById('dependencia_id.dependencia_id').selectedIndex;
+			var di = document.getElementsByTagName("option")[x].value
+			
+			var ce = document.getElementById('coreo_e').value;
+			var te = document.getElementById('telefono').value;
+			
+			// Para leer la foto que está en el CANVAS
+			var canvas = document.getElementById('scan_foto');
+			var canvasWidth  = canvas.width;
+			var canvasHeight = canvas.height;
+			var ctx = canvas.getContext('2d');
+			var imageData = ctx.getImageData(0, 0, canvasWidth, canvasHeight);
+			var sf = canvas.toDataURL();
+			
+			// Para leer la cedula que está en el CANVAS
+			canvas = document.getElementById('scan_cedula2');
+			canvasWidth  = canvas.width;
+			canvasHeight = canvas.height;
+			ctx = canvas.getContext('2d');
+			imageData = ctx.getImageData(0, 0, canvasWidth, canvasHeight);
+			var sc = canvas.toDataURL();
+			
+			//var sc = document.getElementById('scan_cedula').value;
+			
+			// Para leer la huella que está en el CANVAS
+			canvas = document.getElementById('scan_huella2');
+			canvasWidth  = canvas.width;
+			canvasHeight = canvas.height;
+			ctx = canvas.getContext('2d');
+			imageData = ctx.getImageData(0, 0, canvasWidth, canvasHeight);
+			var sh = canvas.toDataURL();
+			//var sh = document.getElementById('scan_huella').value;
+			
+			var o = document.getElementById('observaciones').value;
+			var est = document.getElementById('estado').value;
+			var opc=document.getElementById('elboton').innerHTML;
+			$.ajax({
+				type : "POST",
+				url : "conductor_add/agregar",
+				processData: true,
+				data : {
+					documento: doc,
+					nombre_completo: nc,
+					apellido: ap,
+					tipo_persona_id: tpi,
+					dependencia_id: di,
+					coreo_e: ce,
+					telefono: te,
+					scan_foto: sf,
+					scan_cedula: sc,
+					scan_huella: sh,
+					observaciones:	o,
+					estado:	est,
+					opcion: opc
+				},
+				success : function(data) {		
+					 //document.getElementById('apellido').value = "";
+					 //document.getElementById('documento').value = "0";
+					 if (data=="semodifico"){
+						 $.smallBox({
+							title : "Fue modificado con éxito!!!",
+							content : "Por favor verifique<p class='text-align-right'><a href='javascript:void(0);' class='btn btn-danger btn-sm'>Ok</a></p>",
+							color : "#468D47",
+							//timeout: 8000,
+							icon : "fa fa-bell swing animated"
+						});
+						
+					 }
+					 else{
+						 if (data=="error"){
+							 /* $.smallBox({
+									title : "ATENCIÓN: El registró no fue guardado!, es posible que falte información",
+									content : "Por favor verifique<p class='text-align-right'><a href='javascript:void(0);' class='btn btn-danger btn-sm'>Ok</a></p>",
+									color : "#296191",
+									//timeout: 8000,
+									icon : "fa fa-bell swing animated"
+								}); */
+							 $.smallBox({
+									title : "ATENCIÓN: El registró no fue guardado!",
+									content : "<i class='fa fa-clock-o'></i> <i>Es posible que falte información, Por favor verifique que todos los campos estén ingresados</i>",
+									color : "#C46A69",
+									iconSmall : "fa fa-times fa-2x fadeInRight animated",
+									timeout : 8000
+							 });
+						 }
+						 else{
+							 var res = data.split(":::");
+							 $('#datatable_fixed_column').dataTable().fnAddData( [res[0],res[1]] );
+							 $.smallBox({
+									title : "La información se registró adecuadamente",
+									content : "Para ingresar un nuevo registro ingrese la información y presione el botón Actualizar",
+									color : "#5384AF",
+									timeout: 8000,
+									icon : "fa fa-bell swing animated"
+							 });
+							 $('#cance').hide();
+						 }
+					 }
+				},
+				error : function(data) {			
+					$.smallBox({
+						title : "ATENCIÓN: El registró no fue guardado!",
+						content : "<i class='fa fa-clock-o'></i> <i>Es posible que falte información, Por favor verifique que<br> todos los campos estén ingresados</i>",
+						color : "#C46A69",
+						iconSmall : "fa fa-times fa-2x fadeInRight animated",
+						timeout : 8000
+				 });
+				}
+			});
+		}
+		
+		function del(dato, thi) {
+			$.ajax({
+				type : "POST",
+				url : "conductor_add/borrar",
+				data : {
+					documento : dato
+				},
+				success : function(data) {
+					nRow=$(thi).closest("tr").index();
+					$('#datatable_fixed_column').dataTable().fnDeleteRow(nRow);
+				 	$.smallBox({
+						title : "Eliminación de Información",
+						content : "La información se eliminó adecuadamente",
+						color : "#5384AF",
+						timeout: 8000,
+						icon : "fa fa-bell"
+				    });
+				},
+				error : function(data) {
+					$.smallBox({
+						title : "ATENCIÓN: No se eliminó!",
+						content : "<i class='fa fa-clock-o'></i> <i>El registro no se eliminó correctamente</i>",
+						color : "#C46A69",
+						iconSmall : "fa fa-times fa-2x fadeInRight animated",
+						timeout : 8000
+				 });
+				}
+			});
+		}
+		
+		function borrar(dato, thi){
+			$.SmartMessageBox({
+				title : "Eliminación!",
+				content : "Está apunto de eliminar un registro, está de acuerdo?",
+				buttons : '[No][Si]'
+			}, function(ButtonPressed) {
+				if (ButtonPressed === "Si") {
+					del(dato,thi);
+				}
+				if (ButtonPressed === "No") {
+					$.smallBox({
+						title : "Operación Cancelada",
+						content : "<i class='fa fa-clock-o'></i> <i>No se afectó la información</i>",
+						color : "#C46A69",
+						iconSmall : "fa fa-times fa-2x fadeInRight animated",
+						timeout : 2000
+					});
+				}
+	
+			});
+			//e.preventDefault();
+		}
+		
+		function cancelar() {
+			var doc = document.getElementById('documento').value;
+			var nc = document.getElementById('nombre_completo').value;
+			var ap = document.getElementById('apellido').value;
+			
+			//var tipoPersonaId = document.getElementById('tipoPersonaId.tipo_persona_id').value;
+			var x = document.getElementById('tipo_persona_id.tipo_persona_id').selectedIndex;
+			var tpi = document.getElementsByTagName("option")[x].value
+			
+			
+			//var dependencia_id = document.getElementById('dependencia_id.dependencia_id').value;
+			x = document.getElementById('dependencia_id.dependencia_id').selectedIndex;
+			var di = document.getElementsByTagName("option")[x].value
+			
+			var ce = document.getElementById('coreo_e').value;
+			var te = document.getElementById('telefono').value;
+			
+			// Para leer la foto que está en el CANVAS
+			var canvas = document.getElementById('scan_foto');
+			var canvasWidth  = canvas.width;
+			var canvasHeight = canvas.height;
+			var ctx = canvas.getContext('2d');
+			var imageData = ctx.getImageData(0, 0, canvasWidth, canvasHeight);
+			var sf = canvas.toDataURL();
+			
+			// Para leer la cedula que está en el CANVAS
+			canvas = document.getElementById('scan_cedula2');
+			canvasWidth  = canvas.width;
+			canvasHeight = canvas.height;
+			ctx = canvas.getContext('2d');
+			imageData = ctx.getImageData(0, 0, canvasWidth, canvasHeight);
+			var sc = canvas.toDataURL();
+			
+			//var sc = document.getElementById('scan_cedula').value;
+			
+			// Para leer la huella que está en el CANVAS
+			canvas = document.getElementById('scan_huella2');
+			canvasWidth  = canvas.width;
+			canvasHeight = canvas.height;
+			ctx = canvas.getContext('2d');
+			imageData = ctx.getImageData(0, 0, canvasWidth, canvasHeight);
+			var sh = canvas.toDataURL();
+			//var sh = document.getElementById('scan_huella').value;
+			
+			// Para leer la inventario que está en el CANVAS
+			canvas = document.getElementById('scan_inventario2');
+			canvasWidth  = canvas.width;
+			canvasHeight = canvas.height;
+			ctx = canvas.getContext('2d');
+			imageData = ctx.getImageData(0, 0, canvasWidth, canvasHeight);
+			var sinv = canvas.toDataURL();
+			//var sinv = document.getElementById('scan_inventario').value;
+			
+			var o = document.getElementById('observaciones').value;
+			var est = document.getElementById('estado').value;
+			var opc=document.getElementById('elboton').innerHTML;
+			$('#elboton').text('Nuevo');
+			$.ajax({
+				type : "POST",
+				url : "conductor_add/cancelar",
+				data : {
+					documento: doc,
+					nombre_completo: nc,
+					apellido: ap,
+					tipo_persona_id: tpi,
+					dependencia_id: di,
+					coreo_e: ce,
+					telefono: te,
+					scan_foto: sf,
+					scan_cedula: sc,
+					scan_huella: sh,
+					observaciones:	o,
+					estado:	est,
+					opcion: opc
+				},
+				success : function(data) {					
+					//document.getElementById('descripcion').value = "";
+					//document.getElementById('area_id').value = "0";
+					 var res = data.split(":::");
+					 $('#datatable_fixed_column').dataTable().fnAddData( [res[0],res[1]] );
+					 $.smallBox({
+							title : "Operación Cancelada",
+							content : "<i class='fa fa-clock-o'></i> <i>Se regresó la información a la tabla sin modificaciones</i>",
+							color : "#C46A69",
+							iconSmall : "fa fa-times fa-2x fadeInRight animated",
+							timeout : 4000
+					 });
+					 $('#cance').hide();
+				},
+				error : function(data) {
+					/* document.getElementById('descripcion').value = "";
+					document.getElementById('area_id').value = "0"; */					
+				}
+			});
+		}
+		
+		function con(documento, nombre_completo, apellido, tipo_persona_id, dependencia_id, coreo_e, telefono, scan_foto, scan_cedula, scan_huella, observaciones, estado, thi) {
+			document.getElementById('documento').value=documento;
+			// Lectura CANVAS para foto			
+			document.getElementById('nombre_completo').value=nombre_completo;
+			document.getElementById('apellido').value=apellido;
+			document.getElementById('tipo_persona_id.tipo_persona_id').selectedIndex=tipo_persona_id;
+			document.getElementById('dependencia_id.dependencia_id').selectedIndex=dependencia_id;
+			document.getElementById('coreo_e').value=coreo_e;
+			document.getElementById('telefono').value=telefono;
+			
+			// Lectura CANVAS para foto			
+			var canvas = document.getElementById('scan_foto');
+			var ctx = canvas.getContext('2d');
+			var image = new Image();
+			image.src = scan_foto;
+			image.onload = function(){
+			   ctx.drawImage(image, 0, 0,300, 150);
+			}
+			
+			// Lectura CANVAS para cedula
+			var canvas2 = document.getElementById('scan_cedula2');
+			var ctx2 = canvas2.getContext('2d');
+			var image2 = new Image();
+			image2.src = scan_cedula;
+			image2.onload = function(){
+			   ctx2.drawImage(image2, 0, 0);
+			}
+			
+			// Lectura CANVAS para huella
+			var canvas3 = document.getElementById('scan_huella2');
+			var ctx3 = canvas3.getContext('2d');
+			var image3 = new Image();
+			image3.src = scan_huella;
+			image3.onload = function(){
+			   ctx3.drawImage(image3, 0, 0);
+			}
+			
+			// Lectura CANVAS para huella
+			var canvas4 = document.getElementById('scan_inventario2');
+			var ctx4 = canvas4.getContext('2d');
+			var image4 = new Image();
+			image4.src = scan_inventario;
+			image4.onload = function(){
+			   ctx4.drawImage(image4, 0, 0);
+			}
+			//document.getElementById('scan_inventario2').value=scan_inventario;
+			
+			document.getElementById('observaciones').value=observaciones;
+			document.getElementById('estado').value=estado;
+			$('#cance').show();
+			document.getElementById('elboton').innerHTML='Actualizar';
+			nRow=$(thi).closest("tr").index();
+			$('#datatable_fixed_column').dataTable().fnDeleteRow(nRow);
+			$.smallBox({
+				title : "Inició la modificación del registro",
+				content : "Ya no está en el listado, en caso de no querer precione el botón Cancelar",
+				color : "#5384AF",
+				timeout: 8000,
+				icon : "fa fa-bell"
+		    });
+		}
+	
+	</script>
+	<script type="text/javascript">
+			//Nos aseguramos que estén definidas
+			//algunas funciones básicas
+			window.URL = window.URL || window.webkitURL;
+			navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia ||
+			function() {
+			    alert('Su navegador no soporta navigator.getUserMedia().');
+			};
+		
+			//Este objeto guardará algunos datos sobre la cámara
+			window.datosVideo = {
+			    'StreamVideo': null,
+			    'url': null
+			}
+		
+			jQuery('#botonIniciar').on('click', function(e) {
+		
+			    //Pedimos al navegador que nos da acceso a 
+			    //algún dispositivo de video (la webcam)
+			    navigator.getUserMedia({
+			        'audio': false,
+			        'video': true
+			    }, function(streamVideo) {
+			        datosVideo.StreamVideo = streamVideo;
+			        datosVideo.url = window.URL.createObjectURL(streamVideo);
+			        jQuery('#camara').attr('src', datosVideo.url);
+		
+			    }, function() {
+			        alert('No fue posible obtener acceso a la cámara.');
+			    });
+		
+			});
+		
+			jQuery('#botonDetener').on('click', function(e) {
+		
+			    if (datosVideo.StreamVideo) {
+			        datosVideo.StreamVideo.stop();
+			        window.URL.revokeObjectURL(datosVideo.url);
+			    }
+		
+			});
+		
+			jQuery('#botonFoto').on('click', function(e) {
+			    var oCamara, oFoto, oContexto, w, h;
+		
+			    oCamara = jQuery('#camara');
+			    oFoto = jQuery('#scan_foto');
+			    w = oCamara.width();
+			    h = oCamara.height();
+			    oFoto.attr({
+			        'width': w,
+			        'height': h
+			    });
+			    oContexto = oFoto[0].getContext('2d');
+			    oContexto.drawImage(oCamara[0], 0, 0, w, h);
+		
+			});
+			
+			// Modal Link
+			$('#modal_link').click(function() {
+				$('#dialog-message').dialog('open');
+				return false;
+			});
+			
+			// Modal Link Cedula
+			$('#modal_link_cedula').click(function() {
+				$('#dialog-message2').dialog('open');
+				return false;
+			});
+			
+			// Modal Link Huella
+			$('#modal_link_huella').click(function() {
+				$('#dialog-message3').dialog('open');
+				return false;
+			});
+			
+			// Modal Link Inventario
+			$('#modal_link_inventario').click(function() {
+				$('#dialog-message4').dialog('open');
+				return false;
+			});
+		
+			$("#dialog-message").dialog({
+				autoOpen : false,
+				modal : true,
+				title : "Gestión de Fotos",
+				buttons : [{
+					html : "Cancel",
+					"class" : "btn btn-default",
+					click : function() {
+						$(this).dialog("close");
+					}
+				}, {
+					html : "<i class='fa fa-check'></i>&nbsp; OK",
+					"class" : "btn btn-primary",
+					click : function() {
+						$(this).dialog("close");
+					}
+				}],
+				position: 'top'
+				
+			});
+			
+			$("#dialog-message2").dialog({
+				autoOpen : false,
+				modal : true,
+				title : "Imagen Cédula",
+				buttons : [{
+					html : "<i class='fa fa-check'></i>&nbsp; OK",
+					"class" : "btn btn-primary",
+					click : function() {
+						$(this).dialog("close");
+					}
+				}],
+				position: 'top',
+				width: "90%",
+			   	maxWidth: "768px"
+			});
+			
+			$("#dialog-message3").dialog({
+				autoOpen : false,
+				modal : true,
+				title : "Imagen Huella",
+				buttons : [{
+					html : "<i class='fa fa-check'></i>&nbsp; OK",
+					"class" : "btn btn-primary",
+					click : function() {
+						$(this).dialog("close");
+					}
+				}],
+				position: 'top',
+				width: "90%",
+			   	maxWidth: "768px"
+			});
+			
+			$("#dialog-message4").dialog({
+				autoOpen : false,
+				modal : true,
+				title : "Imagen Inventario",
+				buttons : [{
+					html : "<i class='fa fa-check'></i>&nbsp; OK",
+					"class" : "btn btn-primary",
+					click : function() {
+						$(this).dialog("close");
+					}
+				}],
+				position: 'top',
+				width: "90%",
+			   	maxWidth: "768px"
+			});
 	</script>
 
-	<!-- Your GOOGLE ANALYTICS CODE Below -->
+		<!-- Your GOOGLE ANALYTICS CODE Below -->
 	<script type="text/javascript">
 		var _gaq = _gaq || [];
 		_gaq.push([ '_setAccount', 'UA-XXXXXXXX-X' ]);

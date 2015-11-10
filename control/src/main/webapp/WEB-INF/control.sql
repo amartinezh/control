@@ -531,7 +531,7 @@ CREATE TABLE control.conductor(
   eps_vence date,
   alr character varying(64),
   alr_vence date,
-  patiero character varying(1),
+  precinto character varying(1),
   documento_patiero character varying,
   scan_orden_cargue character varying,
   scan_tarjeta_propiedad character varying,

@@ -165,39 +165,21 @@
 													<legend>  Conductores </legend>
 													<!-- <form:input type="hidden" path="documento" value="0" /> -->
 														<form:input type="hidden" path="estado" />
-														
 													<div class="col-xs-3">
 														<label class="control-label">Documento</label> 
 														<form:input path="documento" type="text"
 															class="form-control" data-bv-field="Documento"
 															required="required" /> 
-														<label class="control-label">Placa</label> 
-															<input type="text" class="form-control" name="placa" />
-															
-														<label class="toggle">
-															<input type="checkbox" name="checkbox-toggle">
-															<i data-swchon-text="ON" data-swchoff-text="OFF"></i>Requiere Patiero?</label>
 													</div>
 													<div class="col-xs-3">
 														<label class="control-label">Nombre Completo</label>
 														 <form:input path="nombre_completo" type="text"
 															class="form-control" data-bv-field="Nombre Completo"
 															required="required" />
-															<label class="control-label">Empresa  de Transporte</label> <input
-															type="text" class="form-control" name="empresa_transporte" />
-															
-															<label class="control-label">Documento Patiero</label> 
-															<input type="text" class="form-control" name="nit_empresa" />
 													</div>
 													<div class="col-xs-3">
 														<label class="control-label">Apellidos</label>
 														<form:input path="apellido" type="text"	class="form-control" data-bv-field="Apellido" required="required" />
-														
-														<label class="control-label">Trailer</label> <input
-															type="text" class="form-control" name="trailer" />
-															
-														<label class="control-label">Número Precinto</label> <input
-															type="text" class="form-control" name="Número Precinto" />
 													</div>
 													<div class="col-xs-3">
 														<div id="dialog-message_foto" title="Foto">
@@ -220,37 +202,45 @@
 												</div>
 											</div>
 										</fieldset>
-										<!-- <fieldset>
+										 <fieldset>
 											<div class="form-group">
 												<div class="row">
-													<div class="col-sm-12 col-md-4">
-														
+													<div class="col-xs-3">
+														<label class="control-label">Placa</label> 
+															<input type="text" class="form-control" name="placa" />
 													</div>
-													<div class="col-sm-12 col-md-4">
-														
+													<div class="col-xs-3">
+														<label class="control-label">Empresa  de Transporte</label> <input
+															type="text" class="form-control" name="empresa_transporte" />
+															
 													</div>
-													<div class="col-sm-12 col-md-4">
-														
+													<div class="col-xs-3">
+														<label class="control-label">Trailer</label> <input
+															type="text" class="form-control" name="trailer" />
+													</div>
+													<div class="col-xs-3">
+														<label class="control-label">Número Precinto</label> <input
+															type="text" class="form-control" name="precinto" />
 													</div>
 												</div>
 											</div>
-										</fieldset>  -->
+										</fieldset>
 										<fieldset>
 											<div class="form-group">
 												<div class="row">
-													<div class="col-sm-12 col-md-3">
+													<div class="col-xs-3">
 														<label class="control-label">EPS</label> <input
 															type="text" class="form-control" name="eps" />
 													</div>
-													<div class="col-sm-12 col-md-3">
+													<div class="col-xs-3">
 														<label class="control-label">Fecha Vencimiento EPS</label> <input
 															type="date" class="form-control" name="eps_vence" />
 													</div>
-													<div class="col-sm-12 col-md-3">
+													<div class="col-xs-3">
 														<label class="control-label">ARL</label> <input
 															type="text" class="form-control" name="arl" />
 													</div>
-													<div class="col-sm-12 col-md-3">
+													<div class="col-xs-3">
 														<label class="control-label">Fecha Vencimiento ARL</label> <input
 															type="date" class="form-control" name="alr_vence" />
 													</div>
@@ -260,15 +250,26 @@
 										<fieldset>
 											<div class="form-group">
 												<div class="row">
-													<div class="col-sm-12 col-md-4">
 													
-															
+													<div class="col-xs-3">
+														<label class="control-label">Documento Patiero</label> 
+															<input type="text" class="form-control" name="documento_patiero" />
 													</div>
-													<div class="col-sm-12 col-md-4">
-														
+													<div class="col-xs-3">
+														<label class="control-label">Correo  Electrónico</label>
+														<form:input path="coreo_e" type="text"	class="form-control" data-bv-field="Coreo Electrónico" required="required" />
 													</div>
-													<div class="col-sm-12 col-md-4">
-														
+													<div class="col-xs-3">
+														<label class="control-label">Teléfonos</label>
+														<form:input path="telefono" type="text"	class="form-control" data-bv-field="Teléfono" required="required" />
+													</div>
+													<div class="col-xs-3">
+														<label class="control-label input-file"><a href="#" id="modal_link_huella"> Archivo Huella</a></label>
+														<form:input path="scan_huella" type="file" accept="image/*"	class="form-control" data-bv-field="Huella" required="required" />
+													
+														<div id="dialog-message_huella" title="Imagen Huella">
+															<canvas id="scan_huella2"  width="900" height="300" style="background-color:#ffffff;"></canvas>
+														</div>
 													</div>
 												</div>
 											</div>
@@ -309,28 +310,6 @@
 													
 														<div id="dialog-message_cedula" title="Imagen Cedula">
 															<canvas id="scan_cedula2"  width="900" height="300" style="background-color:#ffffff;"></canvas>
-														</div>
-													</div>
-												</div>
-											</div>
-										</fieldset>
-										<fieldset>
-											<div class="form-group">
-												<div class="row">
-													<div class="col-xs-4">
-														<label class="control-label">Correo  Electrónico</label>
-														<form:input path="coreo_e" type="text"	class="form-control" data-bv-field="Coreo Electrónico" required="required" />
-													</div>
-													<div class="col-xs-4">
-														<label class="control-label">Teléfonos</label>
-														<form:input path="telefono" type="text"	class="form-control" data-bv-field="Teléfono" required="required" />
-													</div>
-													<div class="col-xs-4">
-														<label class="control-label input-file"><a href="#" id="modal_link_huella"> Archivo Huella</a></label>
-														<form:input path="scan_huella" type="file" accept="image/*"	class="form-control" data-bv-field="Huella" required="required" />
-													
-														<div id="dialog-message_huella" title="Imagen Huella">
-															<canvas id="scan_huella2"  width="900" height="300" style="background-color:#ffffff;"></canvas>
 														</div>
 													</div>
 												</div>
@@ -688,16 +667,72 @@
 											}
 										}
 									},
-									tipo_persona_id : {
-										group : '.col-xs-6',
+									placa : {
+										group : '.col-xs-3',
 										validators : {
 											notEmpty : {
 												message : 'Campo requierido'
 											}
 										}
 									},
-									dependencia_id : {
-										group : '.col-xs-6',
+									empresa_transporte : {
+										group : '.col-xs-3',
+										validators : {
+											notEmpty : {
+												message : 'Campo requierido'
+											}
+										}
+									},
+									trailer : {
+										group : '.col-xs-3',
+										validators : {
+											notEmpty : {
+												message : 'Campo requierido'
+											}
+										}
+									},
+									precinto : {
+										group : '.col-xs-3',
+										validators : {
+											notEmpty : {
+												message : 'Campo requierido'
+											}
+										}
+									},
+									documento_patiero : {
+										group : '.col-xs-3',
+										validators : {
+											notEmpty : {
+												message : 'Campo requierido'
+											}
+										}
+									},
+									eps : {
+										group : '.col-xs-3',
+										validators : {
+											notEmpty : {
+												message : 'Campo requierido'
+											}
+										}
+									},
+									eps_vence : {
+										group : '.col-xs-3',
+										validators : {
+											notEmpty : {
+												message : 'Campo requierido'
+											}
+										}
+									},
+									arl : {
+										group : '.col-xs-3',
+										validators : {
+											notEmpty : {
+												message : 'Campo requierido'
+											}
+										}
+									},
+									alr_vence : {
+										group : '.col-xs-3',
 										validators : {
 											notEmpty : {
 												message : 'Campo requierido'
@@ -705,7 +740,7 @@
 										}
 									},
 									coreo_e : {
-										group : '.col-xs-6',
+										group : '.col-xs-3',
 										validators : {
 											notEmpty : {
 												message : 'Campo requierido'
@@ -713,7 +748,7 @@
 										}
 									},
 									telefono : {
-										group : '.col-xs-6',
+										group : '.col-xs-3',
 										validators : {
 											notEmpty : {
 												message : 'Campo requierido'
@@ -729,7 +764,7 @@
 										}
 									},*/ 
 									scan_cedula : {
-										group : '.col-xs-4',
+										group : '.col-xs-3',
 										validators : {
 											notEmpty : {
 												message : 'Campo requierido'
@@ -737,7 +772,7 @@
 										}
 									},
 									scan_huella : {
-										group : '.col-xs-4',
+										group : '.col-xs-3',
 										validators : {
 											notEmpty : {
 												message : 'Campo requierido'
@@ -1029,49 +1064,46 @@
 
 		function actualizar() {
 			$( "#frm" ).submit();
-			var doc = document.getElementById('documento').value;
-			var nc = document.getElementById('nombre_completo').value;
-			var ap = document.getElementById('apellido').value;
-			
-			//var tipoPersonaId = document.getElementById('tipoPersonaId.tipo_persona_id').value;
-			var x = document.getElementById('tipo_persona_id.tipo_persona_id').selectedIndex;
-			var tpi = document.getElementsByTagName("option")[x].value
-			
-			
-			//var dependencia_id = document.getElementById('dependencia_id.dependencia_id').value;
-			x = document.getElementById('dependencia_id.dependencia_id').selectedIndex;
-			var di = document.getElementsByTagName("option")[x].value
-			
-			var ce = document.getElementById('coreo_e').value;
-			var te = document.getElementById('telefono').value;
+			var documento = document.getElementById('documento').value;
+			var nombre_completo = document.getElementById('nombre_completo').value;
+			var apellido = document.getElementById('apellido').value;
+			var coreo_e = document.getElementById('coreo_e').value;
+			var telefono = document.getElementById('telefono').value;
+			var empresa_de_transporte = document.getElementById('empresa_de_transporte').value;
+			var placa = document.getElementById('placa').value;
+			var trailer = document.getElementById('trailer').value;
+			var eps = document.getElementById('eps').value;
+			var eps_vence = document.getElementById('eps_vence').value;
+			var alr = document.getElementById('alr').value;
+			var alr_vence = document.getElementById('alr_vence').value;
+			var precinto = document.getElementById('precinto').value;
+			var documento_patiero = document.getElementById('documento_patiero').value;
 			
 			// Para leer la foto que está en el CANVAS
 			var canvas = document.getElementById('scan_foto');
-			var canvasWidth  = canvas.width;
-			var canvasHeight = canvas.height;
-			var ctx = canvas.getContext('2d');
-			var imageData = ctx.getImageData(0, 0, canvasWidth, canvasHeight);
-			var sf = canvas.toDataURL();
+			var canvasWidth  = canvas.width; var canvasHeight = canvas.height; var ctx = canvas.getContext('2d'); var imageData = ctx.getImageData(0, 0, canvasWidth, canvasHeight);
+			var scan_foto = canvas.toDataURL();
 			
-			// Para leer la cedula que está en el CANVAS
 			canvas = document.getElementById('scan_cedula2');
-			canvasWidth  = canvas.width;
-			canvasHeight = canvas.height;
-			ctx = canvas.getContext('2d');
-			imageData = ctx.getImageData(0, 0, canvasWidth, canvasHeight);
-			var sc = canvas.toDataURL();
+			canvasWidth  = canvas.width; canvasHeight = canvas.height; ctx = canvas.getContext('2d'); imageData = ctx.getImageData(0, 0, canvasWidth, canvasHeight);
+			var scan_cedula = canvas.toDataURL();
 			
-			//var sc = document.getElementById('scan_cedula').value;
-			
-			// Para leer la huella que está en el CANVAS
 			canvas = document.getElementById('scan_huella2');
-			canvasWidth  = canvas.width;
-			canvasHeight = canvas.height;
-			ctx = canvas.getContext('2d');
-			imageData = ctx.getImageData(0, 0, canvasWidth, canvasHeight);
-			var sh = canvas.toDataURL();
-			//var sh = document.getElementById('scan_huella').value;
+			canvasWidth  = canvas.width; canvasHeight = canvas.height; ctx = canvas.getContext('2d'); imageData = ctx.getImageData(0, 0, canvasWidth, canvasHeight);
+			var scan_huella = canvas.toDataURL();
 			
+			canvas = document.getElementById('scan_orden_cargue2');
+			canvasWidth  = canvas.width; canvasHeight = canvas.height; ctx = canvas.getContext('2d'); imageData = ctx.getImageData(0, 0, canvasWidth, canvasHeight);
+			var scan_orden_cargue = canvas.toDataURL();
+			
+			canvas = document.getElementById('scan_tarjeta_propiedad2');
+			canvasWidth  = canvas.width; canvasHeight = canvas.height; ctx = canvas.getContext('2d'); imageData = ctx.getImageData(0, 0, canvasWidth, canvasHeight);
+			var scan_tarjeta_propiedad = canvas.toDataURL();
+			
+			canvas = document.getElementById('scan_alr2');
+			canvasWidth  = canvas.width; canvasHeight = canvas.height; ctx = canvas.getContext('2d'); imageData = ctx.getImageData(0, 0, canvasWidth, canvasHeight);
+			var scan_alr = canvas.toDataURL();
+
 			var o = document.getElementById('observaciones').value;
 			var est = document.getElementById('estado').value;
 			var opc=document.getElementById('elboton').innerHTML;
@@ -1081,22 +1113,30 @@
 				processData: true,
 				data : {
 					documento: doc,
-					nombre_completo: nc,
-					apellido: ap,
-					tipo_persona_id: tpi,
-					dependencia_id: di,
-					coreo_e: ce,
-					telefono: te,
-					scan_foto: sf,
-					scan_cedula: sc,
-					scan_huella: sh,
+					fecha_registro: fecha_registro,
+					nombre_completo: nombre_completo,
+					apellido: apellido,
+					telefono: telefono,
+					scan_foto: scan_foto,
+					scan_cedula: scan_cedula,
+					scan_huella: scan_huella,
+					empresa_de_transporte: empresa_de_transporte,
+					placa: placa,
+					trailer:	trailer,
+					eps:	eps,
+					eps_vence: eps_vence,
+					alr: alr,
+					alr_vence: alr_vence,
+					precinto: precinto,
+					documento_patiero: documento_patiero,
+					scan_orden_cargue: scan_orden_cargue,
+					scan_tarjeta_propiedad: scan_tarjeta_propiedad,
+					scan_alr: scan_alr,
 					observaciones:	o,
 					estado:	est,
 					opcion: opc
 				},
 				success : function(data) {		
-					 //document.getElementById('apellido').value = "";
-					 //document.getElementById('documento').value = "0";
 					 if (data=="semodifico"){
 						 $.smallBox({
 							title : "Fue modificado con éxito!!!",
@@ -1109,13 +1149,6 @@
 					 }
 					 else{
 						 if (data=="error"){
-							 /* $.smallBox({
-									title : "ATENCIÓN: El registró no fue guardado!, es posible que falte información",
-									content : "Por favor verifique<p class='text-align-right'><a href='javascript:void(0);' class='btn btn-danger btn-sm'>Ok</a></p>",
-									color : "#296191",
-									//timeout: 8000,
-									icon : "fa fa-bell swing animated"
-								}); */
 							 $.smallBox({
 									title : "ATENCIÓN: El registró no fue guardado!",
 									content : "<i class='fa fa-clock-o'></i> <i>Es posible que falte información, Por favor verifique que todos los campos estén ingresados</i>",
@@ -1204,58 +1237,46 @@
 		}
 		
 		function cancelar() {
-			var doc = document.getElementById('documento').value;
-			var nc = document.getElementById('nombre_completo').value;
-			var ap = document.getElementById('apellido').value;
-			
-			//var tipoPersonaId = document.getElementById('tipoPersonaId.tipo_persona_id').value;
-			var x = document.getElementById('tipo_persona_id.tipo_persona_id').selectedIndex;
-			var tpi = document.getElementsByTagName("option")[x].value
-			
-			
-			//var dependencia_id = document.getElementById('dependencia_id.dependencia_id').value;
-			x = document.getElementById('dependencia_id.dependencia_id').selectedIndex;
-			var di = document.getElementsByTagName("option")[x].value
-			
-			var ce = document.getElementById('coreo_e').value;
-			var te = document.getElementById('telefono').value;
+			var documento = document.getElementById('documento').value;
+			var nombre_completo = document.getElementById('nombre_completo').value;
+			var apellido = document.getElementById('apellido').value;
+			var coreo_e = document.getElementById('coreo_e').value;
+			var telefono = document.getElementById('telefono').value;
+			var empresa_de_transporte = document.getElementById('empresa_de_transporte').value;
+			var placa = document.getElementById('placa').value;
+			var trailer = document.getElementById('trailer').value;
+			var eps = document.getElementById('eps').value;
+			var eps_vence = document.getElementById('eps_vence').value;
+			var alr = document.getElementById('alr').value;
+			var alr_vence = document.getElementById('alr_vence').value;
+			var precinto = document.getElementById('precinto').value;
+			var documento_patiero = document.getElementById('documento_patiero').value;
 			
 			// Para leer la foto que está en el CANVAS
 			var canvas = document.getElementById('scan_foto');
-			var canvasWidth  = canvas.width;
-			var canvasHeight = canvas.height;
-			var ctx = canvas.getContext('2d');
-			var imageData = ctx.getImageData(0, 0, canvasWidth, canvasHeight);
-			var sf = canvas.toDataURL();
+			var canvasWidth  = canvas.width; var canvasHeight = canvas.height; var ctx = canvas.getContext('2d'); var imageData = ctx.getImageData(0, 0, canvasWidth, canvasHeight);
+			var scan_foto = canvas.toDataURL();
 			
-			// Para leer la cedula que está en el CANVAS
 			canvas = document.getElementById('scan_cedula2');
-			canvasWidth  = canvas.width;
-			canvasHeight = canvas.height;
-			ctx = canvas.getContext('2d');
-			imageData = ctx.getImageData(0, 0, canvasWidth, canvasHeight);
-			var sc = canvas.toDataURL();
+			canvasWidth  = canvas.width; canvasHeight = canvas.height; ctx = canvas.getContext('2d'); imageData = ctx.getImageData(0, 0, canvasWidth, canvasHeight);
+			var scan_cedula = canvas.toDataURL();
 			
-			//var sc = document.getElementById('scan_cedula').value;
-			
-			// Para leer la huella que está en el CANVAS
 			canvas = document.getElementById('scan_huella2');
-			canvasWidth  = canvas.width;
-			canvasHeight = canvas.height;
-			ctx = canvas.getContext('2d');
-			imageData = ctx.getImageData(0, 0, canvasWidth, canvasHeight);
-			var sh = canvas.toDataURL();
-			//var sh = document.getElementById('scan_huella').value;
+			canvasWidth  = canvas.width; canvasHeight = canvas.height; ctx = canvas.getContext('2d'); imageData = ctx.getImageData(0, 0, canvasWidth, canvasHeight);
+			var scan_huella = canvas.toDataURL();
 			
-			// Para leer la inventario que está en el CANVAS
-			canvas = document.getElementById('scan_inventario2');
-			canvasWidth  = canvas.width;
-			canvasHeight = canvas.height;
-			ctx = canvas.getContext('2d');
-			imageData = ctx.getImageData(0, 0, canvasWidth, canvasHeight);
-			var sinv = canvas.toDataURL();
-			//var sinv = document.getElementById('scan_inventario').value;
+			canvas = document.getElementById('scan_orden_cargue2');
+			canvasWidth  = canvas.width; canvasHeight = canvas.height; ctx = canvas.getContext('2d'); imageData = ctx.getImageData(0, 0, canvasWidth, canvasHeight);
+			var scan_orden_cargue = canvas.toDataURL();
 			
+			canvas = document.getElementById('scan_tarjeta_propiedad2');
+			canvasWidth  = canvas.width; canvasHeight = canvas.height; ctx = canvas.getContext('2d'); imageData = ctx.getImageData(0, 0, canvasWidth, canvasHeight);
+			var scan_tarjeta_propiedad = canvas.toDataURL();
+			
+			canvas = document.getElementById('scan_alr2');
+			canvasWidth  = canvas.width; canvasHeight = canvas.height; ctx = canvas.getContext('2d'); imageData = ctx.getImageData(0, 0, canvasWidth, canvasHeight);
+			var scan_alr = canvas.toDataURL();
+
 			var o = document.getElementById('observaciones').value;
 			var est = document.getElementById('estado').value;
 			var opc=document.getElementById('elboton').innerHTML;
@@ -1265,15 +1286,25 @@
 				url : "conductor_add/cancelar",
 				data : {
 					documento: doc,
-					nombre_completo: nc,
-					apellido: ap,
-					tipo_persona_id: tpi,
-					dependencia_id: di,
-					coreo_e: ce,
-					telefono: te,
-					scan_foto: sf,
-					scan_cedula: sc,
-					scan_huella: sh,
+					fecha_registro: fecha_registro,
+					nombre_completo: nombre_completo,
+					apellido: apellido,
+					telefono: telefono,
+					scan_foto: scan_foto,
+					scan_cedula: scan_cedula,
+					scan_huella: scan_huella,
+					empresa_de_transporte: empresa_de_transporte,
+					placa: placa,
+					trailer:	trailer,
+					eps:	eps,
+					eps_vence: eps_vence,
+					alr: alr,
+					alr_vence: alr_vence,
+					precinto: precinto,
+					documento_patiero: documento_patiero,
+					scan_orden_cargue: scan_orden_cargue,
+					scan_tarjeta_propiedad: scan_tarjeta_propiedad,
+					scan_alr: scan_alr,
 					observaciones:	o,
 					estado:	est,
 					opcion: opc

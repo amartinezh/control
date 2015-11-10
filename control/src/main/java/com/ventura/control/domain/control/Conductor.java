@@ -66,8 +66,8 @@ public class Conductor implements Serializable {
 	@Column(name = "alr_vence")
 	private java.util.Date alr_vence;
 	
-	@Column(name = "patiero")
-	private String patiero;
+	@Column(name = "precinto")
+	private String precinto;
 	
 	@Column(name = "documento_patiero")
 	private String documento_patiero;
@@ -97,7 +97,7 @@ public class Conductor implements Serializable {
 
 	public Conductor(String documento, Date fecha_registro, String nombre_completo, String apellido, String coreo_e,
 			String telefono, String scan_foto, String scan_cedula, String scan_huella, String empresa_de_transporte,
-			String placa, String trailer, String eps, Date eps_vence, String alr, Date alr_vence, String patiero,
+			String placa, String trailer, String eps, Date eps_vence, String alr, Date alr_vence, String precinto,
 			String documento_patiero, String scan_orden_cargue, String scan_tarjeta_propiedad, String scan_alr,
 			String observaciones, String estado) {
 		super();
@@ -117,7 +117,7 @@ public class Conductor implements Serializable {
 		this.eps_vence = eps_vence;
 		this.alr = alr;
 		this.alr_vence = alr_vence;
-		this.patiero = patiero;
+		this.precinto = precinto;
 		this.documento_patiero = documento_patiero;
 		this.scan_orden_cargue = scan_orden_cargue;
 		this.scan_tarjeta_propiedad = scan_tarjeta_propiedad;
@@ -254,12 +254,12 @@ public class Conductor implements Serializable {
 		this.alr_vence = alr_vence;
 	}
 
-	public String getPatiero() {
-		return patiero;
+	public String getPrecinto() {
+		return precinto;
 	}
 
-	public void setPatiero(String patiero) {
-		this.patiero = patiero;
+	public void setPrecinto(String precinto) {
+		this.precinto = precinto;
 	}
 
 	public String getDocumento_patiero() {
@@ -321,7 +321,7 @@ public class Conductor implements Serializable {
 				+ ", scan_foto=" + scan_foto + ", scan_cedula=" + scan_cedula + ", scan_huella=" + scan_huella
 				+ ", empresa_de_transporte=" + empresa_de_transporte + ", placa=" + placa + ", trailer=" + trailer
 				+ ", eps=" + eps + ", eps_vence=" + eps_vence + ", alr=" + alr + ", alr_vence=" + alr_vence
-				+ ", patiero=" + patiero + ", documento_patiero=" + documento_patiero + ", scan_orden_cargue="
+				+ ", precinto=" + precinto + ", documento_patiero=" + documento_patiero + ", scan_orden_cargue="
 				+ scan_orden_cargue + ", scan_tarjeta_propiedad=" + scan_tarjeta_propiedad + ", scan_alr=" + scan_alr
 				+ ", observaciones=" + observaciones + ", estado=" + estado + "]";
 	}

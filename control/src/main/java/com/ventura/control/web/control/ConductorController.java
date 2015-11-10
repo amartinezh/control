@@ -60,7 +60,7 @@ public class ConductorController {
 			@RequestParam String eps_vence,
 			@RequestParam String alr,
 			@RequestParam String alr_vence,
-			@RequestParam String patiero,
+			@RequestParam String precinto,
 			@RequestParam String documento_patiero,
 			@RequestParam String scan_orden_cargue,
 			@RequestParam String scan_tarjeta_propiedad,
@@ -72,7 +72,7 @@ public class ConductorController {
 		java.text.SimpleDateFormat formatter = new java.text.SimpleDateFormat("yyyy-MM-dd");
 		Conductor obj=null;
 		try{
-				obj = new Conductor(documento, formatter.parse(fecha_registro), nombre_completo, apellido, coreo_e, telefono, scan_foto, scan_cedula, scan_huella, empresa_de_transporte, placa, trailer, eps, formatter.parse(eps_vence), alr, formatter.parse(alr_vence), patiero, documento_patiero, scan_orden_cargue, scan_tarjeta_propiedad, scan_alr, observaciones,"1");
+				obj = new Conductor(documento, formatter.parse(fecha_registro), nombre_completo, apellido, coreo_e, telefono, scan_foto, scan_cedula, scan_huella, empresa_de_transporte, placa, trailer, eps, formatter.parse(eps_vence), alr, formatter.parse(alr_vence), precinto, documento_patiero, scan_orden_cargue, scan_tarjeta_propiedad, scan_alr, observaciones,"1");
 		} catch (ParseException e) {
 			return "error";
 		}
@@ -119,7 +119,7 @@ public class ConductorController {
 			@RequestParam String eps_vence,
 			@RequestParam String alr,
 			@RequestParam String alr_vence,
-			@RequestParam String patiero,
+			@RequestParam String precinto,
 			@RequestParam String documento_patiero,
 			@RequestParam String scan_orden_cargue,
 			@RequestParam String scan_tarjeta_propiedad,

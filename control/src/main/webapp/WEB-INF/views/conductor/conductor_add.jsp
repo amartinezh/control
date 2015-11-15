@@ -163,7 +163,7 @@
 											<div class="form-group">
 												<div class="row">
 													<legend>  Conductores </legend>
-													<!-- <form:input type="hidden" path="documento" value="0" /> -->
+													<form:input type="hidden" path="fecha_registro" value="0" />
 														<form:input type="hidden" path="estado" />
 													<div class="col-xs-3">
 														<label class="control-label">Documento</label> 
@@ -424,7 +424,7 @@
 										<tr role="row" class="odd"> 
 											<td class="sorting_1"><span class="responsiveExpander"></span>
 												<a class="btn btn-success btn-circle btn-sx"
-												onclick="con('<c:out value="${obj.documento}"></c:out>','<c:out value="${obj.nombre_completo}"></c:out>','<c:out value="${obj.apellido}"></c:out>','<c:out value="${obj.tipo_persona_id.tipo_persona_id}"></c:out>','<c:out value="${obj.dependencia_id.dependencia_id}"></c:out>','<c:out value="${obj.correo_e}"></c:out>','<c:out value="${obj.telefono}"></c:out>','<c:out value="${obj.scan_foto}"></c:out>','<c:out value="${obj.scan_cedula}"></c:out>','<c:out value="${obj.scan_huella}"></c:out>','<c:out value="${obj.observaciones}"></c:out>','<c:out value="${obj.estado}"></c:out>',$(this))">
+												onclick="con('<c:out value="${obj.documento}"></c:out>','<fmt:formatDate type="both" dateStyle="short" timeStyle="short" value="${obj.fecha_registro}" pattern="yyyy-MM-dd"/>','<c:out value="${obj.nombre_completo}"></c:out>','<c:out value="${obj.apellido}"></c:out>','<c:out value="${obj.correo_e}"></c:out>','<c:out value="${obj.telefono}"></c:out>','<c:out value="${obj.scan_foto}"></c:out>','<c:out value="${obj.scan_cedula}"></c:out>','<c:out value="${obj.scan_huella}"></c:out>','<c:out value="${obj.empresa_de_transporte}"></c:out>','<c:out value="${obj.placa}"></c:out>','<c:out value="${obj.trailer}"></c:out>','<c:out value="${obj.eps}"></c:out>','<fmt:formatDate type="both" dateStyle="short" timeStyle="short" value="${obj.eps_vence}" pattern="yyyy-MM-dd"/>','<c:out value="${obj.arl}"></c:out>','<fmt:formatDate type="both" dateStyle="short" timeStyle="short" value="${obj.arl_vence}" pattern="yyyy-MM-dd"/>','<c:out value="${obj.precinto}"></c:out>','<c:out value="${obj.documento_patiero}"></c:out>','<c:out value="${obj.scan_orden_cargue}"></c:out>','<c:out value="${obj.scan_tarjeta_propiedad}"></c:out>','<c:out value="${obj.scan_arl}"></c:out>','<c:out value="${obj.observaciones}"></c:out>','<c:out value="${obj.estado}"></c:out>',$(this))">
 												<i class="fa fa-edit"></i></a> <a class="btn btn-danger btn-circle"
 												onclick="borrar(<c:out value="${obj.documento}"></c:out>, $(this))">
 												<i class="fa fa-trash-o"></i></a></td>
@@ -762,7 +762,7 @@
 												message : 'Campo requierido'
 											}
 										}
-									},*/ 
+									}, 
 									scan_cedula : {
 										group : '.col-xs-3',
 										validators : {
@@ -802,7 +802,7 @@
 												message : 'Campo requierido'
 											}
 										}
-									},
+									}, */
 									observaciones : {
 										group : '.col-xs-10',
 										validators : {
@@ -1133,7 +1133,6 @@
 			var est = document.getElementById('estado').value;
 			var opc=document.getElementById('elboton').innerHTML;
 			var fecha_registro = arl_vence;
-			alert(arl_vence);
 			$.ajax({
 				type : "POST",
 				url : "conductor_add/agregar",
@@ -1266,11 +1265,13 @@
 		
 		function cancelar() {
 			var documento = document.getElementById('documento').value;
+			var fecha_registro = document.getElementById('fecha_registro').value;
 			var nombre_completo = document.getElementById('nombre_completo').value;
 			var apellido = document.getElementById('apellido').value;
 			var correo_e = document.getElementById('correo_e').value;
 			var telefono = document.getElementById('telefono').value;
 			var empresa_de_transporte = document.getElementById('empresa_de_transporte').value;
+			
 			var placa = document.getElementById('placa').value;
 			var trailer = document.getElementById('trailer').value;
 			var eps = document.getElementById('eps').value;
@@ -1313,10 +1314,11 @@
 				type : "POST",
 				url : "conductor_add/cancelar",
 				data : {
-					documento: doc,
+					documento: documento,
 					fecha_registro: fecha_registro,
 					nombre_completo: nombre_completo,
 					apellido: apellido,
+					correo_e: correo_e,
 					telefono: telefono,
 					scan_foto: scan_foto,
 					scan_cedula: scan_cedula,
@@ -1358,17 +1360,26 @@
 			});
 		}
 		
-		function con(documento, nombre_completo, apellido, tipo_persona_id, dependencia_id, correo_e, telefono, scan_foto, scan_cedula, scan_huella, observaciones, estado, thi) {
+		function con(documento, fecha_registro, nombre_completo, apellido, correo_e, telefono, scan_foto, scan_cedula, scan_huella, empresa_de_transporte, placa, trailer, eps, eps_vence, arl, arl_vence, precinto, documento_patiero, scan_orden_cargue, scan_tarjeta_propiedad,   scan_arl, observaciones, estado, thi) {
 			document.getElementById('documento').value=documento;
-			// Lectura CANVAS para foto			
+			// Lectura CANVAS para foto
+			document.getElementById('fecha_registro').value=fecha_registro;
 			document.getElementById('nombre_completo').value=nombre_completo;
 			document.getElementById('apellido').value=apellido;
-			document.getElementById('tipo_persona_id.tipo_persona_id').selectedIndex=tipo_persona_id;
-			document.getElementById('dependencia_id.dependencia_id').selectedIndex=dependencia_id;
 			document.getElementById('correo_e').value=correo_e;
 			document.getElementById('telefono').value=telefono;
 			
-			// Lectura CANVAS para foto			
+			document.getElementById('empresa_de_transporte').value=empresa_de_transporte;
+			document.getElementById('placa').value=placa;
+			document.getElementById('trailer').value=trailer;
+			document.getElementById('eps').value=eps;
+			document.getElementById('eps_vence').value=eps_vence;
+			document.getElementById('arl').value=arl;
+			document.getElementById('arl_vence').value=arl_vence;
+			document.getElementById('precinto').value=precinto;
+			document.getElementById('documento_patiero').value=documento_patiero;
+			
+			// Lectura CANVAS	
 			var canvas = document.getElementById('scan_foto');
 			var ctx = canvas.getContext('2d');
 			var image = new Image();
@@ -1377,7 +1388,7 @@
 			   ctx.drawImage(image, 0, 0,300, 150);
 			}
 			
-			// Lectura CANVAS para cedula
+			// Lectura CANVAS
 			var canvas2 = document.getElementById('scan_cedula2');
 			var ctx2 = canvas2.getContext('2d');
 			var image2 = new Image();
@@ -1386,7 +1397,7 @@
 			   ctx2.drawImage(image2, 0, 0);
 			}
 			
-			// Lectura CANVAS para huella
+			// Lectura CANVAS
 			var canvas3 = document.getElementById('scan_huella2');
 			var ctx3 = canvas3.getContext('2d');
 			var image3 = new Image();
@@ -1395,15 +1406,32 @@
 			   ctx3.drawImage(image3, 0, 0);
 			}
 			
-			// Lectura CANVAS para huella
-			var canvas4 = document.getElementById('scan_inventario2');
+			// Lectura CANVAS
+			var canvas4 = document.getElementById('scan_orden_cargue2');
 			var ctx4 = canvas4.getContext('2d');
 			var image4 = new Image();
-			image4.src = scan_inventario;
+			image4.src = scan_orden_cargue;
 			image4.onload = function(){
 			   ctx4.drawImage(image4, 0, 0);
 			}
-			//document.getElementById('scan_inventario2').value=scan_inventario;
+			
+			// Lectura CANVAS
+			var canvas5 = document.getElementById('scan_tarjeta_propiedad2');
+			var ctx5 = canvas5.getContext('2d');
+			var image5 = new Image();
+			image5.src = scan_tarjeta_propiedad;
+			image5.onload = function(){
+			   ctx5.drawImage(image5, 0, 0);
+			}
+			
+			// Lectura CANVAS
+			var canvas6= document.getElementById('scan_arl2');
+			var ctx6 = canvas6.getContext('2d');
+			var image6 = new Image();
+			image6.src = scan_arl;
+			image6.onload = function(){
+			   ctx6.drawImage(image6, 0, 0);
+			}
 			
 			document.getElementById('observaciones').value=observaciones;
 			document.getElementById('estado').value=estado;

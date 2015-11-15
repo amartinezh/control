@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.ventura.control.domain.control.Conductor;
-import com.ventura.control.domain.control.TipoPersona;
 import com.ventura.control.repository.control.RepositorioDao;
 import com.ventura.control.service.control.ConductorService;
 

@@ -30,8 +30,8 @@ public class Conductor implements Serializable {
 	@Column(name = "apellido")
 	private String apellido;
 	
-	@Column(name = "coreo_e")
-	private String coreo_e;
+	@Column(name = "correo_e")
+	private String correo_e;
 	
 	@Column(name = "telefono")
 	private String telefono;
@@ -60,11 +60,11 @@ public class Conductor implements Serializable {
 	@Column(name = "eps_vence")
 	private java.util.Date eps_vence;
 	
-	@Column(name = "alr")
-	private String alr;
+	@Column(name = "arl")
+	private String arl;
 	
-	@Column(name = "alr_vence")
-	private java.util.Date alr_vence;
+	@Column(name = "arl_vence")
+	private java.util.Date arl_vence;
 	
 	@Column(name = "precinto")
 	private String precinto;
@@ -78,8 +78,8 @@ public class Conductor implements Serializable {
 	@Column(name = "scan_tarjeta_propiedad")
 	private String scan_tarjeta_propiedad;
 	
-	@Column(name = "scan_alr")
-	private String scan_alr;
+	@Column(name = "scan_arl")
+	private String scan_arl;
 	
 	@Column(name = "observaciones")
 	private String observaciones;
@@ -95,17 +95,17 @@ public class Conductor implements Serializable {
 		this.documento=documento;
 	}
 
-	public Conductor(String documento, Date fecha_registro, String nombre_completo, String apellido, String coreo_e,
+	public Conductor(String documento, Date fecha_registro, String nombre_completo, String apellido, String correo_e,
 			String telefono, String scan_foto, String scan_cedula, String scan_huella, String empresa_de_transporte,
-			String placa, String trailer, String eps, Date eps_vence, String alr, Date alr_vence, String precinto,
-			String documento_patiero, String scan_orden_cargue, String scan_tarjeta_propiedad, String scan_alr,
+			String placa, String trailer, String eps, Date eps_vence, String arl, Date arl_vence, String precinto,
+			String documento_patiero, String scan_orden_cargue, String scan_tarjeta_propiedad, String scan_arl,
 			String observaciones, String estado) {
 		super();
 		this.documento = documento;
 		this.fecha_registro = fecha_registro;
 		this.nombre_completo = nombre_completo;
 		this.apellido = apellido;
-		this.coreo_e = coreo_e;
+		this.correo_e = correo_e;
 		this.telefono = telefono;
 		this.scan_foto = scan_foto;
 		this.scan_cedula = scan_cedula;
@@ -115,13 +115,13 @@ public class Conductor implements Serializable {
 		this.trailer = trailer;
 		this.eps = eps;
 		this.eps_vence = eps_vence;
-		this.alr = alr;
-		this.alr_vence = alr_vence;
+		this.arl = arl;
+		this.arl_vence = arl_vence;
 		this.precinto = precinto;
 		this.documento_patiero = documento_patiero;
 		this.scan_orden_cargue = scan_orden_cargue;
 		this.scan_tarjeta_propiedad = scan_tarjeta_propiedad;
-		this.scan_alr = scan_alr;
+		this.scan_arl = scan_arl;
 		this.observaciones = observaciones;
 		this.estado = estado;
 	}
@@ -158,12 +158,12 @@ public class Conductor implements Serializable {
 		this.apellido = apellido;
 	}
 
-	public String getCoreo_e() {
-		return coreo_e;
+	public String getCorreo_e() {
+		return correo_e;
 	}
 
-	public void setCoreo_e(String coreo_e) {
-		this.coreo_e = coreo_e;
+	public void setCorreo_e(String correo_e) {
+		this.correo_e = correo_e;
 	}
 
 	public String getTelefono() {
@@ -238,20 +238,20 @@ public class Conductor implements Serializable {
 		this.eps_vence = eps_vence;
 	}
 
-	public String getAlr() {
-		return alr;
+	public String getarl() {
+		return arl;
 	}
 
-	public void setAlr(String alr) {
-		this.alr = alr;
+	public void setarl(String arl) {
+		this.arl = arl;
 	}
 
-	public java.util.Date getAlr_vence() {
-		return alr_vence;
+	public java.util.Date getarl_vence() {
+		return arl_vence;
 	}
 
-	public void setAlr_vence(java.util.Date alr_vence) {
-		this.alr_vence = alr_vence;
+	public void setarl_vence(java.util.Date arl_vence) {
+		this.arl_vence = arl_vence;
 	}
 
 	public String getPrecinto() {
@@ -286,12 +286,12 @@ public class Conductor implements Serializable {
 		this.scan_tarjeta_propiedad = scan_tarjeta_propiedad;
 	}
 
-	public String getScan_alr() {
-		return scan_alr;
+	public String getScan_arl() {
+		return scan_arl;
 	}
 
-	public void setScan_alr(String scan_alr) {
-		this.scan_alr = scan_alr;
+	public void setScan_arl(String scan_arl) {
+		this.scan_arl = scan_arl;
 	}
 
 	public String getObservaciones() {
@@ -317,12 +317,12 @@ public class Conductor implements Serializable {
 	@Override
 	public String toString() {
 		return "Conductor [documento=" + documento + ", fecha_registro=" + fecha_registro + ", nombre_completo="
-				+ nombre_completo + ", apellido=" + apellido + ", coreo_e=" + coreo_e + ", telefono=" + telefono
+				+ nombre_completo + ", apellido=" + apellido + ", coreo_e=" + correo_e + ", telefono=" + telefono
 				+ ", scan_foto=" + scan_foto + ", scan_cedula=" + scan_cedula + ", scan_huella=" + scan_huella
 				+ ", empresa_de_transporte=" + empresa_de_transporte + ", placa=" + placa + ", trailer=" + trailer
-				+ ", eps=" + eps + ", eps_vence=" + eps_vence + ", alr=" + alr + ", alr_vence=" + alr_vence
+				+ ", eps=" + eps + ", eps_vence=" + eps_vence + ", arl=" + arl + ", arl_vence=" + arl_vence
 				+ ", precinto=" + precinto + ", documento_patiero=" + documento_patiero + ", scan_orden_cargue="
-				+ scan_orden_cargue + ", scan_tarjeta_propiedad=" + scan_tarjeta_propiedad + ", scan_alr=" + scan_alr
+				+ scan_orden_cargue + ", scan_tarjeta_propiedad=" + scan_tarjeta_propiedad + ", scan_arl=" + scan_arl
 				+ ", observaciones=" + observaciones + ", estado=" + estado + "]";
 	}
 

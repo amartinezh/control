@@ -45,7 +45,7 @@ public class ConductorServiceImpl implements ConductorService {
 	@Transactional
 	public List<Conductor> listarConductor() {
 		List<Conductor> listConductor = new LinkedList<Conductor>();
-		String sql = "Select a.documento as documento, a.fecha_registro as fecha_registro, a.nombre_completo as nombre_completo, a.apellido as apellido, a.coreo_e as coreo_e, a.telefono as telefono, a.scan_foto as scan_foto, a.scan_cedula as scan_cedula, a.scan_huella as scan_huella, a.empresa_de_transporte as empresa_de_transporte, a.placa as placa, a.trailer as trailer, a.eps as eps, a.eps_vence as eps_vence, a.alr as alr, a.alr_vence as alr_vence, a.precinto as precinto, a.documento_patiero as documento_patiero, a.scan_orden_cargue as scan_orden_cargue, a.scan_tarjeta_propiedad as scan_tarjeta_propiedad, a.scan_alr as scan_alr, a.observaciones as observaciones, a.estado as estado FROM Conductor as a";
+		String sql = "Select a.documento as documento, a.fecha_registro as fecha_registro, a.nombre_completo as nombre_completo, a.apellido as apellido, a.correo_e as correo_e, a.telefono as telefono, a.scan_foto as scan_foto, a.scan_cedula as scan_cedula, a.scan_huella as scan_huella, a.empresa_de_transporte as empresa_de_transporte, a.placa as placa, a.trailer as trailer, a.eps as eps, a.eps_vence as eps_vence, a.arl as arl, a.arl_vence as arl_vence, a.precinto as precinto, a.documento_patiero as documento_patiero, a.scan_orden_cargue as scan_orden_cargue, a.scan_tarjeta_propiedad as scan_tarjeta_propiedad, a.scan_arl as scan_arl, a.observaciones as observaciones, a.estado as estado FROM Conductor as a";
 		List<Object[]> data = conductorDao.listar(sql);
 		java.text.SimpleDateFormat formatter = new java.text.SimpleDateFormat("yyyy-MM-dd");
 		if (data != null) {

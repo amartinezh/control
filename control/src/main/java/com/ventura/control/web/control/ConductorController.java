@@ -48,7 +48,7 @@ public class ConductorController {
 			@RequestParam String fecha_registro,
 			@RequestParam String nombre_completo,
 			@RequestParam String apellido,
-			@RequestParam String coreo_e,
+			@RequestParam String correo_e,
 			@RequestParam String telefono,
 			@RequestParam String scan_foto,
 			@RequestParam String scan_cedula,
@@ -58,13 +58,13 @@ public class ConductorController {
 			@RequestParam String trailer,
 			@RequestParam String eps,
 			@RequestParam String eps_vence,
-			@RequestParam String alr,
-			@RequestParam String alr_vence,
+			@RequestParam String arl,
+			@RequestParam String arl_vence,
 			@RequestParam String precinto,
 			@RequestParam String documento_patiero,
 			@RequestParam String scan_orden_cargue,
 			@RequestParam String scan_tarjeta_propiedad,
-			@RequestParam String scan_alr,
+			@RequestParam String scan_arl,
 			@RequestParam String observaciones,
 			@RequestParam String estado,
 			@RequestParam String opcion,
@@ -72,7 +72,8 @@ public class ConductorController {
 		java.text.SimpleDateFormat formatter = new java.text.SimpleDateFormat("yyyy-MM-dd");
 		Conductor obj=null;
 		try{
-				obj = new Conductor(documento, formatter.parse(fecha_registro), nombre_completo, apellido, coreo_e, telefono, scan_foto, scan_cedula, scan_huella, empresa_de_transporte, placa, trailer, eps, formatter.parse(eps_vence), alr, formatter.parse(alr_vence), precinto, documento_patiero, scan_orden_cargue, scan_tarjeta_propiedad, scan_alr, observaciones,"1");
+				obj = new Conductor(documento, formatter.parse(fecha_registro), nombre_completo, apellido, correo_e, telefono, scan_foto, scan_cedula, scan_huella, empresa_de_transporte, placa, trailer, eps, formatter.parse(eps_vence),arl, formatter.parse(arl_vence), precinto, documento_patiero, scan_orden_cargue, scan_tarjeta_propiedad, scan_arl, observaciones,"1");
+				//System.out.print(obj.toString());
 		} catch (ParseException e) {
 			return "error";
 		}
@@ -107,7 +108,7 @@ public class ConductorController {
 			@RequestParam String fecha_registro,
 			@RequestParam String nombre_completo,
 			@RequestParam String apellido,
-			@RequestParam String coreo_e,
+			@RequestParam String correo_e,
 			@RequestParam String telefono,
 			@RequestParam String scan_foto,
 			@RequestParam String scan_cedula,
@@ -117,13 +118,13 @@ public class ConductorController {
 			@RequestParam String trailer,
 			@RequestParam String eps,
 			@RequestParam String eps_vence,
-			@RequestParam String alr,
-			@RequestParam String alr_vence,
+			@RequestParam String arl,
+			@RequestParam String arl_vence,
 			@RequestParam String precinto,
 			@RequestParam String documento_patiero,
 			@RequestParam String scan_orden_cargue,
 			@RequestParam String scan_tarjeta_propiedad,
-			@RequestParam String scan_alr,
+			@RequestParam String scan_arl,
 			@RequestParam String observaciones,
 			@RequestParam String estado,
 			@RequestParam String opcion,
@@ -136,7 +137,7 @@ public class ConductorController {
 					+ nombre_completo + "', '"
 					+ apellido + "', '"
 					
-					+ coreo_e + "', '"
+					+ correo_e + "', '"
 					+ telefono + "', '"
 					+ scan_foto + "', '"
 					+ scan_cedula + "', '"

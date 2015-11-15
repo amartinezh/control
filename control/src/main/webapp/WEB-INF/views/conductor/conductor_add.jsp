@@ -195,7 +195,7 @@
 															</div>
 														</div>
 														<div class="contenedor">
-																<div class="titulo"><a href="#" id="modal_link"> Tomar	Foto </a></div>
+																<div class="titulo"><a href="#" id="modal_link_foto"> Tomar	Foto </a></div>
 																<canvas id="scan_foto" style="height: 120px; width: 150px; border: 1px solid grey;"></canvas>
 														</div>
 													</div>
@@ -207,20 +207,20 @@
 												<div class="row">
 													<div class="col-xs-3">
 														<label class="control-label">Placa</label> 
-															<input type="text" class="form-control" name="placa" />
+															<input type="text" class="form-control" name="placa" id="placa"/>
 													</div>
 													<div class="col-xs-3">
 														<label class="control-label">Empresa  de Transporte</label> <input
-															type="text" class="form-control" name="empresa_transporte" />
+															type="text" class="form-control" name="empresa_de_transporte" id="empresa_de_transporte"/>
 															
 													</div>
 													<div class="col-xs-3">
 														<label class="control-label">Trailer</label> <input
-															type="text" class="form-control" name="trailer" />
+															type="text" class="form-control" name="trailer" id="trailer"/>
 													</div>
 													<div class="col-xs-3">
 														<label class="control-label">Número Precinto</label> <input
-															type="text" class="form-control" name="precinto" />
+															type="text" class="form-control" name="precinto" id="precinto"/>
 													</div>
 												</div>
 											</div>
@@ -230,19 +230,19 @@
 												<div class="row">
 													<div class="col-xs-3">
 														<label class="control-label">EPS</label> <input
-															type="text" class="form-control" name="eps" />
+															type="text" class="form-control" name="eps" id="eps"/>
 													</div>
 													<div class="col-xs-3">
 														<label class="control-label">Fecha Vencimiento EPS</label> <input
-															type="date" class="form-control" name="eps_vence" />
+															type="date" class="form-control" name="eps_vence" id="eps_vence"/>
 													</div>
 													<div class="col-xs-3">
 														<label class="control-label">ARL</label> <input
-															type="text" class="form-control" name="arl" />
+															type="text" class="form-control" name="arl" id="arl"/>
 													</div>
 													<div class="col-xs-3">
 														<label class="control-label">Fecha Vencimiento ARL</label> <input
-															type="date" class="form-control" name="alr_vence" />
+															type="date" class="form-control" name="arl_vence" id="arl_vence"/>
 													</div>
 												</div>
 											</div>
@@ -253,18 +253,18 @@
 													
 													<div class="col-xs-3">
 														<label class="control-label">Documento Patiero</label> 
-															<input type="text" class="form-control" name="documento_patiero" />
+															<input type="text" class="form-control" name="documento_patiero" id="documento_patiero"/>
 													</div>
 													<div class="col-xs-3">
 														<label class="control-label">Correo  Electrónico</label>
-														<form:input path="coreo_e" type="text"	class="form-control" data-bv-field="Coreo Electrónico" required="required" />
+														<form:input path="correo_e" type="text"	class="form-control" data-bv-field="Coreo Electrónico" required="required" />
 													</div>
 													<div class="col-xs-3">
 														<label class="control-label">Teléfonos</label>
 														<form:input path="telefono" type="text"	class="form-control" data-bv-field="Teléfono" required="required" />
 													</div>
 													<div class="col-xs-3">
-														<label class="control-label input-file"><a href="#" id="modal_link_huella"> Archivo Huella</a></label>
+														<label class="control-label input-file"><a href="#" id="modal_link_scan_huella"> Archivo Huella</a></label>
 														<form:input path="scan_huella" type="file" accept="image/*"	class="form-control" data-bv-field="Huella" required="required" />
 													
 														<div id="dialog-message_huella" title="Imagen Huella">
@@ -279,11 +279,11 @@
 												<div class="row">
 													
 													<div class="col-xs-3">
-														<label class="control-label input-file"><a href="#" id="modal_link_scan_alr"> Archivo ARL</a></label>
-														<form:input path="scan_alr" type="file" accept="image/*"	class="form-control" data-bv-field="Orden Cargue" required="required" />
+														<label class="control-label input-file"><a href="#" id="modal_link_scan_arl"> Archivo ARL</a></label>
+														<form:input path="scan_arl" type="file" accept="image/*"	class="form-control" data-bv-field="Orden Cargue" required="required" />
 													
-														<div id="dialog-message_alr" title="ALR">
-															<canvas id="scan_alr2"  width="900" height="300" style="background-color:#ffffff;"></canvas>
+														<div id="dialog-message_arl" title="arl">
+															<canvas id="scan_arl2"  width="900" height="300" style="background-color:#ffffff;"></canvas>
 														</div>
 													</div>
 													
@@ -308,7 +308,7 @@
 														<label class="control-label input-file"><a href="#" id="modal_link_scan_cedula"> Archivo Cédula</a></label>
 														<form:input path="scan_cedula" type="file" accept="image/*"	class="form-control" data-bv-field="Cédula" required="required" />
 													
-														<div id="dialog-message_cedula" title="Imagen Cedula">
+														<div id="dialog-message_cedula" title="Orden Cargue">
 															<canvas id="scan_cedula2"  width="900" height="300" style="background-color:#ffffff;"></canvas>
 														</div>
 													</div>
@@ -424,7 +424,7 @@
 										<tr role="row" class="odd"> 
 											<td class="sorting_1"><span class="responsiveExpander"></span>
 												<a class="btn btn-success btn-circle btn-sx"
-												onclick="con('<c:out value="${obj.documento}"></c:out>','<c:out value="${obj.nombre_completo}"></c:out>','<c:out value="${obj.apellido}"></c:out>','<c:out value="${obj.tipo_persona_id.tipo_persona_id}"></c:out>','<c:out value="${obj.dependencia_id.dependencia_id}"></c:out>','<c:out value="${obj.coreo_e}"></c:out>','<c:out value="${obj.telefono}"></c:out>','<c:out value="${obj.scan_foto}"></c:out>','<c:out value="${obj.scan_cedula}"></c:out>','<c:out value="${obj.scan_huella}"></c:out>','<c:out value="${obj.observaciones}"></c:out>','<c:out value="${obj.estado}"></c:out>',$(this))">
+												onclick="con('<c:out value="${obj.documento}"></c:out>','<c:out value="${obj.nombre_completo}"></c:out>','<c:out value="${obj.apellido}"></c:out>','<c:out value="${obj.tipo_persona_id.tipo_persona_id}"></c:out>','<c:out value="${obj.dependencia_id.dependencia_id}"></c:out>','<c:out value="${obj.correo_e}"></c:out>','<c:out value="${obj.telefono}"></c:out>','<c:out value="${obj.scan_foto}"></c:out>','<c:out value="${obj.scan_cedula}"></c:out>','<c:out value="${obj.scan_huella}"></c:out>','<c:out value="${obj.observaciones}"></c:out>','<c:out value="${obj.estado}"></c:out>',$(this))">
 												<i class="fa fa-edit"></i></a> <a class="btn btn-danger btn-circle"
 												onclick="borrar(<c:out value="${obj.documento}"></c:out>, $(this))">
 												<i class="fa fa-trash-o"></i></a></td>
@@ -675,7 +675,7 @@
 											}
 										}
 									},
-									empresa_transporte : {
+									empresa_de_transporte : {
 										group : '.col-xs-3',
 										validators : {
 											notEmpty : {
@@ -731,7 +731,7 @@
 											}
 										}
 									},
-									alr_vence : {
+									arl_vence : {
 										group : '.col-xs-3',
 										validators : {
 											notEmpty : {
@@ -739,7 +739,7 @@
 											}
 										}
 									},
-									coreo_e : {
+									correo_e : {
 										group : '.col-xs-3',
 										validators : {
 											notEmpty : {
@@ -772,6 +772,30 @@
 										}
 									},
 									scan_huella : {
+										group : '.col-xs-3',
+										validators : {
+											notEmpty : {
+												message : 'Campo requierido'
+											}
+										}
+									},
+									scan_arl : {
+										group : '.col-xs-3',
+										validators : {
+											notEmpty : {
+												message : 'Campo requierido'
+											}
+										}
+									},
+									scan_tarjeta_propiedad : {
+										group : '.col-xs-3',
+										validators : {
+											notEmpty : {
+												message : 'Campo requierido'
+											}
+										}
+									},
+									scan_orden_cargue : {
 										group : '.col-xs-3',
 										validators : {
 											notEmpty : {
@@ -959,72 +983,11 @@
 			alert('validando');
 		}
 		
-		
 		function el(id){return document.getElementById(id);} // Get elem by ID
 
 		// Para la imagen
-		var canvas  = el("scan_alr2");
-		var context = canvas.getContext("2d");
-
-		function readImage() {
-		    if ( this.files && this.files[0] ) {
-		        var FR= new FileReader();
-		        FR.onload = function(e) {
-		        	
-		           var img = new Image();
-		           img.onload = function() {
-		             context.drawImage(img, 0, 0);
-		           };
-		           img.src = e.target.result;
-		        };
-		        FR.readAsDataURL( this.files[0] );
-		    }
-		}
-		el("scan_alr").addEventListener("change", readImage, false);
-		
-		// Para la imagen
-		var canvas2  = el("scan_tarjeta_propiedad2");
-		var context2 = canvas2.getContext("2d");
-
-		function readImage2() {
-		    if ( this.files && this.files[0] ) {
-		        var FR= new FileReader();
-		        FR.onload = function(e) {
-		        	
-		           var img2 = new Image();
-		           img2.onload = function() {
-		             context2.drawImage(img2, 0, 0);
-		           };
-		           img2.src = e.target.result;
-		        };
-		        FR.readAsDataURL( this.files[0] );
-		    }
-		}
-		el("scan_tarjeta_propiedad").addEventListener("change", readImage2, false);
-		
-		// Para la imagen
-		var canvas2  = el("scan_orden_cargue2");
-		var context2 = canvas2.getContext("2d");
-
-		function readImage2() {
-		    if ( this.files && this.files[0] ) {
-		        var FR= new FileReader();
-		        FR.onload = function(e) {
-		        	
-		           var img2 = new Image();
-		           img2.onload = function() {
-		             context2.drawImage(img2, 0, 0);
-		           };
-		           img2.src = e.target.result;
-		        };
-		        FR.readAsDataURL( this.files[0] );
-		    }
-		}
-		el("scan_orden_cargue").addEventListener("change", readImage2, false);
-		
-		// Para la imagen
-		var canvas2  = el("scan_cedula2");
-		var context2 = canvas2.getContext("2d");
+		canvas2  = el("scan_cedula2");
+		context2 = canvas2.getContext("2d");
 
 		function readImage2() {
 		    if ( this.files && this.files[0] ) {
@@ -1041,41 +1004,103 @@
 		    }
 		}
 		el("scan_cedula").addEventListener("change", readImage2, false);
-		
-		// Para la imagen
-		var canvas2  = el("scan_huella2");
-		var context2 = canvas2.getContext("2d");
 
-		function readImage2() {
+		// Para la imagen
+		canvas3  = el("scan_huella2");
+		context3 = canvas3.getContext("2d");
+
+		function readImage3() {
 		    if ( this.files && this.files[0] ) {
 		        var FR= new FileReader();
 		        FR.onload = function(e) {
 		        	
-		           var img2 = new Image();
-		           img2.onload = function() {
-		             context2.drawImage(img2, 0, 0);
+		           var img3 = new Image();
+		           img3.onload = function() {
+		             context3.drawImage(img3, 0, 0);
 		           };
-		           img2.src = e.target.result;
+		           img3.src = e.target.result;
 		        };
 		        FR.readAsDataURL( this.files[0] );
 		    }
 		}
-		el("scan_huella").addEventListener("change", readImage2, false);
+		el("scan_huella").addEventListener("change", readImage3, false);
+		
+		// Para la imagen
+		canvas4  = el("scan_orden_cargue2");
+		context4 = canvas4.getContext("2d");
 
-		function actualizar() {
+		function readImage4() {
+		    if ( this.files && this.files[0] ) {
+		        var FR= new FileReader();
+		        FR.onload = function(e) {
+		        	
+		           var img4 = new Image();
+		           img4.onload = function() {
+		             context4.drawImage(img4, 0, 0);
+		           };
+		           img4.src = e.target.result;
+		        };
+		        FR.readAsDataURL( this.files[0] );
+		    }
+		}
+		el("scan_orden_cargue").addEventListener("change", readImage4, false);
+
+		// Para la imagen
+		canvas5  = el("scan_tarjeta_propiedad2");
+		context5 = canvas5.getContext("2d");
+
+		function readImage5() {
+		    if ( this.files && this.files[0] ) {
+		        var FR= new FileReader();
+		        FR.onload = function(e) {
+		        	
+		           var img5 = new Image();
+		           img5.onload = function() {
+		             context5.drawImage(img5, 0, 0);
+		           };
+		           img5.src = e.target.result;
+		        };
+		        FR.readAsDataURL( this.files[0] );
+		    }
+		}
+		el("scan_tarjeta_propiedad").addEventListener("change", readImage5, false);
+		
+		
+		// Para la imagen
+		canvas6  = el("scan_arl2");
+		context6 = canvas6.getContext("2d");
+
+		function readImage6() {
+		    if ( this.files && this.files[0] ) {
+		        var FR= new FileReader();
+		        FR.onload = function(e) {
+		        	
+		           var img6 = new Image();
+		           img6.onload = function() {
+		             context6.drawImage(img6, 0, 0);
+		           };
+		           img6.src = e.target.result;
+		        };
+		        FR.readAsDataURL( this.files[0] );
+		    }
+		}
+		el("scan_arl").addEventListener("change", readImage6, false);
+		
+		function actualizar() { 
 			$( "#frm" ).submit();
 			var documento = document.getElementById('documento').value;
 			var nombre_completo = document.getElementById('nombre_completo').value;
 			var apellido = document.getElementById('apellido').value;
-			var coreo_e = document.getElementById('coreo_e').value;
+			var correo_e = document.getElementById('correo_e').value;
 			var telefono = document.getElementById('telefono').value;
 			var empresa_de_transporte = document.getElementById('empresa_de_transporte').value;
+			
 			var placa = document.getElementById('placa').value;
 			var trailer = document.getElementById('trailer').value;
 			var eps = document.getElementById('eps').value;
 			var eps_vence = document.getElementById('eps_vence').value;
-			var alr = document.getElementById('alr').value;
-			var alr_vence = document.getElementById('alr_vence').value;
+			var arl = document.getElementById('arl').value;
+			var arl_vence = document.getElementById('arl_vence').value;
 			var precinto = document.getElementById('precinto').value;
 			var documento_patiero = document.getElementById('documento_patiero').value;
 			
@@ -1100,23 +1125,26 @@
 			canvasWidth  = canvas.width; canvasHeight = canvas.height; ctx = canvas.getContext('2d'); imageData = ctx.getImageData(0, 0, canvasWidth, canvasHeight);
 			var scan_tarjeta_propiedad = canvas.toDataURL();
 			
-			canvas = document.getElementById('scan_alr2');
+			canvas = document.getElementById('scan_arl2');
 			canvasWidth  = canvas.width; canvasHeight = canvas.height; ctx = canvas.getContext('2d'); imageData = ctx.getImageData(0, 0, canvasWidth, canvasHeight);
-			var scan_alr = canvas.toDataURL();
+			var scan_arl = canvas.toDataURL();
 
 			var o = document.getElementById('observaciones').value;
 			var est = document.getElementById('estado').value;
 			var opc=document.getElementById('elboton').innerHTML;
+			var fecha_registro = arl_vence;
+			alert(arl_vence);
 			$.ajax({
 				type : "POST",
 				url : "conductor_add/agregar",
 				processData: true,
 				data : {
-					documento: doc,
-					fecha_registro: fecha_registro,
+					documento: documento,
+					fecha_registro: arl_vence,
 					nombre_completo: nombre_completo,
 					apellido: apellido,
 					telefono: telefono,
+					correo_e: correo_e,
 					scan_foto: scan_foto,
 					scan_cedula: scan_cedula,
 					scan_huella: scan_huella,
@@ -1125,13 +1153,13 @@
 					trailer:	trailer,
 					eps:	eps,
 					eps_vence: eps_vence,
-					alr: alr,
-					alr_vence: alr_vence,
+					arl: arl,
+					arl_vence: arl_vence,
 					precinto: precinto,
 					documento_patiero: documento_patiero,
 					scan_orden_cargue: scan_orden_cargue,
 					scan_tarjeta_propiedad: scan_tarjeta_propiedad,
-					scan_alr: scan_alr,
+					scan_arl: scan_arl,
 					observaciones:	o,
 					estado:	est,
 					opcion: opc
@@ -1240,15 +1268,15 @@
 			var documento = document.getElementById('documento').value;
 			var nombre_completo = document.getElementById('nombre_completo').value;
 			var apellido = document.getElementById('apellido').value;
-			var coreo_e = document.getElementById('coreo_e').value;
+			var correo_e = document.getElementById('correo_e').value;
 			var telefono = document.getElementById('telefono').value;
 			var empresa_de_transporte = document.getElementById('empresa_de_transporte').value;
 			var placa = document.getElementById('placa').value;
 			var trailer = document.getElementById('trailer').value;
 			var eps = document.getElementById('eps').value;
 			var eps_vence = document.getElementById('eps_vence').value;
-			var alr = document.getElementById('alr').value;
-			var alr_vence = document.getElementById('alr_vence').value;
+			var arl = document.getElementById('arl').value;
+			var arl_vence = document.getElementById('arl_vence').value;
 			var precinto = document.getElementById('precinto').value;
 			var documento_patiero = document.getElementById('documento_patiero').value;
 			
@@ -1273,9 +1301,9 @@
 			canvasWidth  = canvas.width; canvasHeight = canvas.height; ctx = canvas.getContext('2d'); imageData = ctx.getImageData(0, 0, canvasWidth, canvasHeight);
 			var scan_tarjeta_propiedad = canvas.toDataURL();
 			
-			canvas = document.getElementById('scan_alr2');
+			canvas = document.getElementById('scan_arl2');
 			canvasWidth  = canvas.width; canvasHeight = canvas.height; ctx = canvas.getContext('2d'); imageData = ctx.getImageData(0, 0, canvasWidth, canvasHeight);
-			var scan_alr = canvas.toDataURL();
+			var scan_arl = canvas.toDataURL();
 
 			var o = document.getElementById('observaciones').value;
 			var est = document.getElementById('estado').value;
@@ -1298,13 +1326,13 @@
 					trailer:	trailer,
 					eps:	eps,
 					eps_vence: eps_vence,
-					alr: alr,
-					alr_vence: alr_vence,
+					arl: arl,
+					arl_vence: arl_vence,
 					precinto: precinto,
 					documento_patiero: documento_patiero,
 					scan_orden_cargue: scan_orden_cargue,
 					scan_tarjeta_propiedad: scan_tarjeta_propiedad,
-					scan_alr: scan_alr,
+					scan_arl: scan_arl,
 					observaciones:	o,
 					estado:	est,
 					opcion: opc
@@ -1330,14 +1358,14 @@
 			});
 		}
 		
-		function con(documento, nombre_completo, apellido, tipo_persona_id, dependencia_id, coreo_e, telefono, scan_foto, scan_cedula, scan_huella, observaciones, estado, thi) {
+		function con(documento, nombre_completo, apellido, tipo_persona_id, dependencia_id, correo_e, telefono, scan_foto, scan_cedula, scan_huella, observaciones, estado, thi) {
 			document.getElementById('documento').value=documento;
 			// Lectura CANVAS para foto			
 			document.getElementById('nombre_completo').value=nombre_completo;
 			document.getElementById('apellido').value=apellido;
 			document.getElementById('tipo_persona_id.tipo_persona_id').selectedIndex=tipo_persona_id;
 			document.getElementById('dependencia_id.dependencia_id').selectedIndex=dependencia_id;
-			document.getElementById('coreo_e').value=coreo_e;
+			document.getElementById('correo_e').value=correo_e;
 			document.getElementById('telefono').value=telefono;
 			
 			// Lectura CANVAS para foto			
@@ -1452,8 +1480,14 @@
 			});
 			
 			// Modal Link
-			$('#modal_link_scan_alr').click(function() {
-				$('#dialog-message_alr').dialog('open');
+			$('#modal_link_foto').click(function() {
+				$('#dialog-message_foto').dialog('open');
+				return false;
+			});
+			
+			// Modal Link
+			$('#modal_link_scan_arl').click(function() {
+				$('#dialog-message_arl').dialog('open');
 				return false;
 			});
 			
@@ -1470,14 +1504,14 @@
 			});
 			
 			// Modal Link 
-			$('#modal_link_scan_cedula').click(function() {
-				$('#dialog-message_cedula').dialog('open');
+			$('#modal_link_scan_huella').click(function() {
+				$('#dialog-message_huella').dialog('open');
 				return false;
 			});
 			
 			// Modal Link 
-			$('#modal_link_scan_huella').click(function() {
-				$('#dialog-message_huella').dialog('open');
+			$('#modal_link_scan_cedula').click(function() {
+				$('#dialog-message_cedula').dialog('open');
 				return false;
 			});
 		
@@ -1502,10 +1536,10 @@
 				
 			});
 			
-			$("#dialog-message_alr").dialog({
+			$("#dialog-message_arl").dialog({
 				autoOpen : false,
 				modal : true,
-				title : "Imagen Cédula",
+				title : "Imagen ARL",
 				buttons : [{
 					html : "<i class='fa fa-check'></i>&nbsp; OK",
 					"class" : "btn btn-primary",
@@ -1550,10 +1584,10 @@
 			   	maxWidth: "768px"
 			});
 			
-			$("#dialog-message_cedula").dialog({
+			$("#dialog-message_huella").dialog({
 				autoOpen : false,
 				modal : true,
-				title : "Imagen cedula",
+				title : "Imagen Huella",
 				buttons : [{
 					html : "<i class='fa fa-check'></i>&nbsp; OK",
 					"class" : "btn btn-primary",
@@ -1566,10 +1600,10 @@
 			   	maxWidth: "768px"
 			});
 			
-			$("#dialog-message_huella").dialog({
+			$("#dialog-message_cedula").dialog({
 				autoOpen : false,
 				modal : true,
-				title : "Imagen Huella",
+				title : "Imagen Cedula",
 				buttons : [{
 					html : "<i class='fa fa-check'></i>&nbsp; OK",
 					"class" : "btn btn-primary",

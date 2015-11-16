@@ -1261,6 +1261,7 @@
 			var ce = document.getElementById('coreo_e').value;
 			var te = document.getElementById('telefono').value;
 			
+			var pl = document.getElementById('placa').value;
 			// Para leer la foto que está en el CANVAS
 			var canvas = document.getElementById('scan_foto');
 			var canvasWidth  = canvas.width;

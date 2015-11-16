@@ -186,17 +186,17 @@
 										<fieldset>
 											<div class="form-group">
 												<div class="row">
-													<div class="col-sm-12 col-md-4">
+													<div class="col-md-4">
 														<label class="control-label">Tipo Permiso</label> 
 														<form:select class="form-control" path="tipo_permiso_id.tipo_permiso_id" items="${listTipoPermiso}">
 														</form:select>
 													</div>
-													<div class="col-sm-12 col-md-4">
+													<div class="col-md-4">
 														<label class="control-label">Codigo Trabajador</label>
 														<form:input path="codigo_trabajador" type="text"
 															class="form-control" data-bv-field="Descripción" required="required" />
 													</div>
-													<div class="col-sm-12 col-md-4">
+													<div class="col-md-4">
 														<label class="control-label">Recibido Por</label> 
 														<form:input path="recibido_por" type="text"
 															class="form-control" data-bv-field="Recibido Por" required="required" />
@@ -207,7 +207,7 @@
 										<fieldset>
 											<div class="form-group">
 												<div class="row">
-													<div class="col-sm-12 col-md-12">
+													<div class="col-md-12">
 														<label class="control-label">Novedades</label>
 														<form:textarea path="novedad" type="text"
 															class="form-control" data-bv-field="Novedades" required="required" />

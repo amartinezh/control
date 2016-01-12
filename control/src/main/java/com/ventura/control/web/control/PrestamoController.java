@@ -1,5 +1,7 @@
 package com.ventura.control.web.control;
 
+import java.text.ParseException;
+import java.util.Calendar;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,45 +37,31 @@ public class PrestamoController {
 		return "llave/llave_pre";
 	}
 
-	/*
-	 * @RequestMapping(value = "agregar", method = RequestMethod.POST) public
-	 * 
-	 * @ResponseBody String agregar(@RequestParam Date fecha,
-	 * 
-	 * @RequestParam String nombreCompleto, @RequestParam String apellido,
-	 * 
-	 * @RequestParam int cantidadLlave, @RequestParam int dependencia,
-	 * 
-	 * @RequestParam String quienEntrego,
-	 * 
-	 * @RequestParam String quienRecibio,
-	 * 
-	 * @RequestParam String observaciones, Map<String, Object> model) { //
-	 * CentroCosto obj = new CentroCosto(centro_costo_id, descripcion); //
-	 * centro.agregarCentro(obj); return
-	 * "<span class='responsiveExpander'></span><a class='btn btn-success btn-circle btn-sx'"
-	 * + " onclick=\"con('" + nombreCompleto + "', '" + apellido + "', $(this)"
-	 * +
-	 * ")\"><i class='fa fa-edit'></i></a> <a class='btn btn-danger btn-circle' onclick='borrar("
-	 * + apellido +
-	 * ", $(this))'><i class='fa fa-trash-o'></i></a><span class='responsiveExpander'></span>:::"
-	 * + apellido; }
-	 */
-
 	@RequestMapping(value = "agregar", method = RequestMethod.POST)
-	public @ResponseBody String agregar(@RequestParam String fecha,
+	public @ResponseBody String agregar(
 			@RequestParam String nombreCompleto, @RequestParam String apellido,
 			@RequestParam int cantidadLlave, @RequestParam int dependencia,
 			@RequestParam String quienEntrego,
 			@RequestParam String quienRecibio,
 			@RequestParam String observaciones, Map<String, Object> model) {
-		PrestaLlave pr = new PrestaLlave(0, nombreCompleto, apellido,
-				cantidadLlave, quienEntrego, quienRecibio, observaciones, "1");
-		pr.setDependenciaId(new Dependencia(dependencia));
-		presta.agregarPrestaLlave(pr);
-		return fecha + "::: :::" + nombreCompleto + ":::" + apellido + ":::"
-				+ cantidadLlave + ":::" + dependencia + ":::" + quienEntrego
-				+ ":::" + quienRecibio;
+		PrestaLlave pr = null;
+		java.util.Date date = new java.util.Date();
+		java.text.SimpleDateFormat f = new java.text.SimpleDateFormat("yyyy-MM-dd");
+		java.text.SimpleDateFormat h = new java.text.SimpleDateFormat("HH:mm:ss");
+		try {
+			//System.out.println("---------------"+f.format(date)+"----------------------");
+			//System.out.println("---------------"+h.format(date)+"----------------------");
+			pr = new PrestaLlave(0, f.parse(f.format(date)) , h.parse(h.format(date)), nombreCompleto, apellido,
+					cantidadLlave, quienEntrego, quienRecibio, observaciones, "1", new Dependencia(dependencia));
+		
+			presta.agregarPrestaLlave(pr);
+			return f.format(date) + ":::" + h.format(date) + ":::" + nombreCompleto + ":::" + apellido + ":::"
+					+ cantidadLlave + ":::" + dependencia + ":::" + quienEntrego
+					+ ":::" + quienRecibio + ":::" + observaciones;
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
 	}
-	
 }

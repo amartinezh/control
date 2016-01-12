@@ -60,7 +60,23 @@ public class PrestaLlave implements Serializable {
 		this.id = id;
 	}
 
-	public PrestaLlave(int id, String nombreCompleto, String apellido,
+	public PrestaLlave(int id, Date fecha, Date hora, String nombreCompleto, String apellido, int cantidadLlave,
+			String quienEntrega, String quienRecibe, String observaciones, String estado, Dependencia dependenciaId) {
+		super();
+		this.id = id;
+		this.fecha = fecha;
+		this.hora = hora;
+		this.nombreCompleto = nombreCompleto;
+		this.apellido = apellido;
+		this.cantidadLlave = cantidadLlave;
+		this.quienEntrega = quienEntrega;
+		this.quienRecibe = quienRecibe;
+		this.observaciones = observaciones;
+		this.estado = estado;
+		this.dependenciaId = dependenciaId;
+	}
+
+	/* public PrestaLlave(int id, String nombreCompleto, String apellido,
 			int cantidadLlave, String quienEntrega, String quienRecibe,
 			String observaciones, String estado) {
 		this.id = id;
@@ -71,7 +87,7 @@ public class PrestaLlave implements Serializable {
 		this.quienRecibe = quienRecibe;
 		this.observaciones = observaciones;
 		this.estado = estado;
-	}
+	} */
 
 	public int getId() {
 		return id;

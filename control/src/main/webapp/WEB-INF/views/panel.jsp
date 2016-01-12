@@ -360,10 +360,10 @@
 						<ul>
 							<li><a target="des" href="<c:url value="/llave_prestamo"/>"><i class="fa fa-check-square"></i>
 								Registrar Prestamo</a></li>
-							<li><a target="des" href="<c:url value="/llave_devolucion"/>"><i class="fa fa-download"></i>
+							<!-- <li><a target="des" href="<c:url value="/llave_devolucion"/>"><i class="fa fa-download"></i>
 								Registrar Devolucion</a></li>
 							<li><a target="des" href="<c:url value="/llave_estadistica"/>"><i class="fa fa-signal"></i>
-								Estadisticas</a></li>
+								Estadisticas</a></li>  -->
 						</ul>
 					</li>
 					<!-- <li>

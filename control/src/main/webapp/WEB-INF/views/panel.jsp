@@ -382,10 +382,10 @@
 						<ul>
 							<li><a target="des" href="<c:url value="/permiso"/>"><i class="fa fa-user"></i>
 								Registrar Permiso</a></li>
-							<li><a target="des" href="<c:url value="/permisos_retirar"/>"><i class="fa fa-user"></i>
+							<!-- <li><a target="des" href="<c:url value="/permisos_retirar"/>"><i class="fa fa-user"></i>
 								Retirar Permiso</a></li>
 							<li><a target="des" href="<c:url value="/permisos_estadistica"/>"><i class="fa fa-signal"></i>
-								Estadisticas</a></li>
+								Estadisticas</a></li>  -->
 						</ul>
 					</li>
 					<li>

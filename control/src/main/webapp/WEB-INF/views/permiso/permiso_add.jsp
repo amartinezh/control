@@ -138,7 +138,7 @@
 										title="" data-placement="bottom"
 										data-original-title="Fullscreen"><i class="fa fa-expand "></i></a>
 								</div>
-								<h2></h2>
+								<h2>Gestión de Permisos</h2>
 								<span class="jarviswidget-loader"><i
 									class="fa fa-refresh fa-spin"></i></span>
 							</header>
@@ -162,7 +162,6 @@
 										<fieldset>
 											<div class="form-group">
 												<div class="row">
-													<legend> Gestión de Permisos </legend>
 													<form:input type="hidden" path="permiso_id" value="0" />
 													<form:input type="hidden" path="estado" />
 													<div class="col-sm-12 col-md-4">
@@ -257,19 +256,7 @@
 				class="jarviswidget jarviswidget-color-blueDark jarviswidget-sortable"
 				id="wid-id-1" data-widget-editbutton="false"
 				data-widget-editbutton="true" role="widget">
-				<!-- widget options:
-								usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
-				
-								data-widget-colorbutton="false"
-								data-widget-editbutton="false"
-								data-widget-togglebutton="false"
-								data-widget-deletebutton="false"
-								data-widget-fullscreenbutton="false"
-								data-widget-custombutton="false"
-								data-widget-collapsed="true"
-								data-widget-sortable="false"
-				
-								-->
+
 				<header role="heading">
 
 					<span class="widget-icon"> <i class="fa fa-table"></i>
@@ -311,7 +298,38 @@
 										<th data-class="expand" class="sorting_asc" tabindex="1"
 											aria-controls="dt_basic" colspan="1" aria-sort="ascending"
 											aria-label="Name: activate to sort column ascending"
-											style="width: 540px;">Descripción</th>
+											style="width: 540px;">Fecha</th>
+											
+										<th data-class="expand" class="sorting_asc" tabindex="1"
+											aria-controls="dt_basic" colspan="1" aria-sort="ascending"
+											aria-label="Name: activate to sort column ascending"
+											style="width: 540px;">Hora Entrada</th>
+											
+										<th data-class="expand" class="sorting_asc" tabindex="1"
+											aria-controls="dt_basic" colspan="1" aria-sort="ascending"
+											aria-label="Name: activate to sort column ascending"
+											style="width: 540px;">Hora Salida</th>
+											
+										<th data-class="expand" class="sorting_asc" tabindex="1"
+											aria-controls="dt_basic" colspan="1" aria-sort="ascending"
+											aria-label="Name: activate to sort column ascending"
+											style="width: 540px;">Tipo</th>
+											
+										<th data-class="expand" class="sorting_asc" tabindex="1"
+											aria-controls="dt_basic" colspan="1" aria-sort="ascending"
+											aria-label="Name: activate to sort column ascending"
+											style="width: 540px;">Código Trabajador</th>
+											
+										<th data-class="expand" class="sorting_asc" tabindex="1"
+											aria-controls="dt_basic" colspan="1" aria-sort="ascending"
+											aria-label="Name: activate to sort column ascending"
+											style="width: 540px;">Recibido Por</th>
+											
+										<th data-class="expand" class="sorting_asc" tabindex="1"
+											aria-controls="dt_basic" colspan="1" aria-sort="ascending"
+											aria-label="Name: activate to sort column ascending"
+											style="width: 540px;">Novedades</th>
+											
 									</tr>
 								</thead>
 								<tbody>
@@ -325,8 +343,13 @@
 												class="btn btn-danger btn-circle"
 												onclick="borrar(<c:out value="${obj.permiso_id}"></c:out>, $(this))"><i
 													class="fa fa-trash-o"></i></a></td>
-											<td class="sorting_1"><span class="responsiveExpander"></span>
-												<c:out value="${obj.codigo_trabajador}"></c:out></td>
+											<td class="sorting_1"><span class="responsiveExpander"></span> <c:out value="${obj.fecha}"></c:out></td>
+											<td class="sorting_1"><span class="responsiveExpander"></span> <c:out value="${obj.hora_entrada}"></c:out></td>
+											<td class="sorting_1"><span class="responsiveExpander"></span> <c:out value="${obj.hora_salida}"></c:out></td>
+											<td class="sorting_1"><span class="responsiveExpander"></span> <c:out value="${obj.tipo_permiso_id.descripcion}"></c:out></td>
+											<td class="sorting_1"><span class="responsiveExpander"></span> <c:out value="${obj.codigo_trabajador}"></c:out></td>
+											<td class="sorting_1"><span class="responsiveExpander"></span> <c:out value="${obj.recibido_por}"></c:out></td>
+											<td class="sorting_1"><span class="responsiveExpander"></span> <c:out value="${obj.novedad}"></c:out></td>
 										</tr>
 									</c:forEach>
 								</tbody>
@@ -846,7 +869,7 @@
 		
 		function borrar(dato, thi){
 			$.SmartMessageBox({
-				title : "Eliminación!",
+				title : "Retro del Permiso al trabajdor!",
 				content : "Está apunto de eliminar un registro, está de acuerdo?",
 				buttons : '[No][Si]'
 			}, function(ButtonPressed) {
@@ -862,7 +885,6 @@
 						timeout : 2000
 					});
 				}
-	
 			});
 			//e.preventDefault();
 		}

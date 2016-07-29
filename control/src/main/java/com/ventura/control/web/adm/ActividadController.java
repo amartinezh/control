@@ -34,7 +34,7 @@ public class ActividadController {
 			@RequestParam String descripcion, Map<String, Object> model) {
 		Actividad obj = new Actividad(actividad_id, descripcion);
 		actividad.agregarActividad(obj);
-		return "<span class='responsiveExpander'></span><a class='btn btn-success btn-circle btn-sx'"
+		return "<span actividadclass='responsiveExpander'></span><a class='btn btn-success btn-circle btn-sx'"
 				+ " onclick=\"con('"
 				+ actividad_id
 				+ "', '"

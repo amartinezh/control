@@ -338,12 +338,12 @@
 										<tr role="row" class="odd">
 											<td class="sorting_1"><span class="responsiveExpander"></span>
 												<a class="btn btn-success btn-circle btn-sx"
-												onclick="con('<c:out value="${obj.permiso_id}"></c:out>','<c:out value="${obj.codigo_trabajador}"></c:out>',$(this))"><i
+												onclick="con('<c:out value="${obj.permiso_id}"></c:out>','<c:out value="${obj.codigo_trabajador}"></c:out>','<fmt:formatDate pattern="yyyy-MM-dd" value="${obj.fecha}" />','<c:out value="${obj.hora_entrada}"></c:out>','<c:out value="${obj.hora_salida}"></c:out>','<c:out value="${obj.tipo_permiso_id.tipo_permiso_id}"></c:out>','<c:out value="${obj.recibido_por}"></c:out>','<c:out value="${obj.novedad}"></c:out>',$(this))"><i
 													class="fa fa-edit"></i></a> <a
 												class="btn btn-danger btn-circle"
 												onclick="borrar(<c:out value="${obj.permiso_id}"></c:out>, $(this))"><i
 													class="fa fa-trash-o"></i></a></td>
-											<td class="sorting_1"><span class="responsiveExpander"></span> <c:out value="${obj.fecha}"></c:out></td>
+											<td class="sorting_1"><span class="responsiveExpander"></span> <fmt:formatDate pattern="yyyy-MM-dd" value="${obj.fecha}" /></td>
 											<td class="sorting_1"><span class="responsiveExpander"></span> <c:out value="${obj.hora_entrada}"></c:out></td>
 											<td class="sorting_1"><span class="responsiveExpander"></span> <c:out value="${obj.hora_salida}"></c:out></td>
 											<td class="sorting_1"><span class="responsiveExpander"></span> <c:out value="${obj.tipo_permiso_id.descripcion}"></c:out></td>
@@ -789,7 +789,7 @@
 			
 			var x = document.getElementById('tipo_permiso_id.tipo_permiso_id').selectedIndex;
 			var tpid_sel = document.getElementsByTagName("option")[x].value
-			
+			var desc =document.getElementById("tipo_permiso_id.tipo_permiso_id").options[x].text;
 			var fe = document.getElementById('fecha').value;
 			var ct = document.getElementById('codigo_trabajador').value;
 			var he = document.getElementById('hora_entrada').value;
@@ -801,7 +801,7 @@
 				type : "POST",
 				url : "permiso/agregar",
 				data : {
-					
+					permiso_id :pid,
 					fecha: fe,
 					tipo_permiso_id: tpid_sel,
 					codigo_trabajador: ct,
@@ -809,13 +809,23 @@
 					hora_salida: hs,
 					recibido_por: rp,
 					novedad: n,
-					estado: e
+					estado: e,
+					tipo_permiso_des: desc
 				},
-				success : function(data) {		
-					 document.getElementById('codigo_trabajador').value = "";
+				success : function(data) {
+					//$("form#frm").bootstrapValidator("destroy");
+					document.getElementById("frm").reset();
+					document.getElementById('fecha').value = "";
+					//document.getElementById('tipo_permiso_id').value = "";
+					document.getElementById('codigo_trabajador').value = "";
+					document.getElementById('hora_entrada').value = "";
+					document.getElementById('hora_salida').value = "";
+					document.getElementById('recibido_por').value = "";
+					 document.getElementById('novedad').value = "";
 					 document.getElementById('permiso_id').value = "0";
+					 
 					 var res = data.split(":::");
-					 $('#datatable_fixed_column').dataTable().fnAddData( [res[0],res[1]] );
+					 $('#datatable_fixed_column').dataTable().fnAddData( [res[0],res[1],res[2],res[3],res[4],res[5],res[6], res[7]]);
 					 $.smallBox({
 							title : "La información se registró adecuadamente",
 							content : "Para ingresar un nuevo registro ingrese la información y presione el botón Actualizar",
@@ -823,6 +833,7 @@
 							timeout: 8000,
 							icon : "fa fa-bell swing animated"
 					 });
+					 document.getElementById('elboton').innerHTML='Nuevo';
 					 $('#cance').hide();
 				},
 				error : function(data) {					
@@ -894,7 +905,8 @@
 			
 			var x = document.getElementById('tipo_permiso_id.tipo_permiso_id').selectedIndex;
 			var tpid_sel = document.getElementsByTagName("option")[x].value
-			
+			var desc =document.getElementById("tipo_permiso_id.tipo_permiso_id").options[x].text;
+		
 			var fe = document.getElementById('fecha').value;
 			var ct = document.getElementById('codigo_trabajador').value;
 			var he = document.getElementById('hora_entrada').value;
@@ -907,22 +919,23 @@
 				type : "POST",
 				url : "permiso/cancelar",
 				data : {
-					permiso_id: permiso_id,
-					fecha : fecha,
+					permiso_id: pid,
+					fecha : fe,
 					tipo_permiso_id : tpid_sel,
-					codigo_trabajador : codigo_trabajador,
-					novedad : novedad,
-					hora_entrada : hora_entrada,
-					hora_salida : hora_salida,
-					recibido_por : recibido_por,
-					novedad : novedad,
-					estado : estado
+					codigo_trabajador : ct,
+					novedad : n,
+					hora_entrada : he,
+					hora_salida : hs,
+					recibido_por : rp,					
+					estado : e,
+					tipo_permiso_des: desc
 				},
-				success : function(data) {					
+				success : function(data) {		
+					document.getElementById("frm").reset();					
 					document.getElementById('codigo_trabajador').value = "";
 					 document.getElementById('permiso_id').value = "0";
 					 var res = data.split(":::");
-					 $('#datatable_fixed_column').dataTable().fnAddData( [res[0],res[1]] );
+					 $('#datatable_fixed_column').dataTable().fnAddData(  [res[0],res[1],res[2],res[3],res[4],res[5],res[6], res[7]]);
 					 $.smallBox({
 							title : "Operación Cancelada",
 							content : "<i class='fa fa-clock-o'></i> <i>Se regresó la información a la tabla sin modificaciones</i>",
@@ -933,16 +946,24 @@
 					 $('#cance').hide();
 				},
 				error : function(data) {
+					document.getElementById("frm").reset();
 					document.getElementById('codigo_trabajador').value = "";
 					document.getElementById('permiso_id').value = "0";					
 				}
 			});
 		}
 		
-		function con(permiso_id, codigo_trabajador, thi) {
+		function con(permiso_id, codigo_trabajador,fecha,hora_entrada,hora_salida,tipo_permiso_id ,recibido_por,novedad, thi) {
 			document.getElementById('permiso_id').value=permiso_id;
 			document.getElementById('codigo_trabajador').value=codigo_trabajador;
-			document.getElementById('estado').value=descripcion;
+			document.getElementById('fecha').value=fecha;
+			document.getElementById('hora_entrada').value=hora_entrada;
+			document.getElementById('hora_salida').value=hora_salida;
+			document.getElementById('recibido_por').value=recibido_por;
+			document.getElementById('novedad').value=novedad;
+			document.getElementById('estado').value="";
+			document.getElementById('tipo_permiso_id.tipo_permiso_id').selectedIndex=tipo_permiso_id;
+			
 			$('#cance').show();
 			document.getElementById('elboton').innerHTML='Actualizar';
 			nRow=$(thi).closest("tr").index();

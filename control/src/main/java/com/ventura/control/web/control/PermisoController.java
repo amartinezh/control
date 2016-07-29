@@ -36,51 +36,56 @@ public class PermisoController {
 	}
 
 	@RequestMapping(value = "agregar", method = RequestMethod.POST)
-	public @ResponseBody String agregar( @RequestParam int tipo_permiso_id,
+	public @ResponseBody String agregar(@RequestParam int permiso_id, @RequestParam int tipo_permiso_id,
 			@RequestParam String fecha, @RequestParam String codigo_trabajador,
 			@RequestParam String hora_entrada, @RequestParam String hora_salida, 
 			@RequestParam String recibido_por, @RequestParam String novedad, @RequestParam String estado,
-			Map<String, Object> model) {
+			@RequestParam String tipo_permiso_des, Map<String, Object> model) {
 		java.text.SimpleDateFormat formatter = new java.text.SimpleDateFormat("yyyy-MM-dd");
 		Permiso obj = null;
+		 
 		try {
-			obj = new Permiso(0, new TipoPermiso(tipo_permiso_id), formatter.parse(fecha), codigo_trabajador, hora_entrada, hora_salida, recibido_por, novedad, estado);
+			obj = new Permiso(permiso_id, new TipoPermiso(tipo_permiso_id), formatter.parse(fecha), codigo_trabajador, hora_entrada, hora_salida, recibido_por, novedad, estado);
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
 		obj.setEstado("1");
 		System.out.println("............................."+obj.toString());
 		permiso.agregarPermiso(obj);
+		
 		return "<span class='responsiveExpander'></span><a class='btn btn-success btn-circle btn-sx'"
 				+ " onclick=\"con('"
-				+ obj.getPermiso_id()
-				+ "', '"
-				+ obj.getCodigo_trabajador()
+				+ obj.getPermiso_id() + "', '" + obj.getCodigo_trabajador() + "', '" + fecha
+				+ "', '" + obj.getHora_entrada() +  "', '" + obj.getHora_salida() + "', '" + obj.getTipo_permiso_id().getTipo_permiso_id()
+				+ "', '" + obj.getRecibido_por() + "', '" + obj.getNovedad() 				
 				+ "', $(this)"
 				+ ")\"><i class='fa fa-edit'></i></a> <a class='btn btn-danger btn-circle' onclick='borrar("
 				+ obj.getPermiso_id()
-				+ ", $(this))'><i class='fa fa-trash-o'></i></a><span class='responsiveExpander'></span>:::"
-				+ codigo_trabajador;
+				+ ", $(this))'><i class='fa fa-trash-o'></i></a><span class='responsiveExpander'></span>:::"				
+				+ fecha + ":::" + hora_entrada+ ":::" + hora_salida + ":::" + tipo_permiso_des + ":::" 
+				+ codigo_trabajador + ":::" + recibido_por + ":::" + novedad;
 	}
 
 	@RequestMapping(value = "cancelar", method = RequestMethod.POST)
-	public @ResponseBody String cancelar(@RequestParam int permiso_id,
-			@RequestParam String descripcion, Map<String, Object> model) {
+	public @ResponseBody String cancelar(@RequestParam int permiso_id, @RequestParam int tipo_permiso_id,
+			@RequestParam String fecha, @RequestParam String codigo_trabajador,
+			@RequestParam String hora_entrada, @RequestParam String hora_salida, 
+			@RequestParam String recibido_por, @RequestParam String novedad, @RequestParam String estado,
+			@RequestParam String tipo_permiso_des,
+			Map<String, Object> model) {
 		if (permiso_id > 0) {
-			String cad = "";
-			System.out.print(cad);
+			
 			return "<span class='responsiveExpander'></span><a class='btn btn-success btn-circle btn-sx'"
 					+ " onclick=\"con('"
-					+ permiso_id
-					+ "', '"
-					+ descripcion
+					+ permiso_id + "', '" + codigo_trabajador + "', '" + fecha
+					+ "', '" + hora_entrada +  "', '" + hora_salida+ "', '" + tipo_permiso_id
+					+ "', '" + recibido_por + "', '" + novedad				
 					+ "', $(this)"
-					+ ")\"><i class='fa fa-edit'></i></a>"
-					+ " <a class='btn btn-danger btn-circle' onclick='borrar("
+					+ ")\"><i class='fa fa-edit'></i></a> <a class='btn btn-danger btn-circle' onclick='borrar("
 					+ permiso_id
-					+ ", $(this))'><i class='fa fa-trash-o'></i></a>"
-					+ "<span class='responsiveExpander'></span>:::"
-					+ descripcion + "";
+					+ ", $(this))'><i class='fa fa-trash-o'></i></a><span class='responsiveExpander'></span>:::"				
+					+ fecha + ":::" + hora_entrada+ ":::" + hora_salida + ":::" + tipo_permiso_des + ":::" 
+					+ codigo_trabajador + ":::" + recibido_por + ":::" + novedad;
 		} else {
 			try {
 				Integer.parseInt("a");

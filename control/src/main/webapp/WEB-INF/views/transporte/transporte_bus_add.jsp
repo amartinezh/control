@@ -171,6 +171,7 @@
 								<fieldset>
 									<div class="form-group">
 										<div class="row">
+											<form:input type="hidden" path="control_bus_id" value="0" />
 											<div class="col-md-3 selectContainer">
 												<form:input type="hidden" path="control_bus_id" value="0" />
 												<label class="control-label">Turnos</label>
@@ -239,134 +240,107 @@
 
 
 	<div
-		class="jarviswidget jarviswidget-color-blueDark jarviswidget-sortable"
-		id="wid-id-1" data-widget-editbutton="false"
-		data-widget-editbutton="true" role="widget">
-		<!-- widget options:
-								usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
-				
-								data-widget-colorbutton="false"
-								data-widget-editbutton="false"
-								data-widget-togglebutton="false"
-								data-widget-deletebutton="false"
-								data-widget-fullscreenbutton="false"
-								data-widget-custombutton="false"
-								data-widget-collapsed="true"
-								data-widget-sortable="false"
-				
-								-->
-		<header role="heading">
+				class="jarviswidget jarviswidget-color-blueDark jarviswidget-sortable"
+				id="wid-id-1" data-widget-editbutton="false"
+				data-widget-editbutton="true" role="widget">
 
-			<span class="widget-icon"> <i class="fa fa-table"></i>
-			</span>
-			<h2>Herramientas</h2>
+				<header role="heading">
 
-			<span class="jarviswidget-loader"><i
-				class="fa fa-refresh fa-spin"></i></span>
-		</header>
+					<span class="widget-icon"> <i class="fa fa-table"></i>
+					</span>
+					<h2>Control de Buses</h2>
 
-		<!-- widget div-->
-		<div role="content">
+					<span class="jarviswidget-loader"><i
+						class="fa fa-refresh fa-spin"></i></span>
+				</header>
 
-			<!-- widget edit box -->
-			<div class="jarviswidget-editbox">
-				<!-- This area used as dropdown edit box -->
+				<!-- widget div-->
+				<div role="content">
 
-			</div>
-			<!-- end widget edit box -->
+					<!-- widget edit box -->
+					<div class="jarviswidget-editbox">
+						<!-- This Permiso used as dropdown edit box -->
 
-			<!-- widget content -->
-			<div class="widget-body no-padding">
+					</div>
+					<!-- end widget edit box -->
 
-				<div id="datatable_fixed_column_wrapper"
-					class="dataTables_wrapper form-inline no-footer">
+					<!-- widget content -->
+					<div class="widget-body no-padding">
 
-					<table id="datatable_fixed_column"
-						class="table table-striped table-bordered dataTable no-footer"
-						width="100%" role="grid"
-						aria-describedby="datatable_fixed_column_info"
-						style="width: 100%;">
+						<div id="datatable_fixed_column_wrapper"
+							class="dataTables_wrapper form-inline no-footer">
 
-						<thead>
-							<!-- <tr role="row">
-										<th class="hasinput" style="width: 17%" rowspan="1"
-											colspan="1"><input type="text" class="form-control"
-											placeholder="Filtro DescripciÃ³n"></th>
+							<table id="datatable_fixed_column" name="datatable_fixed_column"
+								class="table table-striped table-bordered dataTable no-footer"
+								width="100%" role="grid"
+								aria-describedby="datatable_fixed_column_info"
+								style="width: 100%;">
+								<thead>
+									<tr role="row">
+										<th data-hide="cmd" class="sorting_asc" tabindex="0"
+											aria-controls="dt_basic" aria-sort="ascending"
+											aria-label="ID: activate to sort column ascending"
+											style="width: 15px;"></th>
+
+										<th data-class="expand" class="sorting_asc" tabindex="1"
+											aria-controls="dt_basic" colspan="1" aria-sort="ascending"
+											aria-label="Name: activate to sort column ascending"
+											style="width: 540px;">Turno</th>
+											
+										<th data-class="expand" class="sorting_asc" tabindex="1"
+											aria-controls="dt_basic" colspan="1" aria-sort="ascending"
+											aria-label="Name: activate to sort column ascending"
+											style="width: 540px;">Origen</th>
+											
+										<th data-class="expand" class="sorting_asc" tabindex="1"
+											aria-controls="dt_basic" colspan="1" aria-sort="ascending"
+											aria-label="Name: activate to sort column ascending"
+											style="width: 540px;">Hora</th>
+											
+										<th data-class="expand" class="sorting_asc" tabindex="1"
+											aria-controls="dt_basic" colspan="1" aria-sort="ascending"
+											aria-label="Name: activate to sort column ascending"
+											style="width: 540px;">Número de pasajeros</th>
+																					
+										<th data-class="expand" class="sorting_asc" tabindex="1"
+											aria-controls="dt_basic" colspan="1" aria-sort="ascending"
+											aria-label="Name: activate to sort column ascending"
+											style="width: 540px;">Observaciones</th>											
 										
-									</tr>   -->
-							<tr role="row">
+									</tr>
+								</thead>
+								<tbody>
+									<c:forEach items="${listControlBus}" var="obj"
+										varStatus="loopCounter">
+										<tr role="row" class="odd">
+											<td class="sorting_1"><span class="responsiveExpander"></span>
+												<a class="btn btn-success btn-circle btn-sx"
+												onclick="con('<c:out value="${obj.control_bus_id}"></c:out>','<c:out value="${obj.turnoId.turno_id}"></c:out>','<c:out value="${obj.origenId.origen_id}"></c:out>','<c:out value="${obj.nroPasajeros}"></c:out>','<c:out value="${obj.hora}"></c:out>','<c:out value="${obj.observaciones}"></c:out>',$(this))"><i
+													class="fa fa-edit"></i></a> <a
+												class="btn btn-danger btn-circle"
+												onclick="borrar(<c:out value="${obj.control_bus_id}"></c:out>, $(this))">
+												<i class="fa fa-trash-o"></i></a></td>
+											
+											<td class="sorting_1"><span class="responsiveExpander"></span> <c:out value="${obj.turnoId.descripcion}"></c:out></td>
+											<td class="sorting_1"><span class="responsiveExpander"></span> <c:out value="${obj.origenId.descripcion}"></c:out></td>											
+											<td class="sorting_1"><span class="responsiveExpander"></span> <c:out value="${obj.hora}"></c:out></td>
+											<td class="sorting_1"><span class="responsiveExpander"></span> <c:out value="${obj.nroPasajeros}"></c:out></td>											
+											<td class="sorting_1"><span class="responsiveExpander"></span> <c:out value="${obj.observaciones}"></c:out></td>
+										</tr>
+									</c:forEach>
+								</tbody>
 
-								<th data-hide="cmd" class="sorting_asc" tabindex="0"
-									aria-controls="dt_basic" aria-sort="ascending"
-									aria-label="ID: activate to sort column ascending"
-									style="width: 15px;"></th>
+							</table>
 
-								<th data-class="expand" class="sorting_asc" tabindex="1"
-									aria-controls="dt_basic" colspan="1" aria-sort="ascending"
-									aria-label="Name: activate to sort column ascending"
-									style="width: 540px;">Descripción</th>
-							</tr>
-						</thead>
+						</div>
 
-						<tbody>
-
-							<tr role="row" class="odd">
-								<td class="sorting_1"><span class="responsiveExpander"></span>
-									<a class="btn btn-success btn-circle btn-sx"
-									href="javascript:void(0);"><i class="fa fa-edit"></i></a> <a
-									class="btn btn-danger btn-circle" href="javascript:void(0);"><i
-										class="fa fa-trash-o"></i></a></td>
-								<td class="sorting_1"><span class="responsiveExpander"></span>A</td>
-
-							</tr>
-							<tr role="row" class="even">
-								<td class="sorting_1"><span class="responsiveExpander"></span>
-									<a class="btn btn-success btn-circle btn-sx"
-									href="javascript:void(0);"><i class="fa fa-edit"></i></a> <a
-									class="btn btn-danger btn-circle" href="javascript:void(0);"><i
-										class="fa fa-trash-o"></i></a></td>
-								<td class="sorting_1"><span class="responsiveExpander"></span>B</td>
-
-							</tr>
-							<tr role="row" class="odd">
-								<td class="sorting_1"><span class="responsiveExpander"></span>
-									<a class="btn btn-success btn-circle btn-sx"
-									href="javascript:void(0);"><i class="fa fa-edit"></i></a> <a
-									class="btn btn-danger btn-circle" href="javascript:void(0);"><i
-										class="fa fa-trash-o"></i></a></td>
-								<td class="sorting_1"><span class="responsiveExpander"></span>C</td>
-							</tr>
-
-							<tr role="row" class="even">
-								<td class="sorting_1"><span class="responsiveExpander"></span>
-									<a class="btn btn-success btn-circle btn-sx"
-									href="javascript:void(0);"><i class="fa fa-edit"></i></a> <a
-									class="btn btn-danger btn-circle" href="javascript:void(0);"><i
-										class="fa fa-trash-o"></i></a></td>
-								<td class="sorting_1"><span class="responsiveExpander"></span>D</td>
-							</tr>
-							<tr role="row" class="odd">
-								<td class="sorting_1"><span class="responsiveExpander"></span>
-									<a class="btn btn-success btn-circle btn-sx"
-									href="javascript:void(0);"><i class="fa fa-edit"></i></a> <a
-									class="btn btn-danger btn-circle" href="javascript:void(0);"><i
-										class="fa fa-trash-o"></i></a></td>
-								<td class="sorting_1"><span class="responsiveExpander"></span>E</td>
-							</tr>
-
-						</tbody>
-
-					</table>
+					</div>
+					<!-- end widget content -->
 
 				</div>
+				<!-- end widget div -->
 
 			</div>
-			<!-- end widget content -->
-
-		</div>
-		<!-- end widget div -->
-
-	</div>
 
 	<!-- END MAIN PANEL -->
 
@@ -383,8 +357,8 @@
 
 	<!-- Link to Google CDN's jQuery + jQueryUI; fall back to local -->
 	<script
-		src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js" />
-	">
+		src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js">
+		
 	</script>
 	<script>
 		if (!window.jQuery) {
@@ -516,1003 +490,10 @@
 		src="<c:url value="/resources/js/plugin/datatable-responsive/datatables.responsive.min.js" />"></script>
 
 
-	<script>
-		$(document)
-				.ready(
-						function() {
-
-							// DO NOT REMOVE : GLOBAL FUNCTIONS!
-							pageSetUp();
-							$('#cance').hide();
-
-							/*
-							 * PAGE RELATED SCRIPTS
-							 */
-
-							$(".js-status-update a")
-									.click(
-											function() {
-												var selText = $(this).text();
-												var $this = $(this);
-												$this
-														.parents('.btn-group')
-														.find(
-																'.dropdown-toggle')
-														.html(
-																selText
-																		+ ' <span class="caret"></span>');
-												$this.parents('.dropdown-menu')
-														.find('li')
-														.removeClass('active');
-												$this.parent().addClass(
-														'active');
-											});
-
-							/*
-							 * TODO: add a way to add more todo's to list
-							 */
-
-							// initialize sortable
-							$(function() {
-								$("#sortable1, #sortable2").sortable({
-									handle : '.handle',
-									connectWith : ".todo",
-									update : countTasks
-								}).disableSelection();
-							});
-
-							// check and uncheck
-							$('.todo .checkbox > input[type="checkbox"]')
-									.click(
-											function() {
-												var $this = $(this).parent()
-														.parent().parent();
-
-												if ($(this).prop('checked')) {
-													$this.addClass("complete");
-
-													// remove this if you want to undo a check list once checked
-													//$(this).attr("disabled", true);
-													$(this).parent().hide();
-
-													// once clicked - add class, copy to memory then remove and add to sortable3
-													$this
-															.slideUp(
-																	500,
-																	function() {
-																		$this
-																				.clone()
-																				.prependTo(
-																						"#sortable3")
-																				.effect(
-																						"highlight",
-																						{},
-																						800);
-																		$this
-																				.remove();
-																		countTasks();
-																	});
-												} else {
-													// insert undo code here...
-												}
-
-											})
-							// count tasks
-							function countTasks() {
-
-								$('.todo-group-title').each(
-										function() {
-											var $this = $(this);
-											$this.find(".num-of-tasks").text(
-													$this.next().find("li")
-															.size());
-										});
-
-							}
-
-							/*
-							 * RUN PAGE GRAPHS
-							 */
-
-							/* TAB 1: UPDATING CHART */
-							// For the demo we use generated data, but normally it would be coming from the server
-							var data = [], totalPoints = 200, $UpdatingChartColors = $(
-									"#updating-chart").css('color');
-
-							function getRandomData() {
-								if (data.length > 0)
-									data = data.slice(1);
-
-								// do a random walk
-								while (data.length < totalPoints) {
-									var prev = data.length > 0 ? data[data.length - 1]
-											: 50;
-									var y = prev + Math.random() * 10 - 5;
-									if (y < 0)
-										y = 0;
-									if (y > 100)
-										y = 100;
-									data.push(y);
-								}
-
-								// zip the generated y values with the x values
-								var res = [];
-								for (var i = 0; i < data.length; ++i)
-									res.push([ i, data[i] ])
-								return res;
-							}
-
-							// setup control widget
-							var updateInterval = 1500;
-							$("#updating-chart").val(updateInterval).change(
-									function() {
-
-										var v = $(this).val();
-										if (v && !isNaN(+v)) {
-											updateInterval = +v;
-											$(this).val("" + updateInterval);
-										}
-
-									});
-
-							// setup plot
-							var options = {
-								yaxis : {
-									min : 0,
-									max : 100
-								},
-								xaxis : {
-									min : 0,
-									max : 100
-								},
-								colors : [ $UpdatingChartColors ],
-								series : {
-									lines : {
-										lineWidth : 1,
-										fill : true,
-										fillColor : {
-											colors : [ {
-												opacity : 0.4
-											}, {
-												opacity : 0
-											} ]
-										},
-										steps : false
-
-									}
-								}
-							};
-
-							var plot = $.plot($("#updating-chart"),
-									[ getRandomData() ], options);
-
-							/* live switch */
-							$('input[type="checkbox"]#start_interval').click(
-									function() {
-										if ($(this).prop('checked')) {
-											$on = true;
-											updateInterval = 1500;
-											update();
-										} else {
-											clearInterval(updateInterval);
-											$on = false;
-										}
-									});
-
-							function update() {
-								if ($on == true) {
-									plot.setData([ getRandomData() ]);
-									plot.draw();
-									setTimeout(update, updateInterval);
-
-								} else {
-									clearInterval(updateInterval)
-								}
-
-							}
-
-							var $on = false;
-
-							/*end updating chart*/
-
-							/* TAB 2: Social Network  */
-
-							$(function() {
-								// jQuery Flot Chart
-								var twitter = [ [ 1, 27 ], [ 2, 34 ],
-										[ 3, 51 ], [ 4, 48 ], [ 5, 55 ],
-										[ 6, 65 ], [ 7, 61 ], [ 8, 70 ],
-										[ 9, 65 ], [ 10, 75 ], [ 11, 57 ],
-										[ 12, 59 ], [ 13, 62 ] ], facebook = [
-										[ 1, 25 ], [ 2, 31 ], [ 3, 45 ],
-										[ 4, 37 ], [ 5, 38 ], [ 6, 40 ],
-										[ 7, 47 ], [ 8, 55 ], [ 9, 43 ],
-										[ 10, 50 ], [ 11, 47 ], [ 12, 39 ],
-										[ 13, 47 ] ], data = [ {
-									label : "Twitter",
-									data : twitter,
-									lines : {
-										show : true,
-										lineWidth : 1,
-										fill : true,
-										fillColor : {
-											colors : [ {
-												opacity : 0.1
-											}, {
-												opacity : 0.13
-											} ]
-										}
-									},
-									points : {
-										show : true
-									}
-								}, {
-									label : "Facebook",
-									data : facebook,
-									lines : {
-										show : true,
-										lineWidth : 1,
-										fill : true,
-										fillColor : {
-											colors : [ {
-												opacity : 0.1
-											}, {
-												opacity : 0.13
-											} ]
-										}
-									},
-									points : {
-										show : true
-									}
-								} ];
-
-								var options = {
-									grid : {
-										hoverable : true
-									},
-									colors : [ "#568A89", "#3276B1" ],
-									tooltip : true,
-									tooltipOpts : {
-										//content : "Value <b>$x</b> Value <span>$y</span>",
-										defaultTheme : false
-									},
-									xaxis : {
-										ticks : [ [ 1, "JAN" ], [ 2, "FEB" ],
-												[ 3, "MAR" ], [ 4, "APR" ],
-												[ 5, "MAY" ], [ 6, "JUN" ],
-												[ 7, "JUL" ], [ 8, "AUG" ],
-												[ 9, "SEP" ], [ 10, "OCT" ],
-												[ 11, "NOV" ], [ 12, "DEC" ],
-												[ 13, "JAN+1" ] ]
-									},
-									yaxes : {
-
-									}
-								};
-
-								var plot3 = $.plot($("#statsChart"), data,
-										options);
-							});
-
-							// END TAB 2
-
-							// TAB THREE GRAPH //
-							/* TAB 3: Revenew  */
-
-							$(function() {
-
-								var trgt = [ [ 1354586000000, 153 ],
-										[ 1364587000000, 658 ],
-										[ 1374588000000, 198 ],
-										[ 1384589000000, 663 ],
-										[ 1394590000000, 801 ],
-										[ 1404591000000, 1080 ],
-										[ 1414592000000, 353 ],
-										[ 1424593000000, 749 ],
-										[ 1434594000000, 523 ],
-										[ 1444595000000, 258 ],
-										[ 1454596000000, 688 ],
-										[ 1464597000000, 364 ] ], prft = [
-										[ 1354586000000, 53 ],
-										[ 1364587000000, 65 ],
-										[ 1374588000000, 98 ],
-										[ 1384589000000, 83 ],
-										[ 1394590000000, 980 ],
-										[ 1404591000000, 808 ],
-										[ 1414592000000, 720 ],
-										[ 1424593000000, 674 ],
-										[ 1434594000000, 23 ],
-										[ 1444595000000, 79 ],
-										[ 1454596000000, 88 ],
-										[ 1464597000000, 36 ] ], sgnups = [
-										[ 1354586000000, 647 ],
-										[ 1364587000000, 435 ],
-										[ 1374588000000, 784 ],
-										[ 1384589000000, 346 ],
-										[ 1394590000000, 487 ],
-										[ 1404591000000, 463 ],
-										[ 1414592000000, 479 ],
-										[ 1424593000000, 236 ],
-										[ 1434594000000, 843 ],
-										[ 1444595000000, 657 ],
-										[ 1454596000000, 241 ],
-										[ 1464597000000, 341 ] ], toggles = $("#rev-toggles"), target = $("#flotcontainer");
-
-								var data = [ {
-									label : "Target Profit",
-									data : trgt,
-									bars : {
-										show : true,
-										align : "center",
-										barWidth : 30 * 30 * 60 * 1000 * 80
-									}
-								}, {
-									label : "Actual Profit",
-									data : prft,
-									color : '#3276B1',
-									lines : {
-										show : true,
-										lineWidth : 3
-									},
-									points : {
-										show : true
-									}
-								}, {
-									label : "Actual Signups",
-									data : sgnups,
-									color : '#71843F',
-									lines : {
-										show : true,
-										lineWidth : 1
-									},
-									points : {
-										show : true
-									}
-								} ]
-
-								var options = {
-									grid : {
-										hoverable : true
-									},
-									tooltip : true,
-									tooltipOpts : {
-										//content: '%x - %y',
-										//dateFormat: '%b %y',
-										defaultTheme : false
-									},
-									xaxis : {
-										mode : "time"
-									},
-									yaxes : {
-										tickFormatter : function(val, axis) {
-											return "$" + val;
-										},
-										max : 1200
-									}
-
-								};
-
-								plot2 = null;
-
-								function plotNow() {
-									var d = [];
-									toggles.find(':checkbox').each(
-											function() {
-												if ($(this).is(':checked')) {
-													d.push(data[$(this).attr(
-															"name")
-															.substr(4, 1)]);
-												}
-											});
-									if (d.length > 0) {
-										if (plot2) {
-											plot2.setData(d);
-											plot2.draw();
-										} else {
-											plot2 = $.plot(target, d, options);
-										}
-									}
-
-								}
-								;
-
-								toggles.find(':checkbox').on('change',
-										function() {
-											plotNow();
-										});
-								plotNow()
-
-							});
-
-							/*
-							 * VECTOR MAP
-							 */
-
-							data_array = {
-								"US" : 4977,
-								"AU" : 4873,
-								"IN" : 3671,
-								"BR" : 2476,
-								"TR" : 1476,
-								"CN" : 146,
-								"CA" : 134,
-								"BD" : 100
-							};
-
-							$('#vector-map')
-									.vectorMap(
-											{
-												map : 'world_mill_en',
-												backgroundColor : '#fff',
-												regionStyle : {
-													initial : {
-														fill : '#c4c4c4'
-													},
-													hover : {
-														"fill-opacity" : 1
-													}
-												},
-												series : {
-													regions : [ {
-														values : data_array,
-														scale : [ '#85a8b6',
-																'#4d7686' ],
-														normalizeFunction : 'polynomial'
-													} ]
-												},
-												onRegionLabelShow : function(e,
-														el, code) {
-													if (typeof data_array[code] == 'undefined') {
-														e.preventDefault();
-													} else {
-														var countrylbl = data_array[code];
-														el.html(el.html()
-																+ ': '
-																+ countrylbl
-																+ ' visits');
-													}
-												}
-											});
-
-							/*
-							 * FULL CALENDAR JS
-							 */
-
-							if ($("#calendar").length) {
-								var date = new Date();
-								var d = date.getDate();
-								var m = date.getMonth();
-								var y = date.getFullYear();
-
-								var calendar = $('#calendar')
-										.fullCalendar(
-												{
-
-													editable : true,
-													draggable : true,
-													selectable : false,
-													selectHelper : true,
-													unselectAuto : false,
-													disableResizing : false,
-
-													header : {
-														left : 'title', //,today
-														center : 'prev, next, today',
-														right : 'month, agendaWeek, agenDay' //month, agendaDay,
-													},
-
-													select : function(start,
-															end, allDay) {
-														var title = prompt('Event Title:');
-														if (title) {
-															calendar
-																	.fullCalendar(
-																			'renderEvent',
-																			{
-																				title : title,
-																				start : start,
-																				end : end,
-																				allDay : allDay
-																			},
-																			true // make the event "stick"
-																	);
-														}
-														calendar
-																.fullCalendar('unselect');
-													},
-
-													events : [
-															{
-																title : 'All Day Event',
-																start : new Date(
-																		y, m, 1),
-																description : 'long description',
-																className : [
-																		"event",
-																		"bg-color-greenLight" ],
-																icon : 'fa-check'
-															},
-															{
-																title : 'Long Event',
-																start : new Date(
-																		y, m,
-																		d - 5),
-																end : new Date(
-																		y, m,
-																		d - 2),
-																className : [
-																		"event",
-																		"bg-color-red" ],
-																icon : 'fa-lock'
-															},
-															{
-																id : 999,
-																title : 'Repeating Event',
-																start : new Date(
-																		y, m,
-																		d - 3,
-																		16, 0),
-																allDay : false,
-																className : [
-																		"event",
-																		"bg-color-blue" ],
-																icon : 'fa-clock-o'
-															},
-															{
-																id : 999,
-																title : 'Repeating Event',
-																start : new Date(
-																		y, m,
-																		d + 4,
-																		16, 0),
-																allDay : false,
-																className : [
-																		"event",
-																		"bg-color-blue" ],
-																icon : 'fa-clock-o'
-															},
-															{
-																title : 'Meeting',
-																start : new Date(
-																		y, m,
-																		d, 10,
-																		30),
-																allDay : false,
-																className : [
-																		"event",
-																		"bg-color-darken" ]
-															},
-															{
-																title : 'Lunch',
-																start : new Date(
-																		y, m,
-																		d, 12,
-																		0),
-																end : new Date(
-																		y, m,
-																		d, 14,
-																		0),
-																allDay : false,
-																className : [
-																		"event",
-																		"bg-color-darken" ]
-															},
-															{
-																title : 'Birthday Party',
-																start : new Date(
-																		y, m,
-																		d + 1,
-																		19, 0),
-																end : new Date(
-																		y, m,
-																		d + 1,
-																		22, 30),
-																allDay : false,
-																className : [
-																		"event",
-																		"bg-color-darken" ]
-															},
-															{
-																title : 'Smartadmin Open Day',
-																start : new Date(
-																		y, m,
-																		28),
-																end : new Date(
-																		y, m,
-																		29),
-																className : [
-																		"event",
-																		"bg-color-darken" ]
-															} ],
-
-													eventRender : function(
-															event, element,
-															icon) {
-														if (!event.description == "") {
-															element
-																	.find(
-																			'.fc-event-title')
-																	.append(
-																			"<br/><span class='ultra-light'>"
-																					+ event.description
-																					+ "</span>");
-														}
-														if (!event.icon == "") {
-															element
-																	.find(
-																			'.fc-event-title')
-																	.append(
-																			"<i class='air air-top-right fa " + event.icon + " '></i>");
-														}
-													}
-												});
-
-							}
-							;
-
-							/* hide default buttons */
-							$('.fc-header-right, .fc-header-center').hide();
-
-							// calendar prev
-							$('#calendar-buttons #btn-prev').click(function() {
-								$('.fc-button-prev').click();
-								return false;
-							});
-
-							// calendar next
-							$('#calendar-buttons #btn-next').click(function() {
-								$('.fc-button-next').click();
-								return false;
-							});
-
-							// calendar today
-							$('#calendar-buttons #btn-today').click(function() {
-								$('.fc-button-today').click();
-								return false;
-							});
-
-							// calendar month
-							$('#mt').click(
-									function() {
-										$('#calendar').fullCalendar(
-												'changeView', 'month');
-									});
-
-							// calendar agenda week
-							$('#ag').click(
-									function() {
-										$('#calendar').fullCalendar(
-												'changeView', 'agendaWeek');
-									});
-
-							// calendar agenda day
-							$('#td').click(
-									function() {
-										$('#calendar').fullCalendar(
-												'changeView', 'agendaDay');
-									});
-
-							/*
-							 * CHAT
-							 */
-
-							$.filter_input = $('#filter-chat-list');
-							$.chat_users_container = $('#chat-container > .chat-list-body')
-							$.chat_users = $('#chat-users')
-							$.chat_list_btn = $('#chat-container > .chat-list-open-close');
-							$.chat_body = $('#chat-body');
-
-							/*
-							 * LIST FILTER (CHAT)
-							 */
-
-							// custom css expression for a case-insensitive contains()
-							jQuery.expr[':'].Contains = function(a, i, m) {
-								return (a.textContent || a.innerText || "")
-										.toUpperCase().indexOf(
-												m[3].toUpperCase()) >= 0;
-							};
-
-							function listFilter(list) {// header is any element, list is an unordered list
-								// create and add the filter form to the header
-
-								$.filter_input
-										.change(
-												function() {
-													var filter = $(this).val();
-													if (filter) {
-														// this finds all links in a list that contain the input,
-														// and hide the ones not containing the input while showing the ones that do
-														$.chat_users
-																.find(
-																		"a:not(:Contains("
-																				+ filter
-																				+ "))")
-																.parent()
-																.slideUp();
-														$.chat_users
-																.find(
-																		"a:Contains("
-																				+ filter
-																				+ ")")
-																.parent()
-																.slideDown();
-													} else {
-														$.chat_users.find("li")
-																.slideDown();
-													}
-													return false;
-												}).keyup(function() {
-											// fire the above change event after every letter
-											$(this).change();
-
-										});
-
-							}
-
-							// on dom ready
-							listFilter($.chat_users);
-
-							// open chat list
-							$.chat_list_btn.click(function() {
-								$(this).parent('#chat-container').toggleClass(
-										'open');
-							})
-
-							$.chat_body.animate({
-								scrollTop : $.chat_body[0].scrollHeight
-							}, 500);
-
-						});
-
-		function actualizar() {
-			$("#frm").submit();
-			var cid = document.getElementById('control_bus_id').value;
-			var or = document.getElementById('origenId.origen_id').value;
-			var tu = document.getElementById('turnoId.turno_id').value;
-			var ho = document.getElementById('hora').value;
-			var nPa = document.getElementById('nroPasajeros').value;
-			var obs = document.getElementById('observaciones').value;
-			$
-					.ajax({
-						type : "POST",
-						url : "transporte_agregar_bus/agregar",
-						data : {
-							control_bus_id : cid,
-							hora : ho,
-							nroPasajeros : nPa,
-							observaciones : obs,
-							turnoId : tu,
-							origenId : or
-						},
-						success : function(data) {
-							//	document.getElementById('codigo_trabajador').value = "";
-							//document.getElementById('permiso_id').value = "0";
-							var res = data.split(":::");
-							$('#datatable_fixed_column').dataTable().fnAddData(
-									[ res[0], res[1] ]);
-							$
-									.smallBox({
-										title : "La información se registró adecuadamente",
-										content : "Para ingresar un nuevo registro ingrese la información y presione el botón Actualizar",
-										color : "#5384AF",
-										timeout : 8000,
-										icon : "fa fa-bell swing animated"
-									});
-							$('#cance').hide();
-						},
-						error : function(data) {
-							$
-									.smallBox({
-										title : "El registró no fue guardado!",
-										content : "Por favor verifique<p class='text-align-right'><a href='javascript:void(0);' class='btn btn-danger btn-sm'>Ok</a></p>",
-										color : "#296191",
-										//timeout: 8000,
-										icon : "fa fa-bell swing animated"
-									});
-						}
-					});
-		}
-
-		$('#frm').bootstrapValidator({
-			feedbackIcons : {
-				valid : 'glyphicon glyphicon-ok',
-				invalid : 'glyphicon glyphicon-remove',
-				validating : 'glyphicon glyphicon-refresh'
-			},
-			fields : {
-				id_persona : {
-					group : '.col-md-4',
-					validators : {
-						notEmpty : {
-							message : 'Campo requierido'
-						},
-						stringLength : {
-							max : 200,
-							message : 'De ser menor a 200 caracteres'
-						}
-					}
-				},
-				nombre_completo : {
-					group : '.col-md-4',
-					validators : {
-						notEmpty : {
-							message : 'Campo requierido'
-						}
-					}
-				},
-				apellido : {
-					group : '.col-md-4',
-					validators : {
-						notEmpty : {
-							message : 'Campo requierido'
-						}
-					}
-				},
-				id_tipo_persona : {
-					group : '.col-md-6',
-					validators : {
-						notEmpty : {
-							message : 'Campo requierido'
-						}
-					}
-				},
-				id_dependencia : {
-					group : '.col-md-6',
-					validators : {
-						notEmpty : {
-							message : 'Campo requierido'
-						}
-					}
-				},
-				correo_e : {
-					group : '.col-md-6',
-					validators : {
-						notEmpty : {
-							message : 'Campo requierido'
-						}
-					}
-				},
-				telefono : {
-					group : '.col-md-6',
-					validators : {
-						notEmpty : {
-							message : 'Campo requierido'
-						}
-					}
-				},
-				empresa : {
-					group : '.col-md-4',
-					validators : {
-						notEmpty : {
-							message : 'Campo requierido'
-						}
-					}
-				},
-				nit_empresa : {
-					group : '.col-md-4',
-					validators : {
-						notEmpty : {
-							message : 'Campo requierido'
-						}
-					}
-				},
-				vencimiento_ley : {
-					group : '.col-md-4',
-					validators : {
-						notEmpty : {
-							message : 'Campo requierido'
-						}
-					}
-				},
-				foto_scan : {
-					group : '.col-md-4',
-					validators : {
-						notEmpty : {
-							message : 'Campo requierido'
-						}
-					}
-				},
-				cedula_scan : {
-					group : '.col-md-4',
-					validators : {
-						notEmpty : {
-							message : 'Campo requierido'
-						}
-					}
-				},
-				huella_scan : {
-					group : '.col-md-4',
-					validators : {
-						notEmpty : {
-							message : 'Campo requierido'
-						}
-					}
-				},
-				id_persona_responsable : {
-					group : '.col-md-6',
-					validators : {
-						notEmpty : {
-							message : 'Campo requierido'
-						}
-					}
-				},
-				codigo_antecedente : {
-					group : '.col-md-3',
-					validators : {
-						notEmpty : {
-							message : 'Campo requierido'
-						}
-					}
-				},
-				placa_vehiculo : {
-					group : '.col-md-3',
-					validators : {
-						notEmpty : {
-							message : 'Campo requierido'
-						}
-					}
-				},
-				eps : {
-					group : '.col-md-3',
-					validators : {
-						notEmpty : {
-							message : 'Campo requierido'
-						}
-					}
-				},
-				eps_vence : {
-					group : '.col-md-3',
-					validators : {
-						notEmpty : {
-							message : 'Campo requierido'
-						}
-					}
-				},
-				arl : {
-					group : '.col-md-3',
-					validators : {
-						notEmpty : {
-							message : 'Campo requierido'
-						}
-					}
-				},
-				alr_vence : {
-					group : '.col-md-3',
-					validators : {
-						notEmpty : {
-							message : 'Campo requierido'
-						}
-					}
-				},
-				inventario : {
-					group : '.col-md-8',
-					validators : {
-						notEmpty : {
-							message : 'Campo requierido'
-						}
-					}
-				},
-				inventario_scan : {
-					group : '.col-md-4',
-					validators : {
-						notEmpty : {
-							message : 'Campo requierido'
-						}
-					}
-				},
-				observaciones : {
-					group : '.col-md-8',
-					validators : {
-						notEmpty : {
-							message : 'Campo requierido'
-						}
-					}
-				}
-			}
-		});
-	</script>
-
+	<script
+		src="<c:url value="/resources/js/plugin/moment/moment.min.js" />"></script>
+	<script
+		src="<c:url value="/resources/js/plugin/fullcalendar/jquery.fullcalendar.min.js" />"></script>
 
 	<script type="text/javascript">
 		// DO NOT REMOVE : GLOBAL FUNCTIONS!
@@ -1549,7 +530,46 @@
 								tablet : 1024,
 								phone : 480
 							};
-
+							$('#cance').hide();
+							
+							$('#frm').bootstrapValidator({
+								feedbackIcons : {
+									valid : 'glyphicon glyphicon-ok',
+									invalid : 'glyphicon glyphicon-remove',
+									validating : 'glyphicon glyphicon-refresh'
+								},
+								fields : {
+									hora : {
+										group : '.col-md-4',
+										validators : {
+											notEmpty : {
+												message : 'Campo requierido'
+											},
+											stringLength : {
+												max : 200,
+												message : 'De ser menor a 200 caracteres'
+											}
+										}
+									},
+									nroPasajeros : {
+										group : '.col-md-4',
+										validators : {
+											notEmpty : {
+												message : 'Campo requierido'
+											}
+										}
+									},
+									observaciones : {
+										group : '.col-md-4',
+										validators : {
+											notEmpty : {
+												message : 'Campo requierido'
+											}
+										}
+									}
+								}
+							});
+							
 							$('#dt_basic')
 									.dataTable(
 											{
@@ -1708,10 +728,196 @@
 															.respond();
 												}
 											});
+							
+											
 
 							/* END TABLETOOLS */
 
-						})
+						});
+
+		function validar(){
+			alert('validando');
+		}
+
+		function actualizar() {
+			$( "#frm" ).submit();
+			var cbid = document.getElementById('control_bus_id').value;
+			
+			var x = document.getElementById('turnoId.turno_id').selectedIndex;
+			var tid_sel = document.getElementsByTagName("option")[x].value
+			var tid_desc = document.getElementById("turnoId.turno_id").options[x].text;
+			
+			var y = document.getElementById('origenId.origen_id').selectedIndex;
+			var oid_sel = document.getElementsByTagName("option")[y].value
+			var oid_desc = document.getElementById("origenId.origen_id").options[y].text;
+			
+			var h = document.getElementById('hora').value;
+			var o = document.getElementById('observaciones').value;
+			var np = document.getElementById('nroPasajeros').value;
+			
+			$.ajax({
+				type : "POST",
+				url : "transporte_agregar_bus/agregar",
+				data : {
+					control_bus_id :cbid,
+					turnoId: tid_sel,
+					origenId: oid_sel,
+					hora: h,
+					observaciones: o,
+					nroPasajeros: np					
+				},
+				success : function(data) {
+					
+					 document.getElementById("frm").reset();					
+					 document.getElementById('control_bus_id').value = "0";
+					 
+					 var res = data.split(":::");
+					 $('#datatable_fixed_column').dataTable().fnAddData( [res[0],res[1],res[2],res[3],res[4],res[5]]);
+					 $.smallBox({
+							title : "La información se registró adecuadamente",
+							content : "Para ingresar un nuevo registro ingrese la información y presione el botón Actualizar",
+							color : "#5384AF",
+							timeout: 8000,
+							icon : "fa fa-bell swing animated"
+					 });
+					 document.getElementById('elboton').innerHTML='Nuevo';
+					 $('#cance').hide();
+				},
+				error : function(data) {					
+					$.smallBox({
+						title : "El registró no fue guardado!",
+						content : "Por favor verifique<p class='text-align-right'><a href='javascript:void(0);' class='btn btn-danger btn-sm'>Ok</a></p>",
+						color : "#296191",
+						//timeout: 8000,
+						icon : "fa fa-bell swing animated"
+					});
+				}
+			});
+		}
+		
+		function del(dato, thi) {
+			$.ajax({
+				type : "POST",
+				url : "transporte_agregar_bus/borrar",
+				data : {
+					control_bus_id : dato
+				},
+				success : function(data) {
+					nRow=$(thi).closest("tr").index();
+					$('#datatable_fixed_column').dataTable().fnDeleteRow(nRow);
+				 	$.smallBox({
+						title : "Eliminación de Información",
+						content : "La información se eliminó adecuadamente",
+						color : "#5384AF",
+						timeout: 8000,
+						icon : "fa fa-bell"
+				    });
+				},
+				error : function(data) {
+					$.smallBox({
+						title : "Eliminación de Información",
+						content : "No se eliminó correctamente, verifique por favor",
+						color : "#5384AF",//rgb(50, 118, 177), //"#5384AF",
+						timeout: 8000,
+						icon : "fa fa-bell"
+				    });
+				}
+			});
+		}
+		
+		function borrar(dato, thi){
+			$.SmartMessageBox({
+				title : "Retro del control de buses!",
+				content : "Está apunto de eliminar un registro, está de acuerdo?",
+				buttons : '[No][Si]'
+			}, function(ButtonPressed) {
+				if (ButtonPressed === "Si") {
+					del(dato,thi);
+				}
+				if (ButtonPressed === "No") {
+					$.smallBox({
+						title : "Operación Cancelada",
+						content : "<i class='fa fa-clock-o'></i> <i>No se afectó la información</i>",
+						color : "#C46A69",
+						iconSmall : "fa fa-times fa-2x fadeInRight animated",
+						timeout : 2000
+					});
+				}
+			});
+			//e.preventDefault();
+		}
+		
+		function cancelar() {
+			window.location="/control/transporte_agregar_bus";
+			
+		/*	var cbid = document.getElementById('control_bus_id').value;
+			
+			var x = document.getElementById('turnoId.turno_id').selectedIndex;
+			var tid_sel = document.getElementsByTagName("option")[x].value
+			var tid_desc = document.getElementById("turnoId.turno_id").options[x].text;
+			
+			var y = document.getElementById('origenId.origen_id').selectedIndex;
+			var oid_sel = document.getElementsByTagName("option")[y].value
+			var oid_desc = document.getElementById("origenId.origen_id").options[y].text;
+			
+			var h = document.getElementById('hora').value;
+			var o = document.getElementById('observaciones').value;
+			var np = document.getElementById('nroPasajeros').value;
+			
+			$('#elboton').text('Nuevo');
+			$.ajax({
+				type : "POST",
+				url : "transporte_agregar_bus/cancelar",
+				data : {
+					control_bus_id :cbid,
+					turno_id: tid_sel,
+					origen_id: oid_sel,
+					hora: h,
+					observaciones: o,
+					nroPasajeros: np		
+				},
+				success : function(data) {		
+					document.getElementById("frm").reset();					
+					
+					 document.getElementById('control_bus_id').value = "0";
+					 var res = data.split(":::");
+					 $('#datatable_fixed_column').dataTable().fnAddData(  [res[0],res[1],res[2],res[3],res[4],res[5]]);
+					 $.smallBox({
+							title : "Operación Cancelada",
+							content : "<i class='fa fa-clock-o'></i> <i>Se regresó la información a la tabla sin modificaciones</i>",
+							color : "#C46A69",
+							iconSmall : "fa fa-times fa-2x fadeInRight animated",
+							timeout : 4000
+					 });
+					 $('#cance').hide();
+				},
+				error : function(data) {
+					document.getElementById("frm").reset();					
+					document.getElementById('control_bus_id').value = "0";					
+				}
+			});*/
+		}
+		
+		function con(control_bus_id, turno_id, origen_id, nro_pasajeros, hora,observaciones ,thi) {
+			document.getElementById('control_bus_id').value=control_bus_id;
+			document.getElementById('hora').value=hora;
+			document.getElementById('nroPasajeros').value=nro_pasajeros;
+			document.getElementById('observaciones').value=observaciones;
+			document.getElementById('turnoId.turno_id').selectedIndex=turno_id;
+			document.getElementById('origenId.origen_id').selectedIndex=origen_id;
+			
+			$('#cance').show();
+			document.getElementById('elboton').innerHTML='Actualizar';
+			nRow=$(thi).closest("tr").index();
+			$('#datatable_fixed_column').dataTable().fnDeleteRow(nRow);
+			$.smallBox({
+				title : "Inició la modificación del registro",
+				content : "Ya no está en el listado, en caso de no querer precione el botón Cancelar",
+				color : "#5384AF",
+				timeout: 8000,
+				icon : "fa fa-bell"
+		    });
+		}
 	</script>
 
 	<!-- Your GOOGLE ANALYTICS CODE Below -->

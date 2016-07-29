@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import com.ventura.control.domain.control.ControlBus;
 import com.ventura.control.domain.control.ControlTaxi;
 import com.ventura.control.domain.control.Origen;
+import com.ventura.control.domain.control.Permiso;
 import com.ventura.control.domain.control.Turno;
 import com.ventura.control.domain.login.User;
 import com.ventura.control.service.control.ControlBusService;
@@ -36,6 +37,7 @@ public class ControlBusController {
 	@RequestMapping(method = RequestMethod.GET)
 	public String transporte_bus_add(Map<String, Object> model) {
 		model.put("controlBus", new ControlBus());
+		model.put("listControlBus", controlBusService.listarControlBus());
 		model.put("listTurnos", turnoService.cmbTurnos());
 		model.put("listOrigenes", origenService.cmbOrigenes());
 		return "transporte/transporte_bus_add";
@@ -46,19 +48,24 @@ public class ControlBusController {
 			@RequestParam String hora, @RequestParam int nroPasajeros,
 			@RequestParam String observaciones, @RequestParam int turnoId,
 			@RequestParam int origenId, Map<String, Object> model) {
-		controlBusService.agregarControlBus(new ControlBus(control_bus_id,
-				hora, nroPasajeros, observaciones, new Turno(turnoId),
-				new Origen(origenId)));
+		controlBusService.agregarControlBus(new ControlBus(control_bus_id, hora, 
+				nroPasajeros, observaciones, new Turno(turnoId), new Origen(origenId)));
 		return "<span class='responsiveExpander'></span><a class='btn btn-success btn-circle btn-sx'"
 				+ " onclick=\"con('"
-				+ control_bus_id
-				+ "', '"
-				+ control_bus_id
+				+ control_bus_id + "', '" + turnoId  + "', '" + origenId + "', '" 
+				+ nroPasajeros  + "', '" + hora  + "', '" + 	observaciones  
 				+ "', $(this)"
 				+ ")\"><i class='fa fa-edit'></i></a> <a class='btn btn-danger btn-circle' onclick='borrar("
 				+ control_bus_id
 				+ ", $(this))'><i class='fa fa-trash-o'></i></a><span class='responsiveExpander'></span>:::"
-				+ control_bus_id;
+				+ turnoId +":::"+ origenId +":::"+ hora +":::"+nroPasajeros+":::"+observaciones;
+	}
+	
+	@RequestMapping(value = "borrar", method = RequestMethod.POST)
+	public @ResponseBody String borrar(@RequestParam int control_bus_id,
+			Map<String, Object> model) {
+		controlBusService.borrarControlBus(new ControlBus(control_bus_id));
+		return "";
 	}
 
 }

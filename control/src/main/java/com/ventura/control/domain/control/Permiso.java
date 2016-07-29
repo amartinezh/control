@@ -17,6 +17,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
@@ -41,7 +43,9 @@ public class Permiso implements java.io.Serializable {
 	private TipoPermiso tipo_permiso_id;
 	
 	@Column(name = "fecha")
-	private java.util.Date fecha;
+	@Temporal(TemporalType.DATE)
+	private Date fecha;
+	
 	
 	@NotEmpty
 	@Column(name = "codigo_trabajador")

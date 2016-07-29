@@ -45,7 +45,15 @@ public class ControlBus implements Serializable {
 		// TODO Auto-generated constructor stub
 	}
     
-    public ControlBus(int control_bus_id, String hora, int nroPasajeros, String observaciones, Turno turnoId, Origen origenId) {
+    
+    
+    public ControlBus(int control_bus_id) {		
+		this.control_bus_id = control_bus_id;
+	}
+
+
+
+	public ControlBus(int control_bus_id, String hora, int nroPasajeros, String observaciones, Turno turnoId, Origen origenId) {
 		this.control_bus_id = control_bus_id;
 		this.hora = hora;
 		this.nroPasajeros = nroPasajeros;

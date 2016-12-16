@@ -52,8 +52,7 @@ public class MinutaController {
 			@RequestParam String placa,
 			@RequestParam int dependencia_id,
 			@RequestParam int area_id,
-			@RequestParam int actividad_id,
-			@RequestParam String hora_sistema,
+			@RequestParam int actividad_id,			
 			@RequestParam String hora_inicio,
 			@RequestParam String hora_terminacion,
 			@RequestParam String codigo_trabajador,
@@ -63,17 +62,15 @@ public class MinutaController {
 			Map<String, Object> model) {
 		//java.text.SimpleDateFormat formatter = new java.text.SimpleDateFormat("yyyy-MM-dd");
 		Minuta obj=null;
-		obj = new Minuta(0, placa, new Dependencia(dependencia_id), new Area(area_id), new Actividad(actividad_id), hora_sistema, hora_inicio, hora_terminacion, codigo_trabajador, observaciones,"1");
+		obj = new Minuta(0, placa, new Dependencia(dependencia_id), new Area(area_id), new Actividad(actividad_id), hora_inicio, hora_terminacion, codigo_trabajador, observaciones,"1");
 		
 		if (minuta_id == 0){
-			if (opcion.equals("Actualizar")){
-				System.out.println(opcion.toString());
-				System.out.println(minuta_id);
+			if (opcion.equals("Actualizar")){				
 				minuta.agregarMinuta(true, obj); // True: merge
-				return "semodifico";
+				return "se modifico";
 			}
 			else{
-				return "yaestaperonosemodifico";
+				return "ya esta pero no se modifico";
 			}
 		}
 		else{

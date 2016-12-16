@@ -294,7 +294,7 @@
 
 					<span class="widget-icon"> <i class="fa fa-table"></i>
 					</span>
-					<h2>Minutaes</h2>
+					<h2>Minuta </h2>
 
 					<span class="jarviswidget-loader"><i
 						class="fa fa-refresh fa-spin"></i></span>
@@ -368,11 +368,11 @@
 											<td class="sorting_1"><span class="responsiveExpander"></span>
 												<c:out value="${obj.placa}"></c:out></td>
 											<td class="sorting_1"><span class="responsiveExpander"></span>
-												<c:out value="${obj.dependencia_id.despcripcion}"></c:out></td>
+												<c:out value="${obj.dependencia_id.descripcion}"></c:out></td>
 											<td class="sorting_1"><span class="responsiveExpander"></span>
-												<c:out value="${obj.area_id.despcripcion}"></c:out></td>
+												<c:out value="${obj.area_id.descripcion}"></c:out></td>
 											<td class="sorting_1"><span class="responsiveExpander"></span>
-												<c:out value="${obj.actividad_id.despcripcion}"></c:out></td>
+												<c:out value="${obj.actividad_id.descripcion}"></c:out></td>
 											<td class="sorting_1"><span class="responsiveExpander"></span>
 												<c:out value="${obj.hora_sistema}"></c:out></td>
 											<td class="sorting_1"><span class="responsiveExpander"></span>

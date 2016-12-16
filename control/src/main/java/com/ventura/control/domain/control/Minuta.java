@@ -1,6 +1,7 @@
 package com.ventura.control.domain.control;
 
 import java.io.Serializable;
+import java.util.Calendar;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -49,10 +50,10 @@ public class Minuta implements Serializable{
     
     @Column(name = "hora_inicio")
     private String hora_inicio;
-    @Lob
+    
     @Column(name = "hora_terminacion")
     private String hora_terminacion;
-    @Lob
+    
     @Column(name = "codigo_trabajador")
     private String codigo_trabajador;
     
@@ -70,8 +71,7 @@ public class Minuta implements Serializable{
     }
 
 	public Minuta(int minuta_id, String placa, Dependencia dependencia_id,
-			Area area_id, Actividad actividad_id, String hora_sistema,
-			String hora_inicio, String hora_terminacion,
+			Area area_id, Actividad actividad_id, String hora_inicio, String hora_terminacion,
 			String codigo_trabajador, String observaciones, String estado) {
 		super();
 		this.minuta_id = minuta_id;
@@ -79,7 +79,7 @@ public class Minuta implements Serializable{
 		this.dependencia_id = dependencia_id;
 		this.area_id = area_id;
 		this.actividad_id = actividad_id;
-		this.hora_sistema = hora_sistema;
+		this.hora_sistema = getDate();
 		this.hora_inicio = hora_inicio;
 		this.hora_terminacion = hora_terminacion;
 		this.codigo_trabajador = codigo_trabajador;
@@ -174,19 +174,15 @@ public class Minuta implements Serializable{
 	public void setEstado(String estado) {
 		this.estado = estado;
 	}
-
-	@Override
-	public String toString() {
-		return "Minuta [minuta_id=" + minuta_id + ", placa=" + placa
-				+ ", dependencia_id=" + dependencia_id + ", area_id=" + area_id
-				+ ", actividad_id=" + actividad_id + ", hora_sistema="
-				+ hora_sistema + ", hora_inicio=" + hora_inicio
-				+ ", hora_terminacion=" + hora_terminacion
-				+ ", codigo_trabajador=" + codigo_trabajador
-				+ ", observaciones=" + observaciones + ", estado=" + estado
-				+ "]";
+	
+	private String getDate(){
+		Calendar fecha = Calendar.getInstance();
+        int anno = fecha.get(Calendar.YEAR);
+        int mes = fecha.get(Calendar.MONTH) + 1;
+        int dia = fecha.get(Calendar.DAY_OF_MONTH);
+        int hora = fecha.get(Calendar.HOUR_OF_DAY);
+        int minuto = fecha.get(Calendar.MINUTE);
+        int segundo = fecha.get(Calendar.SECOND);
+		return dia+"/"+mes+"/"+anno+" "+hora+":"+minuto +":"+segundo;
 	}
-    
-    
-
 }

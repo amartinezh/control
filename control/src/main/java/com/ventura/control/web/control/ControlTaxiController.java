@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
+import com.ventura.control.domain.control.ControlBus;
 import com.ventura.control.domain.control.ControlTaxi;
 import com.ventura.control.domain.control.Permiso;
 import com.ventura.control.domain.nomina.TipoPermiso;
@@ -27,6 +28,7 @@ public class ControlTaxiController {
 	@RequestMapping(method = RequestMethod.GET)
 	public String transporte_taxi_add(Map<String, Object> model) {
 		model.put("controlTaxi", new ControlTaxi());
+		model.put("listControlTaxi", controlTaxiService.listarControlTaxi());
 		return "transporte/transporte_taxi_add";
 	}
 
@@ -47,6 +49,13 @@ public class ControlTaxiController {
 				+ codigoTrabajador
 				+ ", $(this))'><i class='fa fa-trash-o'></i></a><span class='responsiveExpander'></span>:::"
 				+ codigoTrabajador;
+	}
+	
+	@RequestMapping(value = "borrar", method = RequestMethod.POST)
+	public @ResponseBody String borrar(@RequestParam int control_taxi_id,
+			Map<String, Object> model) {
+		controlTaxiService.borrarControlTaxi(new ControlTaxi(control_taxi_id));
+		return "";
 	}
 
 }

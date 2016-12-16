@@ -1,6 +1,8 @@
 package com.ventura.control.domain.control;
 
 import java.io.Serializable;
+import java.sql.Date;
+import java.util.Calendar;
 
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -43,12 +45,20 @@ public class ControlTaxi implements Serializable {
 		// TODO Auto-generated constructor stub
 	}
 
+	
+	
+	public ControlTaxi(int controlTaxiId) {		
+		this.controlTaxiId = controlTaxiId;
+	}
+
+
+
 	public ControlTaxi(int controlTaxiId, String codigoTrabajador, String horaSistema,
 			String horaEntrada, String horaSalida, String nombreConductor,
 			String observaciones) {
 		this.controlTaxiId = controlTaxiId;
 		this.codigoTrabajador = codigoTrabajador;
-		this.horaSistema = horaSistema;
+		this.horaSistema =  getDate();
 		this.horaEntrada = horaEntrada;
 		this.horaSalida = horaSalida;
 		this.nombreConductor = nombreConductor;
@@ -118,6 +128,17 @@ public class ControlTaxi implements Serializable {
 
 	public void setEstado(String estado) {
 		this.estado = estado;
+	}
+	
+	private String getDate(){
+		Calendar fecha = Calendar.getInstance();
+        int anno = fecha.get(Calendar.YEAR);
+        int mes = fecha.get(Calendar.MONTH) + 1;
+        int dia = fecha.get(Calendar.DAY_OF_MONTH);
+        int hora = fecha.get(Calendar.HOUR_OF_DAY);
+        int minuto = fecha.get(Calendar.MINUTE);
+        int segundo = fecha.get(Calendar.SECOND);
+		return dia+"/"+mes+"/"+anno+" "+hora+":"+minuto +":"+segundo;
 	}
 
 	@Override

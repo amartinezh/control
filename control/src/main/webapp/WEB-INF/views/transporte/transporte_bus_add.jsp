@@ -744,11 +744,11 @@
 			var cbid = document.getElementById('control_bus_id').value;
 			
 			var x = document.getElementById('turnoId.turno_id').selectedIndex;
-			var tid_sel = document.getElementsByTagName("option")[x].value
+			var tid_sel = document.getElementById("turnoId.turno_id").options[x].value
 			var tid_desc = document.getElementById("turnoId.turno_id").options[x].text;
 			
 			var y = document.getElementById('origenId.origen_id').selectedIndex;
-			var oid_sel = document.getElementsByTagName("option")[y].value
+			var oid_sel = document.getElementById("origenId.origen_id").options[y].value
 			var oid_desc = document.getElementById("origenId.origen_id").options[y].text;
 			
 			var h = document.getElementById('hora').value;
@@ -767,8 +767,8 @@
 					nroPasajeros: np					
 				},
 				success : function(data) {
-					
-					 document.getElementById("frm").reset();					
+					window.location="/control/transporte_agregar_bus";
+					/* document.getElementById("frm").reset();					
 					 document.getElementById('control_bus_id').value = "0";
 					 
 					 var res = data.split(":::");
@@ -781,7 +781,7 @@
 							icon : "fa fa-bell swing animated"
 					 });
 					 document.getElementById('elboton').innerHTML='Nuevo';
-					 $('#cance').hide();
+					 $('#cance').hide();*/
 				},
 				error : function(data) {					
 					$.smallBox({
